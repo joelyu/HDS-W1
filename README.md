@@ -34,7 +34,10 @@ Keywords: exome sequencing; genetic mutations; diffuse large B cell lymphoma; DL
 ```
 ├── data
 │   └── mmc1-clinicalInformation.csv
-└── README.md
+├── Module1-assignment.html
+├── Module1-assignment.Rmd
+├── README.md
+└── references.bib
 ```
 
 ### Data cleaning
