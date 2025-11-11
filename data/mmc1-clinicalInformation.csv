@@ -1,0 +1,1002 @@
+﻿Sample  ID,Gender,IPI,IPI groups,ECOG IPI,AnnArbor stage IPI,LDH IPI,multiple extranodal IPI,AGE IPI,B symptoms at diagnosis,Response to initial therapy,Testicular involvement,CNS Involvement,CNS Relapse,age at diagnosis,Overall Survival years,Censored,log2 MYC expr,log2 BCL2 expr,log2 BCL6 expr,MYC high expr,BCL2 high expr,BCL6 high expr,MYC IHC,BCL2 IHC,BCL6 IHC,BCL2 translocation (FISH),MYC translocation (FISH),BCL6 translocation (FISH),ABC GCB (RNAseq),ABC GCB ratio (RNAseq),Nanostring ABC GCB,Nanostring LPS,Hans GCB NonGCB,Genomic Risk Model
+648,F,3,Medium,0,1,1,1,0,yes,Complete response,Female,no,,31.1,0.59,1,5.297573438,5.768571534,4.978618889,0,0,0,,positive,positive,,,,Unclassified,-0.094909742,,,NON-GCB,Medium risk
+658,M,,,,,,,0,yes,,,,,50.4,,,5.656693754,6.223204243,7.566005566,0,1,1,,,,,,,GCB,-1.128594225,,,,
+683,M,3,Medium,1,1,1,0,0,no,Complete response,no,no,,55.3,2.62,1,5.538195662,6.473664882,5.292060777,0,1,0,,positive,positive,,,,ABC,1.167482127,,,,High risk
+684,F,1,Low,0,0,1,0,0,no,Complete response,Female,no,,53.5,1.87,1,4.780127788,4.812754813,5.464830953,0,0,0,,positive,positive,,,,GCB,-0.438562928,,,GCB,Low risk
+689,F,3,Medium,0,1,1,1,0,yes,Complete response,Female,,,15.3,2.29,1,4.971730816,6.656030208,5.777992088,0,1,0,,positive,positive,,,,ABC,0.301026991,,,NON-GCB,Low risk
+690,M,0,Low,0,0,0,0,0,no,Complete response,no,no,,51.5,2.83,1,6.316634365,6.088386678,5.611862606,1,1,0,,positive,positive,,,,Unclassified,0.2386311,,,NON-GCB,High risk
+695,F,2,Medium,1,0,1,0,0,yes,,Female,no,,54.1,,,5.485484932,5.488299079,6.197868642,0,0,1,,,,,,,GCB,-0.266331927,,,,
+702,M,3,Medium,0,1,1,1,0,yes,Complete response,no,no,,48.1,4.18,1,5.979715636,5.18857633,7.146591173,0,0,1,,,,,,,GCB,-0.997697533,,,,Medium risk
+704,F,1,Low,0,0,0,0,1,no,Complete response,Female,,,79,4.1,1,5.502755119,6.413830133,4.918512914,0,1,0,,,,,,,ABC,0.896191124,,,,Low risk
+705,M,4,High,1,1,1,0,1,no,,no,no,,89.3,,0,4.318472323,8.504570563,6.570924895,0,1,1,,,positive,,,,GCB,-1.284899851,,,,
+707,M,4,High,1,1,1,1,0,yes,Partial response,no,,,55.2,1.17,0,,,,,,,,positive,positive,,,,,,,,,
+759,M,2,Medium,0,1,1,0,0,yes,Complete response,no,no,,57.5,6.55,0,6.609834823,6.948403425,4.518412664,1,1,0,,,,,,,ABC,1.977035735,,,,High risk
+787,F,2,Medium,0,0,1,0,1,no,Complete response,Female,no,,62.3,5.29,1,5.837163096,6.003662937,6.878765526,0,1,1,,,,,,,ABC,0.475978728,,,,High risk
+790,M,1,Low,0,0,0,0,1,,Complete response,no,no,,65.7,4.42,0,,,,,,,,,,,,,,,,,,
+793,M,0,Low,0,0,0,0,0,no,Complete response,no,no,,57.3,4.77,1,4.807485128,4.463335412,4.684527027,0,0,0,,,,,,,ABC,0.505504825,,,,Medium risk
+799,M,2,Medium,0,0,1,0,1,no,Complete response,no,no,,72.3,0.55,0,6.211242988,4.763610869,7.930871471,1,0,1,,,,,,,Unclassified,-0.171620568,,,,High risk
+800,M,3,Medium,0,1,1,0,1,no,Complete response,no,no,,77.9,5.63,1,4.485916986,6.190236646,4.435311452,0,1,0,,,,,,,ABC,0.566636394,,,,Medium risk
+813,M,1,Low,0,1,0,0,0,yes,Complete response,no,no,,9.8,5.23,1,5.85960491,5.145322627,5.055676234,0,0,0,,,,,,,ABC,1.107173043,,,,High risk
+816,M,1,Low,0,1,0,0,0,yes,Complete response,no,no,,50.9,4.46,1,6.125433658,4.868816518,5.150458413,1,0,0,,,,,,,ABC,0.553434988,,,,High risk
+823,F,3,Medium,0,1,1,0,1,no,Complete response,Female,no,,61.3,2.02,1,5.4437328,7.501701647,4.657122058,0,1,0,,positive,positive,,,,ABC,1.148636771,,,GCB,High risk
+829,F,2,Medium,0,1,0,0,1,no,Partial response,Female,,,79.6,1.96,0,7.755529927,8.446835307,4.724616396,1,1,0,,positive,positive,,,,ABC,2.049503975,,,GCB,High risk
+830,M,1,Low,0,1,0,0,0,no,Complete response,no,,,53.6,1.92,1,6.087062695,5.278660965,4.96265917,1,0,0,,positive,positive,,,,ABC,0.855165613,,,NON-GCB,Medium risk
+831,M,1,Low,0,0,1,0,0,no,Complete response,no,no,,39,5.97,1,6.187879554,5.194104783,5.501238462,1,0,0,,,,,,,GCB,-0.465619536,,,,Medium risk
+832,F,1,Low,0,1,0,0,0,no,Complete response,Female,no,,57.9,3.92,0,6.70415264,7.387074345,4.190944082,1,1,0,,positive,positive,,,,ABC,1.43160179,,,NON-GCB,Low risk
+1008,M,3,Medium,0,1,1,0,1,yes,Complete response,no,no,no,74.7,0.44,1,5.790467403,5.761088783,6.209968603,0,0,1,negative,positive,positive,,,,GCB,-0.607111565,,,GCB,Low risk
+1016,F,3,Medium,1,0,1,0,1,no,Partial response,Female,no,no,87.8,4.7,0,5.145882815,6.80377394,6.510000416,0,1,1,negative,positive,negative,,,,GCB,-1.031158316,,,GCB,High risk
+2043,F,3,Medium,0,1,1,0,1,,Complete response,Female,no,,76.6,9.19,1,5.118314064,8.935588879,7.162140578,0,1,1,,,,,,,GCB,-1.161455583,GCB,717,,Low risk
+2044,F,2,Medium,0,0,1,0,1,,Partial response,Female,no,,70.9,5.96,0,5.642581544,7.100925506,5.133249404,0,1,0,,,,,,,ABC,0.26305685,,,,High risk
+2045,M,,,1,1,,,1,,No response,,,,71.5,0.8,0,5.801092875,4.454400481,7.208880772,0,0,1,,,,,,,GCB,-2.055496541,GCB,-318,,Low risk
+2046,F,2,Medium,0,0,1,0,1,,Complete response,Female,no,,84,0.33,0,5.655002536,5.612420071,5.991926434,0,0,0,,,,,,,Unclassified,-0.196147762,GCB,1866,,Medium risk
+2047,F,0,Low,0,0,0,0,0,,Complete response,Female,no,,59.3,8.87,1,4.60262203,8.636954141,6.511194648,0,1,1,,,,,,,GCB,-1.189247695,,,,High risk
+2048,M,0,Low,0,0,0,0,0,,Complete response,no,no,,32.9,8.24,1,5.42472845,4.740797496,5.952903485,0,0,0,,,,,,,GCB,-0.544951062,GCB,924,,Medium risk
+2057,M,2,Medium,0,1,0,1,0,no,Complete response,no,no,,51.9,10.12,1,5.357475433,4.027713114,6.309068592,0,0,1,,,,,,,GCB,-0.625211747,,,,Low risk
+2060,M,2,Medium,0,0,1,0,1,no,Partial response,no,no,,86.3,0.16,0,5.223011859,8.568883569,6.973077908,0,1,1,,,,,,,GCB,-0.717041054,GCB,1152,,High risk
+2072,M,2,Medium,1,0,0,0,1,yes,Complete response,no,no,,69.7,0.63,1,5.732148818,7.364418936,5.890602683,0,1,0,,,,,,,Unclassified,-0.182269808,,,,Medium risk
+2073,M,,,,1,,0,1,yes,Complete response,no,no,,66.5,3.67,1,,,,,,,,,,,,,,,,,,
+2074,M,4,High,1,1,1,0,1,no,Complete response,yes,no,,75.3,4.88,1,6.45727134,7.818040754,6.393434918,1,1,1,,,,,,,ABC,2.347019474,,,,Medium risk
+2075,M,1,Low,0,1,0,0,0,no,Complete response,no,no,,53.8,5.21,1,5.638910966,8.058444099,6.524500321,0,1,1,,,,,,,GCB,-1.39905041,,,,High risk
+2076,M,2,Medium,0,0,1,0,1,,Complete response,no,no,,73.7,4.27,1,5.700273348,6.690122163,6.536082721,0,1,1,,,,,,,GCB,-1.265605859,,,,High risk
+2077,M,4,High,1,1,1,0,1,yes,Complete response,yes,no,,67.1,4.35,0,,,,,,,,,,,,,,,,,,
+2078,F,4,High,0,1,1,1,1,,No response,Female,no,,71.3,2.48,0,6.807763585,4.80809232,6.040811665,1,0,1,,,,,,,Unclassified,-0.075265374,,,,Medium risk
+2079,F,5,High,1,1,1,1,1,no,No response,Female,no,,83.3,0.04,0,5.421928212,5.311764502,6.043258871,0,0,1,,,,,,,GCB,-0.413143951,,,,Medium risk
+2080,M,2,Medium,0,0,1,0,1,,No response,no,no,,74,1.08,0,7.009842495,3.662559625,5.578131735,1,0,0,,,,,,,GCB,-1.152498403,GCB,377,,High risk
+2081,M,2,Medium,0,0,1,0,1,no,,yes,no,,74.6,1.7,0,5.812576113,6.745592728,7.47813387,0,1,1,,,,,,,ABC,1.772931223,,,,High risk
+2083,F,2,Medium,0,0,1,0,1,no,Partial response,Female,no,,68.7,6.9,1,,,,,,,,,,,,,,,,,,
+2084,F,1,Low,0,0,0,0,1,,Complete response,Female,no,,73.1,2.4,1,6.13389027,4.309673537,7.127567968,1,0,1,,,,,,,GCB,-0.64228407,,,,Medium risk
+2085,M,1,Low,0,1,0,0,0,no,Partial response,no,no,,54.5,0.63,0,8.560953951,7.607004306,4.019559546,1,1,0,,,,,,,ABC,0.834810479,,,,High risk
+2087,F,4,High,1,1,1,0,1,no,No response,Female,yes,,60.9,1.16,0,6.170544294,7.745781713,6.887608848,1,1,1,,,,,,,ABC,1.094184451,ABC,3147,,High risk
+2088,M,4,High,1,1,1,0,1,no,Complete response,no,no,,86.8,1.73,0,4.743499276,6.651681293,6.554312083,0,1,1,,,,,,,ABC,0.480146106,ABC,2697,,High risk
+2089,M,2,Medium,0,0,1,0,1,no,Complete response,no,no,,68.4,2.48,1,5.935325133,5.208302559,6.607388005,0,0,1,,,,,,,Unclassified,-0.229049339,,,,Medium risk
+2091,F,1,Low,0,0,0,0,1,no,Complete response,Female,no,,76.9,1.83,1,5.519291997,5.647225959,7.327388853,0,0,1,,,,,,,GCB,-0.468614588,,,,Low risk
+2092,M,2,Medium,0,1,1,0,0,yes,Complete response,no,no,,53.1,1.91,,6.458284387,5.659337361,6.864121478,1,0,1,,,,,,,GCB,-0.595568699,,,,
+2093,M,1,Low,0,0,0,0,1,no,Complete response,no,no,,64.6,1.45,1,5.15479956,7.030804177,4.31963449,0,1,0,,,,,,,ABC,1.590490086,ABC,3163,,High risk
+2095,M,0,Low,0,0,0,0,0,no,Complete response,no,no,,28.6,1.35,1,5.428512304,4.331523358,5.064989256,0,0,0,,,,,,,Unclassified,0.073027382,,,,Low risk
+2097,F,2,Medium,0,1,1,0,0,no,Complete response,Female,no,,54.1,0.9,1,5.014999953,5.844525707,6.694680218,0,0,1,,,,,,,GCB,-0.752946681,GCB,856,,Low risk
+2100,M,,,,0,1,0,0,,Complete response,no,no,,39.2,10.51,1,,,,,,,,,,,,,,,,,,
+2101,F,1,Low,0,0,0,0,1,yes,Complete response,Female,no,,60.7,4.47,1,,,,,,,,,,,,,,,,,,
+2102,F,0,Low,0,0,0,0,0,no,Complete response,Female,no,,46.6,2.99,1,,,,,,,,,,,,,,,,,,
+2103,M,,,0,0,,0,1,,Complete response,yes,no,,77.4,5.03,0,,,,,,,,,,,,,,,,,,
+2106,F,1,Low,0,0,0,0,1,no,Complete response,Female,no,,86.6,1.5,1,,,,,,,,,,,,,,,,,,
+2107,F,2,Medium,0,1,0,0,1,,Complete response,Female,no,,63.6,1.32,1,,,,,,,,,,,,,,,,,,
+2109,F,1,Low,0,0,0,0,1,no,Partial response,Female,no,,88.6,1.12,0,,,,,,,,,,,,,,,,,,
+2110,M,2,Medium,0,1,0,1,0,no,Complete response,no,no,,26.3,0.77,1,5.297914162,5.100823959,6.329892835,0,0,1,,,,,,,GCB,-0.959865729,,,,Medium risk
+2111,M,3,Medium,1,0,1,0,1,no,No response,no,no,,62,0.31,0,,,,,,,,,,,,,,,,,,
+2112,F,2,Medium,0,0,1,0,1,no,Complete response,Female,no,,85.4,1.02,1,6.474581688,6.161425783,4.852994307,1,1,0,,,,,,,ABC,1.851338385,ABC,3390,,Low risk
+2113,F,3,Medium,1,1,0,0,1,,,Female,no,,79.2,0.07,0,,,,,,,,,,,,,,,,,,
+2114,F,4,High,1,1,1,0,1,no,Complete response,Female,no,,78.8,7.54,1,4.779743839,4.535980484,5.847490964,0,0,0,,,,,,,ABC,0.701169417,,,,Medium risk
+2115,M,3,Medium,0,1,1,0,1,no,Complete response,no,yes,,73.1,0.85,1,5.93651215,6.894877372,4.028294973,0,1,0,,,,,,,ABC,2.344759774,ABC,3795,,High risk
+2120,M,3,Medium,0,1,1,0,1,yes,No response,no,no,no,64.4,3.27,1,,,,,,,,,,,,,,,,,,
+2121,M,3,Medium,0,1,1,1,0,yes,Complete response,no,no,no,51.8,3.79,1,2.677518188,8.008179808,3.751448616,0,1,0,,,,,,,GCB,-2.159668192,ABC,2788,,Medium risk
+2122,M,,,0,0,1,,0,no,No response,,no,no,31.8,3.04,0,5.945870519,6.417636811,6.464827801,0,1,1,,,,,,,ABC,0.973036443,GCB,1561,GCB,Medium risk
+2123,M,,,0,1,,,0,no,Complete response,,no,,39.9,1.11,1,,,,,,,,,,,,,,,,,,
+2124,M,,,0,1,,,0,,Complete response,,,,51.2,10.09,1,,,,,,,,,,,,,,,,,,
+2125,F,2,Medium,0,1,1,0,0,no,Complete response,Female,no,,44.1,2.26,1,6.074823277,3.920622853,6.252933632,1,0,1,,,,,,,GCB,-1.213419084,,,NON-GCB,Low risk
+2126,F,1,Low,0,0,1,0,0,no,No response,Female,no,no,52.8,0.9,0,6.569989561,6.51857186,5.376737608,1,1,0,,,,,,,ABC,1.151215498,,,,Medium risk
+2127,F,,,0,1,,0,0,,Complete response,Female,no,,56.5,0.73,1,6.14930213,5.871054974,6.418317814,1,0,1,,,,,,,Unclassified,-0.166810943,,,,Medium risk
+2128,F,2,Medium,1,0,1,0,0,yes,Complete response,Female,no,,57.5,2.25,0,4.707633211,6.189472748,5.924227612,0,1,0,,,,,,,GCB,-0.377639818,GCB,1283,,High risk
+2130,F,3,Medium,0,1,1,0,1,,Complete response,Female,no,no,68.8,10.69,0,4.972853877,5.58587803,6.483452999,0,0,1,,,,,,,GCB,-1.25319525,,,,High risk
+2133,M,3,Medium,0,1,1,1,0,,Complete response,yes,no,,58.9,10.52,1,,,,,,,,,,,,,,,,,,
+2134,F,,,0,1,,1,1,,Complete response,Female,no,,64.1,5.44,1,,,,,,,,,,,,,,,,,,
+2135,M,,,1,1,1,,1,,Complete response,,no,,61.3,1.37,0,,,,,,,,,,,,,,,,,,
+2136,M,3,Medium,1,1,0,1,0,yes,No response,no,no,,23.1,6.13,0,,,,,,,,,,,,,,,,,,
+2137,M,,,0,,1,0,1,,Complete response,no,no,,62.6,,1,,,,,,,,,,,,,,,,,,
+2138,M,,,0,1,,,0,yes,Complete response,,no,,41.9,1.11,1,,,,,,,,,,,,,,,,,,
+2140,M,4,High,1,1,1,1,0,yes,No response,no,no,,22.2,5.42,1,6.480741576,3.598241808,4.617296638,1,0,0,,,,,,,ABC,0.575975367,GCB,1471,NON-GCB,Low risk
+2141,M,3,Medium,1,1,1,0,0,yes,Complete response,no,no,,53.9,4.23,0,5.110818153,4.804297663,5.453430814,0,0,0,,,,,,,Unclassified,0.139684261,,,NON-GCB,High risk
+2142,F,,,0,1,,0,0,yes,Complete response,Female,no,,24.4,0.14,0,5.240389541,4.61666236,6.153620459,0,0,1,,,,,,,GCB,-0.682695353,,,,Medium risk
+2143,F,,,1,1,,,1,,,Female,no,,66.2,0.08,0,,,,,,,,,,,,,,,,,,
+2144,F,,,0,0,,,0,yes,No response,Female,no,,51.1,0.62,0,5.099617764,4.77318388,4.825950291,0,0,0,,,,,,,GCB,-2.547666553,,,NON-GCB,Medium risk
+2145,M,,,0,1,1,,0,,Complete response,,no,,45.1,2.15,1,7.47132467,6.417866656,6.226204276,1,1,1,,,,,,,Unclassified,-0.084819094,,,NON-GCB,High risk
+2146,M,,,0,0,1,,0,no,Complete response,,no,,30.5,3.33,1,6.647889477,8.38687951,6.057090666,1,1,1,,,,,,,ABC,1.808702543,,,NON-GCB,Low risk
+2147,F,,,0,1,,1,1,,No response,Female,no,no,81.7,0.46,1,5.054915027,7.453201133,6.424986857,0,1,1,,,,,,,GCB,-0.832823668,,,NON-GCB,Medium risk
+2148,M,,,0,,,,1,,Complete response,,no,,81,3.41,1,4.967007535,6.142852758,5.025484526,0,1,0,,,,,,,ABC,1.130435749,ABC,3120,NON-GCB,High risk
+2149,F,,,0,0,0,,1,no,No response,Female,no,,62.2,0.97,0,6.898561836,6.788730408,5.202271604,1,1,0,,,,,,,ABC,1.689276213,,,,High risk
+2150,M,5,High,1,1,1,1,1,no,Complete response,no,no,,62.5,1.9,1,5.845334391,9.339565459,4.397138234,0,1,0,,,,,,,ABC,1.893103794,,,,Low risk
+2151,F,3,Medium,1,1,1,0,0,yes,Complete response,Female,no,,44,0.84,0,,,,,,,,,,,,,,,,,,
+2152,F,,,0,0,0,,1,,Complete response,Female,no,,61.8,1.11,1,,,,,,,,,,,,,,,,,,
+2153,F,,,0,1,,,1,yes,Complete response,Female,no,,72.1,8.79,1,6.208465481,5.676119656,6.145255392,1,0,1,,,,,,,ABC,0.271335591,,,,Low risk
+2154,M,2,Medium,0,1,0,1,0,,Complete response,no,no,,52.9,2.34,0,6.379714804,6.185875688,6.391765205,1,1,1,,,,,,,GCB,-1.582836058,,,,High risk
+2155,M,3,Medium,0,1,1,1,0,yes,Complete response,no,no,,25.6,3.45,1,6.832196371,5.267404113,6.228705179,1,0,1,,,,,,,ABC,1.976098355,,,,Medium risk
+2156,M,,,0,0,0,,0,,No response,,no,,47,1.93,1,4.47991152,8.560910079,6.034891772,0,1,1,,,,,,,ABC,0.811102516,,,NON-GCB,High risk
+2157,M,3,Medium,0,1,1,1,0,yes,Complete response,no,no,,57.7,2.61,0,,,,,,,,,,,,,,,,,,
+2158,M,2,Medium,0,1,1,0,0,yes,Complete response,no,no,,55.5,11.1,1,,,,,,,,,,,,,,,,,,
+2159,M,3,Medium,1,1,1,0,0,no,Complete response,no,no,,50,1.21,1,5.095456436,5.335329398,6.423978861,0,0,1,,,,,,,GCB,-1.746153054,ABC,3459,,Medium risk
+2160,F,2,Medium,0,1,1,0,0,no,Complete response,Female,no,,38.5,1.98,1,7.10869084,8.314640994,6.157407509,1,1,1,,,,,,,ABC,1.837708208,ABC,2682,NON-GCB,High risk
+2161,M,2,Medium,0,1,1,0,0,no,Complete response,no,no,,55.1,2.98,1,,,,,,,,,,,,,,,,,,
+2162,M,,,1,0,1,,0,yes,Complete response,,,,37.6,7.12,1,,,,,,,,,,,,,,,,,,
+2163,F,,,0,1,1,,0,yes,Complete response,Female,,,54.8,1.16,0,,,,,,,,,,,,,,,,,,
+2164,M,,,0,1,,,1,yes,Complete response,,,,64.9,1.25,1,,,,,,,,,,,,,,,,,,
+2165,F,3,Medium,0,1,1,1,0,,Complete response,Female,no,,44.1,2.25,1,,,,,,,,,,,,,,,,,,
+2166,M,4,High,1,1,1,1,0,no,,no,no,,51.2,,0,,,,,,,,,,,,,,,,,,
+2190,M,3,Medium,0,1,1,0,1,no,Complete response,no,no,yes,79.7,6.6,0,5.927929472,5.973418302,4.936535362,0,0,0,negative,positive,negative,,,,Unclassified,0.170159325,,,GCB,High risk
+2191,F,4,High,0,1,1,1,1,no,No response,Female,no,no,80.4,1.33,0,6.362027706,4.781254749,6.78218011,1,0,1,negative,negative,positive,,,,Unclassified,-0.042045071,,,NON-GCB,High risk
+2192,F,2,Medium,1,0,0,0,1,yes,Partial response,Female,no,no,68.9,1.7,0,5.724216563,5.936540604,5.017514606,0,0,0,negative,positive,negative,,,,ABC,1.32160292,ABC,2953,NON-GCB,Medium risk
+2193,M,,,,1,,1,0,no,Complete response,no,no,yes,41.9,1.07,0,4.201346179,5.17150825,6.402951794,0,0,1,negative,negative,positive,,,,GCB,-1.133658908,,,GCB,High risk
+2194,F,3,Medium,0,1,1,0,1,no,Complete response,Female,no,no,66.3,1.96,0,6.034486331,6.96168894,5.46196287,1,1,0,positive,positive,positive,,,,ABC,0.729461737,,,NON-GCB,High risk
+2195,F,1,Low,0,0,1,0,0,yes,Complete response,Female,no,no,42.3,6.93,1,6.246237229,6.878910392,5.800100848,1,1,0,negative,positive,negative,,,,Unclassified,-0.111408288,,,NON-GCB,Medium risk
+2196,F,0,Low,0,0,0,0,0,no,Complete response,Female,no,no,44.6,6.08,1,4.642611115,5.531256963,7.172836744,0,0,1,negative,positive,negative,,,,GCB,-1.24325813,GCB,350,GCB,Low risk
+2198,M,3,Medium,1,1,0,0,1,no,Complete response,no,no,no,88.6,2.13,0,,,,,,,negative,positive,positive,,,,,,,,,
+2199,M,2,Medium,0,1,1,0,0,no,Complete response,no,no,no,49.4,3.64,0,9.00422652,8.479808946,6.435595946,1,1,1,positive,positive,positive,,,,GCB,-1.28871399,,,GCB,High risk
+2200,M,,,0,,1,1,1,no,Complete response,no,no,,73.2,8.84,0,,,,,,,,negative,positive,,,,,,,,,
+2201,M,1,Low,0,0,0,0,1,no,Complete response,no,no,no,79,6.3,0,,,,,,,negative,negative,positive,,,,,,,,,
+2203,M,3,Medium,1,1,1,0,0,yes,Complete response,no,no,no,58,2,0,,,,,,,positive,positive,negative,,,,,,,,,
+2204,F,4,High,1,1,0,1,1,yes,Complete response,Female,no,no,80.8,3.3,1,5.996662994,7.795775449,5.588278106,0,1,0,negative,positive,positive,,,,ABC,1.778341592,ABC,3434,NON-GCB,High risk
+2205,F,0,Low,0,0,0,0,0,yes,Complete response,Female,no,no,56.7,5.42,1,5.996666052,4.081595276,6.641970761,0,0,1,positive,negative,positive,,,,GCB,-0.811023786,GCB,633,GCB,Medium risk
+2206,F,3,Medium,0,1,1,0,1,yes,Complete response,Female,no,no,73.6,2.85,1,5.465875359,6.765076302,4.534006599,0,1,0,negative,positive,positive,,,,ABC,1.154838269,ABC,2781,,High risk
+2207,F,1,Low,0,1,0,0,0,yes,Complete response,Female,no,no,42.1,11.35,1,,,,,,,negative,negative,negative,,,,,,,,,
+2208,F,2,Medium,1,0,0,0,1,no,Complete response,Female,no,no,72.5,9.43,1,,,,,,,,positive,positive,,,,,,,,,
+2209,F,1,Low,0,1,0,0,0,no,Complete response,Female,no,no,29.7,5.41,1,4.896645821,4.748494948,6.977038226,0,0,1,negative,positive,positive,,,,GCB,-1.499816029,GCB,-233,GCB,Medium risk
+2210,F,5,High,1,1,1,1,1,yes,Complete response,Female,no,,69,0.61,0,5.348560847,6.723629156,4.890532903,0,1,0,negative,positive,negative,,,,ABC,1.642974352,ABC,3106,NON-GCB,High risk
+2211,M,4,High,1,1,1,0,1,yes,Complete response,no,no,no,69.5,2.77,1,5.05788676,7.123781447,8.002973444,0,1,1,negative,positive,positive,,,,GCB,-1.379814742,GCB,645,GCB,Low risk
+2212,M,2,Medium,0,1,0,1,0,yes,No response,no,no,no,51.1,0.98,0,6.803141552,5.962916891,5.234904395,1,0,0,positive,negative,negative,,,,ABC,1.147905417,,,NON-GCB,Medium risk
+2213,F,1,Low,0,1,0,0,0,no,Complete response,Female,no,,56.7,12.61,1,4.66826492,4.562603514,6.219009386,0,0,1,negative,negative,negative,,,,GCB,-1.481896562,GCB,536,GCB,Low risk
+2214,F,1,Low,0,1,0,0,0,yes,No response,Female,no,no,48.9,0.75,0,6.556477307,6.468849474,6.335620693,1,1,1,negative,negative,positive,,,,ABC,0.404516453,,,NON-GCB,Medium risk
+2215,M,,,0,0,,0,1,yes,Partial response,no,no,no,73.2,0.14,0,6.25724978,7.224436878,7.062898932,1,1,1,negative,positive,positive,,,,ABC,1.102830057,ABC,3025,NON-GCB,High risk
+2216,M,2,Medium,0,1,0,0,1,no,Complete response,yes,no,yes,71.5,6.29,0,,,,,,,negative,positive,,,,,,,,,,
+2217,F,,,1,0,,0,1,yes,Partial response,Female,no,no,63.1,10.91,1,5.912625508,9.294248189,6.540948607,0,1,1,positive,negative,,,,,GCB,-0.511853372,GCB,1196,,Low risk
+2219,M,5,High,1,1,1,1,1,no,Partial response,no,no,no,78.8,0.23,0,6.580434997,6.511423399,5.766890123,1,1,0,positive,positive,positive,,,,Unclassified,-0.157409026,,,,High risk
+2220,M,,,0,1,,0,0,yes,Partial response,no,no,no,49.6,1.47,0,7.232928967,7.561605327,4.962893427,1,1,0,negative,positive,,,,,ABC,1.728449386,,,,High risk
+2221,F,3,Medium,0,1,1,0,1,no,Complete response,Female,no,no,79.2,4.25,0,6.339063514,8.230620758,5.537365166,1,1,0,negative,positive,negative,,,,ABC,1.819797001,,,NON-GCB,High risk
+2222,F,4,High,1,1,1,0,1,no,Complete response,Female,no,no,62.3,10.47,1,,,,,,,negative,positive,negative,,,,,,,,,
+2223,M,3,Medium,1,1,0,0,1,no,Complete response,no,no,no,65.8,7.16,1,7.130802901,7.583281836,4.187488545,1,1,0,negative,positive,positive,,,,ABC,1.619053002,,,GCB,Medium risk
+2224,F,3,Medium,0,1,1,1,0,yes,Complete response,Female,no,no,55,0.38,1,5.446777039,5.773842523,6.446936308,0,0,1,negative,positive,positive,,,,GCB,-1.394329173,GCB,307,GCB,Low risk
+2225,M,3,Medium,0,1,1,0,1,no,Complete response,yes,no,no,66.1,8.44,1,6.744289617,8.897882901,5.69139627,1,1,0,negative,positive,negative,,,,ABC,2.389449189,ABC,3918,NON-GCB,High risk
+2226,M,0,Low,0,0,0,0,0,no,Complete response,no,no,no,55.6,6.69,0,5.323060672,5.617994263,5.021767459,0,0,0,negative,positive,positive,,,,ABC,0.864121487,,,NON-GCB,High risk
+2227,F,3,Medium,0,1,0,1,1,no,Complete response,Female,no,no,73.3,7.38,1,5.298440553,5.616021974,5.279930361,0,0,0,negative,positive,positive,,,,ABC,0.273834733,Unclassified,1981,GCB,Medium risk
+2228,F,3,Medium,0,1,1,0,1,yes,Complete response,Female,no,no,62.7,5.54,1,6.614993883,4.875216744,6.036771481,1,0,1,negative,positive,positive,,,,Unclassified,0.230211914,,,NON-GCB,Low risk
+2229,F,3,Medium,0,1,1,0,1,no,No response,Female,no,no,63.4,1.36,0,5.79758761,6.759382087,7.714809257,0,1,1,negative,positive,positive,,,,GCB,-1.24858672,,,GCB,High risk
+2230,F,2,Medium,0,1,1,0,0,yes,Complete response,Female,no,yes,37.4,4.93,0,6.386036334,6.525094185,5.966832105,1,1,0,negative,positive,negative,,,,ABC,1.888568944,,,NON-GCB,High risk
+2231,F,,,,1,1,0,1,no,,Female,yes,no,70.1,0.14,0,5.86726958,5.0885401,6.004125371,0,0,1,negative,negative,negative,,,,GCB,-1.131926443,,,GCB,Medium risk
+2232,F,1,Low,0,0,0,0,1,no,Complete response,Female,no,no,71.7,6.31,1,6.432159512,7.238795921,5.734115962,1,1,0,negative,positive,positive,,,,ABC,1.76441022,,,,Low risk
+2233,F,1,Low,0,0,1,0,0,no,Complete response,Female,no,no,50.9,4.5,1,6.564466235,6.197772858,6.791690397,1,1,1,positive,negative,positive,,,,GCB,-0.617703233,,,NON-GCB,High risk
+2234,F,3,Medium,0,1,1,0,1,yes,No response,Female,no,no,82.7,0.29,0,5.76796614,6.857711536,6.277511412,0,1,1,positive,positive,positive,,,,ABC,1.507126773,,,NON-GCB,High risk
+2235,M,2,Medium,0,0,1,0,1,no,Complete response,no,no,no,80.6,5.36,1,5.727892293,6.404859239,6.262910694,0,1,1,negative,positive,positive,,,,GCB,-0.497757153,GCB,1161,GCB,High risk
+2236,F,3,Medium,0,1,0,1,1,no,Complete response,Female,no,no,70.8,2.18,1,5.834736437,8.171463303,6.96288504,0,1,1,negative,positive,positive,,,,GCB,-0.517538098,GCB,874,GCB,High risk
+2237,F,4,High,1,1,0,1,1,no,Complete response,Female,no,no,78.4,4.43,1,6.433479164,5.959790672,6.464004094,1,0,1,positive,negative,positive,,,,Unclassified,0.007805293,GCB,1758,,Medium risk
+2238,F,3,Medium,0,1,1,1,0,no,Complete response,Female,no,no,58.5,3.93,1,,,,,,,negative,negative,negative,,,,,,,,,
+2239,M,5,High,1,1,1,1,1,no,Complete response,yes,no,no,77.6,3.85,1,7.115775587,7.866903454,4.478081013,1,1,0,negative,positive,negative,,,,ABC,1.474033349,,,NON-GCB,Low risk
+2240,M,1,Low,0,0,1,0,0,yes,Complete response,no,no,no,45,0.57,1,4.901039,4.940237624,5.304365151,0,0,0,negative,negative,negative,,,,ABC,0.593543177,Unclassified,2266,NON-GCB,Medium risk
+2241,F,2,Medium,0,0,1,0,1,yes,Complete response,Female,no,no,60.6,3.79,1,7.637030896,7.157217972,5.339969099,1,1,0,negative,positive,negative,,,,ABC,0.700468457,,,GCB,High risk
+2242,F,0,Low,0,0,0,0,0,no,Complete response,Female,no,no,51,3.02,1,6.481640964,6.449237801,6.200923348,1,1,1,positive,positive,positive,,,,Unclassified,0.119352022,Unclassified,1976,NON-GCB,Medium risk
+2243,F,1,Low,0,0,0,0,1,no,Complete response,Female,no,no,82.9,3.11,1,5.229703249,7.681604415,5.287102254,0,1,0,negative,positive,positive,,,,ABC,1.655667084,ABC,3213,NON-GCB,High risk
+2244,M,4,High,0,1,1,1,1,no,Partial response,no,no,yes,60.7,1.25,0,4.496645013,8.514198582,7.613142636,0,1,1,,positive,positive,,,,GCB,-2.28029819,,,GCB,Low risk
+2246,M,0,Low,0,0,0,0,0,no,Complete response,no,no,no,54.6,2.46,1,7.582730959,7.998383443,5.201369836,1,1,0,positive,positive,positive,,,,ABC,1.594151888,ABC,2729,NON-GCB,Medium risk
+2247,M,1,Low,0,0,1,0,0,no,Complete response,no,no,no,55.2,11.69,1,6.476182759,7.72832134,5.837613766,1,1,0,negative,positive,positive,,,,ABC,1.530172166,,,NON-GCB,High risk
+2248,M,1,Low,0,0,1,0,0,no,Complete response,no,no,no,26.3,6.56,1,5.352188773,3.753591226,6.936003841,0,0,1,negative,negative,positive,,,,GCB,-0.906890973,,,GCB,Medium risk
+2249,F,,,0,,0,0,0,no,Complete response,Female,no,no,45.8,11.14,1,7.188148256,7.444448259,5.217125888,1,1,0,negative,negative,,,,,ABC,1.165812232,,,,Medium risk
+2250,F,3,Medium,1,1,1,0,0,yes,Complete response,Female,no,no,49.8,7.86,1,6.022970614,6.611552302,5.370387991,1,1,0,negative,negative,positive,,,,ABC,0.633925485,,,,High risk
+2251,M,2,Medium,0,1,0,0,1,no,Complete response,no,no,no,62.6,4.46,0,6.774445399,7.179738688,4.689360446,1,1,0,negative,negative,,,,,ABC,1.934122735,,,,High risk
+2252,M,1,Low,0,0,0,0,1,no,Complete response,no,no,no,69.6,7.95,1,6.241134289,7.905461212,6.868767183,1,1,1,negative,positive,positive,,,,ABC,0.355624019,,,GCB,High risk
+2253,M,,,0,1,0,0,,yes,Complete response,no,no,,,2.55,1,,,,,,,,,,,,,,,,,,
+2254,F,,,0,0,1,0,,no,No response,Female,no,,,5.8,1,7.236893215,7.6427728,5.186301466,1,1,0,,,,,,,ABC,1.131773312,,,NON-GCB,Low risk
+2255,F,,,1,1,,0,,no,,Female,no,,,5.14,1,7.136466835,7.417536359,5.162478112,1,1,0,,,,,,,ABC,1.323042528,,,GCB,High risk
+2256,F,,,0,0,0,0,,yes,,Female,no,,,3.38,1,6.300169161,5.967156744,5.457864549,1,0,0,,,,,,,ABC,0.839795498,GCB,1791,NON-GCB,High risk
+2257,F,,,0,1,0,0,,yes,,Female,no,,,3.24,0,4.849148831,6.901052965,5.979397367,0,1,0,,,positive,,,,GCB,-0.937109635,,,GCB,Medium risk
+2259,F,,,,1,0,0,,yes,,Female,no,,,0.79,1,6.930675869,7.099442302,5.093279773,1,1,0,,,,,,,ABC,1.167686917,,,,High risk
+2260,M,,,0,1,1,0,,no,Complete response,no,no,,,4.09,1,7.203341998,6.931776129,5.921797262,1,1,0,,,,,,,ABC,0.67833141,,,GCB,High risk
+2261,F,,,0,1,1,1,,yes,Complete response,Female,no,,,9.47,1,6.788724539,6.746949329,5.375930735,1,1,0,,,,,,,Unclassified,-0.235684308,,,GCB,High risk
+2262,M,,,1,1,1,0,,no,,no,no,,,2,0,6.7501797,7.758155759,6.069158316,1,1,1,,,,,,,Unclassified,0.134345798,,,GCB,High risk
+2263,M,,,,,0,1,,no,Complete response,no,no,,,0.3,1,6.64563053,4.185241078,7.446630224,1,0,1,,,,,,,GCB,-1.60356176,,,GCB,High risk
+2269,F,,,,0,0,1,,no,,Female,no,,,0.56,1,5.319953836,7.874250272,6.990872774,0,1,1,,,positive,,,,Unclassified,0.075613449,,,GCB,Medium risk
+2270,M,,,0,0,1,0,,no,,no,no,,,2.47,0,5.79810154,4.709018892,6.441388375,0,0,1,,,,,,,GCB,-0.387089023,,,NON-GCB,Medium risk
+2271,F,,,1,0,1,0,,no,,Female,no,,,2.23,1,,,,,,,,,,,,,,,,,,
+2272,M,,,0,0,1,0,,no,Complete response,no,no,,,8.33,1,,,,,,,,,,,,,,,,,,
+2273,M,,,1,1,1,0,,no,,no,no,,,0.43,0,7.260521648,6.724715775,0,1,1,0,,,,,,,ABC,1.717029498,Unclassified,2202,NON-GCB,High risk
+2274,M,,,0,1,1,0,,no,,no,no,,,9.11,1,,,,,,,,,,,,,,,,,,
+2278,M,,,1,1,1,1,,no,,no,no,,,5.62,1,,,,,,,,,,,,,,,,,,
+2279,F,,,1,1,1,1,,no,Complete response,Female,no,,,1.51,0,7.764963197,5.55112031,4.33023995,1,0,0,,,,,,,Unclassified,0.249015734,,,GCB,Medium risk
+2281,F,,,0,0,1,1,,no,Complete response,Female,no,,,0.74,0,,,,,,,,,,,,,,,,,,
+2286,F,,,0,1,1,1,,no,,Female,no,,,1.27,1,,,,,,,,,,,,,,,,,,
+2290,F,,,1,1,1,,,,,Female,no,,,2.07,0,8.454732806,7.245973529,4.063654927,1,1,0,,,,,,,ABC,1.389333049,GCB,732,GCB,High risk
+2291,M,,,0,0,,0,,,No response,no,no,,,5.06,1,5.432243389,4.573792161,5.441643147,0,0,0,,,,,,,GCB,-0.816381104,,,GCB,High risk
+2293,F,,,0,,0,0,,yes,,Female,no,,,7.56,1,,,,,,,,,,,,,,,,,,
+2297,M,,,1,1,0,0,,no,,no,yes,,,1.67,0,,,,,,,,,,,,,,,,,,
+2298,F,,,0,1,1,0,,no,,Female,no,no,,3.62,1,,,,,,,,,,,,,,,,,,
+2300,F,,,,,1,0,,yes,Complete response,Female,yes,no,,0.28,1,5.870134515,6.793683264,3.095764141,0,1,0,,,,,,,ABC,0.931593086,,,NON-GCB,Low risk
+2302,M,,,0,,0,0,,no,,no,yes,no,,0.87,1,,,,,,,,,,,,,,,,,,
+2303,F,,,0,1,1,0,,yes,Complete response,Female,no,,,2.2,1,,,,,,,,,,,,,,,,,,
+2306,F,,,1,1,1,1,,,,Female,no,,,0.78,0,8.50405053,7.366525612,3.264654998,1,1,0,,,,,,,ABC,1.139464159,Unclassified,2218,NON-GCB,High risk
+2307,M,,,1,1,1,1,,yes,,no,no,,,1.6,1,6.292162794,2.706893184,4.32889462,1,0,0,negative,,,,,,ABC,0.549306231,,,NON-GCB,High risk
+2448,M,2,Medium,0,1,1,0,0,yes,Complete response,no,no,no,51.1,0.51,,,,,,,,,,,,,,,,,,,
+2449,M,0,Low,0,0,0,0,0,no,Complete response,no,no,no,31.3,2.99,1,,,,,,,,,,,,,,,,,,
+2450,F,2,Medium,0,1,1,0,0,yes,Complete response,Female,no,no,47,3.41,1,5.621166308,7.336228764,6.258389211,0,1,1,,,,,,,Unclassified,-0.242920825,,,,Low risk
+2451,M,3,Medium,1,1,1,0,0,yes,Complete response,yes,no,no,52,3.33,1,5.651024423,7.836112247,5.654728802,0,1,0,,,,,,,ABC,1.281708936,ABC,3176,,Low risk
+2453,F,3,Medium,0,1,1,0,1,no,Complete response,Female,no,no,62.4,1.89,1,5.646268136,8.252318683,6.40017661,0,1,1,,,,,,,ABC,1.573786293,,,,High risk
+2455,M,2,Medium,0,1,1,0,0,no,Complete response,no,no,no,57.2,3.18,1,4.887241827,6.578111433,5.339777708,0,1,0,,,,,,,GCB,-0.556780286,,,,High risk
+2459,M,3,Medium,0,1,1,0,1,yes,Complete response,no,no,no,65.9,2.6,1,6.283647552,3.577116259,6.562880964,1,0,1,,,,,,,GCB,-1.868768488,,,,High risk
+2461,M,1,Low,0,0,1,0,0,no,Complete response,no,no,no,38.1,3.29,1,5.439584396,5.758431641,5.991218715,0,0,0,,positive,positive,,,,GCB,-0.464827106,,,GCB,Low risk
+2462,M,0,Low,0,0,0,0,0,yes,Complete response,no,no,no,55.4,3.74,0,4.709156182,7.542872943,6.3856583,0,1,1,,positive,positive,,,,GCB,-1.387981812,,,NON-GCB,Medium risk
+2463,F,5,High,1,1,1,1,1,no,Complete response,Female,no,no,65.1,6.01,1,,,,,,,,positive,positive,,,,,,,,,
+2464,M,4,High,1,1,1,1,0,yes,Complete response,no,no,no,30.3,3.58,1,,,,,,,,positive,positive,,,,,,,,,
+2466,M,1,Low,0,0,0,0,1,no,Complete response,no,no,,65,6.89,1,,,,,,,,positive,positive,,,,,,,,,
+2467,F,2,Medium,0,1,0,0,1,yes,Complete response,Female,no,no,76.4,2.45,0,,,,,,,,positive,positive,,,,,,,,,
+2468,M,1,Low,0,0,1,0,0,no,Complete response,no,no,,46.9,4.96,0,8.577305052,8.666670692,6.13993377,1,1,1,,positive,positive,,,,GCB,-0.813699292,,,GCB,Medium risk
+2469,F,1,Low,0,1,0,0,0,no,Complete response,Female,no,no,58.6,3.02,0,5.381162631,8.051631106,5.368803241,0,1,0,,positive,positive,,,,Unclassified,0.243675239,,,GCB,High risk
+2470,F,5,High,1,1,1,1,1,no,Complete response,Female,no,yes,75.4,5.34,1,4.633813909,6.603904526,5.81178998,0,1,0,,positive,positive,,,,GCB,-1.025282473,GCB,648,NON-GCB,High risk
+2471,M,1,Low,0,0,1,0,0,no,Complete response,no,no,,55.5,1.05,1,,,,,,,,positive,positive,,,,,,,,,
+2472,M,3,Medium,1,0,1,0,1,no,Partial response,no,no,,77.6,0.66,0,,,,,,,,negative,positive,,,,,,,,,
+2473,M,4,High,1,1,1,1,0,yes,Partial response,no,no,yes,30.8,4.6,1,,,,,,,,,,,,,,,,,,
+2474,F,2,Medium,0,1,0,1,0,no,Complete response,Female,no,no,59.4,8.78,1,,,,,,,,,,,,,,,,,,
+2475,F,4,High,1,1,1,1,0,yes,Partial response,Female,no,yes,11.5,0.58,0,,,,,,,,negative,positive,,,,,,,,,
+2476,M,0,Low,0,0,0,0,0,no,Complete response,no,no,,52.8,2.12,1,,,,,,,,negative,positive,,,,,,,,,
+2477,F,1,Low,0,0,0,0,1,no,Complete response,Female,no,,64.7,3.85,1,,,,,,,,positive,positive,,,,,,,,,
+2478,M,2,Medium,1,0,0,0,1,no,Complete response,no,no,,66.1,3.84,1,,,,,,,,positive,positive,,,,,,,,,
+2479,M,3,Medium,1,1,0,1,0,no,Complete response,no,no,,58.7,2.49,1,,,,,,,,positive,positive,,,,,,,,,
+2480,M,5,High,1,1,1,1,1,yes,,no,no,,92.1,0.12,0,,,,,,,,positive,positive,,,,,,,,,
+2481,M,4,High,1,1,1,1,0,yes,Complete response,no,yes,yes,40.6,1.84,0,,,,,,,,positive,positive,,,,,,,,,
+2482,M,,,1,,1,0,1,no,,no,yes,,72.3,0.1,0,6.624343057,6.02963739,6.417636811,1,1,1,,positive,positive,,,,ABC,0.414663831,,,GCB,High risk
+2483,M,3,Medium,1,0,1,1,0,no,Partial response,no,no,no,55.7,0.5,0,5.057266175,4.991167157,6.759627462,0,0,1,,positive,positive,,,,GCB,-1.582495004,,,NON-GCB,High risk
+2485,M,3,Medium,1,0,1,0,1,yes,Partial response,no,no,no,64.6,1.36,0,,,,,,,,positive,positive,,,,,,,,,
+2487,F,1,Low,0,0,0,0,1,yes,Partial response,Female,no,,81.6,0.28,0,,,,,,,,negative,positive,,,,,,,,,
+2488,F,1,Low,0,0,0,0,1,no,Complete response,Female,no,,62,3.11,1,,,,,,,,positive,positive,,,,,,,,,
+2522,M,3,Medium,0,1,1,0,1,yes,Complete response,no,no,yes,66.4,0.69,0,5.626305243,4.597314259,5.492314092,0,0,0,positive,positive,positive,positive,positive,positive,ABC,0.643775429,,,GCB,High risk
+2523,F,1,Low,0,0,0,0,1,no,Complete response,Female,no,,77.1,5.75,1,7.073863162,7.710412511,5.19257845,1,1,0,negative,positive,positive,negative,negative,positive,GCB,-0.55670405,,,NON-GCB,Medium risk
+2524,F,,,0,0,0,0,,no,Complete response,Female,no,,,,0,5.398694851,5.344674993,6.302393972,0,0,1,positive,positive,positive,negative,negative,negative,ABC,0.304158819,,,NON-GCB,
+2525,M,2,Medium,0,1,1,0,0,no,Complete response,no,no,,53,5.67,1,6.866014047,6.425214686,5.452378734,1,1,0,negative,positive,negative,negative,negative,negative,ABC,0.978191198,,,NON-GCB,Low risk
+2527,M,5,High,1,1,1,1,1,yes,,no,no,,66.6,0.09,0,5.959581396,6.334057955,8.917440623,0,1,1,positive,positive,positive,negative,negative,positive,Unclassified,0.067098105,,,NON-GCB,Medium risk
+2528,M,3,Medium,1,1,0,0,1,yes,Complete response,yes,no,,78.8,0.32,0,,,,,,,negative,positive,negative,negative,negative,negative,,,,,,
+2529,M,1,Low,0,0,0,0,1,no,Complete response,no,no,,83.3,5.57,1,,,,,,,positive,positive,positive,negative,negative,negative,,,,,,
+2530,M,1,Low,0,1,0,0,0,no,Complete response,no,no,no,41.5,10.29,1,6.139322654,8.204169765,5.637580504,1,1,0,negative,positive,positive,positive,positive,negative,ABC,1.564959684,,,GCB,Low risk
+2532,M,,,0,1,,0,0,yes,Complete response,no,no,,41.3,5.63,1,6.70494903,5.61140408,3.584833389,1,0,0,negative,positive,negative,positive,negative,negative,ABC,0.448982778,,,GCB,Low risk
+2533,M,3,Medium,0,1,1,0,1,no,Complete response,no,no,,65.4,5.53,1,5.08612231,4.839447928,4.25057547,0,0,0,positive,positive,negative,positive,negative,positive,GCB,-0.750032897,,,GCB,Low risk
+2534,F,1,Low,0,0,0,0,1,no,,Female,no,,70.6,0.11,0,5.58553978,7.314535206,5.752079296,0,1,0,positive,positive,positive,negative,negative,positive,GCB,-0.583365832,,,GCB,High risk
+2538,M,1,Low,0,0,0,0,1,no,Complete response,no,no,,72.5,5.24,0,,,,,,,,,,negative,negative,negative,,,,,,
+2539,F,1,Low,0,0,0,0,1,no,Complete response,Female,no,no,67.4,4.32,0,5.540543259,8.438883385,6.208889504,0,1,1,negative,positive,,negative,negative,positive,Unclassified,-0.042733047,,,NON-GCB,High risk
+2540,M,,,0,1,1,1,,yes,Complete response,no,no,no,,,0,,,,,,,negative,positive,positive,negative,negative,negative,,,,,,
+2541,F,0,Low,0,0,0,0,0,no,Complete response,Female,no,,39.6,5.43,1,,,,,,,negative,negative,positive,negative,negative,negative,,,,,,
+2542,F,3,Medium,0,1,1,0,1,no,Complete response,Female,no,,81.1,2.08,0,5.400589672,5.248490752,6.510294208,0,0,1,positive,positive,positive,negative,negative,positive,GCB,-0.746627947,,,NON-GCB,High risk
+2543,F,1,Low,0,1,0,0,0,no,Complete response,Female,no,,53,5.43,1,,,,,,,negative,positive,positive,negative,negative,negative,,,,,,
+2544,M,2,Medium,0,1,1,0,0,yes,Complete response,no,no,,58.5,5.38,1,,,,,,,,,,negative,negative,negative,,,,,,
+2545,M,2,Medium,0,1,1,0,0,yes,Complete response,yes,no,,58,5.34,1,,,,,,,positive,positive,negative,negative,negative,negative,,,,,,
+2547,M,1,Low,0,0,0,0,1,no,Complete response,no,no,,60.3,5.29,1,,,,,,,positive,positive,positive,negative,negative,positive,,,,,,
+2548,M,2,Medium,0,1,0,0,1,yes,Complete response,no,no,,64,5.24,1,5.958042958,8.171837458,6.724342321,0,1,1,negative,negative,positive,negative,negative,negative,ABC,1.251470393,,,,Low risk
+2549,M,3,Medium,0,1,1,0,1,yes,Complete response,no,no,,70.2,1.54,0,,,,,,,positive,positive,positive,negative,negative,negative,,,,,,
+2550,F,3,Medium,1,1,0,0,1,yes,,Female,no,,82.7,0.15,0,5.477335031,5.265398224,5.28017424,0,0,0,negative,positive,positive,negative,negative,positive,Unclassified,0.14517371,,,NON-GCB,Medium risk
+2551,NA,4,High,0,1,1,1,1,yes,Complete response,Female,no,,72.1,4.96,0,,,,,,,,positive,positive,positive,negative,negative,,,,,,
+2552,M,1,Low,0,1,0,0,0,no,Partial response,no,no,no,43.8,1.86,0,6.506843856,7.965939472,8.315262339,1,1,1,positive,positive,positive,positive,negative,negative,GCB,-1.570031947,,,GCB,Medium risk
+2553,F,,,0,1,0,0,,yes,Complete response,Female,no,,,,1,5.040199573,6.380818312,4.958848738,0,1,0,positive,positive,positive,positive,negative,negative,GCB,-0.592583721,,,GCB,
+2554,M,,,0,1,,0,0,no,Complete response,no,no,no,44.5,10.4,1,5.793958687,5.373628471,6.11702684,0,0,1,positive,positive,positive,positive,positive,negative,Unclassified,0.186666458,GCB,-167,GCB,Low risk
+2555,F,4,High,1,1,1,0,1,yes,Complete response,Female,no,yes,69.2,0.95,0,,,,,,,positive,positive,positive,positive,negative,negative,,,,,,
+2556,M,0,Low,0,0,0,0,0,no,Complete response,no,no,,59,5.07,1,,,,,,,negative,positive,positive,negative,negative,negative,,,,,,
+2559,M,2,Medium,0,0,1,0,1,no,Complete response,no,no,,65.3,1.31,0,5.157270774,6.476202331,4.842745773,0,1,0,negative,positive,positive,positive,negative,negative,GCB,-0.545027201,,,GCB,High risk
+2560,M,1,Low,0,0,0,0,1,no,Complete response,no,no,,76.2,5.05,1,,,,,,,negative,negative,positive,negative,negative,negative,,,,,,
+2561,F,,,0,1,0,0,,no,Complete response,Female,no,,,,0,4.729304036,8.617471784,6.830651205,0,1,1,,,,positive,negative,negative,GCB,-0.716093693,,,GCB,
+2562,F,2,Medium,0,1,0,0,1,no,Complete response,Female,no,yes,70.9,4.76,0,,,,,,,,,,negative,negative,negative,,,,,,
+2565,F,0,Low,0,0,0,0,0,no,Complete response,Female,no,,38.6,5,1,6.990243883,6.031718553,5.618731316,1,1,0,positive,positive,positive,negative,negative,negative,ABC,1.970798118,,,NON-GCB,High risk
+2566,F,2,Medium,0,0,1,0,1,no,Complete response,Female,no,no,75.5,0.49,0,5.694927492,6.342649115,6.78662624,0,1,1,positive,positive,positive,positive,negative,negative,GCB,-1.393791855,,,GCB,Medium risk
+2567,M,,,0,1,,0,1,no,Complete response,no,no,,63.3,5.03,1,,,,,,,negative,positive,positive,positive,negative,positive,,,,,,
+2570,F,2,Medium,0,1,0,0,1,no,Complete response,Female,no,,62.2,4.94,1,6.574191531,8.029760208,7.646215352,1,1,1,negative,positive,negative,positive,negative,negative,GCB,-2.692296049,GCB,1116,GCB,High risk
+2571,M,1,Low,0,0,1,0,0,no,Complete response,no,no,,47.7,4.92,1,5.680448276,7.868898475,6.235018488,0,1,1,positive,positive,positive,positive,negative,positive,GCB,-0.549490999,,,NON-GCB,Medium risk
+2573,F,1,Low,0,0,0,0,1,no,Complete response,Female,no,,65.5,4.88,1,5.60584879,6.996836908,5.94491579,0,1,0,negative,positive,positive,negative,negative,negative,GCB,-0.41088025,,,NON-GCB,Low risk
+2575,M,,,1,1,,1,0,yes,,no,no,,58.9,0.06,0,5.342315278,4.66319482,6.107387872,0,0,1,negative,positive,positive,negative,negative,positive,Unclassified,0.006930713,Unclassified,2067,NON-GCB,Medium risk
+2576,M,3,Medium,1,1,1,0,0,yes,No response,no,no,yes,55.5,2.11,0,4.59709866,7.557974645,5.572900504,0,1,0,positive,positive,negative,negative,negative,negative,GCB,-0.408177857,,,NON-GCB,Medium risk
+2577,M,,,0,1,,0,1,no,Complete response,no,no,,75.6,1.75,0,6.425878499,5.635815417,3.400614231,1,0,0,negative,positive,positive,positive,negative,negative,ABC,1.223868941,GCB,39,GCB,High risk
+2578,F,0,Low,0,0,0,0,0,no,Complete response,Female,no,no,46.1,4.84,1,4.504201879,7.733592878,6.249826069,0,1,1,positive,positive,positive,negative,negative,negative,GCB,-1.589294449,GCB,535,GCB,Medium risk
+2580,F,2,Medium,0,1,1,0,0,no,Complete response,Female,no,,58.8,4.75,1,,,,,,,positive,positive,positive,negative,negative,positive,,,,,,
+2581,F,3,Medium,1,1,1,0,0,yes,Complete response,Female,no,,53.4,4.73,1,,,,,,,negative,positive,positive,negative,negative,negative,,,,,,
+2582,F,2,Medium,0,1,0,0,1,no,Complete response,Female,no,,61.6,4.71,1,,,,,,,negative,positive,positive,positive,negative,negative,,,,,,
+2585,F,4,High,1,1,0,1,1,yes,,Female,no,,74.2,0.16,0,5.574644912,6.871239285,5.737020368,0,1,0,negative,positive,positive,positive,negative,positive,Unclassified,-0.07125881,,,GCB,High risk
+2588,F,4,High,1,1,1,0,1,yes,,Female,no,,79.5,0.09,0,5.387560662,5.363716793,5.251171769,0,0,0,positive,negative,positive,positive,negative,negative,ABC,1.067872711,,,NON-GCB,Medium risk
+2591,F,4,High,1,1,1,0,1,no,Partial response,Female,no,,84.4,0.4,0,5.593169389,4.120625669,5.413930954,0,0,0,positive,positive,positive,negative,negative,negative,ABC,0.410674315,ABC,3271,NON-GCB,High risk
+2593,M,2,Medium,0,1,0,0,1,no,Partial response,no,no,,63.8,4.42,1,3.531103151,5.373437149,6.820622757,0,0,1,negative,positive,positive,negative,negative,negative,GCB,-0.675446782,,,GCB,Medium risk
+2594,M,1,Low,0,0,0,0,1,no,Complete response,yes,no,,80.2,4.15,0,,,,,,,positive,positive,negative,negative,negative,negative,,,,,,
+2596,F,,,0,0,0,0,,no,Complete response,Female,no,no,,,1,5.793758351,4.740671393,6.601076341,0,0,1,positive,negative,positive,positive,positive,negative,GCB,-0.362765979,,,GCB,
+2597,M,2,Medium,0,1,1,0,0,no,Complete response,no,no,yes,47.4,0.9,0,7.081742409,6.998474422,6.676447764,1,1,1,positive,positive,positive,positive,negative,negative,GCB,-1.283259041,,,GCB,Medium risk
+2599,F,2,Medium,0,1,0,0,1,yes,Complete response,Female,no,,90.2,0.58,0,,,,,,,positive,positive,positive,negative,negative,positive,,,,,,
+2600,F,3,Medium,0,1,1,0,1,no,,Female,no,,67.8,0.08,0,,,,,,,negative,positive,positive,positive,negative,negative,,,,,,
+2602,M,2,Medium,0,1,0,0,1,no,Complete response,no,no,no,65.2,6.81,1,3.868682667,4.002564059,5.596345448,0,0,0,negative,negative,positive,negative,negative,negative,GCB,-0.912967741,,,NON-GCB,High risk
+2603,F,2,Medium,0,1,0,0,1,no,Complete response,Female,no,,76.2,4.31,1,5.14357983,8.183783491,6.643034974,0,1,1,positive,positive,positive,positive,negative,negative,GCB,-0.468887817,,,GCB,High risk
+2604,F,2,Medium,0,1,0,0,1,yes,Complete response,Female,no,,79.1,4.25,1,6.812795369,4.646010699,5.440124291,1,0,0,positive,positive,positive,negative,negative,positive,Unclassified,0.185930049,,,NON-GCB,Low risk
+2605,M,,,0,1,1,0,,yes,Complete response,no,no,no,,,1,6.30053075,6.63847323,6.99279782,1,1,1,positive,positive,positive,positive,negative,negative,GCB,-1.954968343,,,GCB,
+2606,F,2,Medium,0,1,1,0,0,yes,Complete response,Female,no,,56.5,4.25,1,5.324016832,5.78401972,7.544105242,0,0,1,negative,positive,positive,positive,negative,negative,GCB,-1.902855228,,,GCB,Medium risk
+2608,M,,,0,1,,0,1,no,No response,no,no,no,76.3,1.08,0,5.830040518,8.444017424,6.23846577,0,1,1,positive,positive,positive,positive,positive,negative,GCB,-1.272897831,,,GCB,Low risk
+2609,F,1,Low,0,0,1,0,0,no,Complete response,Female,no,,50.5,4.19,1,5.529227754,4.59624809,3.754483611,0,0,0,negative,negative,negative,negative,negative,negative,GCB,-0.332442287,,,GCB,Medium risk
+2611,F,1,Low,0,0,0,0,1,no,Complete response,Female,no,,79.1,4.19,1,,,,,,,positive,positive,positive,negative,negative,negative,,,,,,
+2612,M,1,Low,0,0,0,0,1,no,Complete response,yes,no,no,70.7,5.56,0,8.387428363,7.637443605,2.91941996,1,1,0,positive,positive,negative,negative,positive,negative,ABC,1.228761615,,,NON-GCB,High risk
+2613,M,,,0,0,,0,0,no,Complete response,no,no,no,51.5,3.26,0,3.923383916,8.798851487,5.593414488,0,1,0,negative,positive,positive,positive,negative,negative,GCB,-1.164076718,,,NON-GCB,Low risk
+2614,M,2,Medium,0,1,0,0,1,no,Partial response,no,no,,77.3,0.33,0,,,,,,,negative,negative,positive,negative,negative,negative,,,,,,
+2616,M,4,High,1,1,1,0,1,no,Complete response,no,no,no,80.6,3.62,0,5.114765506,8.170433214,7.008611536,0,1,1,negative,positive,positive,positive,negative,negative,GCB,-0.621682766,,,GCB,High risk
+2617,M,,,0,0,0,0,,no,Complete response,no,no,,,,0,5.253792538,6.785283572,6.154830001,0,1,1,positive,positive,positive,positive,positive,negative,GCB,-1.589224702,,,GCB,
+2619,M,2,Medium,0,1,0,0,1,no,Complete response,no,no,,65,4.02,1,5.472792261,5.913889183,5.518939941,0,0,0,positive,positive,positive,negative,negative,positive,Unclassified,-0.04097918,,,NON-GCB,Medium risk
+2620,F,3,Medium,0,1,1,0,1,no,,Female,no,,80.8,0.14,0,5.712324043,6.250438162,6.56378192,0,1,1,positive,positive,positive,positive,negative,negative,ABC,0.303697871,,,NON-GCB,High risk
+2621,M,3,Medium,0,1,1,0,1,yes,Complete response,no,no,,63.9,4.01,1,,,,,,,negative,positive,negative,positive,negative,negative,,,,,,
+2622,M,2,Medium,0,1,0,0,1,no,Complete response,yes,no,yes,69.2,3.12,0,6.119872323,7.298463304,4.974706505,1,1,0,positive,positive,positive,negative,negative,negative,ABC,1.542436816,,,NON-GCB,Medium risk
+2624,M,2,Medium,0,1,1,0,0,no,Complete response,no,no,,49.7,3.99,1,4.991718452,7.291272957,4.324245624,0,1,0,positive,,negative,positive,negative,negative,ABC,1.433447477,,,NON-GCB,Low risk
+2626,M,2,Medium,0,0,1,0,1,yes,Complete response,no,no,,60.7,3.97,1,8.124372568,8.143118799,6.064247521,1,1,1,positive,positive,negative,positive,positive,negative,GCB,-1.30828151,,,GCB,High risk
+2628,M,2,Medium,0,1,1,0,0,no,Complete response,no,no,,39.2,3.89,1,4.920971181,6.323148419,5.686438579,0,1,0,negative,positive,positive,negative,negative,negative,GCB,-0.28299096,,,NON-GCB,Medium risk
+2629,M,2,Medium,0,1,0,0,1,no,Complete response,no,no,,71.1,3.93,1,5.925919314,9.376025533,6.164490736,0,1,1,negative,positive,positive,negative,negative,negative,ABC,1.35466512,,,NON-GCB,Medium risk
+2630,M,,,0,0,0,0,,no,Complete response,no,no,no,,,1,,,,,,,positive,positive,positive,negative,negative,negative,,,,,,
+2632,M,2,Medium,0,1,0,0,1,no,,no,no,,88.3,0.28,0,,,,,,,,,,negative,negative,negative,,,,,,
+2634,M,3,Medium,0,1,1,0,1,yes,Partial response,no,no,,82.1,2.81,0,6.090221262,6.575426297,5.824635607,1,1,0,positive,positive,positive,negative,negative,negative,ABC,0.82918888,,,NON-GCB,High risk
+2635,F,2,Medium,0,0,0,1,1,yes,Complete response,Female,no,,69.6,3.83,1,5.808597903,7.726551583,3.45878526,0,1,0,positive,positive,negative,negative,negative,negative,ABC,1.593461277,,,NON-GCB,High risk
+2636,F,3,Medium,1,1,1,0,0,no,Complete response,Female,no,no,46.6,1.04,0,7.678958664,8.372558559,4.953247311,1,1,0,positive,positive,positive,positive,positive,negative,GCB,-1.62459466,,,GCB,High risk
+2637,F,,,0,1,0,0,,no,Complete response,Female,no,no,,,1,6.425567567,3.122942289,7.892314988,1,0,1,positive,negative,positive,negative,negative,negative,GCB,-1.523037421,,,GCB,
+2639,M,2,Medium,0,1,1,0,0,yes,Complete response,no,no,,47.9,3.75,1,6.15987736,7.428433532,6.424251954,1,1,1,negative,positive,negative,negative,negative,positive,ABC,0.796141945,,,NON-GCB,High risk
+2640,F,2,Medium,0,1,0,0,1,yes,Complete response,Female,no,,63.5,3.73,1,4.372773759,7.936665195,7.117318616,0,1,1,negative,positive,positive,positive,negative,negative,GCB,-1.363300707,,,GCB,Low risk
+2642,M,3,Medium,0,1,1,0,1,yes,Complete response,no,no,,69.3,3.73,1,6.018098992,7.947497924,6.034410682,1,1,1,negative,positive,positive,negative,negative,negative,ABC,1.750641869,,,NON-GCB,Medium risk
+2643,F,3,Medium,0,1,1,0,1,no,Complete response,Female,no,,61.2,3.73,1,5.349874261,7.808547243,5.465381256,0,1,0,negative,positive,positive,negative,negative,negative,ABC,1.540479699,,,GCB,Medium risk
+2644,M,3,Medium,1,1,0,0,1,yes,Complete response,no,no,,67.8,0.4,0,4.622022844,5.764240851,5.348589089,0,0,0,negative,positive,negative,negative,negative,negative,ABC,1.016091863,,,NON-GCB,Low risk
+2646,M,4,High,0,1,1,1,1,no,Complete response,no,no,yes,62.3,1.63,0,5.696597082,8.504937222,4.24019292,0,1,0,positive,positive,positive,negative,negative,negative,ABC,2.474655767,,,NON-GCB,High risk
+2647,F,3,Medium,0,1,1,0,1,no,Complete response,Female,no,,77.9,3.63,1,6.468674482,7.596549607,6.899457135,1,1,1,positive,positive,positive,negative,negative,positive,ABC,0.900518691,,,NON-GCB,Medium risk
+2649,M,2,Medium,0,1,0,0,1,yes,Complete response,no,no,,74,3.59,1,4.63993413,8.438979666,6.124012457,0,1,1,negative,positive,positive,negative,negative,negative,ABC,0.493544724,,,NON-GCB,Low risk
+2650,F,,,0,1,0,0,,no,,Female,no,,,,1,4.176407371,8.788527919,6.724417991,0,1,1,negative,positive,positive,negative,negative,negative,GCB,-1.699179983,,,GCB,
+2651,F,0,Low,0,0,0,0,0,no,Complete response,Female,no,,59.2,3.6,1,5.787548445,5.129769596,4.460761428,0,0,0,negative,negative,negative,negative,negative,negative,ABC,0.332688698,,,NON-GCB,Medium risk
+2652,M,3,Medium,0,1,0,1,1,no,Complete response,no,no,,80,1.75,0,5.731226437,7.261429523,5.90461966,0,1,0,negative,positive,positive,negative,negative,negative,ABC,1.678995433,,,NON-GCB,High risk
+2654,M,2,Medium,0,1,0,0,1,no,Complete response,no,no,,63.1,3.54,1,6.49198536,7.967074668,6.528187882,1,1,1,positive,positive,positive,positive,negative,positive,GCB,-1.735656532,GCB,-37,GCB,Low risk
+2655,M,2,Medium,0,1,0,0,1,no,Complete response,no,no,no,85.2,2.83,0,6.131795928,6.670479742,4.181552069,1,1,0,negative,positive,negative,negative,negative,negative,Unclassified,0.148679285,Unclassified,2248,NON-GCB,High risk
+2656,M,4,High,1,1,1,0,1,yes,Partial response,no,no,,73.7,1.28,0,6.382454692,3.739127113,6.393151036,1,0,1,negative,negative,positive,negative,negative,negative,GCB,-0.32522721,GCB,1220,NON-GCB,Medium risk
+2657,M,1,Low,0,0,0,0,1,yes,Complete response,no,no,,74,3.45,1,5.817279946,5.361101818,6.027880358,0,0,1,negative,negative,positive,negative,negative,positive,Unclassified,-0.113993355,,,NON-GCB,Medium risk
+2658,F,,,0,1,1,,1,yes,Complete response,Female,no,yes,73.7,1.27,0,,,,,,,positive,positive,positive,negative,negative,negative,,,,,,
+2659,M,1,Low,0,0,0,0,1,no,Complete response,yes,no,,85.6,3.36,1,6.657027156,9.125215852,4.583524504,1,1,0,negative,positive,positive,negative,negative,negative,ABC,2.840004024,,,NON-GCB,Low risk
+2660,M,1,Low,0,0,0,0,1,no,Complete response,no,no,,71.4,3.35,1,6.353503247,9.235701013,8.15306385,1,1,1,positive,positive,positive,negative,positive,negative,Unclassified,-0.103582874,GCB,1419,GCB,Medium risk
+2662,F,3,Medium,0,1,1,0,1,yes,Complete response,Female,no,,65.4,3.37,1,,,,,,,negative,positive,positive,positive,negative,negative,,,,,,
+2663,F,2,Medium,0,0,1,1,0,yes,Complete response,Female,no,,47.8,3.33,1,6.143240957,5.984664438,6.412801728,1,0,1,negative,positive,positive,negative,negative,positive,ABC,1.127194804,,,NON-GCB,Low risk
+2664,F,2,Medium,0,1,0,0,1,yes,Complete response,Female,no,no,73.6,0.54,0,3.034875792,3.521561515,6.028550767,0,0,1,negative,negative,positive,positive,negative,negative,GCB,-1.258244388,GCB,438,GCB,Medium risk
+2666,F,4,High,1,1,1,0,1,yes,Complete response,Female,no,no,60.4,0.67,0,4.601502411,6.864587234,4.914108593,0,1,0,negative,positive,negative,negative,negative,negative,ABC,1.10044174,,,NON-GCB,Low risk
+2667,M,1,Low,0,0,0,0,1,no,Complete response,yes,no,,74.6,3.24,1,5.234987203,6.188521704,5.554918326,0,1,0,negative,positive,positive,negative,negative,negative,ABC,0.789379863,,,NON-GCB,Medium risk
+2669,F,,,0,0,0,0,,no,Complete response,Female,no,,,,1,4.190000886,7.772178565,6.756714656,0,1,1,positive,positive,positive,negative,negative,negative,GCB,-1.823567113,,,GCB,
+2671,M,5,High,1,1,1,1,1,yes,Complete response,no,no,yes,70.3,0.62,0,,,,,,,positive,negative,positive,negative,positive,negative,,,,,,
+2673,F,2,Medium,0,0,1,0,1,no,Complete response,Female,no,,69.9,3.14,1,6.52341727,6.535993057,5.764091295,1,1,0,positive,positive,positive,negative,positive,negative,Unclassified,-0.129095195,GCB,1216,GCB,High risk
+2675,F,,,0,0,1,0,,yes,Complete response,Female,no,no,,,0,6.284472025,6.968939986,7.387257041,1,1,1,positive,positive,positive,positive,negative,negative,Unclassified,0.108735102,,,GCB,
+2676,M,0,Low,0,0,0,0,0,no,Complete response,no,no,,31.3,3.1,1,4.506826248,6.454711795,3.095321671,0,1,0,negative,positive,negative,negative,negative,negative,ABC,0.337602641,,,GCB,Medium risk
+2677,F,4,High,0,1,1,1,1,no,Complete response,Female,no,,70.4,3.04,1,5.771272252,7.623881412,5.724419992,0,1,0,negative,positive,positive,negative,negative,negative,GCB,-0.847744992,,,GCB,Low risk
+2678,F,3,Medium,0,1,1,0,1,yes,Complete response,Female,no,,75.7,3.01,1,4.95586561,8.011063138,6.096988264,0,1,1,negative,positive,positive,positive,positive,positive,GCB,-0.82543398,,,GCB,Low risk
+2680,M,1,Low,0,0,0,0,1,no,Complete response,no,no,,66.4,3.06,1,6.835596029,6.865990882,5.200835502,1,1,0,negative,negative,positive,negative,negative,negative,Unclassified,-0.158677991,,,GCB,Medium risk
+2681,M,3,Medium,0,0,1,1,1,no,Complete response,no,no,,62.4,2.95,1,5.926999636,7.843863692,5.486382576,0,1,0,positive,positive,positive,negative,negative,positive,ABC,1.741346351,,,NON-GCB,High risk
+2684,F,3,Medium,0,1,1,0,1,no,Complete response,Female,no,,73.5,2.89,1,2.001534673,8.095509061,5.13856535,0,1,0,positive,positive,positive,positive,negative,negative,GCB,-1.689980156,,,GCB,Medium risk
+2685,F,,,0,1,,1,1,yes,,Female,no,,77.2,0.14,0,4.980275874,7.729898441,4.525048574,0,1,0,negative,positive,positive,negative,negative,negative,ABC,1.388175978,,,NON-GCB,High risk
+2687,M,1,Low,0,0,0,0,1,no,Complete response,yes,no,,69.5,2.85,1,6.46620618,6.421010851,4.421498087,1,1,0,positive,positive,negative,negative,negative,negative,ABC,1.785316,ABC,3818,NON-GCB,High risk
+2688,M,3,Medium,0,1,1,0,1,yes,Complete response,no,no,yes,78.4,1.88,0,5.654476265,5.779286118,5.911827576,0,0,0,negative,negative,positive,negative,negative,negative,ABC,0.869528173,,,NON-GCB,High risk
+2689,M,3,Medium,0,1,1,0,1,yes,Complete response,no,no,,67.1,2.87,1,5.867875735,8.665757354,3.722113263,0,1,0,negative,positive,negative,negative,negative,positive,ABC,2.117235998,ABC,3588,NON-GCB,Medium risk
+2690,F,,,0,0,,0,0,no,Complete response,Female,no,,55.1,2.9,1,5.780849029,5.359003287,6.702582318,0,0,1,positive,positive,positive,negative,negative,negative,ABC,0.349021286,,,NON-GCB,Low risk
+2691,M,1,Low,0,0,0,0,1,no,Complete response,no,no,,66,2.83,1,4.303598034,2.856624909,7.986658368,0,0,1,negative,negative,positive,negative,negative,negative,GCB,-1.594191508,,,GCB,High risk
+2692,F,,,0,1,0,0,,no,Complete response,Female,no,no,,,0,4.087668512,7.079414938,7.145926472,0,1,1,negative,positive,positive,positive,negative,positive,Unclassified,-0.068278954,,,NON-GCB,
+2696,M,1,Low,1,0,0,0,0,no,Complete response,no,no,,34.6,2.64,1,5.304003817,4.904285074,6.539369825,0,0,1,,negative,positive,,,,GCB,-1.170240116,,,GCB,Low risk
+2697,M,0,Low,0,0,0,0,0,no,Complete response,no,no,,33.3,2.76,1,5.793605097,6.030296522,3.845080428,0,1,0,,,,,,,ABC,2.116239367,,,,High risk
+2698,M,5,High,1,1,1,1,1,no,Complete response,no,no,no,69.2,2.8,1,5.85572667,7.95691948,5.340359281,0,1,0,,positive,,,,,ABC,2.014273485,ABC,3733,,High risk
+2699,F,4,High,0,1,1,1,1,no,Complete response,Female,no,no,83.8,0.97,0,4.779140439,5.931078329,4.529576964,0,0,0,,positive,positive,,,,ABC,0.403266316,,,GCB,High risk
+2700,M,4,High,1,1,1,1,0,yes,Complete response,no,no,,9.4,2.6,1,5.136562689,3.68114409,6.71736816,0,0,1,,positive,positive,,,,GCB,-0.840699498,,,GCB,Medium risk
+2704,M,3,Medium,0,1,0,1,1,no,Partial response,no,no,no,63.3,1.95,0,4.661480733,9.993228807,6.38050612,0,1,1,,positive,positive,,,,GCB,-1.712436724,GCB,-286,GCB,High risk
+2705,M,3,Medium,1,1,0,1,0,yes,Complete response,no,no,,52.9,2.35,1,3.865248742,5.03500406,6.206518039,0,0,1,,positive,positive,,,,ABC,0.880466521,,,NON-GCB,Medium risk
+2706,M,4,High,1,1,1,0,1,yes,Complete response,no,no,yes,64.5,0.81,0,5.879841362,5.393129825,5.393803416,0,0,0,,positive,positive,,,,ABC,1.164491026,,,NON-GCB,Medium risk
+2707,M,3,Medium,1,0,1,0,1,yes,Complete response,no,no,,74.4,2.21,1,6.829422008,5.861490332,6.14836903,1,0,1,,positive,positive,,,,ABC,1.456506626,,,NON-GCB,Low risk
+2709,F,2,Medium,1,0,0,0,1,yes,Complete response,Female,no,yes,84.8,0.59,0,5.086005425,3.183956263,7.01197858,0,0,1,,negative,positive,,,,GCB,-1.207089011,,,GCB,Low risk
+2713,M,2,Medium,1,0,1,0,0,yes,Complete response,no,no,,54.4,1.18,1,5.364522508,4.525510097,6.118398762,0,0,1,,positive,positive,,,,Unclassified,-0.204450329,,,GCB,Low risk
+2714,M,5,High,1,1,1,1,1,yes,,no,no,,64.6,0.01,1,6.990950473,4.510595972,6.209826234,1,0,1,,negative,positive,,,,GCB,-0.571539819,,,GCB,Low risk
+2715,F,3,Medium,0,1,0,1,1,no,Complete response,Female,no,no,80.6,3.76,1,6.223497597,7.526866102,7.113316063,1,1,1,,positive,positive,,,,GCB,-1.608090562,,,GCB,High risk
+2716,M,1,Low,0,1,0,0,0,no,Complete response,no,no,no,45.2,4.65,1,5.999699315,5.363806279,5.36597921,0,0,0,,positive,positive,,,,ABC,0.813343228,,,NON-GCB,Medium risk
+2718,F,2,Medium,0,1,1,0,0,yes,Complete response,Female,no,,39.1,4.08,1,4.922249815,5.629825611,5.905773569,0,0,0,,negative,positive,,,,Unclassified,-0.047742679,,,,Medium risk
+2719,M,2,Medium,1,1,0,0,0,yes,Complete response,no,no,,47.1,4.42,1,5.403867801,6.602352353,4.622114478,0,1,0,,positive,positive,,,,Unclassified,0.217095859,,,GCB,Medium risk
+2720,M,3,Medium,0,1,1,1,0,no,No response,no,no,,49,2.21,0,8.012253632,5.571854838,3.056526872,1,0,0,,positive,negative,,,,ABC,0.946217457,,,GCB,High risk
+2725,M,0,Low,0,0,0,0,0,no,Complete response,no,no,,50.5,2.01,1,6.560332795,4.181761662,6.101585589,1,0,1,,negative,positive,,,,ABC,1.179762872,ABC,2938,NON-GCB,Medium risk
+2727,F,2,Medium,0,1,1,0,0,yes,Complete response,Female,no,,54.3,4.04,1,6.100225126,4.970631106,5.703067441,1,0,0,,positive,negative,,,,ABC,0.443950976,,,GCB,High risk
+2728,F,4,High,1,1,0,1,1,yes,No response,Female,no,,62.4,0.99,0,6.965649019,8.138507056,3.041808829,1,1,0,,positive,negative,,,,ABC,1.285014521,,,NON-GCB,High risk
+2758,M,3,Medium,0,1,0,1,1,no,Complete response,no,no,,79,0.33,0,5.017955488,4.896797112,5.312526479,0,0,0,negative,,negative,negative,negative,negative,ABC,0.648255252,,,NON-GCB,High risk
+2761,M,3,Medium,0,1,1,0,1,no,Complete response,no,no,,67,1.22,0,5.456501724,5.959293822,5.265487449,0,0,0,negative,negative,positive,negative,negative,negative,GCB,-0.577154341,GCB,978,GCB,Medium risk
+2762,F,1,Low,0,0,1,0,0,no,Complete response,Female,no,,50.7,4.08,1,,,,,,,positive,positive,positive,negative,positive,negative,,,,,,
+2763,F,1,Low,0,1,0,0,0,no,Complete response,Female,no,,57.5,3.09,0,,,,,,,,positive,positive,,,,,,,,,
+2764,M,3,Medium,1,1,0,1,0,yes,Complete response,no,no,,35.3,2.62,1,4.583529536,5.088254735,5.54793818,0,0,0,,positive,positive,,,,Unclassified,-0.18929822,,,NON-GCB,Medium risk
+2765,M,4,High,1,1,1,1,0,yes,Complete response,no,no,,33.4,5.49,1,5.145051187,5.369520609,4.958179161,0,0,0,,,,,,,ABC,0.252920851,,,,Medium risk
+2766,M,3,Medium,1,1,0,1,0,yes,Complete response,no,no,,29.1,6.07,1,,,,,,,,positive,positive,,,,,,,,,
+2767,M,3,Medium,0,1,1,1,0,yes,Complete response,no,no,,48.4,3.82,1,5.884672618,6.454301863,4.585462555,0,1,0,,,,,,,ABC,1.917046928,ABC,3557,GCB,Low risk
+2768,F,1,Low,0,0,1,0,0,no,No response,Female,no,,35.8,1.08,0,5.45271555,5.324573763,5.037018853,0,0,0,,positive,positive,,,,Unclassified,-0.16874025,,,NON-GCB,Medium risk
+2769,F,2,Medium,1,0,1,0,0,no,Partial response,Female,no,,46.2,0.36,0,5.584850289,5.571427463,6.280664182,0,0,1,,positive,positive,,,,GCB,-0.408794393,,,NON-GCB,Medium risk
+2770,M,3,Medium,0,1,1,1,0,yes,Complete response,no,yes,,38.4,3.33,1,5.597549673,6.556743841,4.739990223,0,1,0,,positive,positive,,,,ABC,0.42211953,,,NON-GCB,Medium risk
+2771,M,4,High,1,1,0,1,1,yes,,no,no,,69.1,0.24,0,5.293610899,3.563819926,5.236018771,0,0,0,,positive,positive,,,,GCB,-0.269857411,GCB,1132,NON-GCB,High risk
+2772,F,3,Medium,1,0,1,0,1,no,Complete response,Female,no,,74.9,0.45,0,5.531970452,5.787233949,7.217508125,0,0,1,,positive,positive,,,,GCB,-0.451546832,,,GCB,High risk
+2773,M,4,High,0,1,1,1,1,yes,Complete response,no,no,,63.9,5.87,1,5.166587866,6.180339474,5.410029956,0,1,0,,positive,positive,,,,ABC,0.747574126,,,GCB,Medium risk
+2775,M,1,Low,0,0,1,0,0,no,Complete response,no,no,,14.7,5.49,1,5.402409487,5.463949614,5.418733017,0,0,0,,positive,positive,,,,GCB,-0.660659434,GCB,1456,NON-GCB,Low risk
+2776,F,3,Medium,0,1,0,1,1,no,Complete response,Female,no,,69.7,0.47,1,5.043925443,4.151587255,5.563352425,0,0,0,,positive,positive,,,,GCB,-0.630235476,,,NON-GCB,Medium risk
+2777,M,3,Medium,0,1,1,1,0,no,Complete response,no,no,,48.8,3,1,5.805971597,6.812946313,4.973878931,0,1,0,,positive,positive,,,,ABC,1.26117284,ABC,3238,NON-GCB,High risk
+2778,M,3,Medium,0,1,1,1,0,no,Complete response,no,no,,54.6,2.03,1,7.052901023,5.025279721,6.118783006,1,0,1,,positive,positive,,,,Unclassified,0.147552962,GCB,1798,GCB,Low risk
+2779,F,2,Medium,1,0,1,0,0,yes,Complete response,Female,no,,26.9,1.86,1,4.748842606,5.148806452,6.631928438,0,0,1,,negative,positive,,,,GCB,-1.52513872,GCB,547,GCB,Low risk
+2781,F,1,Low,0,0,1,0,0,no,Complete response,Female,no,,53.6,1.83,1,5.810276338,3.552054639,7.705189561,0,0,1,,positive,positive,,,,GCB,-1.272475685,GCB,752,GCB,Low risk
+2783,M,0,Low,0,0,0,0,0,no,Complete response,no,no,,33.7,1.74,1,5.228297011,4.226815669,6.324028176,0,0,1,,negative,positive,,,,GCB,-1.396934168,GCB,-105,GCB,High risk
+2784,M,5,High,1,1,1,1,1,yes,Partial response,no,no,,60.8,0.55,0,6.433123272,6.557333337,5.127532559,1,1,0,,positive,positive,,,,ABC,1.413983378,ABC,3648,NON-GCB,High risk
+2785,F,2,Medium,1,0,1,0,0,no,Complete response,Female,no,,50.5,1.72,1,5.367050762,5.527005963,5.241228923,0,0,0,,positive,positive,,,,GCB,-0.265641074,,,GCB,Low risk
+2786,M,4,High,1,1,1,1,0,no,Complete response,no,no,,29.5,1.55,1,4.955906924,4.154970378,6.931089242,0,0,1,,positive,positive,,,,GCB,-1.195331106,,,GCB,Low risk
+2788,F,5,High,1,1,1,1,1,yes,No response,Female,no,,70.6,10.4,0,6.213130401,4.116777024,6.069046497,1,0,1,,positive,positive,,,,GCB,-0.970356744,GCB,328,GCB,High risk
+2789,F,0,Low,0,0,0,0,0,no,Complete response,Female,no,,50.8,1.2,1,6.520851772,4.585187989,7.506536138,1,0,1,,positive,positive,,,,GCB,-1.027562829,GCB,332,GCB,Low risk
+2790,M,4,High,1,1,1,1,0,yes,Complete response,no,no,,58,1.28,1,5.711305674,7.61962646,7.455331332,0,1,1,,positive,positive,,,,Unclassified,-0.072536926,,,GCB,Medium risk
+2791,M,1,Low,0,1,0,0,0,no,Complete response,no,no,,15.1,1.32,1,4.722859839,5.698609023,5.287260179,0,0,0,,,,,,,Unclassified,0.173026462,,,,Medium risk
+2792,F,1,Low,0,0,0,0,1,no,Complete response,Female,no,,93.4,1.13,1,6.526012226,7.468150897,5.38277156,1,1,0,,positive,positive,,,,ABC,2.430461221,,,GCB,High risk
+2793,F,3,Medium,1,0,1,0,1,yes,,Female,no,,64.6,1.21,1,,,,,,,,positive,positive,,,,,,,,,
+2794,F,2,Medium,0,1,0,0,1,no,Complete response,Female,no,,60.3,1.07,1,,,,,,,,positive,positive,,,,,,,,,
+2805,M,1,Low,0,1,0,0,0,no,Complete response,no,no,no,50.3,4.17,0,5.556471255,4.409753898,6.108753148,0,0,1,,,,,,,GCB,-0.941492278,,,,High risk
+2806,M,1,Low,0,0,0,0,1,no,Complete response,no,no,no,61.6,4.1,1,,,,,,,,,,,,,,,,,,
+2808,F,1,Low,0,0,0,0,1,no,Complete response,Female,no,no,68.6,3.75,1,6.928532497,4.102145755,6.53345344,1,0,1,,,,,,,ABC,0.376391318,,,,High risk
+2809,M,0,Low,0,0,0,0,0,no,Complete response,no,yes,no,27.1,3.75,1,4.795151871,6.197398781,5.976693752,0,1,0,,,,,,,GCB,-1.022268469,,,,Low risk
+2810,F,1,Low,0,0,1,0,0,no,Complete response,Female,no,no,59.2,3.76,1,5.617310038,6.318739337,6.651566298,0,1,1,,,,,,,ABC,0.301441172,ABC,2754,,Low risk
+2812,F,,,0,0,,0,1,yes,Complete response,Female,no,no,69.9,1.48,1,6.112087664,7.068883534,5.015461387,1,1,0,,,,,,,ABC,2.06401867,,,,Low risk
+2813,M,1,Low,0,1,0,0,0,yes,No response,no,no,no,51.3,0.38,0,6.26572747,6.212325529,7.031829515,1,1,1,,,,,,,GCB,-1.266435074,,,,Medium risk
+2814,F,1,Low,0,1,0,0,0,yes,Complete response,Female,no,no,57.9,3.44,1,,,,,,,,,,,,,,,,,,
+2815,F,2,Medium,0,1,1,0,0,yes,Complete response,Female,no,no,51.2,3.39,1,5.548527636,5.574464745,5.973899121,0,0,0,,,,,,,ABC,0.764403352,Unclassified,2358,,Medium risk
+2816,M,0,Low,0,0,0,0,0,no,Complete response,no,no,no,36.4,3.28,1,5.314095484,4.439572528,6.569779622,0,0,1,,,,,,,GCB,-1.652301759,,,,Low risk
+2818,F,3,Medium,1,1,0,0,1,no,Complete response,Female,no,no,88,1.04,0,6.369114119,4.299774399,5.289311397,1,0,0,,,,,,,ABC,0.507096269,GCB,1549,,Low risk
+2819,F,1,Low,0,0,0,0,1,no,Complete response,Female,,no,78.7,3.35,1,4.498978238,5.908405363,5.771381252,0,0,0,,,,,,,ABC,0.739093451,,,,High risk
+2820,F,3,Medium,1,1,0,0,1,yes,Partial response,Female,no,no,71.5,0.88,0,5.268836976,4.811656398,6.390054252,0,0,1,,,,,,,GCB,-1.55229396,,,,Low risk
+2821,F,0,Low,0,0,0,0,0,no,Complete response,Female,no,no,51.3,2.76,1,4.766588446,5.1343737,6.398796664,0,0,1,,,,,,,GCB,-2.057202307,,,,Low risk
+2823,M,1,Low,0,1,0,0,0,no,Complete response,no,no,no,54.4,3.11,1,6.544000599,6.961836113,7.139240777,1,1,1,,,,,,,GCB,-1.524767755,,,,High risk
+2824,M,2,Medium,0,1,0,0,1,yes,Complete response,no,no,no,63.1,2.93,1,5.50992067,6.412553092,5.119548704,0,1,0,,,,,,,ABC,0.341163473,,,,High risk
+2826,M,,,0,1,,0,1,yes,Complete response,no,no,no,61.7,2.6,1,6.773728456,6.274360359,5.91477787,1,1,0,,,,,,,GCB,-0.835657986,,,,Low risk
+2827,M,1,Low,0,0,0,0,1,no,Complete response,no,no,no,73.7,1.7,1,5.490125476,5.980867387,7.341969205,0,0,1,,,,,,,GCB,-1.498113396,,,,Low risk
+2828,M,0,Low,0,0,0,0,0,no,Complete response,no,no,no,18.4,1.55,1,4.329461434,5.284830143,7.568367277,0,0,1,,,,,,,GCB,-1.840204169,,,,High risk
+2829,F,,,0,0,0,0,,no,Complete response,Female,no,no,,2.64,1,4.678307763,6.313726736,5.547838284,0,1,0,,,,,,,GCB,-0.88880653,,,,High risk
+2830,M,,,0,1,1,0,,no,Complete response,no,no,no,,0.72,0,6.420461421,8.989855648,4.815506,1,1,0,,,,,,,ABC,1.638332993,,,,High risk
+2831,M,,,0,0,,0,0,yes,No response,no,no,no,52.2,2.58,1,5.341112853,8.056404402,4.959546854,0,1,0,,,,,,,ABC,1.02000771,,,,High risk
+2832,M,,,0,1,,0,1,yes,No response,no,no,no,78,1.28,0,6.455711153,7.698803921,6.66223518,1,1,1,,,,,,,GCB,-1.051612353,,,,High risk
+2833,M,2,Medium,0,1,1,0,0,no,Complete response,no,no,no,52.3,2.42,1,4.010234514,4.935130307,6.403175571,0,0,1,,,,,,,GCB,-0.922117722,GCB,1830,,Medium risk
+2834,F,3,Medium,1,1,0,0,1,no,Complete response,Female,no,no,67,2.35,1,4.620105231,6.874283971,7.261266484,0,1,1,,,,,,,GCB,-2.184687989,GCB,-721,,High risk
+2836,M,3,Medium,1,1,1,0,0,yes,Complete response,no,no,no,59.7,2.16,1,,,,,,,,,,,,,,,,,,
+2837,M,1,Low,0,1,0,0,0,no,Complete response,no,no,no,28.7,2.33,1,5.101212892,4.783610473,6.390128262,0,0,1,,,,,,,GCB,-1.655897882,GCB,254,,Low risk
+2838,M,0,Low,0,0,0,0,0,no,Complete response,no,no,no,56.9,1.94,1,6.901128413,4.694660664,7.061418314,1,0,1,,,,,,,Unclassified,-0.229607545,,,,Low risk
+2839,M,4,High,1,1,1,1,0,yes,Complete response,no,no,no,59.7,1.8,1,6.250582855,3.03203663,8.29295721,1,0,1,,,,,,,GCB,-1.294181475,GCB,251,,Medium risk
+2840,M,1,Low,0,0,0,0,1,yes,Complete response,no,no,no,67.4,1.78,1,5.189431778,8.50199775,7.149265517,0,1,1,,,,,,,GCB,-0.394685545,GCB,1203,,Medium risk
+2841,M,1,Low,0,0,0,0,1,no,Complete response,no,,no,71.7,1.49,1,5.723665763,5.982964458,5.669745073,0,0,0,,,,,,,ABC,0.366058856,,,,Medium risk
+2843,F,0,Low,0,0,0,0,0,no,Complete response,Female,no,no,56.4,1.6,1,6.245965509,6.251179376,5.127093301,1,1,0,,,,,,,ABC,0.477453154,,,,Medium risk
+2844,M,2,Medium,0,1,1,0,0,yes,Complete response,no,no,no,3.1,1.73,1,5.580730092,5.480926396,6.641517191,0,0,1,,,,,,,GCB,-0.387674044,,,,Medium risk
+2865,M,3,Medium,1,1,0,1,0,no,Complete response,yes,no,yes,50.2,6.08,1,3.353794587,6.78203714,4.985646703,0,1,0,,positive,positive,,,,ABC,0.406874617,ABC,2484,GCB,Medium risk
+2867,F,3,Medium,1,0,1,0,1,yes,Complete response,Female,no,,61,5.74,1,5.344579374,10.56370726,4.931191554,0,1,0,,positive,positive,,,,ABC,1.657692854,,,NON-GCB,High risk
+2871,M,4,High,1,1,1,1,0,yes,Partial response,no,no,,53.7,0.16,0,5.916534698,4.321698792,5.20254571,0,0,0,,positive,positive,,,,ABC,1.064130798,,,NON-GCB,Medium risk
+2872,M,4,High,1,1,1,1,0,yes,Complete response,no,no,no,30.1,6.89,1,5.387288515,6.375877223,7.420002773,0,1,1,,positive,positive,,,,GCB,-0.95150954,,,GCB,Low risk
+2873,M,3,Medium,0,1,0,1,1,no,Complete response,no,yes,,64.4,2.72,1,5.863474306,4.606946748,7.396709425,0,0,1,,positive,positive,,,,GCB,-0.843913097,,,NON-GCB,Low risk
+2874,M,5,High,1,1,1,1,1,no,,no,no,,67.7,0.07,0,5.707118105,6.27011278,6.706333608,0,1,1,,positive,positive,,,,GCB,-1.082805831,,,GCB,High risk
+2877,M,2,Medium,0,1,0,1,0,yes,Complete response,no,no,,46.6,4.85,1,5.423801073,7.430045714,2.139974394,0,1,0,,positive,positive,,,,ABC,1.808825147,,,NON-GCB,High risk
+2878,F,5,High,1,1,1,1,1,yes,Partial response,Female,no,no,80.1,0.93,0,5.252492767,4.903505293,6.234021753,0,0,1,,,,,,,Unclassified,-0.19233307,,,,Medium risk
+2879,M,2,Medium,0,1,0,0,1,no,Complete response,yes,no,,77.2,5.52,1,6.807374171,7.06902521,6.916005614,1,1,1,,positive,positive,,,,ABC,1.067624343,ABC,2743,NON-GCB,High risk
+2881,M,5,High,1,1,1,1,1,yes,Complete response,no,no,no,62.9,1.11,0,5.194280896,5.438216047,6.080869179,0,0,1,,positive,positive,,,,Unclassified,0.083609776,,,GCB,Medium risk
+2882,F,5,High,1,1,1,1,1,yes,Complete response,Female,no,yes,79.6,1.97,0,6.436767701,5.429103911,6.734420135,1,0,1,,positive,positive,,,,GCB,-1.288246707,,,GCB,High risk
+2884,M,2,Medium,0,1,0,1,0,yes,Complete response,no,no,,59,3.88,1,5.750405351,5.823702795,6.350332279,0,0,1,,positive,positive,,,,Unclassified,0.090908743,,,GCB,Medium risk
+2886,F,0,Low,0,0,0,0,0,no,Complete response,Female,no,,54.9,4.38,1,5.916658043,6.237886657,5.028426177,0,1,0,,positive,positive,,,,Unclassified,0.050928059,,,GCB,Medium risk
+2887,F,2,Medium,1,0,0,0,1,no,Complete response,Female,no,,63,3.52,1,5.421881994,3.922962249,6.015000265,0,0,1,,negative,positive,,,,GCB,-1.128358227,,,GCB,Low risk
+2888,F,2,Medium,0,0,1,0,1,no,Complete response,Female,no,,85.3,1.49,0,6.527619494,8.217485783,6.286188918,1,1,1,,positive,positive,,,,ABC,2.319504621,ABC,3925,NON-GCB,High risk
+2889,M,3,Medium,1,0,1,0,1,no,,no,no,,73.1,0.37,1,4.638743067,8.679252078,6.583094737,0,1,1,,positive,positive,,,,GCB,-0.850178061,,,GCB,High risk
+2891,F,1,Low,1,0,0,0,0,yes,,Female,no,,54.4,4.71,1,7.906030005,4.198284944,6.05197522,1,0,1,,positive,positive,,,,GCB,-0.326983365,GCB,1291,GCB,Medium risk
+2892,F,5,High,1,1,1,1,1,no,Partial response,Female,no,yes,66.7,0.44,0,4.47737101,5.814773826,6.419082533,0,0,1,,positive,positive,,,,GCB,-0.836502093,,,GCB,Medium risk
+2893,M,3,Medium,0,1,1,1,0,yes,Complete response,no,no,,39.2,1.97,1,4.235501785,5.297958701,5.486343028,0,0,0,,negative,negative,,,,ABC,0.402712491,,,NON-GCB,Medium risk
+2894,F,3,Medium,0,1,0,1,1,yes,Complete response,Female,no,no,78.3,2.4,1,6.121609286,4.541339598,6.811270118,1,0,1,,positive,positive,,,,Unclassified,-0.248738368,,,NON-GCB,Medium risk
+2895,M,1,Low,0,0,1,0,0,yes,Partial response,no,no,,57.1,1.73,1,8.538307105,5.427161704,3.178058111,1,0,0,,positive,negative,,,,ABC,1.592100206,,,NON-GCB,Medium risk
+2897,F,4,High,1,1,1,1,0,yes,Complete response,Female,,yes,40.8,1.87,0,6.843672469,6.103066216,6.415929607,1,1,1,,positive,positive,,,,ABC,1.811569592,,,NON-GCB,High risk
+2898,M,4,High,1,1,0,1,1,yes,Complete response,no,no,,72.7,2.32,1,6.113147164,6.009828753,7.194907914,1,1,1,,positive,positive,,,,GCB,-0.541197808,,,GCB,High risk
+2899,F,4,High,1,1,1,0,1,yes,Complete response,Female,no,yes,72.3,1.2,0,5.073731129,9.725949195,8.230709235,0,1,1,,positive,positive,,,,GCB,-2.871478905,GCB,-859,GCB,High risk
+2900,M,4,High,1,1,1,1,0,yes,Complete response,no,no,,42.8,3.56,1,5.95733951,3.131164583,6.564652246,0,0,1,,negative,positive,,,,GCB,-1.194290626,,,GCB,Low risk
+2901,M,3,Medium,0,1,0,1,1,no,Complete response,no,no,,71,1.34,1,5.865780362,3.912725811,6.180419836,0,0,1,,positive,positive,,,,GCB,-0.851635844,,,GCB,Low risk
+2902,F,2,Medium,1,0,0,0,1,no,,Female,no,,74.4,0.14,0,5.509296737,5.244476891,6.134093334,0,0,1,,positive,positive,,,,GCB,-0.601867976,,,GCB,Medium risk
+2903,M,3,Medium,0,1,0,1,1,no,,no,no,,68.8,0.42,1,5.117691717,6.108222797,6.696924346,0,1,1,,positive,positive,,,,GCB,-0.623588576,,,NON-GCB,Low risk
+2904,M,5,High,1,1,1,1,1,no,Complete response,no,no,,63.8,1.36,1,,,,,,,,negative,positive,,,,,,,,,
+2905,F,2,Medium,0,0,0,1,1,no,Complete response,Female,,,75,1.5,1,5.263626547,4.254989551,6.321462049,0,0,1,,positive,positive,,,,GCB,-0.672555712,GCB,707,GCB,Low risk
+2908,M,4,High,0,1,1,1,1,yes,Complete response,no,no,,64.6,2.13,1,5.056752939,6.727110575,5.061180384,0,1,0,,positive,positive,,,,ABC,1.325058757,ABC,3288,GCB,High risk
+2909,F,5,High,1,1,1,1,1,yes,,Female,no,,64.6,0.46,0,7.916999555,4.345601062,6.623609034,1,0,1,,positive,positive,,,,GCB,-0.97232899,,,NON-GCB,High risk
+2910,M,3,Medium,1,1,1,0,0,no,No response,no,no,no,57.6,1.18,0,5.095206957,6.308976156,5.402894538,0,1,0,,positive,positive,,,,ABC,0.628973938,,,NON-GCB,High risk
+2912,M,,,0,1,,0,0,yes,Partial response,no,no,no,50.1,2.32,0,4.22687503,6.726007242,5.00490301,0,1,0,,,,,,,Unclassified,0.228625869,,,,High risk
+2915,F,1,Low,0,0,0,0,1,no,Complete response,Female,no,,66.1,0.52,1,4.036273066,5.389015849,4.732795314,0,0,0,,,,,,,Unclassified,0.219398005,Unclassified,1980,,High risk
+2917,M,4,High,1,1,1,0,1,no,Complete response,no,no,,76.1,8.59,0,4.262953264,4.336208896,7.951183576,0,0,1,,,,,,,GCB,-1.802952865,,,,High risk
+2918,M,3,Medium,0,1,1,1,0,yes,Complete response,no,no,,25.8,9.54,1,4.636233581,6.130024675,6.025882911,0,1,1,,,,,,,GCB,-1.271852573,,,,Low risk
+2919,F,2,Medium,0,1,1,0,0,no,Complete response,Female,no,no,47.5,9.35,1,6.8492291,6.573583739,5.747273877,1,1,0,,,,,,,ABC,0.933801076,,,,High risk
+2921,F,4,High,1,1,1,0,1,no,,Female,yes,,69.2,0.12,0,5.474522202,6.864072453,5.671562321,0,1,0,,,,,,,ABC,1.463613338,,,,Low risk
+2922,M,0,Low,0,0,0,0,0,no,Complete response,no,no,,23.5,8.74,1,4.731570004,4.526166563,7.047719695,0,0,1,,,,,,,GCB,-1.413057531,,,,Low risk
+2923,M,5,High,1,1,1,1,1,no,No response,no,yes,yes,74.3,0.77,0,4.445362692,9.506409326,6.492212187,0,1,1,,,,,,,GCB,-1.272766587,GCB,1123,,High risk
+2925,F,4,High,0,1,1,1,1,yes,Complete response,Female,no,,65.7,9.05,1,5.334481693,8.016609273,5.986596834,0,1,0,,,,,,,GCB,-1.343267193,GCB,340,,Low risk
+2928,M,3,Medium,1,0,1,0,1,no,,no,no,,79.2,0.31,0,3.856883588,8.286412106,6.555211634,0,1,1,,,,,,,Unclassified,-0.032883546,GCB,1525,,High risk
+2931,F,0,Low,0,0,0,0,0,no,Complete response,Female,no,,27.9,7.75,1,,,,,,,,,,,,,,,,,,
+2933,F,3,Medium,0,1,1,0,1,no,Complete response,Female,,,61.3,8.02,1,4.821388177,7.182766963,5.24280996,0,1,0,,,,,,,Unclassified,-0.112603548,,,,Low risk
+2934,F,4,High,0,1,1,1,1,yes,Complete response,Female,,no,68.6,7.41,1,5.248147716,4.274268759,6.657645737,0,0,1,,,,,,,GCB,-0.415741933,,,,Low risk
+2935,F,3,Medium,0,1,1,0,1,no,Complete response,Female,,,61.7,7.67,1,5.744218317,5.782793288,7.411291562,0,0,1,,,,,,,Unclassified,0.089406237,Unclassified,2084,,Medium risk
+2936,M,3,Medium,0,1,1,1,0,no,Partial response,no,,no,55.8,2.18,0,5.973463974,8.212176001,4.558539254,0,1,0,,,,,,,ABC,2.4092804,ABC,3281,,High risk
+2939,M,2,Medium,0,0,1,0,1,yes,No response,no,,no,71.3,0.81,0,6.682818898,8.538162004,8.907687975,1,1,1,,,,,,,GCB,-1.222983578,,,,High risk
+2940,M,3,Medium,0,1,1,1,0,yes,No response,no,yes,no,43.5,0.52,0,5.807454512,8.146316955,3.528008078,0,1,0,,,,,,,ABC,1.207556709,,,,Medium risk
+2941,M,3,Medium,0,1,1,1,0,yes,Partial response,no,no,yes,54.1,1.95,0,,,,,,,,,,,,,,,,,,
+2944,M,1,Low,0,0,0,0,1,no,Complete response,no,no,,69.9,6.28,1,4.365046051,6.046084053,6.084281,0,1,1,,,,,,,GCB,-1.302701628,GCB,633,,Low risk
+2945,M,4,High,0,1,1,1,1,yes,Complete response,no,no,yes,73.3,2.26,0,5.408752087,7.123502276,6.394083643,0,1,1,,,,,,,ABC,0.922898708,ABC,3044,,High risk
+2946,F,2,Medium,0,1,1,0,0,no,Complete response,Female,no,,55.9,6.18,1,5.762509438,7.512585201,7.982395262,0,1,1,,,,,,,GCB,-1.533752895,,,,Low risk
+2947,M,5,High,1,1,1,1,1,yes,Complete response,no,no,no,74.4,1.66,0,4.61338039,5.991746182,6.451379598,0,0,1,,,,,,,Unclassified,-0.214385784,Unclassified,2301,,High risk
+2948,F,1,Low,0,0,0,0,1,no,Complete response,Female,no,,71.5,6.02,1,5.362825995,7.892152654,6.196389227,0,1,1,,,,,,,ABC,1.559420736,,,,Low risk
+2949,M,3,Medium,0,1,1,1,0,no,Partial response,no,no,no,57.7,0.85,0,6.291312432,8.488777065,6.310382208,1,1,1,,,,,,,ABC,1.788811381,ABC,3129,,High risk
+2950,M,3,Medium,0,1,1,0,1,no,,no,,,65.6,0.19,0,5.854233554,4.747498589,6.451266705,0,0,1,,,,,,,Unclassified,-0.044068121,ABC,2546,,High risk
+2951,M,2,Medium,0,1,1,0,0,yes,Complete response,no,,,52.1,5.49,1,,,,,,,,,,,,,,,,,,
+2952,M,4,High,1,0,1,1,1,no,,no,,,80.2,0.25,0,4.372602611,6.134093334,6.919906359,0,1,1,,,,,,,Unclassified,0.009162091,,,,High risk
+2953,F,3,Medium,0,1,1,1,0,no,Complete response,Female,,,55.8,4.95,1,5.628379784,6.685221359,5.088077277,0,1,0,,,,,,,ABC,1.785816604,ABC,3429,,High risk
+2954,F,3,Medium,0,1,1,0,1,no,Complete response,Female,,,63,4.91,1,5.92494059,6.602567848,4.670576804,0,1,0,,,,,,,ABC,0.872750305,,,,Medium risk
+2955,F,5,High,1,1,1,1,1,no,Complete response,Female,,,87.8,4.7,0,5.048935053,4.681278517,7.39687352,0,0,1,,,,,,,GCB,-1.124190853,GCB,221,,High risk
+2956,M,0,Low,0,0,0,0,0,no,Complete response,no,no,,47,4.65,1,4.489544362,6.440331436,6.624089457,0,1,1,,,,,,,GCB,-0.654701596,,,,Low risk
+2957,F,4,High,0,1,1,1,1,yes,Complete response,Female,no,,61.4,4.54,1,5.92494059,6.50157815,6.176228607,0,1,1,,,,,,,ABC,2.29231118,ABC,4098,,Low risk
+2958,M,1,Low,0,0,1,0,0,yes,Complete response,no,no,,31,4.27,1,4.803190993,6.143559383,6.126414006,0,1,1,,,,,,,Unclassified,-0.133450105,,,,Medium risk
+2995,F,,,,,,,,,,Female,,,,,,,,,,,,,,,,,,,,,,,
+2996,F,2,Medium,1,0,0,0,1,yes,,Female,no,,73.6,4.57,1,,,,,,,,,,,,,,,,,,
+2998,F,,,,,,,,,,Female,,,,,,,,,,,,,,,,,,,,,,,
+2999,M,,,0,0,1,,0,yes,Complete response,,no,,25.1,1.64,1,,,,,,,,,,,,,,,,,,
+3382,M,3,Medium,0,1,1,0,1,no,Complete response,no,no,,90.8,4.94,0,5.431035416,5.610389169,6.675072974,0,0,1,,positive,positive,,,,GCB,-1.121018324,,,GCB,Medium risk
+3384,M,3,Medium,1,1,1,0,0,yes,No response,no,no,no,53.4,0.72,0,,,,,,,,positive,,,,,,,,,,
+3385,F,0,Low,0,0,0,0,0,no,Complete response,Female,no,,49.6,5.23,1,5.202717312,5.94537663,6.280511203,0,0,1,,positive,positive,,,,GCB,-0.96736281,,,GCB,Low risk
+3386,F,2,Medium,0,1,0,1,0,no,Complete response,Female,no,,52.4,2.14,1,5.743759018,6.122557797,6.593164347,0,1,1,,negative,positive,,,,GCB,-0.300641563,GCB,1107,NON-GCB,Low risk
+3387,F,3,Medium,0,1,1,1,0,no,Complete response,Female,no,,58.4,5.15,1,,,,,,,,positive,positive,,,,,,,,,
+3388,M,3,Medium,0,1,1,0,1,no,Complete response,no,no,,78.3,2.82,0,4.724616725,4.511387227,6.666116714,0,0,1,,positive,positive,,,,GCB,-1.245996278,,,NON-GCB,High risk
+3389,M,4,High,1,1,1,1,0,yes,Complete response,no,no,,37.6,4.77,1,5.148806452,8.588431947,5.648932217,0,1,0,,negative,positive,,,,Unclassified,-0.222509409,GCB,1434,GCB,High risk
+3390,M,1,Low,0,0,0,0,1,no,Complete response,no,no,,71.5,1.23,1,,,,,,,,positive,negative,,,,,,,,,
+3394,F,2,Medium,0,0,1,0,1,yes,Complete response,Female,no,,67,9.85,1,,,,,,,,,,,,,,,,,,
+3396,M,1,Low,0,0,1,0,0,yes,Complete response,no,no,,57.8,12.39,1,,,,,,,,,,,,,,,,,,
+3397,M,0,Low,0,0,0,0,0,no,Complete response,no,no,,40.3,11.35,1,,,,,,,,,,,,,,,,,,
+3398,M,2,Medium,0,0,1,0,1,yes,Complete response,no,no,,68,11.95,1,,,,,,,,,,,,,,,,,,
+3399,F,3,Medium,0,1,1,1,0,no,Complete response,Female,,,34.2,11,1,,,,,,,,,,,,,,,,,,
+3400,M,2,Medium,0,1,1,0,0,no,Complete response,no,no,,55,10.48,1,,,,,,,,,,,,,,,,,,
+3401,M,0,Low,0,0,0,0,0,yes,Complete response,no,no,,57,10.85,1,5.132687761,5.997442621,6.602711458,0,0,1,,,,,,,GCB,-0.817588754,GCB,1277,,Low risk
+3403,F,,,0,1,,1,0,yes,Complete response,Female,no,,57,5.92,1,4.563094603,5.798824119,5.029839011,0,0,0,,,,,,,ABC,0.371405947,ABC,2595,,Low risk
+3404,F,2,Medium,0,1,1,0,0,no,Complete response,Female,no,,57.6,5,1,3.943447374,6.565508758,4.311411516,0,1,0,,,,,,,ABC,0.579914508,GCB,1814,,Medium risk
+3405,F,1,Low,0,0,0,0,1,no,Complete response,Female,,,69,5.74,1,4.180878374,5.799749421,4.944529697,0,0,0,,,,,,,ABC,0.402108143,,,,High risk
+3406,M,1,Low,0,0,0,0,1,no,Complete response,no,,,64,6.17,1,,,,,,,,,,,,,,,,,,
+3407,F,1,Low,0,0,0,0,1,yes,Complete response,Female,no,,72,5.24,1,5.05079655,6.567964201,6.306636442,0,1,1,,,,,,,Unclassified,0.149795158,,,,Low risk
+3408,F,2,Medium,0,1,1,0,0,no,Complete response,Female,no,,46.6,5.77,1,6.225311597,7.670727067,6.761771323,1,1,1,,,,,,,ABC,1.26772243,ABC,3828,,High risk
+3409,F,2,Medium,0,1,0,0,1,no,Complete response,Female,no,,61.9,5.29,1,4.706081652,6.969463023,4.895282292,0,1,0,,,,,,,ABC,0.612688506,Unclassified,2386,,Low risk
+3411,F,2,Medium,0,1,0,0,1,yes,Complete response,Female,no,,77.1,5.13,1,5.374700823,6.842139364,4.194878799,0,1,0,,,,,,,ABC,1.154516849,ABC,2616,,Medium risk
+3412,M,2,Medium,0,1,0,0,1,yes,Complete response,no,no,,79.4,2.48,0,2.881954294,4.86760866,5.47876252,0,0,0,,,,,,,ABC,0.293737113,GCB,1688,,High risk
+3413,F,3,Medium,0,1,0,1,1,no,Complete response,Female,no,,63.4,5.66,1,,,,,,,,,,,,,,,,,,
+3417,F,2,Medium,0,0,1,0,1,no,Complete response,Female,no,,73.6,5.57,1,4.422783833,5.162781268,6.141515813,0,0,1,,,,,,,ABC,0.39531021,,,,Low risk
+3418,F,3,Medium,0,0,1,1,1,no,Complete response,Female,,,66.7,4.89,1,5.612777907,5.4525766,4.062571066,0,0,0,,,negative,,,,ABC,0.629957073,,,,Low risk
+3419,F,3,Medium,0,1,1,0,1,yes,Complete response,Female,no,,74.2,5.34,1,,,,,,,,,,,,,,,,,,
+3422,M,3,Medium,0,1,1,0,1,no,Complete response,no,no,,75,5.15,1,5.987290384,3.777255706,5.00178065,0,0,0,,,,,,,Unclassified,0.248186199,GCB,1478,,High risk
+3423,F,4,High,0,1,1,1,1,yes,Complete response,Female,no,,86.3,3.75,0,,,,,,,,,,,,,,,,,,
+3424,F,1,Low,0,0,1,0,0,no,Complete response,Female,no,,43.5,4.21,1,,,,,,,,,,,,,,,,,,
+3428,F,1,Low,0,0,0,1,0,yes,Complete response,Female,no,,59,4.56,1,,,,,,,,,,,,,,,,,,
+3429,M,0,Low,0,0,0,0,0,no,Complete response,no,no,,46,4.34,1,4.671584353,6.227920823,5.689536046,0,1,0,,,,,,,ABC,0.633516464,,,,High risk
+3430,M,0,Low,0,0,0,0,0,yes,Complete response,no,no,,59.4,,1,5.393525387,6.791217604,4.897155272,0,1,0,,,,,,,ABC,1.369235422,,,,
+3431,F,0,Low,0,0,0,0,0,yes,Complete response,Female,no,,48.6,4.39,1,5.023280653,6.319341167,6.965512544,0,1,1,,,,,,,Unclassified,-0.168026054,,,,Medium risk
+3432,F,0,Low,0,0,0,0,0,yes,Complete response,Female,no,,57.1,4.36,1,4.010040313,5.222357007,5.92381005,0,0,0,,,,,,,Unclassified,-0.014865436,,,,Low risk
+3433,M,0,Low,0,0,0,0,0,no,Complete response,no,no,,40.7,3.3,1,5.498067624,5.374420197,6.50157815,0,0,1,,,,,,,ABC,0.483042335,,,,Low risk
+3434,M,1,Low,0,1,0,0,0,no,Complete response,no,,,58.3,4.29,1,5.461889854,7.77927087,5.03237535,0,1,0,,,,,,,ABC,0.783833982,,,,High risk
+3435,M,2,Medium,0,1,0,0,1,no,Complete response,no,no,,75,4.44,1,4.485624506,5.429262333,4.403432073,0,0,0,,,,,,,Unclassified,-0.022395603,Unclassified,2183,,Medium risk
+3438,M,0,Low,0,0,0,0,0,no,Complete response,no,no,,59.4,4.14,1,7.769678136,8.204035138,5.754235624,1,1,0,,positive,,,,,GCB,-1.488932745,,,,Low risk
+3439,M,2,Medium,0,1,0,1,0,yes,No response,no,no,,47.9,4.07,1,5.466156786,3.380686861,5.119613218,0,0,0,,,,,,,ABC,1.513515805,ABC,3022,,Medium risk
+3440,F,3,Medium,0,1,1,1,0,yes,No response,Female,no,,48.7,0.88,0,6.159208081,6.735255101,5.358821702,1,1,0,,,,,,,Unclassified,0.054619346,,,,High risk
+3441,F,4,High,0,1,1,1,1,yes,Complete response,Female,no,,78,3.92,1,7.686091683,8.887862661,6.506233373,1,1,1,,,,,,,GCB,-1.556252715,,,,Low risk
+3444,F,4,High,0,1,1,1,1,yes,Complete response,Female,no,,79.2,1.28,1,5.521125163,5.116925124,6.001832072,0,0,1,,,,,,,Unclassified,-0.089606359,GCB,1629,,Medium risk
+3446,M,2,Medium,0,1,0,0,1,yes,Complete response,no,no,,73.7,3.89,1,5.016175885,5.962916891,4.703044915,0,0,0,,,negative,,,,ABC,0.466776923,,,,Low risk
+3447,F,1,Low,0,0,0,0,1,no,Complete response,Female,no,,63.9,1.31,0,5.215255828,7.013069392,5.33765381,0,1,0,,,,,,,ABC,1.639806588,,,,High risk
+3448,F,3,Medium,1,1,0,0,1,yes,Complete response,Female,no,,73,3.59,1,5.848550243,7.471405705,5.840587633,0,1,0,,positive,positive,,,,GCB,-0.997554591,,,,Medium risk
+3449,M,0,Low,0,0,0,0,0,no,Complete response,no,,,53.9,3.55,1,4.775512281,6.284181889,5.911095762,0,1,0,,,positive,,,,GCB,-0.806488707,GCB,834,,Medium risk
+3450,M,4,High,1,1,1,0,1,yes,Complete response,no,no,,74,2.45,0,4.32821609,8.565991929,7.592705909,0,1,1,,,,,,,GCB,-1.504574526,,,,High risk
+3451,M,3,Medium,0,1,0,1,1,yes,Complete response,no,no,,64.6,3.33,1,5.206099511,6.837384882,6.476703775,0,1,1,,,,,,,GCB,-0.790964322,,,,Low risk
+3452,M,1,Low,0,0,0,0,1,no,Complete response,no,no,,63.9,3.5,1,5.473057835,5.390850934,5.613244764,0,0,0,,,,,,,ABC,0.296156841,GCB,1405,,Medium risk
+3453,M,1,Low,0,0,0,0,1,no,Complete response,no,no,,84.4,3.61,1,7.261103397,4.965627844,6.391696388,1,0,1,,negative,,,,,GCB,-0.719320445,,,,High risk
+3454,F,2,Medium,0,1,1,0,0,yes,No response,Female,no,,24.3,1.39,0,5.511605545,7.571515252,6.844962239,0,1,1,,,,,,,Unclassified,0.176725097,,,,High risk
+3455,M,0,Low,0,0,0,0,0,no,Complete response,no,no,,40.2,2.72,1,6.078848111,6.343158459,5.706824117,1,1,0,,,positive,,,,GCB,-0.302737168,,,,High risk
+3456,M,,,0,0,,0,1,yes,Complete response,no,no,,78.3,4.85,1,6.458710285,7.358243018,6.087502887,1,1,1,,,,,,,ABC,0.636619735,,,,High risk
+3457,M,3,Medium,1,1,0,0,1,yes,Complete response,no,,,85.1,3.28,1,4.090888713,5.512122988,5.406729058,0,0,0,,,,,,,Unclassified,-0.074466531,,,,Medium risk
+3458,M,3,Medium,0,1,0,1,1,yes,Complete response,no,no,,66.7,3.32,1,3.308291193,5.694655094,4.755177578,0,0,0,,,,,,,Unclassified,-0.138072429,,,,Medium risk
+3459,M,4,High,0,1,1,1,1,no,Complete response,no,no,,68.3,3.28,1,4.546311069,4.528432943,4.278261669,0,0,0,,,,,,,ABC,0.464718982,,,,Low risk
+3460,M,2,Medium,0,1,0,1,0,yes,Complete response,no,no,,58.3,2.94,1,4.843002577,3.328648158,6.375341618,0,0,1,,,,,,,GCB,-0.45444631,,,,Medium risk
+3461,M,2,Medium,1,0,0,0,1,no,Complete response,no,yes,,70.8,1.3,0,5.126124676,4.293857723,5.144410143,0,0,0,,,,,,,ABC,0.931207229,,,,Low risk
+3462,M,5,High,1,1,1,1,1,yes,No response,no,no,,63,1,0,7.312042688,7.613062893,4.822126808,1,1,0,,,,,,,ABC,1.518718831,,,,High risk
+3463,F,0,Low,0,0,0,0,0,no,Complete response,Female,no,,40.6,2.95,1,4.575163569,6.053456558,6.642671406,0,1,1,,,,,,,GCB,-1.304413584,,,,Low risk
+3464,M,2,Medium,0,1,0,0,1,no,Complete response,no,no,,60.1,2.84,1,5.612589487,5.679331824,6.280956785,0,0,1,,,,,,,ABC,0.936230717,,,,Medium risk
+3465,F,2,Medium,0,1,1,0,0,yes,Complete response,Female,no,,34.8,2.95,1,5.883827325,5.947605082,4.050431142,0,0,0,,,,,,,ABC,1.533886371,,,,Low risk
+3467,M,4,High,1,1,0,1,1,no,Complete response,no,,,70.8,3.05,1,5.560877652,7.65992174,5.719037195,0,1,0,,,,,,,ABC,1.010118898,ABC,2828,,Low risk
+3468,F,3,Medium,1,1,1,0,0,no,No response,Female,no,yes,56.4,1.1,0,6.792164507,6.099633052,3.981779909,1,1,0,,,,,,,ABC,2.278349639,,,,High risk
+3470,M,0,Low,0,0,0,0,0,no,Complete response,yes,,,44.1,2.57,1,3.193403619,3.802796074,4.735347693,0,0,0,,,,,,,GCB,-0.68221857,GCB,1041,,Medium risk
+3471,M,1,Low,0,1,0,0,0,no,Complete response,no,no,,51.2,2.7,1,5.43476864,4.940856216,7.657520682,0,0,1,,,,,,,GCB,-0.456540865,GCB,1455,,Low risk
+3472,M,2,Medium,0,1,0,1,0,no,Complete response,yes,,,55.2,2.61,1,4.69123967,4.932853844,6.67438812,0,0,1,,,,,,,Unclassified,0.158558938,,,,High risk
+3473,M,2,Medium,0,1,0,0,1,yes,Complete response,no,no,,71.9,0.59,1,4.268092733,4.779508682,4.760850962,0,0,0,,,,,,,Unclassified,-0.20922961,GCB,1428,,Medium risk
+3474,F,5,High,1,1,1,1,1,no,Complete response,Female,no,,61.9,2.54,1,5.125167645,5.362567463,7.144853637,0,0,1,,negative,positive,,,,GCB,-1.358069212,,,,Low risk
+3475,F,1,Low,0,1,0,0,0,no,Complete response,Female,no,,49.2,2.09,1,4.733859968,5.021369795,6.324643797,0,0,1,,negative,positive,,,,GCB,-1.228742074,GCB,588,,Medium risk
+3476,F,0,Low,0,0,0,0,0,no,Complete response,Female,yes,,45.4,2.17,1,6.02163601,7.815447873,4.734727366,1,1,0,,positive,positive,,,,ABC,2.423493928,,,,High risk
+3477,F,3,Medium,0,1,1,0,1,no,Complete response,Female,no,,70.7,2.09,1,5.777485385,7.887514827,5.29852832,0,1,0,,,,,,,ABC,1.392894574,,,,Medium risk
+3478,F,4,High,1,1,1,0,1,no,Complete response,Female,,,77,1.76,1,5.056097303,4.071275554,4.853461807,0,0,0,,,,,,,Unclassified,-0.009073115,,,,Medium risk
+3479,M,3,Medium,1,0,1,0,1,no,Complete response,no,no,,88.3,1.98,1,4.953576665,4.411736836,5.79878928,0,0,0,,,,,,,ABC,0.946643664,,,,Low risk
+3480,M,4,High,1,1,1,0,1,no,No response,no,no,,84.9,0.22,0,8.599502479,7.786027825,3.696553934,1,1,0,,positive,negative,,,,Unclassified,0.000125521,,,,High risk
+3481,M,2,Medium,1,1,0,0,0,yes,Complete response,no,no,,31.1,1.96,1,5.738988912,4.624342744,6.633348905,0,0,1,,negative,positive,,,,GCB,-1.456392048,,,,Low risk
+3482,M,2,Medium,0,1,0,0,1,no,Complete response,no,no,,63,1.91,1,3.61306942,7.511613492,7.162803304,0,1,1,,,,,,,GCB,-0.712984338,,,,High risk
+3483,M,2,Medium,0,1,0,1,0,yes,Complete response,yes,,yes,52.3,0.86,0,5.347843966,5.560030159,6.758176969,0,0,1,,positive,negative,,,,ABC,0.652041286,,,,High risk
+3484,F,1,Low,0,0,0,0,1,no,Complete response,Female,no,,67.9,1.8,1,5.960154114,5.244822645,6.882412262,0,0,1,,,,,,,GCB,-0.950619863,,,,Medium risk
+3485,M,1,Low,0,0,0,0,1,yes,Partial response,no,no,,81.5,1.75,1,5.790854212,8.082079006,6.530547944,0,1,1,,,positive,,,,GCB,-1.43304473,,,,Low risk
+3486,M,1,Low,0,0,1,0,0,yes,No response,no,no,,44.1,0.9,0,,,,,,,,positive,positive,,,,,,,,,
+3487,F,1,Low,0,1,0,0,0,yes,No response,Female,no,yes,58.8,1,0,5.905706302,5.840403753,6.760444551,0,0,1,,,,,,,ABC,0.651321936,ABC,2850,,Medium risk
+3488,F,1,Low,0,0,1,0,0,yes,Complete response,Female,no,,58,8.84,1,4.670673638,7.596222059,6.870975913,0,1,1,,,,,,,GCB,-1.327880083,GCB,620,,Low risk
+3489,M,0,Low,0,0,0,0,0,no,Complete response,no,no,,49.7,10.73,0,7.171557998,7.515523539,2.79318517,1,1,0,,,,,,,Unclassified,0.029179978,,,,High risk
+3490,F,4,High,0,1,1,1,1,no,Partial response,Female,no,,61,5.49,1,3.852057271,5.711855937,5.662976065,0,0,0,,,,,,,ABC,0.36436717,,,,Low risk
+3493,F,3,Medium,1,1,1,0,0,yes,No response,Female,no,,48,10.97,1,4.419122711,5.863450674,5.84225979,0,0,0,,,,,,,ABC,0.280361379,,,,Low risk
+3495,F,2,Medium,0,1,0,0,1,yes,Complete response,Female,no,,70.5,3.88,1,,,,,,,,positive,,,,,,,,,,
+3496,F,3,Medium,0,1,1,0,1,no,Complete response,Female,,yes,71.4,5.09,1,3.884146244,4.113144614,7.118312743,0,0,1,,positive,positive,,,,GCB,-1.454193042,GCB,439,,Low risk
+3497,F,4,High,1,1,1,0,1,yes,Complete response,Female,no,,75,2.68,0,,,,,,,,,,,,,,,,,,
+3498,F,3,Medium,1,1,1,0,0,yes,Complete response,Female,no,,56,4.76,1,8.121372745,4.928157086,6.128775343,1,0,1,,,,,,,ABC,0.43821764,,,,High risk
+3500,M,3,Medium,1,1,0,0,1,no,Complete response,no,no,,71.9,4.37,1,5.49082538,3.446639044,5.998521843,0,0,0,,,,,,,ABC,0.645546631,,,,Low risk
+3502,F,4,High,1,1,1,0,1,yes,Complete response,Female,no,,79.2,3.54,1,6.34176667,6.617375367,5.974498083,1,1,0,,,positive,,,,ABC,1.964796621,,,,Medium risk
+3503,F,2,Medium,0,1,0,0,1,no,Complete response,Female,no,,64,2.8,1,,,,,,,,,,,,,,,,,,
+3504,F,2,Medium,0,1,0,0,1,no,Complete response,Female,no,,74,2.31,1,5.592707424,4.050268729,5.759477069,0,0,0,,,,,,,Unclassified,0.139685327,,,,Medium risk
+3505,F,3,Medium,1,1,1,0,0,yes,No response,Female,no,,57.5,0.36,0,5.370000458,5.435566257,6.996814859,0,0,1,,positive,positive,,,,GCB,-1.405433085,,,,Medium risk
+3506,M,0,Low,0,0,0,0,0,no,Complete response,no,no,,57.9,1.96,1,5.145803377,4.171644861,6.717610958,0,0,1,,,,,,,GCB,-1.79533176,GCB,223,,Low risk
+3507,F,2,Medium,0,1,0,1,0,yes,Complete response,Female,no,,22,1.76,1,5.313572291,5.535831526,5.514071333,0,0,0,,positive,,,,,Unclassified,0.0216144,,,,Low risk
+3508,M,2,Medium,0,1,0,0,1,no,Complete response,no,no,,81,,,4.490145985,6.851930135,6.307750163,0,1,1,,positive,positive,,,,GCB,-0.813387608,,,,
+3510,F,5,High,1,1,1,1,1,yes,,Female,no,,80.8,0.07,0,,,,,,,,,,,,,,,,,,
+3511,F,2,Medium,0,1,0,0,1,no,Complete response,Female,no,no,79.5,3.11,1,,,,,,,,,,,,,,,,,,
+3512,M,,,0,1,1,,0,yes,Complete response,,no,,56.4,,1,,,,,,,,,,,,,,,,,,
+3513,M,2,Medium,1,0,0,0,1,,Complete response,no,no,,73.7,1.7,1,,,,,,,,,,,,,,,,,,
+3514,F,,,0,1,,,0,,Complete response,Female,,,25.1,,1,,,,,,,,,,,,,,,,,,
+3515,M,,,0,1,0,,0,no,Complete response,no,,,54.3,,1,,,,,,,,,,,,,,,,,,
+3517,F,3,Medium,0,1,1,0,1,yes,Complete response,Female,no,no,80.9,5.57,1,,,,,,,,,,,,,,,,,,
+3519,M,,,0,1,1,,1,no,Complete response,no,,,60.9,,1,,,,,,,,,,,,,,,,,,
+3520,NA,,,,,,,,,,Female,,,,,,,,,,,,,,,,,,,,,,,
+3521,M,,,1,0,1,,0,no,Complete response,no,,,54.7,0.38,0,,,,,,,,,,,,,,,,,,
+3522,F,,,0,1,,1,1,,Complete response,Female,no,no,65.2,3.27,1,,,,,,,,,,,,,,,,,,
+3523,M,1,Low,0,0,0,0,1,no,Complete response,no,no,no,60.4,9.74,1,,,,,,,,,,,,,,,,,,
+3525,F,4,High,1,1,1,0,1,,,Female,,,67.8,0.07,1,,,,,,,,,,,,,,,,,,
+3527,M,,,1,1,1,,0,no,Complete response,no,,yes,45.7,0.87,0,,,,,,,,,,,,,,,,,,
+3528,F,,,0,1,1,,0,no,Partial response,Female,no,,52.1,4.32,0,,,,,,,,,,,,,,,,,,
+3529,F,0,Low,0,0,0,0,0,no,Complete response,Female,no,,43.9,9.72,1,,,,,,,,,,,,,,,,,,
+3531,M,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+3532,F,,,0,1,1,,0,no,Complete response,Female,no,,57.4,0.68,0,,,,,,,,,,,,,,,,,,
+3535,M,3,Medium,0,1,1,0,1,no,Complete response,no,no,no,72.6,3.79,1,,,,,,,,,,,,,,,,,,
+3536,F,,,,0,1,,0,no,Complete response,Female,,no,51,8.12,0,,,,,,,,,,,,,,,,,,
+3537,M,,,,,,,1,,,,,,66.5,1.93,1,,,,,,,,,,,,,,,,,,
+3538,M,,,1,0,,,0,no,Complete response,,,,58,0.59,1,,,,,,,,,,,,,,,,,,
+3539,NA,,,,,,,,,,Female,,,,,,,,,,,,,,,,,,,,,,,
+3540,M,,,1,1,1,,1,yes,Complete response,,no,no,67.5,1.73,1,,,,,,,,,,,,,,,,,,
+3542,F,,,,,,,,,,Female,,,,,1,,,,,,,,,,,,,,,,,,
+3545,M,3,Medium,0,1,0,1,1,no,No response,no,no,no,66.5,8.48,1,,,,,,,,,,,,,,,,,,
+3546,M,3,Medium,0,1,1,0,1,no,Complete response,no,no,yes,73.8,7.88,0,5.295717951,7.188375387,5.429612057,0,1,0,negative,positive,positive,,,,ABC,1.973092885,,,NON-GCB,High risk
+3547,M,,,0,1,,0,0,no,No response,no,no,no,31.2,2.16,0,3.96015607,6.324595295,6.218203964,0,1,1,negative,positive,positive,,,,Unclassified,-0.248681374,GCB,1232,GCB,Medium risk
+3548,F,1,Low,0,0,0,0,1,no,Complete response,Female,no,no,60.2,11.83,1,5.287867939,7.042500574,7.05842495,0,1,1,negative,positive,positive,,,,GCB,-1.388936084,,,GCB,Low risk
+3549,F,1,Low,0,1,0,0,0,no,Complete response,Female,no,no,55.6,11.62,1,5.636079926,7.857256982,7.914784216,0,1,1,positive,positive,positive,,,,GCB,-1.643224533,,,GCB,Low risk
+3551,M,3,Medium,0,1,1,0,1,no,Complete response,no,no,no,70.8,0.38,0,6.172551328,7.09795224,4.643677553,1,1,0,negative,positive,negative,,,,ABC,0.978110165,ABC,3086,NON-GCB,High risk
+3552,M,1,Low,0,0,0,0,1,no,Complete response,no,no,no,79.7,8.55,1,6.155528432,9.581618611,6.453941789,1,1,1,negative,positive,positive,,,,ABC,1.697432099,,,NON-GCB,High risk
+3553,M,4,High,0,1,1,1,1,yes,Complete response,no,no,no,62.4,9.34,1,,,,,,,negative,positive,negative,,,,,,,,,
+3555,F,2,Medium,0,1,0,0,1,no,Complete response,Female,no,no,77.4,5.11,1,5.017910197,7.285477789,5.779339484,0,1,0,negative,positive,,,,,GCB,-0.558984118,,,,Low risk
+3556,F,1,Low,0,0,0,0,1,no,Complete response,Female,no,no,66.6,4.03,1,5.906519405,5.888404847,5.029678306,0,0,0,negative,positive,negative,,,,ABC,1.464565139,,,GCB,Low risk
+3557,M,1,Low,0,0,0,0,1,yes,Complete response,no,no,no,68.2,3.58,1,6.815436941,5.527948901,5.432679806,1,0,0,negative,negative,negative,,,,ABC,0.792852227,,,NON-GCB,Medium risk
+3558,M,0,Low,0,0,0,0,0,no,Complete response,no,no,no,17.5,3.07,1,5.368177326,7.249924394,6.197470499,0,1,1,negative,positive,positive,,,,Unclassified,0.097932329,GCB,1845,GCB,Medium risk
+3559,F,3,Medium,1,1,0,0,1,no,Partial response,Female,no,no,85.8,1.33,0,5.675608901,8.785275679,6.454256975,0,1,1,positive,positive,positive,,,,ABC,1.746357177,ABC,3467,NON-GCB,High risk
+3560,M,2,Medium,0,0,1,0,1,no,Complete response,no,no,no,74.5,4.25,1,6.654908448,3.23293937,6.747636178,1,0,1,negative,positive,positive,,,,GCB,-1.539239833,,,GCB,High risk
+3561,M,,,,,1,,1,,,,,no,91.1,0.33,0,5.873218547,8.56081355,7.638762188,0,1,1,negative,positive,positive,,,,GCB,-2.423945037,,,GCB,High risk
+3562,F,2,Medium,0,1,0,0,1,no,Complete response,Female,no,no,85.6,1.16,0,4.85559958,7.226802363,3.455655874,0,1,0,negative,negative,,,,,ABC,1.51799567,ABC,3013,,Medium risk
+3563,M,1,Low,0,0,1,0,0,no,Complete response,no,no,no,26.6,7.53,1,5.982727773,3.148950469,8.990053583,0,0,1,positive,negative,positive,,,,GCB,-1.428304085,,,,Medium risk
+3565,F,5,High,1,1,1,1,1,yes,Complete response,Female,no,no,60.2,10.69,1,6.569922693,6.176865853,5.885870071,1,1,0,negative,positive,,,,,ABC,1.134070401,,,,High risk
+3566,M,5,High,1,1,1,1,1,yes,Partial response,no,no,yes,64.2,0.93,0,6.325643489,5.891175062,5.848389138,1,0,0,negative,positive,negative,,,,ABC,0.574119645,,,NON-GCB,Medium risk
+3579,M,1,Low,0,0,1,0,0,no,Complete response,,no,no,27,5.67,1,4.899639041,9.743255431,6.480308136,0,1,1,,,,,,,ABC,1.286360191,,,GCB,Medium risk
+3580,M,1,Low,0,0,1,0,0,,Partial response,,no,no,37.3,1.67,1,,,,,,,,,,,,,,,,,,
+3582,F,2,Medium,0,1,1,0,0,no,Complete response,Female,no,no,44.6,9.32,0,5.48992212,5.524707948,6.274467829,0,0,1,,,,,,,Unclassified,0.198640183,,,NON-GCB,Medium risk
+3584,M,2,Medium,0,1,1,0,0,no,Complete response,no,no,no,58,5.5,1,5.852686961,8.099424125,5.907697399,0,1,0,,,,,,,ABC,0.889820503,,,NON-GCB,Low risk
+3585,F,1,Low,0,0,1,0,0,no,Complete response,Female,no,no,58.1,6.95,1,4.356652908,5.698691644,6.041579505,0,0,1,,,,,,,Unclassified,0.10532539,,,GCB,Low risk
+3586,F,2,Medium,0,1,1,0,0,no,Complete response,Female,no,no,59,8.74,1,6.679384546,9.453933837,7.593833881,1,1,1,,,,,,,GCB,-2.274169519,GCB,-717,GCB,Low risk
+3587,F,1,Low,0,0,1,0,0,,Complete response,Female,no,no,59.7,7.05,1,4.002668755,4.777535332,6.058074829,0,0,1,,,,,,,GCB,-2.22393292,,,GCB,Low risk
+3589,F,3,Medium,0,1,1,0,1,yes,Complete response,Female,no,no,60.8,10.93,1,5.567714584,6.000371946,6.88382026,0,1,1,,,,,,,GCB,-1.458108984,,,GCB,Low risk
+3590,M,5,High,1,1,1,1,1,no,Complete response,no,no,no,65.9,5.69,0,6.911359852,6.640138873,5.871285415,1,1,0,,,,,,,ABC,0.560964935,ABC,2735,NON-GCB,High risk
+3591,F,3,Medium,0,1,1,0,1,no,Complete response,Female,no,no,68.6,8.91,1,5.987417063,6.095210569,6.337527476,0,1,1,,,,,,,GCB,-1.177280811,,,GCB,Medium risk
+3592,M,5,High,1,1,1,1,1,yes,Complete response,no,no,no,69.4,8.62,1,5.727327685,5.892569412,5.640238363,0,0,0,,,,,,,Unclassified,0.21510257,ABC,2521,NON-GCB,Low risk
+3593,M,3,Medium,0,1,1,0,1,no,Complete response,,no,no,75,3.99,0,4.409810409,4.950228183,7.189728156,0,0,1,,,,,,,GCB,-1.112044078,,,GCB,Medium risk
+3594,F,4,High,0,1,1,1,1,no,Complete response,Female,no,no,76.5,9.4,1,5.864150823,6.315885998,5.140919806,0,1,0,,,,,,,ABC,0.812164758,,,NON-GCB,Low risk
+3595,F,3,Medium,1,0,1,0,1,,No response,Female,no,no,77,0.19,0,8.237238291,8.963752507,7.320185954,1,1,1,,,,,,,GCB,-1.951828797,,,GCB,High risk
+3596,M,3,Medium,0,1,1,0,1,no,Complete response,,no,no,77,3.96,0,5.21995477,6.965137599,5.075772701,0,1,0,,,,,,,ABC,1.653042941,,,NON-GCB,Medium risk
+3597,M,2,Medium,0,1,1,0,0,no,Partial response,,no,no,46.2,2,0,5.531559333,8.158303236,6.207993107,0,1,1,,,,,,,ABC,0.578223202,,,NON-GCB,High risk
+3598,M,3,Medium,1,1,1,0,0,yes,Complete response,yes,no,yes,56.6,2.92,0,6.650468532,7.429933575,5.155955659,1,1,0,,,,,,,ABC,2.023744762,ABC,3862,NON-GCB,High risk
+3600,F,3,Medium,0,0,1,1,1,no,Complete response,Female,no,no,74.4,5.73,1,7.010199115,3.975639725,7.043776117,1,0,1,,,,,,,GCB,-1.973589114,,,GCB,Low risk
+3601,F,3,Medium,0,1,1,0,1,yes,Complete response,Female,no,no,70.6,1.22,0,5.884681897,10.32130172,4.749210321,0,1,0,,,,,,,ABC,1.879185652,,,NON-GCB,High risk
+3602,F,4,High,0,1,1,1,1,yes,Complete response,Female,no,no,80.4,8.83,1,5.985157897,6.741731341,5.565540298,0,1,0,,,,,,,ABC,2.257239267,,,NON-GCB,High risk
+3603,F,0,Low,0,0,0,0,0,no,Complete response,Female,no,no,46.1,5.43,1,5.065447136,4.8498739,4.382588089,0,0,0,,,,,,,ABC,0.512039975,,,NON-GCB,Medium risk
+3604,M,1,Low,0,0,0,0,1,no,Partial response,,no,no,72.4,6.37,1,4.537249047,6.610040691,6.335380161,0,1,1,,,,,,,GCB,-1.004078377,GCB,694,,Low risk
+3605,M,1,Low,0,0,0,0,1,yes,Complete response,,no,no,66.7,7.22,1,4.656810356,2.479741476,5.339214891,0,0,0,,,,,,,Unclassified,0.056063523,GCB,1845,NON-GCB,Medium risk
+3606,M,3,Medium,0,1,1,0,1,yes,Partial response,,no,no,63.6,6.95,1,4.560203171,5.368783068,4.804481824,0,0,0,,,,,,,ABC,0.351921625,,,NON-GCB,High risk
+3607,M,0,Low,0,0,0,0,0,no,Complete response,,no,no,18.2,5.25,1,,,,,,,,,,,,,,,,,,
+3608,M,1,Low,0,0,1,0,0,no,Complete response,,no,no,45.8,6.12,1,5.01502359,5.392021266,6.017350645,0,0,1,,,,,,,GCB,-0.646356374,,,NON-GCB,Low risk
+3609,M,2,Medium,0,1,1,0,0,no,Complete response,,no,no,53.7,7.65,1,4.549974684,7.78930193,6.576929866,0,1,1,,,,,,,GCB,-1.622952796,,,GCB,High risk
+3610,M,1,Low,0,0,1,0,0,no,Complete response,yes,no,no,55.5,9.15,1,5.118099782,5.464606002,6.247539642,0,0,1,,,,,,,ABC,1.550659769,Unclassified,2351,NON-GCB,Low risk
+3611,F,1,Low,0,0,1,0,0,yes,Partial response,Female,no,no,53.2,5.7,1,6.316087006,5.244198479,6.010094741,1,0,1,,,,,,,Unclassified,0.131952222,,,GCB,Medium risk
+3612,F,1,Low,0,0,0,0,1,no,Complete response,Female,no,no,69,4.64,1,5.608819395,8.567143371,5.169428006,0,1,0,,,,,,,ABC,2.046411045,,,NON-GCB,High risk
+3613,F,0,Low,0,0,0,0,0,no,Complete response,Female,no,no,42.7,7.56,1,4.005761564,7.172986006,6.793378804,0,1,1,,,,,,,GCB,-0.379268747,,,GCB,Low risk
+3614,M,3,Medium,1,1,1,0,0,no,Complete response,no,no,no,52.3,8.34,1,,,,,,,,,,,,,,,,,,
+3615,M,4,High,1,1,1,0,1,yes,Complete response,no,no,no,60.3,5.91,0,4.972046399,9.051835689,6.526416058,0,1,1,,,,,,,ABC,1.458061166,ABC,3671,NON-GCB,High risk
+3616,M,3,Medium,0,1,0,1,1,no,Complete response,no,no,no,65.4,5.62,1,5.218348408,7.276808204,5.685455032,0,1,0,,,,,,,ABC,1.274930823,,,NON-GCB,Low risk
+3617,M,1,Low,0,0,0,0,1,no,Complete response,no,no,no,77.4,6.85,1,4.777141748,6.519377679,7.710150647,0,1,1,,,,,,,ABC,0.379150338,,,GCB,Low risk
+3618,M,0,Low,0,0,0,0,0,no,Complete response,,no,no,57.2,5.13,1,3.791333749,7.225002445,5.6409679,0,1,0,,,,,,,GCB,-2.055565614,,,GCB,Low risk
+3620,F,1,Low,0,0,0,0,1,no,Complete response,Female,no,no,84.2,1.97,0,7.160262814,6.727374522,4.98782553,1,1,0,,,,,,,ABC,2.139881399,ABC,3754,NON-GCB,High risk
+3622,M,5,High,1,1,1,1,1,yes,Complete response,yes,no,yes,76,0.47,0,5.849006383,7.213658208,5.951848406,0,1,0,,,,,,,ABC,2.154810966,,,NON-GCB,High risk
+3623,M,4,High,1,1,1,0,1,no,Partial response,,no,no,67.9,7.84,0,6.152989488,6.342646786,6.431636878,1,1,1,,,,,,,ABC,0.380550261,,,NON-GCB,High risk
+3624,F,1,Low,0,0,0,0,1,no,Complete response,Female,no,no,75.5,7.31,1,7.771762611,10.21780855,5.843681453,1,1,0,,,,,,,ABC,1.923719442,,,NON-GCB,High risk
+3625,M,4,High,1,1,1,0,1,no,Complete response,,no,no,63.4,5.52,1,4.439539619,4.945743932,7.779102279,0,0,1,,,,,,,GCB,-0.895173224,,,NON-GCB,Low risk
+3627,F,3,Medium,0,1,1,1,0,no,Complete response,Female,no,no,59,5.62,1,5.887253014,5.222403902,4.36826604,0,0,0,,,,,,,Unclassified,-0.071803,,,,High risk
+3628,M,0,Low,0,0,0,0,0,no,Complete response,,no,no,56.6,5.17,1,5.503864669,4.997848635,6.802880118,0,0,1,,,,,,,GCB,-0.896905091,,,NON-GCB,Low risk
+3629,M,4,High,1,1,1,0,1,yes,Partial response,no,no,no,70.6,0.61,0,5.93177248,6.687887005,4.734547529,0,1,0,,,,,,,ABC,1.820602978,,,NON-GCB,High risk
+3630,F,3,Medium,1,0,1,0,1,yes,Complete response,Female,no,no,65.4,6.25,1,6.994339262,6.244974055,6.710016824,1,1,1,,,,,,,GCB,-0.892991799,,,GCB,Low risk
+3631,M,0,Low,0,0,0,0,0,no,Partial response,,no,no,59.9,5.74,1,5.297654489,6.754734713,8.319558739,0,1,1,,,,,,,GCB,-1.457819124,,,,Low risk
+3632,F,1,Low,1,0,0,0,0,yes,No response,Female,no,no,52.8,0.36,0,7.113079144,8.021889997,8.214613883,1,1,1,,,,,,,GCB,-2.632279458,,,NON-GCB,High risk
+3634,M,2,Medium,0,1,1,0,0,no,Partial response,no,no,no,54.5,5.62,1,6.38132666,7.821692859,5.273679382,1,1,0,,,,,,,Unclassified,-0.197987533,,,GCB,High risk
+3635,M,0,Low,0,0,0,0,0,no,Complete response,,no,no,47.8,5.6,1,3.136603398,5.100646036,6.881302095,0,0,1,,,,,,,GCB,-0.525652778,,,NON-GCB,Medium risk
+3636,M,,,0,0,0,,1,no,Partial response,,,no,62.5,5.41,1,,,,,,,,,,,,,,,,,,
+3637,M,0,Low,0,0,0,0,0,no,Complete response,,no,no,57.9,3.84,0,5.946164635,6.141776757,6.783419933,0,1,1,,,,,,,ABC,0.735605926,ABC,2596,NON-GCB,High risk
+3638,F,4,High,1,1,1,0,1,yes,Complete response,Female,no,no,73.6,1.63,0,5.285835014,8.770528232,3.338058201,0,1,0,,,,,,,ABC,1.627228786,ABC,3148,NON-GCB,Low risk
+3639,M,2,Medium,0,1,1,0,0,no,Complete response,,no,no,50.2,5.4,1,6.271563986,7.929649666,7.057369604,1,1,1,,,,,,,GCB,-0.332853161,,,GCB,Low risk
+3640,M,0,Low,0,0,0,0,0,no,Complete response,no,no,no,58.1,6.66,1,4.641757205,8.512198301,7.475733016,0,1,1,,,,,,,GCB,-1.291134417,,,GCB,Medium risk
+3642,F,4,High,1,1,1,0,1,yes,Partial response,Female,no,no,67.5,2.58,0,4.795928776,4.16860675,5.985676917,0,0,0,,,,,,,Unclassified,0.100744458,,,GCB,High risk
+3643,F,3,Medium,1,1,0,0,1,yes,Partial response,Female,no,no,65.6,1.55,0,,,,,,,,,,,,,,,,,,
+3644,F,0,Low,0,0,0,0,0,no,Complete response,Female,no,no,36.2,4.44,1,5.508197263,5.701724464,7.178277757,0,0,1,,,,,,,GCB,-1.423610799,,,GCB,High risk
+3645,M,2,Medium,0,0,1,0,1,no,Partial response,,no,no,66.8,5.11,1,4.788154706,6.150041161,5.694351771,0,1,0,,,,,,,GCB,-0.893874583,,,NON-GCB,Low risk
+3646,M,4,High,1,1,1,1,0,no,Complete response,no,no,no,46.5,0.97,0,4.917416501,8.641378682,7.045050945,0,1,1,,,,,,,ABC,0.687931416,,,NON-GCB,High risk
+3647,M,3,Medium,1,1,1,0,0,yes,Partial response,no,no,no,58.3,5.37,1,4.404352297,7.243828602,6.661822575,0,1,1,,,,,,,GCB,-1.524924376,,,GCB,Low risk
+3648,F,4,High,1,1,1,1,0,no,Complete response,Female,no,no,41.8,5.58,1,,,,,,,,,,,,,,,,,,
+3649,M,2,Medium,0,1,1,0,0,no,Complete response,,no,no,55.1,5.56,1,5.018732461,7.318279137,6.283168552,0,1,1,,,,,,,ABC,0.610140933,,,NON-GCB,High risk
+3651,M,3,Medium,1,1,1,0,0,yes,Complete response,,no,no,45.4,5.37,1,5.879046719,6.285279345,6.03365181,0,1,1,,,,,,,ABC,0.818139565,,,NON-GCB,Medium risk
+3652,M,4,High,1,1,1,1,0,yes,Complete response,no,no,no,30,5.4,1,,,,,,,,,,,,,,,,,,
+3653,F,3,Medium,1,0,1,0,1,yes,Complete response,Female,no,no,69.7,5.33,1,5.0211112,5.519517631,4.948788736,0,0,0,,,,,,,ABC,0.685603342,,,NON-GCB,Low risk
+3654,F,3,Medium,1,0,1,0,1,yes,Complete response,Female,no,no,73.4,5.41,1,5.29034757,4.865938078,6.424641633,0,0,1,,,,,,,Unclassified,-0.151879782,,,NON-GCB,High risk
+3655,M,4,High,1,1,1,0,1,no,No response,,no,no,71.5,0.53,0,7.919217368,7.604149537,6.744441537,1,1,1,,,,,,,GCB,-2.049382823,GCB,-1322,GCB,Low risk
+3656,F,1,Low,0,0,0,0,1,no,Complete response,Female,no,no,62.4,4.27,1,,,,,,,,,,,,,,,,,,
+3657,M,4,High,1,1,1,0,1,yes,Partial response,,no,no,72.1,0.72,0,,,,,,,,,,,,,,,,,,
+3659,M,2,Medium,0,1,1,0,0,no,Complete response,,no,no,53.3,4.18,1,4.991231497,4.694858088,6.163850115,0,0,1,,,,,,,Unclassified,0.0930659,,,GCB,High risk
+3660,F,4,High,1,1,1,0,1,yes,Complete response,Female,no,no,73.2,2.84,0,5.742537772,5.703910977,5.607211013,0,0,0,,,,,,,ABC,0.973429148,,,NON-GCB,High risk
+3661,M,0,Low,0,0,0,0,0,no,Complete response,,no,no,54,4.42,1,4.55287464,8.366657123,7.124427074,0,1,1,,,,,,,GCB,-1.372726012,,,GCB,High risk
+3662,M,3,Medium,1,1,1,0,0,yes,Complete response,,no,no,28.1,1.08,0,7.106565707,6.788389989,6.637181263,1,1,1,,,,,,,GCB,-0.959836524,,,GCB,Medium risk
+3663,F,1,Low,0,0,0,0,1,no,Complete response,Female,no,no,65.3,4.41,1,5.881022113,7.596132986,2.765465892,0,1,0,,,,,,,ABC,2.472604313,,,NON-GCB,Low risk
+3664,M,3,Medium,0,1,1,0,1,no,Complete response,,no,no,66.2,3.78,1,6.253954993,5.561371675,5.351644302,1,0,0,,,,,,,ABC,0.910513647,,,NON-GCB,Low risk
+3665,M,0,Low,0,0,0,0,0,no,Partial response,,no,no,50.1,4.53,1,,,,,,,,,,,,,,,,,,
+3666,F,0,Low,0,0,0,0,0,no,Complete response,Female,no,no,48.8,4.35,1,6.019933832,6.797597058,6.275140714,1,1,1,,,,,,,GCB,-0.343134064,,,NON-GCB,High risk
+3667,M,1,Low,0,0,1,0,0,no,Complete response,,no,no,57.8,4.41,1,5.801090895,6.156615119,7.052433188,0,1,1,,,,,,,GCB,-0.75309047,,,NON-GCB,High risk
+3668,F,1,Low,0,0,1,0,0,yes,Partial response,Female,no,no,48.7,0.84,0,3.306518773,5.697169496,4.548956097,0,0,0,,,,,,,ABC,0.377569051,,,NON-GCB,Medium risk
+3669,M,2,Medium,1,1,0,0,0,no,Complete response,,no,no,55,5.1,1,4.075084867,4.498642524,6.099321996,0,0,1,,,,,,,GCB,-1.694880471,,,GCB,High risk
+3671,F,1,Low,0,0,0,0,1,no,Complete response,Female,no,no,69.5,4.3,1,4.877428821,7.363322407,6.434845214,0,1,1,,,,,,,GCB,-1.533038341,,,GCB,Low risk
+3672,F,1,Low,0,0,0,0,1,no,Complete response,Female,no,no,80.1,5.18,1,4.815370718,7.956494211,4.063549147,0,1,0,,,,,,,ABC,2.450352181,ABC,2967,NON-GCB,High risk
+3673,M,1,Low,0,0,1,0,0,no,Complete response,,no,no,50,4.33,1,6.073039522,4.132252342,7.084561716,1,0,1,,,,,,,Unclassified,0.141049357,Unclassified,2191,NON-GCB,High risk
+3674,M,1,Low,0,0,0,0,1,no,Complete response,,no,no,83.5,1.68,0,5.611149154,7.279903813,4.669996838,0,1,0,,,,,,,ABC,1.242496893,ABC,3040,NON-GCB,High risk
+3675,M,2,Medium,0,1,1,0,0,no,Partial response,,no,no,34.5,3.48,1,7.442775211,5.243873022,4.992784669,1,0,0,,,,,,,Unclassified,0.099240088,,,NON-GCB,High risk
+3677,F,0,Low,0,0,0,0,0,no,Complete response,Female,no,no,47.8,3.53,1,5.458038108,3.655402375,6.712437646,0,0,1,,,,,,,GCB,-1.244427537,,,GCB,Medium risk
+3679,F,3,Medium,1,0,1,1,0,no,Complete response,Female,no,no,55.6,2.78,1,4.101077907,5.030026096,6.232555483,0,0,1,,,,,,,GCB,-1.882625385,,,GCB,Low risk
+3680,M,4,High,0,1,1,1,1,no,Partial response,no,no,no,68.5,1.56,0,6.020021077,7.720815342,4.959691453,1,1,0,,,,,,,ABC,2.456619871,,,NON-GCB,High risk
+3681,M,0,Low,0,0,0,0,0,no,Complete response,no,no,no,17.9,3.97,1,,,,,,,,,,,,,,,,,,
+3682,M,0,Low,0,0,0,0,0,no,Complete response,,no,no,16.1,3.56,1,5.390652653,2.927132444,8.721645379,0,0,1,,,,,,,GCB,-1.729901901,,,GCB,Low risk
+3683,M,4,High,0,1,1,1,1,no,Complete response,no,no,no,60.4,4.2,1,,,,,,,,,,,,,,,,,,
+3684,F,4,High,1,1,1,0,1,yes,Complete response,Female,no,no,68.9,4.24,1,5.17626725,7.248118651,5.655200705,0,1,0,,,,,,,ABC,0.618095168,ABC,2762,NON-GCB,High risk
+3685,M,1,Low,0,0,0,0,1,no,Complete response,,no,no,60.5,4.37,1,5.407572459,6.035144402,6.713348847,0,1,1,,,,,,,GCB,-0.520071114,,,GCB,Medium risk
+3686,F,2,Medium,0,0,1,0,1,no,Partial response,Female,no,no,62.3,3.1,0,,,,,,,,,,,,,,,,,,
+3687,M,2,Medium,1,0,1,0,0,yes,Complete response,,no,yes,40.5,0.57,0,7.921496425,8.688859712,6.706132755,1,1,1,,,,,,,Unclassified,0.071261754,GCB,1682,GCB,High risk
+3688,F,1,Low,0,1,0,0,0,no,Partial response,Female,no,no,49.4,6.13,1,5.172146837,8.215398544,6.87449401,0,1,1,,,,,,,GCB,-0.507083262,,,,Low risk
+3689,M,1,Low,0,0,1,0,0,yes,Complete response,,no,no,59.4,2.48,1,7.966127789,3.98498028,5.68948079,1,0,0,,,,,,,GCB,-0.305994481,,,GCB,High risk
+3691,F,2,Medium,0,0,1,0,1,yes,,Female,no,no,81.9,0.12,0,6.249354794,6.509187714,6.279481786,1,1,1,,,,,,,ABC,0.851243553,,,NON-GCB,High risk
+3692,M,5,High,1,1,1,1,1,no,Complete response,no,no,no,63,2.85,1,6.463455322,7.48361417,6.911793362,1,1,1,,,,,,,GCB,-1.551308062,GCB,9,GCB,High risk
+3693,F,4,High,1,1,1,0,1,yes,Complete response,Female,no,no,76,2.75,1,5.073719324,6.063740519,5.201402286,0,1,0,,,,,,,Unclassified,0.219564551,ABC,2635,NON-GCB,Low risk
+3694,F,3,Medium,1,1,1,0,0,yes,Complete response,Female,no,no,59.6,2.78,1,7.229504306,6.578120307,5.543530218,1,1,0,,,,,,,GCB,-1.165094228,,,GCB,Low risk
+3696,M,,,,1,1,0,1,no,Partial response,,no,no,74.1,0.35,0,5.574657742,5.141598023,5.6740655,0,0,0,,,,,,,ABC,0.790443626,,,,Medium risk
+3697,F,3,Medium,0,1,1,0,1,yes,Complete response,Female,no,no,83.9,2.83,1,4.658422483,6.972999487,5.06646467,0,1,0,,,,,,,ABC,0.943645217,,,GCB,Medium risk
+3698,M,,,1,0,1,,0,yes,Complete response,,,no,45.4,2.51,1,,,,,,,,,,,,,,,,,,
+3699,M,4,High,1,1,1,0,1,no,Complete response,,no,no,76.3,3.04,1,4.179581581,4.405113781,6.798446043,0,0,1,,,,,,,GCB,-1.227353454,,,NON-GCB,Low risk
+3700,M,0,Low,0,0,0,0,0,no,Complete response,,no,no,44.2,2.35,1,4.456191047,4.639519454,7.605251171,0,0,1,,,,,,,GCB,-1.540469023,,,,Medium risk
+3701,M,2,Medium,0,1,0,0,1,no,Complete response,,no,no,65.1,3.18,1,5.915257575,5.599976804,5.20412453,0,0,0,,,,,,,Unclassified,0.179291066,GCB,1598,GCB,Medium risk
+3703,M,0,Low,0,0,0,0,0,no,Complete response,,no,no,44.2,3.5,1,4.748752314,6.10229018,5.146592737,0,1,0,,,,,,,ABC,0.638738397,,,GCB,Medium risk
+3704,F,3,Medium,0,1,1,0,1,no,Partial response,Female,no,no,69.6,3.03,1,5.250554621,6.526358001,4.985039548,0,1,0,,,,,,,ABC,0.611939112,,,GCB,Medium risk
+3705,F,2,Medium,0,0,1,0,1,no,Complete response,Female,no,no,70,2.72,0,5.526181498,7.361440019,5.743334928,0,1,0,,,,,,,GCB,-1.033864423,,,NON-GCB,Medium risk
+3706,M,2,Medium,0,1,1,0,0,yes,Partial response,,no,no,54.9,1.64,1,4.803618836,5.735372674,4.930884432,0,0,0,,,,,,,GCB,-0.522033364,Unclassified,2211,GCB,Low risk
+3707,F,0,Low,0,0,0,0,0,no,Complete response,Female,no,no,30.8,1.92,1,5.923388181,4.905415635,6.293368901,0,0,1,,,,,,,GCB,-0.379811522,,,,Medium risk
+3708,M,3,Medium,0,1,1,0,1,yes,Partial response,,no,no,66.5,1.68,1,4.958947253,6.359615153,7.105477976,0,1,1,,,,,,,GCB,-0.332833076,GCB,810,NON-GCB,High risk
+3709,F,1,Low,0,0,0,0,1,no,Complete response,Female,no,no,73.6,1.8,1,7.129594155,6.557031566,6.442209578,1,1,1,,,,,,,ABC,1.755336603,,,GCB,Medium risk
+3711,F,4,High,1,1,1,0,1,yes,Complete response,Female,no,no,81.2,1.74,1,6.777286309,6.766486147,6.003132453,1,1,1,,,,,,,ABC,1.354166953,ABC,3002,NON-GCB,High risk
+3712,M,3,Medium,0,1,1,0,1,no,Partial response,,no,no,80.6,1.59,1,5.662128612,5.750173285,6.956819137,0,0,1,,,,,,,GCB,-0.984305217,GCB,770,GCB,Low risk
+3713,F,0,Low,0,0,0,0,0,no,Complete response,Female,no,no,52.3,1.68,1,5.166130808,5.86687295,6.530460166,0,0,1,,,,,,,GCB,-0.697765773,GCB,631,GCB,Medium risk
+3715,F,3,Medium,0,1,1,0,1,no,Partial response,Female,no,no,62.4,1.71,1,6.068897804,3.376062009,6.763909494,1,0,1,,,,,,,Unclassified,-0.198277988,,,NON-GCB,Medium risk
+3716,F,,,,0,,0,1,no,Complete response,Female,no,yes,68.4,8.87,0,7.195767892,7.400927465,4.716909714,1,1,0,,,,,,,ABC,1.933191972,,,,High risk
+3717,F,2,Medium,1,0,0,0,1,yes,Complete response,Female,no,no,70.6,2.2,1,5.138474309,7.287282114,7.21120004,0,1,1,,,,,,,ABC,0.345476686,,,GCB,High risk
+3718,M,1,Low,0,0,0,0,1,no,Complete response,no,no,no,65.1,2.13,1,4.907213453,4.802621331,6.229705607,0,0,1,,,,,,,GCB,-1.087343323,GCB,511,GCB,Low risk
+3719,F,0,Low,0,0,0,0,0,no,Complete response,Female,no,no,29.1,2.14,1,5.240132313,3.913917374,7.58416036,0,0,1,,,,,,,GCB,-1.319042404,,,GCB,Low risk
+3721,M,2,Medium,0,1,0,0,1,no,Complete response,,no,no,61.5,2.42,1,6.285282246,6.531120795,7.793706392,1,1,1,,,,,,,GCB,-1.044705715,,,GCB,Low risk
+3722,M,0,Low,0,0,0,0,0,no,Complete response,,no,no,44.2,2.32,1,5.721815374,6.052048222,5.341461255,0,1,0,,,,,,,Unclassified,-0.011090561,GCB,1436,GCB,Medium risk
+3724,M,3,Medium,0,1,1,0,1,yes,Partial response,,no,no,71.3,2.31,1,5.950800103,3.757481555,7.832099262,0,0,1,,,,,,,GCB,-0.841994424,,,GCB,Low risk
+3725,F,2,Medium,1,0,1,0,0,no,Complete response,Female,no,no,57.7,2.54,1,4.824533917,5.039324259,5.808,0,0,0,,,,,,,GCB,-0.625102187,GCB,750,GCB,Low risk
+3726,M,2,Medium,0,1,1,0,0,no,Complete response,no,no,no,46.8,2.24,1,6.044316159,3.741634458,7.311638664,1,0,1,,,,,,,GCB,-0.916673355,GCB,505,GCB,High risk
+3727,F,0,Low,0,0,0,0,0,no,Complete response,Female,no,no,46.6,2.29,1,5.986223803,2.87742859,7.33048828,0,0,1,,,,,,,GCB,-1.833748494,GCB,-813,GCB,Medium risk
+3728,M,4,High,1,1,1,0,1,yes,Partial response,no,no,no,66.4,2.3,1,6.047285384,6.103213791,7.280141775,1,1,1,,,,,,,GCB,-1.608855377,,,GCB,Low risk
+3729,M,3,Medium,0,1,1,1,0,yes,Complete response,no,no,no,52,2.55,1,4.996259344,5.727571382,5.29660526,0,0,0,,,,,,,Unclassified,0.117505579,,,GCB,Medium risk
+3730,F,5,High,1,1,1,1,1,yes,Complete response,Female,no,no,61.4,2.86,1,6.658215696,5.916557084,5.893216736,1,0,0,,,,,,,GCB,-0.293364237,GCB,1387,GCB,Medium risk
+3731,F,4,High,1,1,1,0,1,yes,Partial response,Female,no,no,75.3,0.26,0,6.848995543,6.792842803,6.294735021,1,1,1,,,,,,,ABC,1.119139285,ABC,3042,NON-GCB,High risk
+3732,M,1,Low,0,1,0,0,0,no,Complete response,no,no,no,56.5,2.38,1,5.478656677,8.064662467,4.54669228,0,1,0,,,,,,,ABC,1.955918718,ABC,2800,NON-GCB,High risk
+3733,F,1,Low,0,0,0,0,1,no,Complete response,Female,no,no,75.3,1.84,1,5.454279053,5.3371799,5.558266676,0,0,0,,,,,,,Unclassified,0.110794383,,,GCB,Medium risk
+3734,M,2,Medium,0,0,1,0,1,no,Partial response,,no,no,71.1,1.84,1,,,,,,,,,,,,,,,,,,
+3735,F,1,Low,0,0,1,0,0,no,Partial response,Female,no,no,56.7,1.68,1,,,,,,,,,,,,,,,,,,
+3736,M,1,Low,0,0,0,0,1,yes,Complete response,no,no,no,73.1,1.87,1,,,,,,,,,,,,,,,,,,
+3737,F,1,Low,0,0,0,0,1,no,Complete response,Female,no,no,73.5,1.25,0,4.961409675,4.024888565,5.936832942,0,0,0,,,,,,,GCB,-0.984774043,GCB,771,GCB,Medium risk
+3739,M,1,Low,0,0,0,0,1,no,Complete response,,no,no,67.4,1.84,1,5.848532879,8.560234075,7.801312791,0,1,1,,,,,,,GCB,-0.741801339,,,GCB,Medium risk
+3740,F,1,Low,0,0,0,0,1,no,Complete response,Female,no,no,72.4,1.58,1,4.807344865,3.996103511,6.992900649,0,0,1,,,,,,,GCB,-0.45953422,,,NON-GCB,Low risk
+3741,F,4,High,1,1,1,0,1,yes,Complete response,Female,no,no,60.3,1.58,1,6.797281763,7.584653115,7.451987967,1,1,1,,,,,,,GCB,-2.143280711,,,GCB,Medium risk
+3742,M,4,High,0,1,1,1,1,no,Complete response,no,no,no,62.8,1.6,1,5.353942476,4.215904952,5.595436655,0,0,0,,,,,,,ABC,0.62318788,,,NON-GCB,Low risk
+3743,F,4,High,1,1,1,1,0,no,No response,Female,no,no,56.8,0.45,0,7.981255645,7.671629426,6.698732711,1,1,1,,,,,,,GCB,-0.452847794,,,NON-GCB,High risk
+3744,F,2,Medium,0,0,1,0,1,no,Complete response,Female,no,no,65,1.09,1,4.459607455,4.916635095,4.791902947,0,0,0,,,,,,,ABC,0.299153415,GCB,1662,GCB,Medium risk
+3745,M,2,Medium,0,0,1,0,1,no,Complete response,,no,no,60.1,1.47,1,4.356037434,4.435015403,7.212626198,0,0,1,,,,,,,GCB,-1.209909173,GCB,-334,GCB,Low risk
+3746,M,2,Medium,0,0,1,0,1,no,Complete response,no,no,no,76,1.5,1,6.618367667,7.061116868,6.390956934,1,1,1,,,,,,,GCB,-0.77327483,,,GCB,Medium risk
+3747,F,4,High,1,1,1,0,1,yes,Partial response,Female,no,no,65.7,1.54,1,4.931700529,7.645200374,7.076125908,0,1,1,,,,,,,GCB,-1.642456724,,,,Medium risk
+3748,M,1,Low,0,0,0,0,1,no,Complete response,,no,no,72.6,1.42,1,,,,,,,,,,,,,,,,,,
+3749,M,0,Low,0,0,0,0,0,no,Complete response,,no,no,57.3,1.25,1,5.318172612,7.544586056,5.354317645,0,1,0,,,,,,,ABC,1.795041768,,,NON-GCB,High risk
+3750,M,3,Medium,0,1,1,1,0,no,Complete response,yes,no,no,53.4,1.42,1,5.504121214,7.218851902,4.747864373,0,1,0,,,,,,,ABC,0.848771938,,,NON-GCB,High risk
+3751,F,2,Medium,0,1,0,0,1,yes,Complete response,Female,no,no,67.7,1.11,1,,,,,,,,,,,,,,,,,,
+3753,M,2,Medium,1,0,0,0,1,no,Complete response,yes,no,no,71.2,0.93,1,5.459958502,5.310123618,5.830201825,0,0,0,,,,,,,ABC,0.943026378,,,GCB,Medium risk
+3754,F,3,Medium,1,1,0,0,1,yes,Complete response,Female,no,no,68.8,1.05,1,5.004901917,3.852884878,6.135057652,0,0,1,,,,,,,GCB,-0.942000383,,,GCB,Low risk
+3755,M,3,Medium,1,1,0,0,1,no,Complete response,no,no,no,66.2,1.13,1,6.140108914,3.609039759,5.993683676,1,0,0,,,,,,,GCB,-0.79393068,,,GCB,Low risk
+3756,M,3,Medium,0,1,1,0,1,no,No response,no,no,no,62.7,1.1,1,6.498936942,8.228848413,8.14481398,1,1,1,,,,,,,GCB,-2.120798357,,,GCB,Low risk
+3757,M,1,Low,0,0,0,0,1,no,Complete response,no,no,no,63.3,0.76,1,6.438640227,7.801967206,7.374758707,1,1,1,,,,,,,GCB,-1.144886742,,,NON-GCB,Low risk
+3758,M,4,High,1,1,1,1,0,yes,Complete response,no,no,no,46.9,0.82,1,4.646801067,7.743296991,6.098365123,0,1,1,,,,,,,GCB,-1.137825009,,,GCB,Low risk
+3759,M,2,Medium,0,1,1,0,0,yes,Complete response,no,no,no,34.8,2.07,1,5.309317585,5.394959807,6.765892404,0,0,1,,,,,,,GCB,-1.637970649,,,GCB,Low risk
+3760,F,4,High,1,1,1,0,1,no,Complete response,Female,no,no,67.5,1.9,1,,,,,,,,,,,,,,,,,,
+3761,M,0,Low,0,0,0,0,0,no,Complete response,,no,no,52.6,3.27,1,5.486437287,4.49499595,5.584225703,0,0,0,,,,,,,ABC,0.739503557,,,NON-GCB,Medium risk
+3762,M,3,Medium,1,1,1,0,0,yes,Complete response,,no,no,29.9,3.56,1,4.753075906,5.665665454,5.752163716,0,0,0,,,,,,,Unclassified,0.178729591,,,,Medium risk
+3763,M,2,Medium,0,1,1,0,0,yes,Complete response,,no,yes,58,1.62,0,3.64508377,8.686498157,5.024812333,0,1,0,,,,,,,ABC,0.760427009,,,NON-GCB,High risk
+3764,F,2,Medium,0,0,1,1,0,no,Complete response,Female,no,no,58.4,2.94,1,5.317194346,5.38473069,6.419069809,0,0,1,,,,,,,GCB,-0.913601406,GCB,458,GCB,Low risk
+3765,F,4,High,1,1,1,0,1,yes,Complete response,Female,no,no,63.4,2.42,1,5.617885712,8.709973658,6.880242992,0,1,1,,,,,,,ABC,0.66576423,,,GCB,Low risk
+3766,F,4,High,1,1,1,0,1,yes,Complete response,Female,no,no,61.7,1.97,0,5.001946143,6.308163993,5.605382438,0,1,0,,,,,,,ABC,0.369205442,ABC,2512,NON-GCB,High risk
+3767,M,0,Low,0,0,0,0,0,no,Complete response,,no,no,57.5,2.47,1,4.959487818,6.387197169,5.695908282,0,1,0,,,,,,,GCB,-0.262264241,GCB,1825,GCB,Medium risk
+3770,M,4,High,1,1,1,0,1,yes,Complete response,no,no,no,64,1.74,1,6.097007173,4.750706785,6.430411792,1,0,1,,,,,,,GCB,-1.22088821,,,GCB,Low risk
+3771,M,4,High,1,1,1,1,0,yes,Complete response,no,no,no,49.8,1.73,1,5.233764515,5.447210766,5.277316743,0,0,0,,,,,,,ABC,0.564821834,Unclassified,2035,NON-GCB,Medium risk
+3775,M,4,High,1,1,1,1,0,yes,Complete response,no,no,no,22.3,1.3,1,5.65152999,6.736870239,6.044184736,0,1,1,,,,,,,Unclassified,0.189514918,,,GCB,Medium risk
+3776,M,1,Low,0,0,0,0,1,no,Complete response,yes,no,no,67.5,5.87,1,6.813944253,4.075588056,6.526319515,1,0,1,,,,,,,Unclassified,0.236247716,,,GCB,Medium risk
+3777,M,3,Medium,1,0,1,0,1,yes,Complete response,yes,no,yes,66.1,4.04,0,6.218571151,7.026432277,5.719864872,1,1,0,,,,,,,ABC,1.652898903,,,NON-GCB,High risk
+3778,M,2,Medium,1,0,0,0,1,no,Complete response,yes,no,no,67.9,5.24,1,6.3393142,7.128401756,5.89393805,1,1,0,,,,,,,ABC,2.125378015,ABC,3892,NON-GCB,High risk
+3779,M,3,Medium,1,0,1,0,1,no,Complete response,yes,no,no,77.9,4.4,1,4.637038661,5.342683785,4.787296203,0,0,0,,,,,,,ABC,0.812614951,,,NON-GCB,Medium risk
+3780,M,1,Low,0,0,0,0,1,no,Complete response,yes,no,no,78.3,4.22,1,4.173748092,6.901909511,5.715903598,0,1,0,,,,,,,ABC,0.453482177,,,NON-GCB,Low risk
+3781,M,1,Low,0,0,0,0,1,no,Complete response,yes,no,no,65.1,3.28,1,5.720280514,5.451821808,5.175837481,0,0,0,,,,,,,ABC,0.37583105,GCB,1691,NON-GCB,Low risk
+3782,M,2,Medium,1,0,1,0,0,no,Complete response,yes,no,no,58.5,2.25,1,5.663548192,6.684751401,4.971950322,0,1,0,,,,,,,ABC,1.310341916,,,NON-GCB,High risk
+3783,M,2,Medium,1,0,0,0,1,yes,Complete response,yes,no,no,71.6,2.03,1,6.175056358,5.049779862,5.429682348,1,0,0,,,,,,,ABC,1.150822006,,,NON-GCB,Low risk
+3784,M,2,Medium,1,0,0,0,1,no,Complete response,yes,no,no,70.1,1.66,0,6.04453918,7.817561906,5.516183148,1,1,0,,,,,,,ABC,1.906324577,ABC,3644,NON-GCB,High risk
+3785,M,1,Low,0,0,0,0,1,no,Complete response,yes,no,no,60.8,1.13,1,5.278137099,5.194872409,4.690042805,0,0,0,,,,,,,ABC,0.682149807,,,NON-GCB,Medium risk
+3786,M,3,Medium,1,1,1,0,0,yes,Complete response,no,no,no,26.9,1.45,1,4.964226658,5.526415204,5.369534857,0,0,0,,,,,,,Unclassified,0.127504499,,,,Medium risk
+3787,M,4,High,0,1,1,1,1,yes,Complete response,yes,no,no,64.4,1.26,1,6.130815025,6.743090918,4.697847934,1,1,0,,,,,,,ABC,2.02799609,,,NON-GCB,High risk
+3810,M,,,,1,,1,1,no,,no,yes,,68.5,0.14,,6.079961811,3.163941848,6.460808665,1,0,1,positive,positive,positive,,,,GCB,-1.776324871,,,,
+3811,M,,,,0,,0,0,,Complete response,no,no,,48.8,10.33,1,5.056269997,4.571220179,5.915997574,0,0,0,negative,positive,positive,,,,GCB,-1.792637953,,,GCB,Medium risk
+3812,M,,,,0,,0,1,no,Complete response,no,no,,60,10.47,1,6.375719149,4.858210748,7.067589899,1,0,1,negative,positive,negative,,,,GCB,-0.722659494,,,NON-GCB,Low risk
+3813,F,,,,1,,0,1,,Complete response,Female,no,,71.3,4.31,1,5.499871704,6.085997945,5.387550052,0,1,0,positive,positive,negative,,,,Unclassified,-0.189182654,,,NON-GCB,High risk
+3814,M,,,,1,,0,0,,Complete response,no,no,no,37.9,3.44,1,6.436175301,3.853767182,4.579777969,1,0,0,negative,positive,positive,,,,ABC,0.695908743,,,GCB,Medium risk
+3815,F,,,0,1,,0,0,yes,Complete response,Female,,,44.5,5.02,1,4.860832626,6.295268303,5.628094031,0,1,0,positive,positive,positive,,,,GCB,-0.776490713,,,GCB,Medium risk
+3816,F,,,,,,0,0,yes,,Female,,,41.5,0.08,1,4.297286872,4.168409766,7.135247915,0,0,1,,,positive,,,,GCB,-1.363117847,GCB,307,GCB,High risk
+3817,F,,,,1,1,0,0,no,Partial response,Female,,,37.9,1.78,1,4.991244031,5.567486541,6.487339637,0,0,1,,,,,,,GCB,-0.507427112,,,,Medium risk
+3819,M,,,,0,,0,0,yes,Complete response,no,no,,45.5,9.85,1,,,,,,,negative,positive,positive,,,,,,,,,
+3820,M,,,,0,,0,0,no,Complete response,no,no,,54.4,7.94,1,,,,,,,,,positive,,,,,,,,,
+3821,F,,,,0,,0,0,no,Complete response,Female,,,35.8,9.24,1,,,,,,,positive,positive,,,,,,,,,,
+3822,F,,,,1,,0,1,yes,Complete response,Female,yes,yes,67,1.05,1,,,,,,,positive,positive,negative,,,,,,,,,
+3823,F,,,,1,,0,1,,Complete response,Female,no,,76.3,,0,4.852028714,5.624464371,5.686178059,0,0,0,negative,positive,negative,,,,ABC,0.745217091,,,NON-GCB,
+3824,F,,,,,,0,1,no,Complete response,Female,,no,73.1,1.41,0,,,,,,,positive,positive,positive,,,,,,,,,
+3825,M,,,,1,,0,0,,Complete response,no,no,,50.7,2.27,1,,,,,,,positive,positive,positive,,,,,,,,,
+3826,F,,,,1,,0,1,no,,Female,,,82.2,1.07,1,,,,,,,,,,,,,,,,,,
+3827,F,,,,1,,0,1,no,,Female,yes,,77.1,0.09,0,,,,,,,positive,positive,positive,,,,,,,,,
+3828,F,,,,0,,0,1,,Complete response,Female,,,85.4,5.48,0,,,,,,,positive,positive,negative,,,,,,,,,
+3829,F,,,1,1,,0,1,,Complete response,Female,no,,80.9,0.82,1,,,,,,,,,positive,,,,,,,,,
+3830,M,,,,1,,0,0,yes,Complete response,no,no,,58.7,8.3,0,,,,,,,positive,positive,negative,,,,,,,,,
+3831,F,,,1,1,,0,1,yes,Complete response,Female,,,81.6,4.73,1,,,,,,,negative,positive,,,,,,,,,,
+3832,M,,,,0,,0,1,no,Partial response,no,no,yes,71.6,2.18,0,,,,,,,positive,positive,positive,,,,,,,,,
+3833,M,,,,1,1,0,1,yes,Complete response,no,no,,63.6,8.19,1,,,,,,,,positive,positive,,,,,,,,,
+3834,F,,,,0,,0,0,yes,Complete response,Female,,,36,3.48,0,,,,,,,negative,positive,positive,,,,,,,,,
+3835,M,,,,1,1,1,0,no,Complete response,no,no,,58.2,7.13,1,4.945700054,4.82555363,5.98196575,0,0,0,negative,positive,positive,,,,GCB,-2.119227887,,,NON-GCB,Low risk
+3836,M,,,,0,,0,0,yes,Complete response,no,,no,40,1.69,0,,,,,,,positive,negative,negative,,,,,,,,,
+3837,M,,,,1,1,0,0,yes,Partial response,no,no,no,51.9,0.75,1,,,,,,,positive,positive,negative,,,,,,,,,
+3838,F,,,,0,,0,1,yes,Partial response,Female,no,yes,66.6,1.2,0,,,,,,,negative,positive,positive,,,,,,,,,
+3839,M,,,,1,,0,1,yes,Complete response,no,no,,70.7,7.25,1,,,,,,,negative,positive,positive,,,,,,,,,
+3840,M,,,,0,,0,1,no,Complete response,no,no,,75.1,7.46,1,,,,,,,negative,negative,positive,,,,,,,,,
+3842,F,,,,0,,0,1,yes,Complete response,Female,no,,82.1,4.55,1,,,,,,,positive,positive,,,,,,,,,,
+3843,M,,,,1,,0,0,no,Complete response,no,no,,50.5,1.77,0,6.830942604,4.098968856,5.375105329,1,0,0,,positive,,,,,GCB,-0.801929387,,,,Medium risk
+3845,F,,,,,1,0,1,yes,Complete response,Female,no,,74.4,4.47,,6.554272189,6.733829391,6.387664474,1,1,1,positive,positive,positive,,,,Unclassified,0.221901933,,,GCB,
+3846,M,,,,1,1,0,1,yes,,no,no,,76.7,5.64,1,6.602050567,5.980615145,6.387698549,1,0,1,positive,positive,negative,,,,ABC,0.850638843,,,NON-GCB,High risk
+3847,M,,,,1,,0,0,yes,Complete response,no,no,,47.1,6.34,1,4.86145292,7.251705887,5.591602849,0,1,0,positive,positive,negative,,,,GCB,-0.378754292,,,NON-GCB,Medium risk
+3848,M,,,,1,0,0,1,no,Complete response,no,no,,74.9,6.3,0,4.152388164,4.595376218,3.757218079,0,0,0,,positive,positive,,,,Unclassified,-0.126378847,,,,Medium risk
+3849,F,,,,1,,0,1,yes,Partial response,Female,,,63.4,1.36,1,5.159431775,6.857256891,6.018816072,0,1,1,,,,,,,GCB,-0.365284441,,,GCB,High risk
+3851,M,,,,,0,0,0,,Complete response,no,no,,55,1.55,1,4.922994821,7.450954082,6.942620487,0,1,1,positive,positive,positive,,,,GCB,-1.567264683,,,GCB,High risk
+3852,M,,,,1,,1,1,yes,Complete response,no,no,,75.3,,0,6.049067884,6.734468431,7.062485092,1,1,1,negative,positive,negative,,,,GCB,-0.619059427,,,NON-GCB,
+3854,F,,,,,,0,1,,Complete response,Female,,,70.8,6.66,1,,,,,,,positive,positive,positive,,,,,,,,,
+3856,M,,,,0,,0,0,yes,Complete response,no,no,,36.8,5.48,1,5.010843793,6.364730435,6.195249132,0,1,1,positive,positive,positive,,,,GCB,-0.435083189,,,NON-GCB,Low risk
+3857,M,,,,1,,0,1,yes,,no,no,,71.1,5.97,1,5.431801045,6.019414487,4.648462215,0,1,0,positive,positive,positive,,,,ABC,0.611170271,,,,High risk
+3859,M,,,0,0,,0,1,no,,no,no,,83.6,0.04,1,5.649854336,4.522726606,5.773062482,0,0,0,,positive,,,,,Unclassified,0.040197257,,,GCB,High risk
+3861,F,,,,0,,0,1,no,,Female,no,,85.8,3.98,1,6.232795884,5.719002686,7.19936803,1,0,1,negative,positive,positive,,,,GCB,-1.293255058,,,GCB,Low risk
+3865,M,,,,,,0,1,,Complete response,no,no,,72.2,4.38,1,6.453181018,6.096134753,5.835505622,1,1,0,positive,positive,negative,,,,ABC,1.042924943,,,NON-GCB,Medium risk
+3867,F,,,,0,,0,0,no,Complete response,Female,,,31.2,3.85,1,5.736465738,4.955311874,7.519654861,0,0,1,positive,positive,positive,,,,GCB,-0.284823436,,,GCB,Low risk
+3871,F,,,,,,0,1,,,Female,,,83.9,,1,,,,,,,positive,positive,positive,,,,,,,,,
+3872,M,,,,1,1,0,1,no,,no,no,,72.8,0.06,0,6.694535717,4.76288553,4.380883793,1,0,0,,,,,,,GCB,-0.336776255,,,,Medium risk
+3873,F,,,,1,,0,1,no,,Female,no,,76,0.03,0,5.501974521,4.871416225,5.279688328,0,0,0,positive,positive,positive,,,,ABC,1.1604551,,,NON-GCB,High risk
+3875,M,,,,1,1,0,1,,Complete response,no,no,,66.6,2.45,0,5.909842718,5.741969996,5.297080844,0,0,0,,,,,,,ABC,1.482325964,,,,High risk
+3876,M,,,,,,0,0,,Complete response,no,no,yes,54.8,0.92,1,5.742378238,6.348131508,3.852092185,0,1,0,positive,positive,negative,,,,ABC,1.392412971,,,NON-GCB,High risk
+3879,F,,,,0,,0,1,no,Complete response,Female,no,,81.6,0.54,1,4.824548005,4.913511439,5.05803198,0,0,0,positive,positive,positive,,,,Unclassified,0.004960111,,,GCB,Low risk
+3880,M,,,,1,,1,0,no,Complete response,no,,,59.5,2.55,1,4.564984293,8.914963765,6.789591866,0,1,1,,,positive,,,,Unclassified,0.184079049,,,,Medium risk
+3881,M,,,,1,,0,1,no,Complete response,no,,,76.3,2.17,1,5.333305209,7.447336025,7.391397257,0,1,1,,positive,positive,,,,GCB,-1.263347108,,,GCB,High risk
+3882,M,,,,1,,1,1,yes,Partial response,no,no,,68.8,2.35,1,5.155587129,5.729768027,6.23646412,0,0,1,,,positive,,,,GCB,-1.605401766,,,GCB,Low risk
+3883,F,,,,1,,0,1,no,Complete response,Female,,,60.3,1.69,1,6.218259865,7.115970459,5.562102762,1,1,0,negative,positive,negative,,,,ABC,0.277427943,,,NON-GCB,Medium risk
+3885,M,,,0,1,,0,0,yes,No response,no,no,,56.4,0.4,,,,,,,,negative,negative,positive,,,,,,,,,
+3886,M,,,,1,,1,0,,Complete response,no,,,59.6,1.2,1,5.368691851,6.158753751,6.161160813,0,1,1,,positive,,,,,Unclassified,-0.157457284,,,GCB,Low risk
+3887,F,3,Medium,0,0,1,1,1,,Complete response,Female,no,,69.9,1.16,1,4.392370092,8.625501086,7.187121309,0,1,1,negative,positive,positive,,,,GCB,-1.097560666,,,GCB,Low risk
+3888,F,,,,1,,1,1,yes,Complete response,Female,no,yes,73.9,1.21,1,6.655557702,6.279852586,5.114636208,1,1,0,positive,positive,positive,,,,ABC,1.790866408,ABC,3696,NON-GCB,High risk
+3889,F,,,,0,,0,1,,Complete response,Female,,,74.9,1.38,1,,,,,,,,positive,positive,,,,,,,,,
+3891,F,,,,0,,0,1,,Complete response,Female,,,75.5,1.83,1,6.66850538,6.567551476,6.250338795,1,1,1,,,positive,,,,GCB,-1.170780148,,,GCB,High risk
+3892,F,,,,0,,0,0,,Complete response,Female,,,53.8,1.69,1,4.920471398,6.625086871,6.136725314,0,1,1,positive,positive,positive,,,,Unclassified,-0.057552671,,,,Medium risk
+3893,F,,,,0,,0,1,yes,Complete response,Female,,,67.7,1.03,1,5.579874591,6.5541515,6.726071021,0,1,1,negative,negative,positive,,,,GCB,-2.136733504,,,GCB,High risk
+3894,F,,,,0,,0,0,no,Complete response,Female,no,,51.4,0.55,1,6.334464973,5.931237835,6.625358755,1,0,1,,negative,positive,,,,ABC,0.54399814,,,GCB,Medium risk
+3895,F,,,,1,,0,1,no,,Female,no,,66,1.57,1,5.125493724,3.138489907,6.875560579,0,0,1,negative,negative,negative,,,,GCB,-1.713522596,,,GCB,Low risk
+3896,M,,,,,,0,0,,,no,no,,56.6,,,6.978910968,8.470948461,7.301121054,1,1,1,,,,,,,GCB,-2.059991488,GCB,-1082,,
+3898,M,,,0,0,,0,1,no,Complete response,no,,,75.2,0.6,1,4.926458925,4.360188895,6.356357511,0,0,1,negative,negative,negative,,,,GCB,-0.377202097,GCB,715,NON-GCB,High risk
+3899,M,,,0,1,,1,1,no,Complete response,no,,,69.6,1.05,1,5.957935396,4.586951011,5.451813535,0,0,0,negative,positive,,,,,GCB,-0.388342934,,,GCB,Medium risk
+3900,F,,,,1,,1,1,no,Complete response,Female,no,,66.2,1,1,5.256118206,3.835659073,5.063824329,0,0,0,,,,,,,Unclassified,-0.141037567,GCB,1180,,Medium risk
+3901,F,,,,1,1,1,1,,Partial response,Female,no,yes,66.1,0.66,0,4.077903391,6.689873831,6.636871386,0,1,1,positive,positive,positive,,,,GCB,-0.98382915,,,GCB,Low risk
+3902,F,,,0,0,1,,1,no,Complete response,Female,,,82.3,4.62,1,5.04732904,7.130577941,6.423443495,0,1,1,negative,negative,negative,,,,GCB,-0.27512869,GCB,1841,NON-GCB,Low risk
+3903,M,2,Medium,0,0,1,0,1,no,No response,no,no,,86,0.07,0,6.301002233,6.793693961,5.40458957,1,1,0,negative,negative,,,,,ABC,0.627108591,ABC,3039,NON-GCB,High risk
+3904,M,3,Medium,0,1,1,1,0,yes,No response,no,no,,45.9,0.29,0,5.057334023,6.065383969,6.650251858,0,1,1,negative,negative,negative,,,,GCB,-0.850730522,,,GCB,High risk
+3905,F,3,Medium,0,1,0,1,1,no,Complete response,Female,yes,,65.2,3.27,1,5.146945185,8.668948029,6.176228607,0,1,1,,positive,,,,,ABC,1.568012122,ABC,3126,NON-GCB,High risk
+3906,F,2,Medium,0,1,1,0,0,no,Complete response,Female,no,,59.8,8.18,1,4.100454561,3.633878801,6.288947836,0,0,1,,negative,,,,,GCB,-1.539430028,,,GCB,High risk
+3907,F,2,Medium,0,0,1,0,1,yes,No response,Female,no,,79,9.79,1,7.55638242,7.21067598,5.698241512,1,1,0,,negative,,,,,GCB,-0.597653625,,,,Low risk
+3908,M,,,0,1,1,,0,no,Complete response,,,,47.9,7.56,1,5.398967504,4.880190192,6.365180646,0,0,1,negative,,negative,,,,GCB,-1.341488251,,,GCB,Medium risk
+3909,F,4,High,0,1,1,1,1,no,Complete response,Female,no,,76.1,2.07,0,4.784784466,6.195489008,6.431019415,0,1,1,,negative,negative,,,,GCB,-0.680924929,,,NON-GCB,Medium risk
+3910,M,4,High,1,1,1,0,1,no,Complete response,no,no,,69.4,1.19,0,4.858109848,6.126414006,4.713416228,0,1,0,,,,,,,ABC,0.836904041,,,,Medium risk
+3911,F,3,Medium,0,1,0,1,1,no,Complete response,Female,no,,71.4,4.99,1,4.615805238,6.573212012,5.41527383,0,1,0,,,,,,,GCB,-0.711278073,,,,High risk
+3912,M,5,High,1,1,1,1,1,no,No response,no,no,,63.3,1.32,0,,,,,,,,negative,negative,,,,,,,,,
+3913,F,,,0,0,0,,1,no,Complete response,Female,no,,91.7,1.94,0,4.873399648,5.883116906,5.360922215,0,0,0,,negative,,,,,GCB,-0.94122385,,,,High risk
+3914,M,,,0,0,0,,1,no,Complete response,,,,71.8,10.48,1,4.399866842,6.021777717,5.338642901,0,1,0,negative,negative,negative,,,,ABC,1.209916952,,,NON-GCB,Low risk
+3915,M,,,0,0,0,,1,no,Complete response,,no,,63,6.5,1,4.508943157,6.535457027,5.145966505,0,1,0,negative,,negative,,,,Unclassified,-0.017185082,,,NON-GCB,Medium risk
+3916,M,2,Medium,0,1,0,0,1,yes,Complete response,no,no,,61,7.53,1,5.292787871,5.567953331,6.053267008,0,0,1,,,,,,,ABC,0.842357716,,,,High risk
+3917,M,,,0,0,1,,0,no,Complete response,,no,,57.7,7.49,1,,,,,,,,negative,,,,,,,,,,
+3918,F,4,High,1,1,1,0,1,yes,No response,Female,no,,79.6,0.18,0,6.054352415,4.13491653,5.465566812,1,0,0,negative,negative,negative,,,,ABC,0.549721588,ABC,2730,,High risk
+3919,M,,,0,0,0,,0,no,Complete response,,,,53.3,6.5,1,5.323626942,6.50263301,5.178032349,0,1,0,negative,negative,negative,,,,ABC,1.006199188,,,NON-GCB,High risk
+3920,M,,,0,1,0,,1,no,Complete response,,,,63.5,9.3,1,4.518132596,5.033919709,7.50523346,0,0,1,negative,negative,,,,,GCB,-0.798940145,,,GCB,Medium risk
+3921,F,,,0,0,0,,1,no,Complete response,Female,,,64.7,1.58,0,4.945702572,4.798977543,7.533619377,0,0,1,,,negative,,,,GCB,-1.280939031,,,GCB,Medium risk
+3922,M,1,Low,0,0,0,0,1,no,Complete response,no,no,,80.3,4.17,0,4.570309447,3.139688692,4.336016237,0,0,0,,,negative,,,,ABC,0.361002271,Unclassified,2281,NON-GCB,Medium risk
+3923,M,2,Medium,0,1,1,0,0,no,Complete response,no,no,,50.9,4.11,0,,,,,,,negative,,,,,,,,,,,
+3924,M,2,Medium,0,1,0,0,1,no,Complete response,no,yes,,69.7,2.84,0,,,,,,,,,,,,,,,,,,
+3925,F,2,Medium,0,1,0,0,1,no,Complete response,Female,no,,60.2,3.39,1,4.986098051,5.299576059,6.871872641,0,0,1,,,positive,,,,GCB,-1.051457281,,,GCB,Low risk
+3926,M,2,Medium,0,1,0,1,0,yes,Complete response,no,yes,,42.4,3.44,1,5.204259663,5.564774857,5.475436646,0,0,0,,positive,,,,,Unclassified,-0.027654963,,,NON-GCB,Medium risk
+3927,F,2,Medium,0,1,0,0,1,no,Complete response,Female,no,,62.1,5.55,0,4.334939176,6.586438507,5.220223448,0,1,0,negative,,negative,,,,Unclassified,-0.039624041,,,NON-GCB,High risk
+3928,M,4,High,0,1,1,1,1,no,Complete response,no,no,,60,1.2,0,6.00428446,6.132571743,5.357003038,1,1,0,negative,negative,,,,,ABC,1.888693896,ABC,3384,NON-GCB,High risk
+3929,M,2,Medium,0,1,1,0,0,no,Complete response,no,no,,52.8,11.87,1,3.794438315,5.421369379,6.953848552,0,0,1,negative,negative,negative,,,,GCB,-1.247861468,,,GCB,Low risk
+3930,M,,,0,1,1,,1,yes,Complete response,,,,60.5,6.93,0,5.531314122,8.80464376,6.870711546,0,1,1,negative,negative,negative,,,,GCB,-0.319402871,,,GCB,High risk
+3931,M,,,0,0,0,,0,no,Complete response,,,,34.3,7.93,1,4.618760201,6.461359612,6.381437573,0,1,1,negative,negative,,,,,GCB,-0.813493659,,,NON-GCB,Low risk
+3932,M,,,0,0,0,,1,no,Complete response,,,,77.3,2.17,0,6.333505667,5.068726399,7.05182428,1,0,1,negative,negative,negative,,,,GCB,-1.391222426,GCB,615,GCB,Low risk
+3933,M,3,Medium,0,1,0,1,1,no,Complete response,no,no,,75.5,5.02,1,5.750676894,6.923507925,7.27767396,0,1,1,negative,negative,negative,,,,ABC,0.936411438,,,NON-GCB,Low risk
+3934,M,,,0,0,0,,0,no,Complete response,,,,33.2,5.88,1,,,,,,,negative,negative,negative,,,,,,,,,
+3935,M,,,0,1,1,,0,yes,No response,,,,50,1.26,0,,,,,,,negative,negative,negative,,,,,,,,,
+3936,F,,,0,0,1,,0,no,Complete response,Female,no,,59.9,8.58,1,4.76583353,5.004016986,6.304236168,0,0,1,negative,negative,negative,,,,GCB,-0.965604558,,,GCB,Medium risk
+3937,M,3,Medium,1,1,0,0,1,yes,No response,no,no,,77.8,0.11,0,4.401895959,6.264266896,6.319564085,0,1,1,negative,negative,negative,,,,Unclassified,0.163829881,,,NON-GCB,High risk
+3938,F,4,High,1,1,1,0,1,no,No response,Female,no,,79.3,1.13,0,3.979887727,7.452994734,5.123811572,0,1,0,negative,negative,negative,,,,ABC,0.943421775,ABC,2472,NON-GCB,High risk
+3939,F,,,1,0,1,,0,no,Complete response,Female,no,,52.6,6.81,1,,,,,,,negative,negative,negative,,,,,,,,,
+3940,M,,,0,0,1,,0,yes,Partial response,,,,52,7.95,1,5.423628034,5.808407142,7.683763658,0,0,1,negative,negative,negative,,,,GCB,-1.240792372,GCB,989,GCB,Low risk
+3941,M,,,0,1,1,,1,no,Partial response,,,,80.9,7.75,0,6.89513443,4.2135547,5.820575402,1,0,0,negative,negative,negative,,,,GCB,-1.365860791,,,GCB,High risk
+3942,M,4,High,0,1,1,1,1,no,No response,no,no,,61,0.6,0,5.325887729,6.707739519,6.512699762,0,1,1,,,,,,,Unclassified,0.025591193,GCB,1228,,Medium risk
+3943,M,3,Medium,0,1,1,0,1,no,Complete response,no,no,,65,5.81,0,4.071972431,5.931588272,4.265945409,0,0,0,negative,negative,negative,,,,Unclassified,0.171608009,,,NON-GCB,High risk
+3944,F,,,0,0,0,,1,no,Complete response,Female,no,,71.4,5.65,1,6.082680083,4.61772203,7.589185925,1,0,1,,negative,,,,,ABC,1.253338336,,,NON-GCB,Low risk
+3945,F,,,0,0,0,,1,no,Complete response,Female,,,72.6,9.85,0,4.841737586,6.90148016,5.049969817,0,1,0,,negative,negative,,,,ABC,1.066719636,,,,High risk
+3946,M,,,0,0,0,,0,no,Complete response,,,,52,3.74,1,7.970323022,7.758195712,5.798343422,1,1,0,negative,negative,negative,,,,GCB,-0.854249131,,,,Low risk
+3948,F,,,0,0,0,,1,yes,Complete response,Female,no,,68,9.14,1,5.520391304,4.981190595,5.827481192,0,0,0,negative,negative,negative,,,,GCB,-0.458609299,,,GCB,Medium risk
+3949,F,1,Low,0,0,0,0,1,no,Complete response,Female,no,,61.2,7.62,1,6.030044673,5.049943749,6.739080644,1,0,1,negative,,negative,,,,GCB,-0.415657214,,,GCB,Medium risk
+3950,F,1,Low,0,1,0,0,0,no,Complete response,Female,no,,23.4,5.06,1,4.757679498,6.087091737,5.13026488,0,1,0,negative,,negative,,,,ABC,0.477491393,,,NON-GCB,High risk
+3951,M,2,Medium,0,1,0,1,0,no,Complete response,no,no,,48.8,5.02,1,4.784408059,4.441184946,7.832530463,0,0,1,negative,negative,negative,,,,GCB,-0.417760668,GCB,1221,GCB,Medium risk
+3952,M,3,Medium,0,1,1,1,0,yes,No response,no,yes,,42.3,0.53,0,5.426892142,5.225222943,5.389879046,0,0,0,negative,,negative,,,,Unclassified,0.039834802,GCB,1612,NON-GCB,Medium risk
+3953,M,3,Medium,0,1,0,1,1,no,Complete response,no,no,,70.9,4.31,1,0,6.463278138,4.896183302,0,1,0,negative,negative,,,,,Unclassified,-0.05153388,,,NON-GCB,High risk
+3954,M,,,0,1,0,,0,yes,Partial response,,,,53.6,0.99,0,5.507833022,5.75431447,5.553633936,0,0,0,negative,negative,negative,,,,Unclassified,0.032302651,,,NON-GCB,Medium risk
+3955,F,,,0,0,0,,1,no,Complete response,Female,,,72.4,9.29,1,5.547853298,4.15073186,6.549860028,0,0,1,,negative,,,,,GCB,-0.408198548,GCB,1079,,Low risk
+3956,M,3,Medium,1,1,1,0,0,yes,Complete response,no,no,,54.4,7.32,1,5.068502698,5.723391875,5.915568022,0,0,0,negative,negative,negative,,,,GCB,-1.088864838,GCB,1078,GCB,Low risk
+3957,F,3,Medium,0,1,1,0,1,no,Complete response,Female,no,,75.9,6.65,1,6.729605538,5.449032724,6.058455395,1,0,1,negative,negative,negative,,,,ABC,1.131051908,,,NON-GCB,Medium risk
+3958,M,,,1,1,1,,0,yes,Complete response,,,,57.8,8.16,1,5.651549195,6.597543813,5.219533911,0,1,0,negative,negative,negative,,,,ABC,1.560191637,ABC,3036,GCB,High risk
+3959,M,3,Medium,0,1,0,1,1,no,Complete response,yes,yes,,82.9,1.14,0,6.228728523,6.033723284,6.325044592,1,1,1,positive,positive,negative,,,,ABC,1.641822277,,,NON-GCB,High risk
+3960,M,,,0,0,0,,0,no,Partial response,,no,,35.7,10.69,1,5.802467351,4.459078657,5.251224609,0,0,0,negative,negative,,,,,GCB,-0.30303776,,,GCB,Medium risk
+3961,F,,,,1,0,,0,no,Complete response,Female,,,48.7,10.04,1,,,,,,,,negative,,,,,,,,,,
+3962,M,,,0,1,,1,1,yes,Complete response,no,no,,61.8,8.08,1,,,,,,,negative,,negative,,,,,,,,,
+3963,F,,,0,0,1,,0,no,Complete response,Female,,,53.6,10.25,1,4.762867085,5.772834324,7.803317398,0,0,1,negative,negative,negative,,,,GCB,-0.617950509,,,NON-GCB,Low risk
+3964,F,1,Low,0,0,0,0,1,no,No response,Female,no,,82.2,0.39,0,5.011806697,6.189101867,5.205319869,0,1,0,,negative,negative,,,,ABC,0.8223929,,,NON-GCB,Medium risk
+3965,M,4,High,1,1,1,1,0,no,Complete response,yes,,,33.8,1.51,0,6.248775558,6.737087079,4.831250625,1,1,0,negative,negative,negative,,,,ABC,1.332348877,ABC,2828,NON-GCB,High risk
+3966,M,0,Low,0,0,0,0,0,no,Complete response,no,no,,41.1,7.46,1,5.190951595,5.224761378,7.020697192,0,0,1,negative,negative,negative,,,,GCB,-0.690956386,GCB,1274,GCB,Low risk
+3967,F,3,Medium,0,1,1,0,1,no,No response,Female,no,,77.9,0.32,0,4.652548074,9.538840044,7.007462432,0,1,1,negative,,negative,,,,Unclassified,-0.011994192,,,GCB,Medium risk
+3968,M,0,Low,0,0,0,0,0,no,Complete response,no,no,,46.4,7.26,1,4.680227943,9.770500753,7.079250882,0,1,1,negative,negative,negative,,,,Unclassified,-0.046178149,,,GCB,Medium risk
+3969,M,3,Medium,0,1,1,1,0,yes,Complete response,no,no,,59,8.47,1,5.381859847,5.813785978,6.226345506,0,0,1,negative,negative,negative,,,,GCB,-0.582606412,,,GCB,Low risk
+3971,F,,,1,1,1,,1,no,Complete response,Female,,,70.4,1.35,0,3.78010188,4.979079011,7.334666513,0,0,1,negative,positive,positive,,,,GCB,-0.956894558,,,NON-GCB,Low risk
+3972,M,1,Low,0,0,1,0,0,no,Complete response,no,no,,19.5,7.97,1,4.551516179,5.643115694,6.836559597,0,0,1,negative,negative,negative,,,,GCB,-1.955565525,GCB,637,GCB,Low risk
+3973,M,0,Low,0,0,0,0,0,no,Complete response,no,no,,43.1,5.33,1,4.482042817,7.972615145,6.5741659,0,1,1,negative,negative,negative,,,,Unclassified,0.003074139,,,GCB,High risk
+3974,M,,,0,1,0,,1,no,Complete response,,,,60.1,3.04,1,5.923296781,4.535456778,5.494905231,0,0,0,negative,,,,,,GCB,-0.466735082,,,NON-GCB,Low risk
+3975,F,1,Low,0,1,0,0,0,no,Complete response,Female,no,,57.9,5.1,1,4.068510266,7.625811192,5.849045468,0,1,0,,,,,,,GCB,-0.601791202,,,,Medium risk
+3976,M,,,0,1,0,,1,no,Complete response,,no,,85.1,5.16,0,4.615773209,6.004704503,5.694917121,0,1,0,,,,,,,ABC,0.7992089,,,,High risk
+3977,F,3,Medium,0,1,1,1,0,no,Complete response,Female,no,,38.6,7.12,1,4.552738359,5.270588806,5.332760597,0,0,0,negative,negative,negative,,,,GCB,-0.477484965,,,NON-GCB,Low risk
+3978,F,0,Low,0,0,0,0,0,no,Complete response,Female,no,,46.5,5.56,0,5.159680422,7.86578932,6.232506755,0,1,1,negative,negative,,,,,ABC,0.551696367,,,,High risk
+3979,M,,,0,0,0,,1,no,Complete response,,,,74.2,5.41,0,2.665630719,6.221551641,3.76145503,0,1,0,negative,negative,negative,,,,Unclassified,0.179165088,,,NON-GCB,Medium risk
+3980,F,,,0,0,0,,1,yes,,Female,,,61.5,0.79,0,6.952601004,6.341479283,6.830782078,1,1,1,negative,negative,negative,,,,GCB,-0.520479123,,,GCB,High risk
+3981,M,,,0,1,1,,0,no,Complete response,,,,33.3,9.25,1,3.933344709,5.421365687,5.346478756,0,0,0,negative,negative,negative,,,,ABC,0.343329054,Unclassified,2048,NON-GCB,High risk
+3982,M,,,0,0,0,,0,yes,Complete response,,,,56.1,0.82,0,5.946000934,6.485521238,3.770574718,0,1,0,negative,negative,negative,,,,ABC,0.787109703,,,NON-GCB,High risk
+3983,F,3,Medium,0,1,1,0,1,yes,Partial response,Female,no,,71.3,1.28,0,9.55713563,5.638729994,6.558651248,1,0,1,,negative,,,,,GCB,-1.174800518,,,GCB,High risk
+3984,F,,,0,1,1,,1,no,Complete response,Female,,,79.6,5.72,0,2.954073519,6.203724328,2.81952253,0,1,0,negative,negative,,,,,Unclassified,0.027430681,,,NON-GCB,High risk
+3985,F,,,,1,1,,1,yes,No response,Female,,,83.2,0.08,0,5.712803202,6.841604395,4.51643141,0,1,0,negative,negative,,,,,ABC,1.5038461,,,NON-GCB,High risk
+3986,M,1,Low,0,1,0,0,0,no,Complete response,no,no,,33.2,4.62,1,3.81882319,3.858949665,6.26097492,0,0,1,negative,negative,negative,,,,Unclassified,-0.153984535,,,NON-GCB,Medium risk
+3987,M,4,High,1,1,0,1,1,no,No response,no,no,,67.8,2.63,1,5.407349631,4.108704424,6.974161352,0,0,1,,negative,negative,,,,Unclassified,0.192970277,,,NON-GCB,Low risk
+3988,F,3,Medium,0,1,1,0,1,no,Complete response,Female,no,,67.7,7.62,1,3.199517817,6.124316693,5.128601188,0,1,0,negative,negative,negative,,,,ABC,1.233299219,,,NON-GCB,High risk
+3989,M,,,0,1,1,,0,no,Complete response,,,,40,0.97,0,6.139603439,4.394903594,6.832798667,1,0,1,negative,,negative,,,,GCB,-1.405123276,,,GCB,High risk
+3990,M,2,Medium,0,1,0,0,1,no,No response,no,no,,70.4,0.18,0,6.081524423,6.169899442,5.456845819,1,1,0,negative,negative,negative,,,,ABC,0.28762046,,,GCB,High risk
+3991,M,,,0,0,0,,1,no,Complete response,,,,68,9.85,1,,,,,,,negative,negative,negative,,,,,,,,,
+3992,F,,,0,1,1,,1,no,Complete response,Female,,,71,1.31,0,6.637796407,6.128750778,6.510663175,1,1,1,negative,negative,,,,,ABC,1.887763821,,,NON-GCB,High risk
+3993,M,,,0,0,0,,0,no,Complete response,,,,54.9,5.2,1,5.116584836,5.921123531,5.050867264,0,0,0,negative,negative,,,,,ABC,0.346440457,,,NON-GCB,Medium risk
+3994,M,,,0,1,1,,1,no,Complete response,,,,72.9,6.5,0,5.400752077,6.772732184,3.501979276,0,1,0,negative,negative,,,,,ABC,1.398640952,,,GCB,High risk
+3995,M,,,0,1,0,,0,no,Complete response,,,,43.6,4.88,1,,,,,,,negative,negative,negative,,,,,,,,,
+3996,M,,,0,1,1,,1,yes,Complete response,,,,62.1,3.49,1,,,,,,,negative,negative,negative,,,,,,,,,
+3997,M,0,Low,0,0,0,0,0,no,Complete response,no,no,,57.5,5.17,1,5.457844862,5.995218428,6.10618045,0,0,1,negative,negative,negative,,,,Unclassified,0.18569385,,,NON-GCB,Medium risk
+3998,M,1,Low,0,0,0,0,1,no,Complete response,no,no,,64.6,5.37,1,,,,,,,negative,negative,negative,,,,,,,,,
+3999,F,,,0,1,0,,1,no,Complete response,Female,,,82,2.08,0,5.011953755,7.762763256,5.617303957,0,1,0,negative,negative,negative,,,,ABC,0.759063621,,,NON-GCB,High risk
+4000,M,,,0,0,0,,0,no,Complete response,,,,30.5,10,1,,,,,,,negative,,negative,,,,,,,,,
