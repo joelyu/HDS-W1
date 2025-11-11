@@ -8,20 +8,7 @@ This is the submission GitHub repository for the Module 1 Assignment for the MSt
 
 Anupama Reddy, Jenny Zhang, Nicholas S. Davis, Andrea B. Moffitt, Cassandra L. Love, Alexander Waldrop, Sirpa Leppa, Annika Pasanen, Leo Meriranta, Marja-Liisa Karjalainen-Lindsberg, Peter Nørgaard, Mette Pedersen, Anne O. Gang, Estrid Høgdall, Tayla B. Heavican, Waseem Lone, Javeed Iqbal, Qiu Qin, Guojie Li, So Young Kim, Jane Healy, Kristy L. Richards, Yuri Fedoriw, Leon Bernal-Mizrachi, Jean L. Koff, Ashley D. Staton, Christopher R. Flowers, Ora Paltiel, Neta Goldschmidt, Maria Calaminici, Andrew Clear, John Gribben, Evelyn Nguyen, Magdalena B. Czader, Sarah L. Ondrejka, Angela Collie, Eric D. Hsi, Eric Tse, Rex K.H. Au-Yeung, Yok-Lam Kwong, Gopesh Srivastava, William W.L. Choi, Andrew M. Evens, Monika Pilichowska, Manju Sengar, Nishitha Reddy, Shaoying Li, Amy Chadburn, Leo I. Gordon, Elaine S. Jaffe, Shawn Levy, Rachel Rempel, Tiffany Tzeng, Lanie E. Happ, Tushar Dave, Deepthi Rajagopalan, Jyotishka Datta, David B. Dunson, Sandeep S. Dave,
 
-Genetic and Functional Drivers of Diffuse Large B Cell Lymphoma,
-
-Cell,
-
-Volume 171, Issue 2,
-
-2017,
-
-Pages 481-494.e15,
-
-ISSN 0092-8674,
-
-https://doi.org/10.1016/j.cell.2017.09.027.
-(https://www.sciencedirect.com/science/article/pii/S0092867417311212)
+Genetic and Functional Drivers of Diffuse Large B Cell Lymphoma, Cell, Volume 171, Issue 2, 2017, Pages 481-494.e15, ISSN 0092-8674, [https://doi.org/10.1016/j.cell.2017.09.027](https://www.sciencedirect.com/science/article/pii/S0092867417311212)
 
 Abstract: Summary
 
