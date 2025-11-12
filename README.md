@@ -2,7 +2,7 @@
 
 ## Effects of age and gender on using gene expression levels as prognostic markers for diffuse large B cell lymphoma (DLBCL)
 
-This is the submission GitHub repository for the Module 1 Assignment for the MSt program in Healthcare Data Science. The datasets are derived from, and are therefore fully attribute to Reddy et. al for their work on Genetic and Functional Drivers of Diffuse Large B Cell Lymphoma ([ScienceDirect link here](https://www.sciencedirect.com/science/article/pii/S0092867417311212)), namely the [S1 Table](https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc1.xlsx) from their Supplementary Materials. See [Data Attribution](#data-attribution) for details.
+This is the submission GitHub repository for the Module 1 Assignment for the MSt program in Healthcare Data Science. The datasets are derived from, and are therefore fully attribute to Reddy et. al for their work on Genetic and Functional Drivers of Diffuse Large B Cell Lymphoma ([ScienceDirect link here](https://www.sciencedirect.com/science/article/pii/S0092867417311212)), namely the [S1 Table](https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc1.xlsx) and [Supplementary Table S2](https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc2.xlsx) from their Supplementary Materials. See [Data Attribution](#data-attribution) for details.
 
 ---
 
@@ -22,7 +22,8 @@ Keywords: exome sequencing; genetic mutations; diffuse large B cell lymphoma; DL
 
 #### Data Source
 
-Dataset from [Supplementary Table S1](https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc1.xlsx) (1,001 DLBCL patient cohort)
+- [Supplementary Table S1](https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc1.xlsx): Clinical Information and Genetic Alteration Data for 1,001 DLBCL Samples
+- [Supplementary Table S2](https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc2.xlsx): ABC/GCB Classification Using Gene Expression Data
 
 ---
 
@@ -31,6 +32,7 @@ Dataset from [Supplementary Table S1](https://ars.els-cdn.com/content/image/1-s2
 ```
 ├── data
 │   └── mmc1-clinicalInformation.csv
+│   └── mmc2-GeneExpression.csv
 ├── Module1-assignment.html
 ├── Module1-assignment.Rmd
 ├── README.md
@@ -39,4 +41,9 @@ Dataset from [Supplementary Table S1](https://ars.els-cdn.com/content/image/1-s2
 
 ### Data cleaning
 
-[Supplementary Table S1](https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc1.xlsx) was downloaded, and the first sheet named `Clinical Information` was exported as `mmc1-clinicalInformation.csv`, with the first 3 rows removed.
+Both tables ([Supplementary Table S1](https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc1.xlsx) & [Supplementary Table S2](https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc2.xlsx)) were downloaded, and the first sheets named `Clinical Information` and `Gene Expression` respectively were exported as `mmc1-clinicalInformation.csv` and `mmc2-GeneExpression.csv`, both with the first 3 rows removed.
+
+### License and Usage
+
+This dataset is used under [Elsevier User License](https://www.elsevier.com/about/policies-and-standards/open-access-licenses/elsevier-user) for
+non-commercial academic purposes only. See LICENSE.txt for details.
