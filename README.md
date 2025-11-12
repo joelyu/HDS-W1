@@ -31,12 +31,15 @@ Keywords: exome sequencing; genetic mutations; diffuse large B cell lymphoma; DL
 
 ```
 ├── data
-│   └── mmc1-clinicalInformation.csv
+│   ├── mmc1-ClinicalInformation.csv
 │   └── mmc2-GeneExpression.csv
+├── data-preprocessing.R
+├── LICENSE.txt
 ├── Module1-assignment.html
 ├── Module1-assignment.Rmd
 ├── README.md
-└── references.bib
+├── references.bib
+└── Source.txt
 ```
 
 ### Data cleaning
@@ -46,4 +49,4 @@ Both tables ([Supplementary Table S1](https://ars.els-cdn.com/content/image/1-s2
 ### License and Usage
 
 This dataset is used under [Elsevier User License](https://www.elsevier.com/about/policies-and-standards/open-access-licenses/elsevier-user) for
-non-commercial academic purposes only. See LICENSE.txt for details.
+non-commercial academic purposes only. See [LICENSE.txt](LICENSE.txt) for details.
