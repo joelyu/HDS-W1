@@ -1,0 +1,44 @@
+ELSEVIER USER LICENSE - NON-COMMERCIAL USE
+
+This dataset is derived from:
+"Genetic and Functional Drivers of Diffuse Large B Cell Lymphoma"
+Reddy, A., Zhang, J., Davis, N.S., et al.
+Cell, Volume 171, Issue 2, 2017, Pages 481-494.e15
+DOI: 10.1016/j.cell.2017.09.027
+
+COPYRIGHT NOTICE:
+© 2017 Elsevier Inc. All rights reserved.
+
+DATASET SOURCES:
+1. Supplementary Table S1 - Clinical Information and Genetic Alteration Data for 1,001 DLBCL Samples
+   Original URL: https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc1.xlsx
+
+2. Supplementary Table S2 - ABC/GCB Classification Using Gene Expression Data
+   Original URL: https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc2.xlsx
+
+PERMITTED USES (Non-Commercial Only):
+Users may access, download, copy, translate, text and data mine (but may not redistribute, display or adapt) the data for non-commercial purposes provided that users:
+
+- Cite the article using appropriate bibliographic citation
+- Maintain the integrity of the data
+- Retain copyright notices and links to license conditions
+- Ensure compliance with copyright policies for any third-party content
+- Use for academic, educational, or research purposes only
+
+PROHIBITED USES:
+- Commercial redistribution, sale, or licensing for a fee
+- Copying or downloading for sites/services that incorporate advertising
+- Inclusion in commercial works or services available for sale
+- Use by for-profit organizations for promotional purposes
+- Any form of commercial exploitation
+
+REQUIRED CITATION:
+Reddy, A., Zhang, J., Davis, N.S., Moffitt, A.B., Love, C.L., Waldrop, A., Leppa, S., et al. (2017). Genetic and Functional Drivers of Diffuse Large B Cell Lymphoma. Cell, 171(2), 481-494.e15. https://doi.org/10.1016/j.cell.2017.09.027
+
+FULL LICENSE TERMS:
+https://www.elsevier.com/about/policies-and-standards/open-access-licenses/elsevier-user
+
+NOTICE TO USERS:
+This license makes clear what can and cannot be done with this data. Any use beyond the permitted scope requires additional permission from Elsevier.
+
+This use complies with Elsevier's User License for academic and educational non-commercial purposes.
