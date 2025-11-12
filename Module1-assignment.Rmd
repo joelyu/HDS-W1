@@ -1,5 +1,5 @@
 ---
-title: "Effects of age and gender on using gene expression levels as prognostic markers for diffuse large B cell lymphoma (DLBCL)"
+title: "Effects of age and gender on using gene alteration and expression markers as prognostic markers for diffuse large B cell lymphoma (DLBCL)"
 author: "cyy36@cam.ac.uk"
 date: "6/11/2025"
 output:
@@ -65,40 +65,158 @@ For each of the questions, do not spend too long answering – keep it brief. Fo
 |What did you use the tool for?|Searching for relevant journal publications, sanity check on coding strategies, collating notes in my Obsidian vault, debugging code by parsing error messages|
 |How have you used or changed the generative AI's output|E.g. my collated notes always stay in point form so that I write out the paragraphs in my own words. Feedback provided by the GenAI models are weighed and assessed before being acted on.|
 
-```{r setup, include=FALSE, echo = FALSE}
-knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
-library(tidyverse)
-library(knitr)
-library(DT)
-library(httr)
-library(readxl)
-library(here)
-```
-
-
 # Abstract
 
 Diffuse large B cell lymphoma (DLBCL) is the most common non-Hodgkin lymphoma, with prognosis influenced by diverse factors ranging from demographic features (age, gender) to integrated scoring systems such as the International Prognostic Index (IPI), and genetic mutations altering gene expression levels. Oncogenes MYC, BCL2 and BCL6 emerged with strong associations with DLBCL, yet how demographic factors interact with these genetic drivers remains understudied. This study analysed clinical and genomic data from 1001 DLBCL patients to investigate whether age and gender modify the prognostic value of these established oncogenes.
 
+```{r setup, include=FALSE}
+# Set chunk options: hide all code, outputs, messages, warnings, and errors
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE,
+                      results = 'hide', error = FALSE)
+
+# Suppress all output during package installation and loading
+suppressMessages(suppressWarnings({
+
+  # Package installation (silent)
+  if(!require(tidyverse, quietly = TRUE)) install.packages("tidyverse", repos = "http://cran.us.r-project.org")
+  if(!require(knitr, quietly = TRUE)) install.packages("knitr", repos = "http://cran.us.r-project.org")
+  if(!require(DT, quietly = TRUE)) install.packages("DT", repos = "http://cran.us.r-project.org")
+  if(!require(readxl, quietly = TRUE)) install.packages("readxl", repos = "http://cran.us.r-project.org")
+  if(!require(httr, quietly = TRUE)) install.packages("httr", repos = "http://cran.us.r-project.org")
+  if(!require(here, quietly = TRUE)) install.packages("here", repos = "http://cran.us.r-project.org")
+  if(!require(kableExtra, quietly = TRUE)) install.packages("kableExtra", repos = "http://cran.us.r-project.org")
+
+  # Load packages (silent)
+  library(tidyverse)
+  library(knitr)
+  library(DT)
+  library(readxl)
+  library(httr)
+  library(here)
+  library(kableExtra)
+
+}))
+```
+
 # Introduction
 
-Diffuse large B cell lymphoma (DLBCL) is the most common type of non-Hogkin's lymphoma [@blood1997; @WANG2023].  
+```{r data-loading, cache = TRUE}
+# Silent data loading with fallback mechanism
+# Data source tracking for inline text reference
 
-The dataset is a comprehensive clinical and genomic dataset from Reddy et al. [@reddy2017dataset], with 1001 DLBCL patients with demographic, clinical and gene expression data. Key variables for this study are: age; gender; gene expression levels of MYC, BCL2 and BCL6, response to initial treatment and survivability.
+# Define data source URLs
+# Default URL, direct from ScienceDirect
+direct_url <- "https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc1.xlsx"
+# Backup URL, from this GitHub repository
+repo_url <- "https://raw.githubusercontent.com/joelyu/HDS-W1/refs/heads/main/data/mmc1-clinicalInformation.csv"
+
+# Initialize variables for tracking data source
+clinical_data <- NULL
+data_source_type <- ""  # For storing inline text reference on which URL was used
+
+# Suppress all output during data loading
+suppressMessages(suppressWarnings({
+
+  # Attempt 1: Load from original ScienceDirect URL
+  tryCatch({
+    temp_file <- tempfile(fileext = ".xlsx")
+    download.file(direct_url, temp_file, mode = "wb", quiet = TRUE)
+
+    # Verify file downloaded and is readable
+    if (file.exists(temp_file) && file.size(temp_file) > 0) {
+      clinical_data <- read_excel(temp_file, sheet = "Clinical Information", skip = 3)
+
+      # Verify data loaded properly, i.e. matches known dimensions
+      if (nrow(clinical_data) == 1001 && ncol(clinical_data) == 35) {
+        data_source_type <- "original"
+      } else {
+        stop("Wrong dimensions in the ScienceDirect data") # Corresponds to the dimension check
+      }
+    } else {
+      stop("download.file failed") # Corresponds to the file exist and file size != 0 check
+    }
+
+  }, error = function(e) {
+    clinical_data <<- NULL  # Ensure NULL for fallback
+  })
+
+  # Attempt 2: Fallback to processed backup dataset
+  if (is.null(clinical_data)) {
+    tryCatch({
+      clinical_data <- read_csv(repo_url, show_col_types = FALSE)
+
+      # Verify backup data loaded properly, the same dimension checking as above
+      if (nrow(clinical_data) == 1001 && ncol(clinical_data) == 35) {
+        data_source_type <- "backup"
+      } else {
+        stop("Wrong dimensions in the GitHub backup data")
+      }
+
+    }, error = function(e) {
+      clinical_data <<- NULL  # Ensure NULL for next fallback
+    })
+  }
+
+  # Attempt 3: Check for local CSV file in data/ folder
+  if (is.null(clinical_data)) {
+    tryCatch({
+      local_file_path <- here("data", "mmc1-clinicalInformation.csv")
+
+      if (file.exists(local_file_path)) {
+        clinical_data <- read_csv(local_file_path, show_col_types = FALSE)
+
+        # Verify local data loaded properly, same dimension checking
+        if (nrow(clinical_data) == 1001 && ncol(clinical_data) == 35) {
+          data_source_type <- "local"
+        } else {
+          stop("Wrong dimensions in local data file")
+        }
+      } else {
+        stop("Local data file not found")
+      }
+
+    }, error = function(e) {
+      # If all three attempts fail, create empty dataset to prevent knitting errors
+      clinical_data <<- data.frame()
+      data_source_type <<- "all-failed"
+    })
+  }
+
+}))
+
+# Create inline text variables for markdown reference
+if (data_source_type == "original") {
+  data_source_text <- "The dataset was loaded directly from ScienceDirect's [S1 Table](https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc1.xlsx)"
+} else if (data_source_type == "backup") {
+  data_source_text <- "The dataset from the ScienceDirect link was unavailable therefore the processed data from [this coursework's repository](https://github.com/joelyu/HDS-W1/blob/main/data/mmc1-clinicalInformation.csv) was used instead"
+} else if (data_source_type == "local") {
+  data_source_text <- "Both online sources were unavailable, so the dataset was loaded from a local copy in the `data/` folder"
+} else if (data_source_type == "all-failed"){
+  data_source_text <- "All data sources (ScienceDirect, GitHub repository, and local file) are unavailable. Please download the CSV from [this coursework's repository](https://github.com/joelyu/HDS-W1/blob/main/data/mmc1-clinicalInformation.csv) and place it in the `data/` folder as `mmc1-clinicalInformation.csv` and knit the HTML document again so that the analysis code could be run."
+}
+
+# Store row and column counts for inline reference
+if (data_source_type == "all-failed") {
+  # Hardcode expected values if all data sources fail
+  n_patients <- 1001
+  n_variables <- 35
+} else {
+  n_patients <- ifelse(is.null(clinical_data), 0, nrow(clinical_data))
+  n_variables <- ifelse(is.null(clinical_data), 0, ncol(clinical_data))
+}
+```
+
+Diffuse large B cell lymphoma (DLBCL) is the most common type of aggressive non-Hodgkin's lymphoma (NHL) [@blood1997; @WANG2023], with a wide range of factors contributing to prognosis. For a comparable and more comprehensive pre-treatment prognosis model, the international prognostic index (IPI) emerged as a standardised model for DLBCL and other aggressive NHLs [@shipp1993], combining 5 factors: age, Ann Arbor stage classification, ECOG Performance Status, serum lactate dehydrogenase level and the number of extranodal sites of disease. By pooling factors together, the IPI outperformed simple disease stage classification models such as Ann Arbor. As prognosis models improved, so did treatment. The first generation chemotherapy of cyclophosphamide, doxorubicin, vincristine, and prednisone (CHOP) had a cure rate of 30-35% [@Fisher1993CHOP]. With the addition of rituximab to the regiment (R-CHOP) and other advances, DLBCL becomes curable for more than 60% of patients [@johnson2012doublehit]. 
+
+While demographic factors such as age is already featured in IPI, others such as gender is not, and there is an established body of evidence to show the involvment of gender. From how males have higher hazard risks [@Carella2013male] to gender-associated pharmacokinetic differences in rituximab leading to worse treatment responses in males [@Habermann2014sexAge]. Beyond demographic and clinical factors, a series of genetic alterations came out as strong prognostic markers: BCL2 [@Gascoyne1997BCL2], BCL6 [@LoCoco1994BCL6] and MYC [@ChenevixTrench1986MYC]. These changes are observed at both the genotypic and phenotypic levels, as translocation mutations and protein overexpression respectively [@Petrich2014MYCReview]. Furthermore, patients with varying combinations of these alterations have shown worse responses to R-CHOP treatments.
+
+With the advent of machine learning methods came attempts to construct models based on clinical and genomic data. @reddy2017paper set out achieving this by first identifying likely genomic drivers for DLBCL, which included BCL2, BCL6, MYC as well as other candidates. The genotypic alteration data was further combined with phenotypic expression data along with cell-of-origin data to create a genomic risk model, outperforming IPI in terms of accuracy. Given the breadth of @reddy2017paper's work, the effects of gender and age on the prognostic powers of these markers were unfortunately understudied. Given the importance of these two factors are already well established in other studies and cohorts, it is the goal of this study to investigate  
+
+Here the same dataset from the same genomic risk model study by @reddy2017paper is utilised, as their [Supplementary Table S1](https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc1.xlsx). The dataset [@reddy2017dataset] comprises of `r n_patients` DLBCL patients with `r n_variables` variables including demographic, clinical and genomic data. Key variables for this study include: age (continuous), gender (male/female), gene alteration information of MYC, BCL2 and BCL6, gene expression levels of MYC, BCL2 and BCL6, response to initial treatment, and overall survival outcomes.
 
 # Methods
 
-```{r data-loading-test, cache = TRUE}
-# Caching is turned on so that the URL calling is minimised, making the knitting process faster
-# Data source: Genetic and Functional Drivers of Diffuse Large B Cell Lymphoma
-# The citation of this dataset is in the text, the bibliography section. A full citation could also be found in the README.md of the GitHub repository. 
-
-# Loading the dataset027
-
-# Define dataset url
-direct_url <- "https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc1.xlsx"
-
-```
+`r data_source_text`
 
 # Results
 

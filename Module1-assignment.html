@@ -9,7 +9,7 @@
 <meta name="author" content="cyy36@cam.ac.uk">
 <meta name="dcterms.date" content="2025-06-11">
 
-<title>Effects of age and gender on using gene expression levels as prognostic markers for diffuse large B cell lymphoma (DLBCL)</title>
+<title>Effects of age and gender on using gene alteration and expression markers as prognostic markers for diffuse large B cell lymphoma (DLBCL)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -69,7 +69,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Effects of age and gender on using gene expression levels as prognostic markers for diffuse large B cell lymphoma (DLBCL)</h1>
+<h1 class="title">Effects of age and gender on using gene alteration and expression markers as prognostic markers for diffuse large B cell lymphoma (DLBCL)</h1>
 </div>
 
 
@@ -203,11 +203,14 @@ MSt Healthcare Data Science
 </section>
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
-<p>Diffuse large B cell lymphoma (DLBCL) is the most common type of non-Hogkin’s lymphoma <span class="citation" data-cites="blood1997 WANG2023">(<a href="#ref-blood1997" role="doc-biblioref">The Non-Hodgkin’s Lymphoma Classification Project 1997</a>; <a href="#ref-WANG2023" role="doc-biblioref">Wang 2023</a>)</span>.</p>
-<p>The dataset is a comprehensive clinical and genomic dataset from Reddy et al. <span class="citation" data-cites="reddy2017dataset">(<a href="#ref-reddy2017dataset" role="doc-biblioref">Reddy et al. 2017</a>)</span>, with 1001 DLBCL patients with demographic, clinical and gene expression data. Key variables for this study are: age; gender; gene expression levels of MYC, BCL2 and BCL6, response to initial treatment and survivability.</p>
+<p>Diffuse large B cell lymphoma (DLBCL) is the most common type of aggressive non-Hodgkin’s lymphoma (NHL) <span class="citation" data-cites="blood1997 WANG2023">(<a href="#ref-blood1997" role="doc-biblioref">The Non-Hodgkin’s Lymphoma Classification Project 1997</a>; <a href="#ref-WANG2023" role="doc-biblioref">Wang 2023</a>)</span>, with a wide range of factors contributing to prognosis. For a comparable and more comprehensive pre-treatment prognosis model, the international prognostic index (IPI) emerged as a standardised model for DLBCL and other aggressive NHLs <span class="citation" data-cites="shipp1993">(<a href="#ref-shipp1993" role="doc-biblioref">Shipp et al. 1993</a>)</span>, combining 5 factors: age, Ann Arbor stage classification, ECOG Performance Status, serum lactate dehydrogenase level and the number of extranodal sites of disease. By pooling factors together, the IPI outperformed simple disease stage classification models such as Ann Arbor. As prognosis models improved, so did treatment. The first generation chemotherapy of cyclophosphamide, doxorubicin, vincristine, and prednisone (CHOP) had a cure rate of 30-35% <span class="citation" data-cites="Fisher1993CHOP">(<a href="#ref-Fisher1993CHOP" role="doc-biblioref">Fisher et al. 1993</a>)</span>. With the addition of rituximab to the regiment (R-CHOP) and other advances, DLBCL becomes curable for more than 60% of patients <span class="citation" data-cites="johnson2012doublehit">(<a href="#ref-johnson2012doublehit" role="doc-biblioref">Johnson et al. 2012</a>)</span>.</p>
+<p>While demographic factors such as age is already featured in IPI, others such as gender is not, and there is an established body of evidence to show the involvment of gender. From how males have higher hazard risks <span class="citation" data-cites="Carella2013male">(<a href="#ref-Carella2013male" role="doc-biblioref">Carella et al. 2013</a>)</span> to gender-associated pharmacokinetic differences in rituximab leading to worse treatment responses in males <span class="citation" data-cites="Habermann2014sexAge">(<a href="#ref-Habermann2014sexAge" role="doc-biblioref">Habermann 2014</a>)</span>. Beyond demographic and clinical factors, a series of genetic alterations came out as strong prognostic markers: BCL2 <span class="citation" data-cites="Gascoyne1997BCL2">(<a href="#ref-Gascoyne1997BCL2" role="doc-biblioref">Gascoyne et al. 1997</a>)</span>, BCL6 <span class="citation" data-cites="LoCoco1994BCL6">(<a href="#ref-LoCoco1994BCL6" role="doc-biblioref">Lo Coco et al. 1994</a>)</span> and MYC <span class="citation" data-cites="ChenevixTrench1986MYC">(<a href="#ref-ChenevixTrench1986MYC" role="doc-biblioref">Chenevix-Trench, Behm, and Westin 1986</a>)</span>. These changes are observed at both the genotypic and phenotypic levels, as translocation mutations and protein overexpression respectively <span class="citation" data-cites="Petrich2014MYCReview">(<a href="#ref-Petrich2014MYCReview" role="doc-biblioref">Petrich, Nabhan, and Smith 2014</a>)</span>. Furthermore, patients with varying combinations of these alterations have shown worse responses to R-CHOP treatments.</p>
+<p>With the advent of machine learning methods came attempts to construct models based on clinical and genomic data. <span class="citation" data-cites="reddy2017paper">Reddy et al. (<a href="#ref-reddy2017paper" role="doc-biblioref">2017a</a>)</span> set out achieving this by first identifying likely genomic drivers for DLBCL, which included BCL2, BCL6, MYC as well as other candidates. The genotypic alteration data was further combined with phenotypic expression data along with cell-of-origin data to create a genomic risk model, outperforming IPI in terms of accuracy. Given the breadth of <span class="citation" data-cites="reddy2017paper">Reddy et al. (<a href="#ref-reddy2017paper" role="doc-biblioref">2017a</a>)</span>’s work, the effects of gender and age on the prognostic powers of these markers were unfortunately understudied. Given the importance of these two factors are already well established in other studies and cohorts, it is the goal of this study to investigate</p>
+<p>Here the same dataset from the same genomic risk model study by <span class="citation" data-cites="reddy2017paper">Reddy et al. (<a href="#ref-reddy2017paper" role="doc-biblioref">2017a</a>)</span> is utilised, as their <a href="https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc1.xlsx">Supplementary Table S1</a>. The dataset <span class="citation" data-cites="reddy2017dataset">(<a href="#ref-reddy2017dataset" role="doc-biblioref">Reddy et al. 2017b</a>)</span> comprises of 1001 DLBCL patients with 35 variables including demographic, clinical and genomic data. Key variables for this study include: age (continuous), gender (male/female), gene alteration information of MYC, BCL2 and BCL6, gene expression levels of MYC, BCL2 and BCL6, response to initial treatment, and overall survival outcomes.</p>
 </section>
 <section id="methods" class="level1">
 <h1>Methods</h1>
+<p>The dataset was loaded directly from ScienceDirect’s <a href="https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc1.xlsx">S1 Table</a></p>
 </section>
 <section id="results" class="level1">
 <h1>Results</h1>
@@ -224,8 +227,38 @@ MSt Healthcare Data Science
 <section id="references" class="level1">
 <h1>References</h1>
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-Carella2013male" class="csl-entry" role="listitem">
+Carella, Angelo M., Carmino A. de Souza, Stefano Luminari, Luigi Marcheselli, Annalisa Chiappella, Alice di Rocco, Marina Cesaretti, et al. 2013. <span>“Prognostic Role of Gender in Diffuse Large b-Cell Lymphoma Treated with Rituximab Containing Regimens: A Fondazione Italiana Linfomi/Grupo de Estudos Em Moléstias Onco-Hematológicas Retrospective Study.”</span> <em>Leukemia &amp; Lymphoma</em> 54 (1): 53–57. <a href="https://doi.org/10.3109/10428194.2012.691482">https://doi.org/10.3109/10428194.2012.691482</a>.
+</div>
+<div id="ref-ChenevixTrench1986MYC" class="csl-entry" role="listitem">
+Chenevix-Trench, Georgia, Frederick G. Behm, and Eric H. Westin. 1986. <span>“Somatic Rearrangement of the c-Myc Oncogene in Primary Human Diffuse Large-Cell Lymphoma.”</span> <em>International Journal of Cancer</em> 38 (4): 513–16. https://doi.org/<a href="https://doi.org/10.1002/ijc.2910380410">https://doi.org/10.1002/ijc.2910380410</a>.
+</div>
+<div id="ref-Fisher1993CHOP" class="csl-entry" role="listitem">
+Fisher, Richard I., Ellen R. Gaynor, Steve Dahlberg, Martin M. Oken, Thomas M. Grogan, Evonne M. Mize, John H. Glick, Charles A. Coltman, and Thomas P. Miller. 1993. <span>“Comparison of a Standard Regimen (CHOP) with Three Intensive Chemotherapy Regimens for Advanced Non-Hodgkin’s Lymphoma.”</span> <em>New England Journal of Medicine</em> 328 (14): 1002–6. <a href="https://doi.org/10.1056/NEJM199304083281404">https://doi.org/10.1056/NEJM199304083281404</a>.
+</div>
+<div id="ref-Gascoyne1997BCL2" class="csl-entry" role="listitem">
+Gascoyne, Randy D., Sheryle A. Adomat, Stanislaw Krajewski, Maryla Krajewska, Douglas E. Horsman, Anthony W. Tolcher, Susan E. O’Reilly, et al. 1997. <span>“Prognostic Significance of Bcl-2 Protein Expression and Bcl-2 Gene Rearrangement in Diffuse Aggressive Non-Hodgkin’s Lymphoma.”</span> <em>Blood</em> 90 (1): 244–51. https://doi.org/<a href="https://doi.org/10.1182/blood.V90.1.244">https://doi.org/10.1182/blood.V90.1.244</a>.
+</div>
+<div id="ref-Habermann2014sexAge" class="csl-entry" role="listitem">
+Habermann, Thomas M. 2014. <span>“Is Rituximab One for All Ages and Each Sex?”</span> <em>Blood</em> 123 (5): 602–3. <a href="https://doi.org/10.1182/blood-2013-12-543314">https://doi.org/10.1182/blood-2013-12-543314</a>.
+</div>
+<div id="ref-johnson2012doublehit" class="csl-entry" role="listitem">
+Johnson, Nathalie A., Graham W. Slack, Kerry J. Savage, Joseph M. Connors, Susana Ben-Neriah, Sanja Rogic, David W. Scott, et al. 2012. <span>“Concurrent Expression of MYC and BCL2 in Diffuse Large b-Cell Lymphoma Treated with Rituximab Plus Cyclophosphamide, Doxorubicin, Vincristine, and Prednisone.”</span> <em>Journal of Clinical Oncology</em> 30 (28): 3452–59. <a href="https://doi.org/10.1200/JCO.2011.41.0985">https://doi.org/10.1200/JCO.2011.41.0985</a>.
+</div>
+<div id="ref-LoCoco1994BCL6" class="csl-entry" role="listitem">
+Lo Coco, Francesco, Bihui H. Ye, Florigio Lista, Paolo Corradini, Kenneth Offit, Daniel M. Knowles, R. S. K. Chaganti, and Riccardo Dalla-Favera. 1994. <span>“Rearrangements of the BCL6 Gene in Diffuse Large Cell Non-Hodgkin’s Lymphoma.”</span> <em>Blood</em> 83 (7): 1757–59. https://doi.org/<a href="https://doi.org/10.1182/blood.V83.7.1757.1757">https://doi.org/10.1182/blood.V83.7.1757.1757</a>.
+</div>
+<div id="ref-Petrich2014MYCReview" class="csl-entry" role="listitem">
+Petrich, Adam M., Chadi Nabhan, and Sonali M. Smith. 2014. <span>“MYC-Associated and Double-Hit Lymphomas: A Review of Pathobiology, Prognosis, and Therapeutic Approaches.”</span> <em>Cancer</em> 120 (24): 3884–95. https://doi.org/<a href="https://doi.org/10.1002/cncr.28899">https://doi.org/10.1002/cncr.28899</a>.
+</div>
+<div id="ref-reddy2017paper" class="csl-entry" role="listitem">
+Reddy, Anupama, Jenny Zhang, Nicholas S Davis, Andrea B Moffitt, Cassandra L Love, Alexander Waldrop, Sirpa Leppa, et al. 2017a. <span>“Genetic and Functional Drivers of Diffuse Large b Cell Lymphoma.”</span> <em>Cell</em> 171 (2): 481–494.e15. <a href="https://doi.org/10.1016/j.cell.2017.09.027">https://doi.org/10.1016/j.cell.2017.09.027</a>.
+</div>
 <div id="ref-reddy2017dataset" class="csl-entry" role="listitem">
-Reddy, Anupama, Jenny Zhang, Nicholas S Davis, Andrea B Moffitt, Cassandra L Love, Alexander Waldrop, Sirpa Leppa, et al. 2017. <span>“Table S1. Clinical Information and Genetic Alteration Data for 1,001 DLBCL Samples, Related to Figure 1 in "Genetic and Functional Drivers of Diffuse Large b Cell Lymphoma".”</span> Supplementary Material S1, Cell, doi: 10.1016/j.cell.2017.09.027.
+———, et al. 2017b. <span>“Table S1. Clinical Information and Genetic Alteration Data for 1,001 DLBCL Samples, Related to Figure 1 in "Genetic and Functional Drivers of Diffuse Large b Cell Lymphoma".”</span> Supplementary Material S1, Cell, doi: 10.1016/j.cell.2017.09.027.
+</div>
+<div id="ref-shipp1993" class="csl-entry" role="listitem">
+Shipp, Margaret A, David P Harrington, James R Anderson, James O Armitage, Gianni Bonadonna, Günter Brittinger, Fernando Cabanillas, et al. 1993. <span>“A Predictive Model for Aggressive Non-Hodgkin’s Lymphoma.”</span> <em>New England Journal of Medicine</em> 329 (14): 987–94. <a href="https://doi.org/10.1056/NEJM199309303291402">https://doi.org/10.1056/NEJM199309303291402</a>.
 </div>
 <div id="ref-blood1997" class="csl-entry" role="listitem">
 The Non-Hodgkin’s Lymphoma Classification Project. 1997. <span>“A Clinical Evaluation of the International Lymphoma Study Group Classification of Non-Hodgkin’s Lymphoma.”</span> <em>Blood</em> 89 (11): 3909–18. <a href="https://doi.org/10.1182/blood.V89.11.3909">https://doi.org/10.1182/blood.V89.11.3909</a>.
