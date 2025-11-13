@@ -2,7 +2,7 @@
 
 ## Effects of age and gender on using gene expression levels as prognostic markers for diffuse large B cell lymphoma (DLBCL)
 
-This is the submission GitHub repository for the Module 1 Assignment for the MSt program in Healthcare Data Science. The datasets are derived from, and are therefore fully attribute to Reddy et. al for their work on Genetic and Functional Drivers of Diffuse Large B Cell Lymphoma ([ScienceDirect link here](https://www.sciencedirect.com/science/article/pii/S0092867417311212)), namely the [S1 Table](https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc1.xlsx) and [Supplementary Table S2](https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc2.xlsx) from their Supplementary Materials. See [Data Attribution](#data-attribution) for details.
+This is the submission GitHub repository for the Module 1 Assignment for the MSt program in Healthcare Data Science. The datasets are derived from, and are therefore fully attribute to Reddy et. al for their work on Genetic and Functional Drivers of Diffuse Large B Cell Lymphoma ([ScienceDirect link here](https://www.sciencedirect.com/science/article/pii/S0092867417311212)), namely the [S1 Table](https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc1.xlsx) and [S2 Table](https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc2.xlsx) from their Supplementary Materials. See [Data Attribution](#data-attribution) for details.
 
 ---
 
@@ -44,7 +44,7 @@ Keywords: exome sequencing; genetic mutations; diffuse large B cell lymphoma; DL
 
 ### Data cleaning
 
-Both tables ([Supplementary Table S1](https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc1.xlsx) & [Supplementary Table S2](https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc2.xlsx)) were downloaded, and the first sheets named `Clinical Information` and `Gene Expression` respectively were exported as `mmc1-clinicalInformation.csv` and `mmc2-GeneExpression.csv`, both with the first 3 rows removed.
+Both tables ([Supplementary Table S1](https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc1.xlsx) & [Supplementary Table S2](https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc2.xlsx)) were downloaded, and the first sheets named `Clinical Information` and `Gene Expression` respectively were exported as `mmc1-clinicalInformation.csv` and `mmc2-GeneExpression.csv`, both with the first 3 rows removed. The `[data-preprocessing.R](data-preprocessing.R)` will pull the datasets from source, extract the right sheets from the excel files, clean headers (3 rows) and export to cleaned `.csv` files. If all else fails, this simple cleaning could be done via Microsoft Excel or any other major spreadsheet software.
 
 ### License and Usage
 
