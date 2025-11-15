@@ -33,7 +33,9 @@ Keywords: exome sequencing; genetic mutations; diffuse large B cell lymphoma; DL
 ├── data
 │   ├── mmc1-ClinicalInformation.csv
 │   └── mmc2-GeneExpression.csv
-├── data-preprocessing.R
+├── supplementary-materials/
+│   ├── 01-data-preprocessing.R
+│   └── 02-data-processing.R
 ├── LICENSE.txt
 ├── Module1-assignment.html
 ├── Module1-assignment.Rmd
@@ -42,9 +44,16 @@ Keywords: exome sequencing; genetic mutations; diffuse large B cell lymphoma; DL
 └── Source.txt
 ```
 
+### Supplementary Analysis Scripts
+
+The `supplementary-materials/` directory contains reproducible scripts for data processing and quality assessment:
+
+- **[01-data-preprocessing.R](supplementary-materials/01-data-preprocessing.R)** - Downloads and preprocesses raw Excel data from ScienceDirect to CSV format
+- **[02-data-processing.R](supplementary-materials/02-data-processing.R)** - Combines datasets and performs comprehensive data quality analysis
+
 ### Data cleaning
 
-Both tables ([Supplementary Table S1](https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc1.xlsx) & [Supplementary Table S2](https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc2.xlsx)) were downloaded, and the first sheets named `Clinical Information` and `Gene Expression` respectively were exported as `mmc1-clinicalInformation.csv` and `mmc2-GeneExpression.csv`, both with the first 3 rows removed. The `[data-preprocessing.R](data-preprocessing.R)` will pull the datasets from source, extract the right sheets from the excel files, clean headers (3 rows) and export to cleaned `.csv` files. If all else fails, this simple cleaning could be done via Microsoft Excel or any other major spreadsheet software.
+Both tables ([Supplementary Table S1](https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc1.xlsx) & [Supplementary Table S2](https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc2.xlsx)) were downloaded, and the first sheets named `Clinical Information` and `Gene Expression` respectively were exported as `mmc1-clinicalInformation.csv` and `mmc2-GeneExpression.csv`, both with the first 3 rows removed. The [`01-data-preprocessing.R`](supplementary-materials/01-data-preprocessing.R) script will pull the datasets from source, extract the right sheets from the excel files, clean headers (3 rows) and export to cleaned `.csv` files. If all else fails, this simple cleaning could be done via Microsoft Excel or any other major spreadsheet software.
 
 ### License and Usage
 
