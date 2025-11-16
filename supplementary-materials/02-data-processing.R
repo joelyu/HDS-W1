@@ -17,9 +17,6 @@ suppressMessages(suppressWarnings({
   if (!require(readxl, quietly = TRUE)) {
     install.packages("readxl", repos = "http://cran.us.r-project.org")
   }
-  if (!require(readr, quietly = TRUE)) {
-    install.packages("readr", repos = "http://cran.us.r-project.org")
-  }
   if (!require(here, quietly = TRUE)) {
     install.packages("here", repos = "http://cran.us.r-project.org")
   }
@@ -280,8 +277,8 @@ clinical_selected <- clinical_data %>%
     age_at_diagnosis = `age at diagnosis`,
     os_years = `Overall Survival years`,
     censored = Censored,
-    log2_myc = `log2 MYC expr`,
-    log2_bcl2 = `log2 BCL2 expr`,
+    MYC = `log2 MYC expr`,
+    BCL2 = `log2 BCL2 expr`,
     log2_bcl6_mmc1 = `log2 BCL6 expr`
   )
 
@@ -295,6 +292,18 @@ expression_selected <- gene_expression_data %>%
 combined_data <- clinical_selected %>%
   inner_join(expression_selected, by = "sample_id") %>%
   mutate(
+    # Create binary therapy response variable
+    complete_response = case_when(
+      response_therapy == "Complete response" ~ "Complete response",
+      response_therapy %in%
+        c("Partial response", "No response") ~ "Incomplete response",
+      TRUE ~ NA_character_
+    ),
+    complete_response = factor(
+      complete_response,
+      levels = c("Complete response", "Incomplete response")
+    ),
+    # Create age groups based on NCCN-IPI classification
     age_group_nccn = case_when(
       age_at_diagnosis <= 40 ~ "≤40 years",
       age_at_diagnosis <= 60 ~ "41-60 years",
@@ -307,7 +316,8 @@ combined_data <- clinical_selected %>%
       levels = c("≤40 years", "41-60 years", "61-75 years", ">75 years")
     )
   ) %>%
-  # Reorder columns to place age_group_nccn right after age_at_diagnosis
+  # Reorder columns for logical flow
+  relocate(complete_response, .after = response_therapy) %>%
   relocate(age_group_nccn, .after = age_at_diagnosis)
 
 # Validate BCL6 consistency
@@ -318,7 +328,7 @@ bcl6_validation <- combined_data %>%
 # Remove duplicate BCL6 column
 combined_data <- combined_data %>%
   select(-log2_bcl6_mmc2) %>%
-  rename(log2_bcl6 = log2_bcl6_mmc1)
+  rename(BCL6 = log2_bcl6_mmc1)
 
 # ===============================================================================
 # COMBINED DATASET COMPLETENESS ANALYSIS
@@ -346,7 +356,7 @@ combined_completeness <- combined_data %>%
           "age_group_nccn"
         ) ~ "Clinical_Categorical",
       variable %in% c("age_at_diagnosis", "os_years") ~ "Clinical_Continuous",
-      variable %in% c("log2_myc", "log2_bcl2", "log2_bcl6") ~ "Primary_Genes",
+      variable %in% c("MYC", "BCL2", "BCL6") ~ "Primary_Genes",
       TRUE ~ "Expression_Genes"
     )
   ) %>%
@@ -380,9 +390,9 @@ key_vars_completeness <- combined_completeness %>%
         "response_therapy",
         "os_years",
         "censored",
-        "log2_myc",
-        "log2_bcl2",
-        "log2_bcl6"
+        "MYC",
+        "BCL2",
+        "BCL6"
       )
   ) %>%
   select(variable, complete_cases, total_cases, completeness_pct, missing_cases)
