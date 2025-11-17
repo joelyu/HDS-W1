@@ -4,12 +4,25 @@ author: "cyy36@cam.ac.uk"
 date: "6/11/2025"
 output:
   html_document:
-    css: dark-theme.css
-    highlight: breezedark
     toc: yes
+    theme: default
 # toc_float: yes
 bibliography: references.bib
 ---
+
+<style>
+.figure-caption {
+  font-size: 0.9em;
+  color: #555;
+  font-style: normal;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding: 8px 12px;
+  background-color: #f8f9fa;
+  border-left: 4px solid #dee2e6;
+  border-radius: 0 4px 4px 0;
+}
+</style>
 
 <center>
 ![](https://onlinecareeraccelerators.pace.cam.ac.uk/hubfs/CAM%20DS%20PACE/Professional%20and%20Continuing%20Education_V_reversed%20colour%201.svg)
@@ -33,7 +46,7 @@ bibliography: references.bib
 |Word Count: whole assignment including codes| |
 |Word Count: main body excluding abstract, references and supplementary materials| |
 
-#### Permission to share your assignment: delete as appropriate
+#### Permission to share your assignment
 
 I do give permission to share my assignment with future MSt participants.
 
@@ -62,14 +75,14 @@ For each of the questions, do not spend too long answering – keep it brief. Fo
 
 |   |   |
 |---|---|
-|Which permitted use of generative AI are you acknowledging?|Semantic search of literature and notes, outline creation, code debugging, informed feedback|
+|Which permitted use of generative AI are you acknowledging?|Semantic search of literature and notes, outline creation, code debugging, output formatting and generation, informed feedback|
 |Which generative AI tool did you use (name and version)?|Claude Code v2.0.3x (the version likely changed over usage), Claude Desktop v1.0.3x with PubMed Connector, M365 CoPilot|
 |What did you use the tool for?|Searching for relevant journal publications, sanity check on coding strategies, collating notes in my Obsidian vault, debugging code by parsing error messages|
-|How have you used or changed the generative AI's output|E.g. my collated notes always stay in point form so that I write out the paragraphs in my own words. Feedback provided by the GenAI models are weighed and assessed before being acted on.|
+|How have you used or changed the generative AI's output|E.g. my collated notes always stay in point form so that I write out the paragraphs in my own words. Feedback provided by the GenAI models are weighed and assessed before being acted on. Code generated are checked, e.g. it tried to run Levene test on a model fitted using residuals as the response, this was rectified back to the relevant response variable.|
 
 # Abstract
 
-Diffuse large B cell lymphoma (DLBCL) is the most common non-Hodgkin lymphoma, with prognosis influenced by diverse factors ranging from demographic features (age, gender) to integrated scoring systems such as the International Prognostic Index (IPI), and genetic mutations altering gene expression levels. Oncogenes MYC, BCL2 and BCL6 emerged with strong associations with DLBCL, and further studies have identified over 150 genetic drivers of this disease. Yet how demographic factors interact with this expanding catalogue of genetic markers remains understudied. This study analysed clinical and genomic data from 1001 DLBCL patients to investigate whether age and gender modify the prognostic associations between gene expression markers and clinical outcomes.
+Diffuse large B cell lymphoma (DLBCL) is the most common non-Hodgkin lymphoma, with prognosis influenced by diverse factors ranging from demographic features (age, gender) to integrated scoring systems such as the International Prognostic Index (IPI), and genetic mutations altering gene expression levels. The IPI was updated to National Comprehensive Cancer Network International Prognostic Index (NCCN-IPI), where age was updated from a binary category (cut off at 60) to a quaternary category (≤40, 41 - 60, 61 - 75, >75). Oncogenes MYC, BCL2 and BCL6 emerged with strong associations with DLBCL, and further studies have identified over 150 genetic drivers of this disease. Yet how demographic factors interact with this expanding catalogue of genetic markers and the latter's predictive powers on clinical outcomes remains understudied. This study analysed clinical and genomic data from 1001 DLBCL patients to investigate whether age and gender modify the prognostic associations between gene expression markers and complete therapy response. Age was found to have significant effect on the gene expression levels of 10 genes and the prognostic power of 1 gene on therapy response. The 10 genes BCL2 (p = 0.0002), BLNK (p = 0.003), MYBL1 (p = 0.0096), SH3BP5 (p = 0.0156), ITPKB (p = 0.0203), CCND2 (p = 0.0203), PTPN1 (p = 0.0314), BMF (p = 0.0339), FUT8 (p = 0.0367), LMO2 (p = 0.0377) (all p-values are FDR adjusted), were found to have different expression levels across NCCN-IPI age groups. The CCND2 also had significant interaction effects (Likelihood ratio test adjusted p-value = 0.005523) with age on predicting complete response outcomes, with older (61-75, >75) age groups' complete response probability increasing with CCND2 expression, while younger (≤40, 41-60) age groups' complete response probability decreasing with CCND2 expression. This highlights the need to consider the prognostic value of genomic drivers and age in concert rather than individually.
 
 ```{r setup, include=FALSE}
 # Set chunk options: hide all code, outputs, messages, warnings, and errors
@@ -87,6 +100,8 @@ suppressMessages(suppressWarnings({
   if(!require(httr, quietly = TRUE)) install.packages("httr", repos = "http://cran.us.r-project.org")
   if(!require(here, quietly = TRUE)) install.packages("here", repos = "http://cran.us.r-project.org")
   if(!require(kableExtra, quietly = TRUE)) install.packages("kableExtra", repos = "http://cran.us.r-project.org")
+  if (!require(plotly, quietly = TRUE)) install.packages("plotly")
+  if (!require(multcompView, quietly = TRUE)) install.packages("multcompView")
 
   # Load packages (silent)
   library(tidyverse)
@@ -96,6 +111,8 @@ suppressMessages(suppressWarnings({
   library(httr)
   library(here)
   library(kableExtra)
+  library(plotly)
+  library(multcompView)
 
 }))
 ```
@@ -302,13 +319,15 @@ if (data_source_type_mmc2 == "all-failed") {
 }
 ```
 
-Diffuse large B cell lymphoma (DLBCL) is the most common type of aggressive non-Hodgkin's lymphoma (NHL) [@blood1997; @WANG2023], with a wide range of factors contributing to prognosis. For a comparable and more comprehensive pre-treatment prognosis model, the international prognostic index (IPI) emerged as a standardised model for DLBCL and other aggressive NHLs [@shipp1993], combining 5 factors: age, Ann Arbor stage classification, ECOG Performance Status, serum lactate dehydrogenase level and the number of extranodal sites of disease. By pooling factors together, the IPI outperformed simple disease stage classification models such as Ann Arbor. As prognosis models improved, so did treatment. The first generation chemotherapy of cyclophosphamide, doxorubicin, vincristine, and prednisone (CHOP) had a cure rate of 30-35% [@Fisher1993CHOP]. With the addition of rituximab to the regimen (R-CHOP) and other advances, DLBCL becomes curable for more than 60% of patients [@johnson2012doublehit]. 
+Diffuse large B cell lymphoma (DLBCL) is the most common type of aggressive non-Hodgkin's lymphoma (NHL) [@blood1997; @WANG2023], with a wide range of factors contributing to prognosis. For a comparable and more comprehensive pre-treatment prognosis model, the international prognostic index (IPI) emerged as a standardised model for DLBCL and other aggressive NHLs [@shipp1993], combining 5 factors: age, Ann Arbor stage classification, ECOG Performance Status, serum lactate dehydrogenase (LDH) level and the number of extranodal sites of disease. By pooling factors together, the IPI outperformed simple disease stage classification models such as Ann Arbor. [@zhou2014NCCN-IPI] went on to improve on the IPI, creating the National Comprehensive Cancer Network International Prognostic Index (NCCN-IPI) as an update to the IPI. A key innovation of the NCCN-IPI was using cubic splines to model the continuous factors of age and LDH levels as higher resolution categorical factors, modifying them from binary factors to quaternary and ternary factors respectively. As prognosis models improved, so did treatment. The first generation chemotherapy of cyclophosphamide, doxorubicin, vincristine, and prednisone (CHOP) had a cure rate of 30-35% [@Fisher1993CHOP]. With the addition of rituximab to the regimen (R-CHOP) and other advances, DLBCL becomes curable for more than 60% of patients [@johnson2012doublehit]. 
 
-While age is incorporated into the IPI, other demographic factors such as gender are not, despite established evidence for their prognostic involvement. Males demonstrate higher hazard ratios [@Carella2013male] and gender-associated pharmacokinetic differences in rituximab lead to worse treatment responses in males [@Habermann2014sexAge]. These demographic effects raise questions about whether risk factors perform uniformly across patient subgroups. Beyond demographic and clinical factors, a series of genetic alterations have emerged as strong prognostic markers: BCL2 [@Gascoyne1997BCL2], BCL6 [@LoCoco1994BCL6] and MYC [@ChenevixTrench1986MYC]. These changes are observed at both the genotypic and phenotypic levels, as translocation mutations and protein overexpression respectively [@Petrich2014MYCReview]. Furthermore, patients with varying combinations of these alterations have shown worse responses to R-CHOP treatments, highlighting the clinical relevance of genomic profiling.
+While age is incorporated into the IPI (and subsequent NCCN-IPI), other demographic factors such as gender are not, despite established evidence for their prognostic involvement. Males demonstrate higher hazard ratios [@Carella2013male] and gender-associated pharmacokinetic differences in rituximab lead to worse treatment responses in males [@Habermann2014sexAge]. These demographic effects raise questions about whether risk factors perform uniformly across patient subgroups. Beyond demographic and clinical factors, a series of genetic alterations have emerged as strong prognostic markers: BCL2 [@Gascoyne1997BCL2], BCL6 [@LoCoco1994BCL6] and MYC [@ChenevixTrench1986MYC]. These changes are observed at both the genotypic and phenotypic levels, as translocation mutations and protein overexpression respectively [@Petrich2014MYCReview]. Furthermore, patients with varying combinations of these alterations have shown worse responses to R-CHOP treatments, highlighting the clinical relevance of genomic profiling. Some of these genetic markers, such as BCL6 [@Klapper2012ageInteraction] and MYC [@Kurz2025ageSexGeneRef-Rel], have shown association with patient age, adding another layer of interaction that could influence prognosis. @Klapper2012ageInteraction further demonstrated that IRF4 translocations are associated with age, and along with BCL6 and other genetic drivers, collectively lose prognostic significance when age is incorporated in multivariate models. This indicates that demographic factors may not merely add to genomic risk additively, but could modify how these genomic drivers influence clinical outcomes.
 
-With the advent of machine learning methods came attempts to construct models based on clinical and genomic data. @reddy2017paper performed whole exome and transcriptome sequencing in 1001 DLBCL patients, identifying 150 genetic drivers including BCL2, BCL6, and MYC alongside numerous newly characterised candidates. By combining genotypic alterations, gene expression data and cell-of-origin classification, they developed a genomic risk model that outperformed the IPI. However, the potential for demographic factors to modify these genomic associations remains understudied. Given that age and gender both demonstrate prognostic significance and influence treatment response, it remains unknown whether genomic risk markers perform uniformly across demographic subgroups. This study addresses this gap by investigating whether age and gender modify the prognostic associations between gene expression markers and clinical outcomes in DLBCL.
+With the advent of machine learning methods came attempts to construct models based on clinical and genomic data. @reddy2017paper performed whole exome and transcriptome sequencing in 1001 DLBCL patients, identifying 150 genetic drivers including BCL2, BCL6, and MYC alongside numerous newly characterised candidates. By combining genotypic alterations, gene expression data and cell-of-origin classification, they developed a genomic risk model that outperformed the IPI. However, the potential for demographic factors to modify these genomic associations remains understudied. Given that age and gender both demonstrate prognostic significance and influence treatment response, it remains unknown whether genomic risk markers perform uniformly across demographic subgroups. If these demographic factors modify how gene expression levels impact treatment response, such that the same gene expression levels in different gender or age groups lead to different prognostic outcomes, it would be crucial that these differences are identified and applied in future models to prevent inaccurate prognoses. 
 
-Here the same datasets [@reddy2017dataset] from the genomic risk model study by @reddy2017paper are utilised, specifically their clinical information dataset from [Supplementary Table S1](https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc1.xlsx) and gene expression dataset from [Supplementary Table S2](https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc2.xlsx). The clinical information dataset comprises `r n_patients_clinical` DLBCL patients with `r n_clinical_variables` variables. Patients are recorded with anonymised IDs with the variables of interest to us being gender (binary: F/M), response to initial therapy (categorical: Complete response, Partial response, No response), age at diagnosis (continuous), overall survival years (continuous), censored (binary: 0 indicating death observed, 1 indicating patient alive at last follow-up), the expression level of MYC, BCL2 and BCL6 genes based on log2 transformation of RNA-sequencing Fragments per kilobase (FPKM) value. These columns are highlighted and used in further analysis not only due to their relevance, but also their relative completeness. The gene expression dataset comprises the gene expression level (log2 transformed again) of `r n_genes_measured` genes (1 gene BCL6 is also recorded in the clinical information dataset) for `r n_patients_expression` patients.
+This study addresses this gap by investigating whether age and gender interact and modify the prognostic associations between gene expression markers and therapy response in DLBCL. The associations between the demographic factors (age & gender) with complete therapy response and the gene expression levels of 21 genes were first considered. Logistic regression models using gene expression levels of 21 genes were fitted with therapy response, and the interaction of demographic factors with these gene expression levels were examined. Exploring how demographic factors interact with known and potential genomic drivers of DLBCL could reveal age or gender-dependent tumour biology that inform therapeutic approaches.
+
+Here the same datasets [@reddy2017dataset] from the genomic risk model study by @reddy2017paper are utilised, specifically their clinical information dataset from [Supplementary Table S1](https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc1.xlsx) and gene expression dataset from [Supplementary Table S2](https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc2.xlsx). The clinical information dataset comprises `r n_patients_clinical` DLBCL patients with `r n_clinical_variables` variables. Patients are recorded with anonymised IDs with the variables of interest to us being gender, response to initial therapy, age at diagnosis, overall survival years, censored, the expression level of MYC, BCL2 and BCL6 genes based on log2 transformation of RNA-sequencing Fragments per kilobase (FPKM) value. These columns are highlighted and used in further analysis not only due to their relevance, but also their relative completeness. The gene expression dataset comprises the gene expression level (log2 transformed again) of `r n_genes_measured` genes (1 gene BCL6 is also recorded in the clinical information dataset) for `r n_patients_expression` patients recorded using the same anonymised IDs.
 
 # Methods
 
@@ -324,14 +343,14 @@ clinical_selected <- clinical_data %>%
     age_at_diagnosis = `age at diagnosis`,
     os_years = `Overall Survival years`,
     censored = Censored,
-    log2_myc = `log2 MYC expr`,
-    log2_bcl2 = `log2 BCL2 expr`,
+    MYC = `log2 MYC expr`,
+    BCL2 = `log2 BCL2 expr`,
     log2_bcl6_mmc1 = `log2 BCL6 expr`
   )
 
-# Select gene expression data from MMC2 (all genes except Samples column)
+# Select gene expression data from MMC2 (exclude Samples and metadata columns)
 expression_selected <- gene_expression_data %>%
-  select(-Samples) %>%
+  select(-Samples, -`RNA-seq core set of samples`) %>%
   rename(log2_bcl6_mmc2 = BCL6) %>%  # Rename for validation
   bind_cols(sample_id = gene_expression_data$Samples, .)
 
@@ -339,6 +358,15 @@ expression_selected <- gene_expression_data %>%
 combined_data <- clinical_selected %>%
   inner_join(expression_selected, by = "sample_id") %>%
   mutate(
+    # Create binary therapy response variable
+    complete_response = case_when(
+      response_therapy == "Complete response" ~ "Complete response",
+      response_therapy %in% c("Partial response", "No response") ~ "Incomplete response",
+      TRUE ~ NA_character_
+    ),
+    complete_response = factor(complete_response,
+                              levels = c("Complete response", "Incomplete response")),
+    # Create age groups based on NCCN-IPI classification
     age_group_nccn = case_when(
       age_at_diagnosis <= 40 ~ "≤40 years",
       age_at_diagnosis <= 60 ~ "41-60 years",
@@ -348,7 +376,9 @@ combined_data <- clinical_selected %>%
     ),
     age_group_nccn = factor(age_group_nccn,
                            levels = c("≤40 years", "41-60 years", "61-75 years", ">75 years"))
-  )
+  ) %>%
+  # Reorder columns for logical flow
+  relocate(complete_response, .after = response_therapy)
 
 # Validate BCL6 consistency and keep one version
 bcl6_validation <- combined_data %>%
@@ -358,25 +388,1123 @@ bcl6_validation <- combined_data %>%
 # Remove duplicate BCL6 column and rename
 combined_data <- combined_data %>%
   select(-log2_bcl6_mmc2) %>%
-  rename(log2_bcl6 = log2_bcl6_mmc1)
+  rename(BCL6 = log2_bcl6_mmc1)
 
 # Store dimensions for inline text
 n_final_patients <- nrow(combined_data)
 n_final_variables <- ncol(combined_data)
 ```
 
-The datasets are available via Elsevier's open access [license](https://www.elsevier.com/about/policies-and-standards/open-access-licenses/elsevier-user), patient clinical information and tumours were obtained by @reddy2017paper from 
- are downloaded as Excel files directly from their links on ScienceDirect page for @reddy2017paper's publication, [Table S1](https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc1.xlsx) and [Table S2](https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc2.xlsx) using the `download.file` function from R's `utils` package [@R-base] and read via the `readxl` package [@readxl].
+The datasets are available via Elsevier's [open access license](https://www.elsevier.com/about/policies-and-standards/open-access-licenses/elsevier-user), as shown on the  ScienceDirect [webpage](https://www.sciencedirect.com/science/article/pii/S0092867417311212) of @reddy2017paper's publication. For their work, the authors obtained anonymised patient clinical information and tumours, which were processed in line with a protocol approved by the Institutional Review Board at Duke University. A total number of 2 datasets were downloaded as Excel files directly from their links on the aforementioned ScienceDirect, [Table S1](https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc1.xlsx) and [Table S2](https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc2.xlsx) using the `download.file` function from R's `utils` package [@R-base] and read via the `readxl` package [@readxl]. The specific sheets were selected then cleaned to be exported as `.csv` files, all this pre-processing is documented in the [`01-data-preprocessing.R`](https://github.com/joelyu/HDS-W1/blob/4374f49386fbd61b173d46e15218e792497948c2/supplementary-materials/01-data-preprocessing.R) script. The processed `.csv` files were then uploaded to this project's GitHub repo as [`mmc1-ClinicalInformation.csv` (raw)](https://raw.githubusercontent.com/joelyu/HDS-W1/refs/heads/main/data/mmc1-ClinicalInformation.csv) and [`mmc2-GeneExpression.csv` (raw)](https://raw.githubusercontent.com/joelyu/HDS-W1/refs/heads/main/data/mmc2-GeneExpression.csv). This RMarkdown document is self-sufficient to contain the code for the relevant analysis and plots shown only, for a complete analysis including assumption testing, post-hoc analysis, tests that showed insignificant results, please refer to the [`supplementary-materials`](https://github.com/joelyu/HDS-W1/tree/4374f49386fbd61b173d46e15218e792497948c2/supplementary-materials) folder of this repository. This document also supports sourcing the datasets from 3 sources for redundancy: original ScienceDirect links, processed `.csv` files on GitHub and local processed `.csv` files when this repository is downloaded. For this knitted HTML document, `r unified_data_source_text` 
 
-For this knitted HTML document, `r unified_data_source_text`
+The 2 datasets were then joined using common patient IDs, and 2 new columns were added. One column was called `age_group_nccn`, obtained by transforming the age at diagnosis variable into 4 categorical groups according to cutoffs defined by @zhou2014NCCN-IPI's NCCN-IPI: $≤40, 41 - 60, 61 - 75, >75$. Another column called `complete_response` was added by taking the values from the `response_therapy` column, re-classifying "Partial response" and "No response" as "Incomplete response" while keeping "Complete response" unchanged. This was to prepare the dataset to be fitted for binomial logistic regression. As both datasets had gene expression levels for BCL6, the two columns were compared to verify identicality and 1 was discarded. The resulting table was one with `r n_final_patients` and `r n_final_variables` variables, of which include the anonymised patient ID; demographic variables such as gender (binary: F/M), age (continuous, at diagnosis) and age group (quaternary, as defined by NCCN-IPI); clinical information of therapy response (ternary: Complete response, Partial response, No response), overall survivability (continuous, in years), censorship (binary: 0 indicating death observed, 1 indicating patient alive at last follow-up); and the log2 transformed gene expression levels of 21 genes: MYC, BCL2, BCL6, ITPKB, MME, MYBL1, DENND3, NEK6, LMO2, LRMP, SH3BP5, IRF4, PIM1, ENTPD1, BLNK, CCND2, ETV6, FUT8, BMF, IL16 and PTPN1. 
 
+Gene expression data were limited to these 21 genes available from @reddy2017dataset's datasets (Supplementary Tables [S1](https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc1.xlsx) & [S2](https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc2.xlsx)), representing 2 categories. The first category is the "big 3" oncogenic drivers of MYC, BCL2 and BCL6, serving as strong prognostic markers. Moreover, MYC [@Kurz2025ageSexGeneRef-Rel] and BCL6 [@Klapper2012ageInteraction] have both shown age-dependent prognostic effects, suggesting age may modify how these markers influence clinical outcomes. The second category comprises 19 cell-of-origin classifier genes (DLBCL subtypes: ABC vs GCB) [@wright2003cellOfOriginGeneExpression], with BCL6 appearing in both categories. Despite their initial utility for classification, gene members such as CCND2 and LMO2 [@Lossos2004LMO2CCND2] have shown to be strong survival predictors alongside BCL2 and BCL6. More importantly, IRF4 is among the genetic features showing age associations and contributes to genetic complexity that loses prognostic significance when age is incorporated [@Klapper2012ageInteraction], alongside BCL6. Both categories therefore contain genes with potential to interact with demographic factors, making them suitable for testing whether demographic factors modify their prognostic associations.
 
+Overall, data completeness for these `r n_final_variables` columns was exceptional, with 23 columns being 100%, and the remaining 5 columns all with more than 93% completeness. This processing is all done with the [`02-data-processing.R`](https://github.com/joelyu/HDS-W1/blob/4374f49386fbd61b173d46e15218e792497948c2/supplementary-materials/02-data-processing.R) script. Characteristics of the cohort are summarised in [Table 1](#table1).
 
+<div id="table1">
+**Table 1. Baseline Cohort Characteristics**
+</div>
+
+```{r cohort-characteristics, echo=FALSE, results='markup'}
+# Create cohort characteristics table stratified by age groups
+library(kableExtra)
+
+# Calculate overall statistics
+total_n <- nrow(combined_data)
+
+# Get age group sample sizes
+age_groups <- c("≤40 years", "41-60 years", "61-75 years", ">75 years")
+age_n <- combined_data %>%
+  filter(!is.na(age_group_nccn)) %>%
+  count(age_group_nccn) %>%
+  arrange(match(age_group_nccn, age_groups))
+
+# Gender distributions by age group
+gender_age_table <- combined_data %>%
+  filter(!is.na(age_group_nccn), !is.na(gender)) %>%
+  count(age_group_nccn, gender) %>%
+  group_by(age_group_nccn) %>%
+  mutate(
+    age_total = sum(n),
+    pct = round(100 * n / age_total, 1)
+  ) %>%
+  ungroup() %>%
+  select(age_group_nccn, gender, n, pct) %>%
+  pivot_wider(
+    names_from = age_group_nccn,
+    values_from = c(n, pct),
+    names_sep = "_",
+    values_fill = 0
+  ) %>%
+  arrange(match(gender, c("F", "M")))
+
+# Age statistics by age group
+age_stats <- combined_data %>%
+  filter(!is.na(age_at_diagnosis), !is.na(age_group_nccn)) %>%
+  group_by(age_group_nccn) %>%
+  summarise(
+    mean_age = mean(age_at_diagnosis, na.rm = TRUE),
+    sd_age = sd(age_at_diagnosis, na.rm = TRUE),
+    .groups = 'drop'
+  )
+
+total_age_mean <- mean(combined_data$age_at_diagnosis, na.rm = TRUE)
+total_age_sd <- sd(combined_data$age_at_diagnosis, na.rm = TRUE)
+
+# Treatment response by age group
+response_stats <- combined_data %>%
+  filter(!is.na(complete_response), !is.na(age_group_nccn)) %>%
+  group_by(age_group_nccn, complete_response) %>%
+  summarise(n = n(), .groups = 'drop') %>%
+  group_by(age_group_nccn) %>%
+  mutate(
+    total = sum(n),
+    pct = round(100 * n / total, 1)
+  ) %>%
+  ungroup()
+
+# Overall survival by age group
+os_stats <- combined_data %>%
+  filter(!is.na(os_years), !is.na(age_group_nccn)) %>%
+  group_by(age_group_nccn) %>%
+  summarise(
+    mean_os = mean(os_years, na.rm = TRUE),
+    sd_os = sd(os_years, na.rm = TRUE),
+    .groups = 'drop'
+  )
+
+total_os_mean <- mean(combined_data$os_years, na.rm = TRUE)
+total_os_sd <- sd(combined_data$os_years, na.rm = TRUE)
+
+# Helper function to get values safely
+get_value <- function(data, col_pattern) {
+  cols <- grep(col_pattern, names(data), value = TRUE)
+  if (length(cols) > 0) {
+    return(data[[cols[1]]])
+  }
+  return(0)
+}
+
+# Build the table data
+cohort_table <- data.frame(
+  Characteristic = c(
+    "**Sample size**",
+    "**Gender**",
+    "  Female",
+    "  Male",
+    "**Age at diagnosis, years**",
+    "**Treatment response**",
+    "  Complete response",
+    "  Incomplete response",
+    "**Overall survival, years**"
+  ),
+  Total = c(
+    paste0("N = ", total_n),
+    "",
+    paste0(sum(combined_data$gender == "F", na.rm = TRUE), " (",
+           round(100 * sum(combined_data$gender == "F", na.rm = TRUE) / total_n, 1), "%)"),
+    paste0(sum(combined_data$gender == "M", na.rm = TRUE), " (",
+           round(100 * sum(combined_data$gender == "M", na.rm = TRUE) / total_n, 1), "%)"),
+    paste0(round(total_age_mean, 1), " ± ", round(total_age_sd, 1)),
+    "",
+    paste0(sum(combined_data$complete_response == "Complete response", na.rm = TRUE), " (",
+           round(100 * sum(combined_data$complete_response == "Complete response", na.rm = TRUE) /
+                 sum(!is.na(combined_data$complete_response)), 1), "%)"),
+    paste0(sum(combined_data$complete_response == "Incomplete response", na.rm = TRUE), " (",
+           round(100 * sum(combined_data$complete_response == "Incomplete response", na.rm = TRUE) /
+                 sum(!is.na(combined_data$complete_response)), 1), "%)"),
+    paste0(round(total_os_mean, 1), " ± ", round(total_os_sd, 1))
+  ),
+  Age_40_under = c(
+    paste0("n = ", age_n$n[age_n$age_group_nccn == "≤40 years"]),
+    "",
+    paste0(get_value(gender_age_table[gender_age_table$gender == "F", ], "n_≤40"), " (",
+           get_value(gender_age_table[gender_age_table$gender == "F", ], "pct_≤40"), "%)"),
+    paste0(get_value(gender_age_table[gender_age_table$gender == "M", ], "n_≤40"), " (",
+           get_value(gender_age_table[gender_age_table$gender == "M", ], "pct_≤40"), "%)"),
+    paste0(round(age_stats$mean_age[age_stats$age_group_nccn == "≤40 years"], 1), " ± ",
+           round(age_stats$sd_age[age_stats$age_group_nccn == "≤40 years"], 1)),
+    "",
+    paste0(response_stats$n[response_stats$age_group_nccn == "≤40 years" &
+                          response_stats$complete_response == "Complete response"], " (",
+           response_stats$pct[response_stats$age_group_nccn == "≤40 years" &
+                             response_stats$complete_response == "Complete response"], "%)"),
+    paste0(response_stats$n[response_stats$age_group_nccn == "≤40 years" &
+                          response_stats$complete_response == "Incomplete response"], " (",
+           response_stats$pct[response_stats$age_group_nccn == "≤40 years" &
+                             response_stats$complete_response == "Incomplete response"], "%)"),
+    paste0(round(os_stats$mean_os[os_stats$age_group_nccn == "≤40 years"], 1), " ± ",
+           round(os_stats$sd_os[os_stats$age_group_nccn == "≤40 years"], 1))
+  ),
+  Age_41_60 = c(
+    paste0("n = ", age_n$n[age_n$age_group_nccn == "41-60 years"]),
+    "",
+    paste0(get_value(gender_age_table[gender_age_table$gender == "F", ], "n_41-60"), " (",
+           get_value(gender_age_table[gender_age_table$gender == "F", ], "pct_41-60"), "%)"),
+    paste0(get_value(gender_age_table[gender_age_table$gender == "M", ], "n_41-60"), " (",
+           get_value(gender_age_table[gender_age_table$gender == "M", ], "pct_41-60"), "%)"),
+    paste0(round(age_stats$mean_age[age_stats$age_group_nccn == "41-60 years"], 1), " ± ",
+           round(age_stats$sd_age[age_stats$age_group_nccn == "41-60 years"], 1)),
+    "",
+    paste0(response_stats$n[response_stats$age_group_nccn == "41-60 years" &
+                          response_stats$complete_response == "Complete response"], " (",
+           response_stats$pct[response_stats$age_group_nccn == "41-60 years" &
+                             response_stats$complete_response == "Complete response"], "%)"),
+    paste0(response_stats$n[response_stats$age_group_nccn == "41-60 years" &
+                          response_stats$complete_response == "Incomplete response"], " (",
+           response_stats$pct[response_stats$age_group_nccn == "41-60 years" &
+                             response_stats$complete_response == "Incomplete response"], "%)"),
+    paste0(round(os_stats$mean_os[os_stats$age_group_nccn == "41-60 years"], 1), " ± ",
+           round(os_stats$sd_os[os_stats$age_group_nccn == "41-60 years"], 1))
+  ),
+  Age_61_75 = c(
+    paste0("n = ", age_n$n[age_n$age_group_nccn == "61-75 years"]),
+    "",
+    paste0(get_value(gender_age_table[gender_age_table$gender == "F", ], "n_61-75"), " (",
+           get_value(gender_age_table[gender_age_table$gender == "F", ], "pct_61-75"), "%)"),
+    paste0(get_value(gender_age_table[gender_age_table$gender == "M", ], "n_61-75"), " (",
+           get_value(gender_age_table[gender_age_table$gender == "M", ], "pct_61-75"), "%)"),
+    paste0(round(age_stats$mean_age[age_stats$age_group_nccn == "61-75 years"], 1), " ± ",
+           round(age_stats$sd_age[age_stats$age_group_nccn == "61-75 years"], 1)),
+    "",
+    paste0(response_stats$n[response_stats$age_group_nccn == "61-75 years" &
+                          response_stats$complete_response == "Complete response"], " (",
+           response_stats$pct[response_stats$age_group_nccn == "61-75 years" &
+                             response_stats$complete_response == "Complete response"], "%)"),
+    paste0(response_stats$n[response_stats$age_group_nccn == "61-75 years" &
+                          response_stats$complete_response == "Incomplete response"], " (",
+           response_stats$pct[response_stats$age_group_nccn == "61-75 years" &
+                             response_stats$complete_response == "Incomplete response"], "%)"),
+    paste0(round(os_stats$mean_os[os_stats$age_group_nccn == "61-75 years"], 1), " ± ",
+           round(os_stats$sd_os[os_stats$age_group_nccn == "61-75 years"], 1))
+  ),
+  Age_over_75 = c(
+    paste0("n = ", age_n$n[age_n$age_group_nccn == ">75 years"]),
+    "",
+    paste0(get_value(gender_age_table[gender_age_table$gender == "F", ], "n_>75"), " (",
+           get_value(gender_age_table[gender_age_table$gender == "F", ], "pct_>75"), "%)"),
+    paste0(get_value(gender_age_table[gender_age_table$gender == "M", ], "n_>75"), " (",
+           get_value(gender_age_table[gender_age_table$gender == "M", ], "pct_>75"), "%)"),
+    paste0(round(age_stats$mean_age[age_stats$age_group_nccn == ">75 years"], 1), " ± ",
+           round(age_stats$sd_age[age_stats$age_group_nccn == ">75 years"], 1)),
+    "",
+    paste0(response_stats$n[response_stats$age_group_nccn == ">75 years" &
+                          response_stats$complete_response == "Complete response"], " (",
+           response_stats$pct[response_stats$age_group_nccn == ">75 years" &
+                             response_stats$complete_response == "Complete response"], "%)"),
+    paste0(response_stats$n[response_stats$age_group_nccn == ">75 years" &
+                          response_stats$complete_response == "Incomplete response"], " (",
+           response_stats$pct[response_stats$age_group_nccn == ">75 years" &
+                             response_stats$complete_response == "Incomplete response"], "%)"),
+    paste0(round(os_stats$mean_os[os_stats$age_group_nccn == ">75 years"], 1), " ± ",
+           round(os_stats$sd_os[os_stats$age_group_nccn == ">75 years"], 1))
+  )
+)
+
+# Create the formatted table
+cohort_table %>%
+  kable(
+    col.names = c("Characteristic", "Total (N=775)", "≤40 years", "41-60 years", "61-75 years", ">75 years"),
+    align = c("l", "c", "c", "c", "c", "c"),
+    escape = FALSE
+  ) %>%
+  kable_styling(
+    bootstrap_options = c("striped", "hover", "condensed"),
+    full_width = FALSE,
+    position = "center"
+  ) %>%
+  column_spec(1, bold = FALSE, width = "2.5in") %>%
+  column_spec(2:6, width = "1.2in") %>%
+  row_spec(c(1, 2, 5, 6), bold = TRUE) %>%
+  add_footnote(
+    # c("Values shown as n (%) for categorical variables and mean ± SD for continuous variables",
+    #   "NCCN-IPI age groups: National Comprehensive Cancer Network International Prognostic Index",
+    #   "Complete response vs Incomplete response (Partial + No response combined)",
+    #   "Percentages calculated within each age group for gender distributions and treatment responses"),
+    notation = "none"
+  )
+```
+
+<div class="figure-caption">
+Demographic and clinical characteristics stratified by NCCN-IPI age groups. <br> Values shown as n (%) for categorical variables and mean ± SD for continuous variables. <br>  NCCN-IPI age groups represent National Comprehensive Cancer Network International Prognostic Index classifications. <br> Treatment response categories combine partial and no response as "Incomplete response" versus complete response. <br>  Percentages are calculated within each age group for gender distributions and treatment responses.
+</div>
+
+First, the variation of gene expression levels of the 21 genes in different gender and age groups were scrutinised using the Student's t-test and one-way Welch ANOVA respectively, and with false discovery rate (FDR) adjustment for the p-values [@Reiner2003FDRGeneExpression] due to the number of genes analysed (see [`04-data-analysis.R`](https://github.com/joelyu/HDS-W1/blob/77db28d5411251b14940ad21b18b7e69bfa0f3b2/supplementary-materials/04-data-analysis.R)). Post-hoc Games-Howell tests were then conducted for signficant ANOVA results. Assumptions for these tests were checked with diagnostic tests and plots, and the overall distribution of gene expression against age and gender visually examined (see [`03-data-exploration.R`](https://github.com/joelyu/HDS-W1/blob/77db28d5411251b14940ad21b18b7e69bfa0f3b2/supplementary-materials/03-data-exploration.R)). The normality of the data is already satisfied by the virtue of large N ($n = 775$) and high data completeness. Second, the association of therapy response completeness with gender and age groups were also studied with the Chi-squared tests with expected frequencies checked to be $> 5$ in [`05-response-analysis.R`](https://github.com/joelyu/HDS-W1/blob/main/supplementary-materials/05-response-analysis.R). Last but not least, logistic regression models were fitted to predict response completeness and test how age or gender groupings affect predictions. Null (response ~ 1) models were fitted as the baseline, with gene expression only models following (response ~ gene expression), and then with main effect (response ~ gene expression + age/gender), and then with interaction effects (response ~ gene expression × age/gender). The effects of age or gender group were investigated independently. The fitted models were then analysed with the likelihood-ratio test (LRT) to obtain FDR-corrected p-values. Significant models were then checked for model fit with goodness-of-fit with Chi-square tests and Akaike Information Criterion (AIC) scores, along with influential observations and collinearity [@GLMCambio], all recorded in [`06-effect-analysis.R`](https://github.com/joelyu/HDS-W1/blob/main/supplementary-materials/06-effect-analysis.R)
+
+```{r analysis-ANOVA, cache = TRUE}
+# Load required packages for analysis
+if (!require(rstatix, quietly = TRUE)) install.packages("rstatix")
+library(rstatix)
+
+# Get gene expression variables (excluding clinical variables)
+gene_expression_vars <- combined_data %>%
+  select(-sample_id, -gender, -response_therapy, -complete_response,
+         -age_at_diagnosis, -age_group_nccn, -os_years, -censored) %>%
+  names()
+
+# Initialize ANOVA results storage
+age_anova_summary <- list()
+
+# Perform Welch ANOVA for each gene
+for (gene in gene_expression_vars) {
+  # Prepare data for ANOVA
+  analysis_data <- combined_data %>%
+    filter(!is.na(.data[[gene]]), !is.na(age_group_nccn)) %>%
+    select(all_of(gene), age_group_nccn)
+
+  if (nrow(analysis_data) >= 20) {
+    # Perform Welch ANOVA (handles unequal variances)
+    anova_result <- oneway.test(
+      analysis_data[[gene]] ~ analysis_data$age_group_nccn,
+      var.equal = FALSE
+    )
+
+    # Calculate eta-squared (effect size)
+    grand_mean <- mean(analysis_data[[gene]], na.rm = TRUE)
+    group_stats <- analysis_data %>%
+      group_by(age_group_nccn) %>%
+      summarise(n = n(), mean = mean(.data[[gene]], na.rm = TRUE), .groups = "drop")
+
+    ss_between <- sum(group_stats$n * (group_stats$mean - grand_mean)^2)
+    ss_total <- sum((analysis_data[[gene]] - grand_mean)^2, na.rm = TRUE)
+    eta_squared <- ss_between / ss_total
+
+    # Store summary results
+    age_anova_summary[[gene]] <- data.frame(
+      gene = gene,
+      n_total = nrow(analysis_data),
+      f_statistic = round(anova_result$statistic, 3),
+      df_num = anova_result$parameter[1],
+      df_den = round(anova_result$parameter[2], 1),
+      p_value = anova_result$p.value,
+      eta_squared = round(eta_squared, 3),
+      stringsAsFactors = FALSE
+    )
+  }
+}
+
+# Combine ANOVA summaries and adjust p-values
+age_anova_table <- bind_rows(age_anova_summary) %>%
+  mutate(p_adjusted = p.adjust(p_value, method = "fdr")) %>%
+  mutate(significant_adjusted = p_adjusted < 0.05) %>%
+  arrange(p_value)
+
+# Identify genes with significant ANOVA results for Games-Howell
+significant_anova_genes <- age_anova_table %>%
+  filter(significant_adjusted == TRUE) %>%
+  pull(gene)
+
+# Games-Howell post-hoc analysis for significant genes
+games_howell_summary <- list()
+
+if (length(significant_anova_genes) > 0) {
+  for (gene in significant_anova_genes) {
+    # Prepare data
+    analysis_data <- combined_data %>%
+      filter(!is.na(.data[[gene]]), !is.na(age_group_nccn)) %>%
+      select(all_of(gene), age_group_nccn)
+
+    # Games-Howell test
+    games_howell_result <- analysis_data %>%
+      games_howell_test(formula(paste(gene, "~ age_group_nccn")))
+
+    # Convert to consistent format
+    games_howell_tidy <- games_howell_result %>%
+      select(group1, group2, estimate = estimate, p.adj, p.adj.signif)
+
+    # Create summary table
+    games_howell_summary[[gene]] <- games_howell_tidy %>%
+      mutate(
+        gene = gene,
+        comparison = paste(group1, "vs", group2),
+        mean_difference = round(estimate, 3),
+        p_value = p.adj,
+        significant = p.adj < 0.05,
+        .before = 1
+      ) %>%
+      select(gene, comparison, mean_difference, p_value, significant)
+  }
+}
+
+# Combine Games-Howell summaries
+if (length(games_howell_summary) > 0) {
+  games_howell_table <- bind_rows(games_howell_summary) %>%
+    arrange(gene, p_value)
+} else {
+  games_howell_table <- data.frame()
+}
+```
+
+```{r logistic-regression-analysis, echo=FALSE, warning=FALSE, message=FALSE, results='markup', cache=TRUE}
+# Load required packages for logistic regression analysis
+suppressMessages(suppressWarnings({
+  if (!require(broom, quietly = TRUE)) install.packages("broom")
+  if (!require(emmeans, quietly = TRUE)) install.packages("emmeans")
+  library(broom)
+  library(emmeans)
+}))
+
+# Prepare data for logistic regression
+analysis_data <- combined_data %>%
+  filter(!is.na(complete_response)) %>%
+  mutate(response_binary = ifelse(complete_response == "Complete response", 1, 0))
+
+# Identify gene expression variables (excluding clinical variables)
+non_gene_cols <- c(
+  "sample_id", "gender", "response_therapy", "complete_response",
+  "age_at_diagnosis", "os_years", "censored", "age_group_nccn", "response_binary"
+)
+gene_expression_vars <- setdiff(names(analysis_data), non_gene_cols)
+
+# Function to fit interaction models for each gene
+fit_interaction_models <- function(data, genes, interaction_var, interaction_name, silent = TRUE) {
+  results <- list()
+
+  for (gene in genes) {
+    tryCatch({
+      # Filter data for this gene (matching script approach)
+      gene_data <- data %>%
+        filter(!is.na(.data[[gene]]), !is.na(.data[[interaction_var]]))
+
+      if (nrow(gene_data) < 10) next
+
+      # Fit nested models (using reformulate like in script)
+      null_model <- glm(response_binary ~ 1,
+                       data = gene_data, family = binomial)
+
+      gene_model <- glm(reformulate(gene, "response_binary"),
+                       data = gene_data, family = binomial)
+
+      main_model <- glm(reformulate(c(gene, interaction_var), "response_binary"),
+                               data = gene_data, family = binomial)
+
+      interaction_model <- glm(reformulate(c(gene, interaction_var,
+                                           paste(gene, interaction_var, sep = ":")),
+                                         "response_binary"),
+                              data = gene_data, family = binomial)
+
+      # Likelihood ratio tests - all models now use identical datasets
+      lrt_gene_vs_null <- anova(null_model, gene_model, test = "Chisq")
+      lrt_main_vs_gene <- anova(gene_model, main_model, test = "Chisq")
+      lrt_interaction_vs_main <- anova(main_model, interaction_model, test = "Chisq")
+
+      # Extract p-values
+      gene_p <- lrt_gene_vs_null$`Pr(>Chi)`[2]
+      demographic_p <- lrt_main_vs_gene$`Pr(>Chi)`[2]
+      interaction_p <- lrt_interaction_vs_main$`Pr(>Chi)`[2]
+
+      # Store results (matching script structure)
+      results[[gene]] <- list(
+        null_model = null_model,
+        gene_model = gene_model,
+        main_effects_model = main_model,
+        interaction_model = interaction_model,
+        gene_p = gene_p,
+        demographic_p = demographic_p,
+        interaction_p = interaction_p,
+        n_patients = nrow(gene_data)
+      )
+
+    }, error = function(e) {
+      if (!silent) {
+        cat("Error with gene", gene, ":", e$message, "\n")
+      }
+      cat("ERROR with gene", gene, ":", e$message, "\n")
+    })
+  }
+
+  return(results)
+}
+
+# Run age group interaction analysis
+age_interaction_results <- fit_interaction_models(
+  analysis_data, gene_expression_vars, "age_group_nccn", "Age", silent = TRUE
+)
+
+# Extract p-values and apply FDR correction
+age_interaction_p_values <- sapply(age_interaction_results, function(x) x$interaction_p)
+age_interaction_p_values <- age_interaction_p_values[!is.na(age_interaction_p_values)]
+
+# FDR correction
+age_fdr_adj <- p.adjust(age_interaction_p_values, method = "fdr")
+sig_age_genes <- names(age_fdr_adj)[age_fdr_adj < 0.05]
+
+# Create comprehensive results table
+gene_names <- names(age_interaction_p_values)
+age_lrt_comprehensive <- data.frame(
+  gene = gene_names,
+  interaction_p = as.numeric(age_interaction_p_values),
+  interaction_p_adj = as.numeric(age_fdr_adj),
+  significant_interaction = age_fdr_adj < 0.05,
+  stringsAsFactors = FALSE
+)
+
+# Sort the results table
+age_lrt_comprehensive <- age_lrt_comprehensive %>%
+  arrange(interaction_p_adj, interaction_p)
+
+# Extract gene-only effects for all genes (for forest plot)
+all_gene_effects <- map_dfr(age_interaction_results, function(result) {
+  if (!is.null(result$gene_model)) {
+    tryCatch({
+      tidy_model <- tidy(result$gene_model, conf.int = TRUE)
+      if (nrow(tidy_model) >= 2) {
+        gene_row <- tidy_model[2, ]  # Second row is the gene coefficient
+        return(gene_row)
+      }
+    }, error = function(e) {
+      return(NULL)
+    })
+  }
+  return(NULL)
+}, .id = "gene")
+
+# Filter and process only if we have results
+if (nrow(all_gene_effects) > 0 && "estimate" %in% names(all_gene_effects)) {
+  all_gene_effects <- all_gene_effects %>%
+    filter(!is.na(estimate)) %>%
+    mutate(
+      odds_ratio = exp(estimate),
+      or_lower = exp(conf.low),
+      or_upper = exp(conf.high),
+      p_adj = p.adjust(p.value, method = "fdr")
+    )
+} else {
+  # Create empty data frame with required columns
+  all_gene_effects <- data.frame(
+    gene = character(0),
+    term = character(0),
+    estimate = numeric(0),
+    std.error = numeric(0),
+    statistic = numeric(0),
+    p.value = numeric(0),
+    conf.low = numeric(0),
+    conf.high = numeric(0),
+    odds_ratio = numeric(0),
+    or_lower = numeric(0),
+    or_upper = numeric(0),
+    p_adj = numeric(0),
+    stringsAsFactors = FALSE
+  )
+}
+
+# Store specific models for visualization
+if ("MYC" %in% names(age_interaction_results)) {
+  myc_gene_model <- age_interaction_results[["MYC"]]$gene_model
+  myc_interaction_model <- age_interaction_results[["MYC"]]$interaction_model
+}
+
+if ("CCND2" %in% names(age_interaction_results)) {
+  ccnd2_gene_model <- age_interaction_results[["CCND2"]]$gene_model
+  ccnd2_interaction_model <- age_interaction_results[["CCND2"]]$interaction_model
+}
+
+# Summary statistics for reporting
+n_genes_analyzed <- length(age_interaction_results)
+n_significant_interactions <- sum(age_lrt_comprehensive$significant_interaction)
+```
 
 # Results
 
+Gene expression levels showed no significant difference across gender groups after t-test with FDR correction. Concerning age groups, 10 genes showed significant difference after Welch ANOVA with FDR correction: BCL2 (p = 0.0002), BLNK (p = 0.003), MYBL1 (p = 0.0096), SH3BP5 (p = 0.0156), ITPKB (p = 0.0203), CCND2 (p = 0.0203), PTPN1 (p = 0.0314), BMF (p = 0.0339), FUT8 (p = 0.0367), LMO2 (p = 0.0377). Post-hoc analysis with Games-Howell showed the age groups were mostly broken down into 2 groups, save for BLNK with 3 groups. These 10 genes along with their expression levels across the 4 age groups, and the similarity between the age groups, are shown in [Figure 1](#figure1).
 
-# Conclusion
+<div id="figure1">
+**Figure 1. Gene Expression Patterns Across Age Groups.**
+</div>
+
+```{r gene-expression-barplot, echo=FALSE, warning=FALSE, message=FALSE, fig.width=12, fig.height=60, out.height="1800px", results='markup'}
+# Get significant genes from ANOVA results
+significant_genes <- age_anova_table %>%
+  filter(significant_adjusted == TRUE) %>%
+  pull(gene)
+
+if (length(significant_genes) > 0) {
+
+  # Function to create CLD letters for a given gene
+  create_cld_letters <- function(gene_name) {
+    gene_comparisons <- games_howell_table %>%
+      filter(gene == gene_name)
+
+    age_groups <- levels(combined_data$age_group_nccn)
+    n_groups <- length(age_groups)
+
+    if (nrow(gene_comparisons) > 0) {
+      comparison_matrix <- matrix(1, nrow = n_groups, ncol = n_groups)
+      rownames(comparison_matrix) <- colnames(comparison_matrix) <- age_groups
+      diag(comparison_matrix) <- 0
+
+      for (i in 1:nrow(gene_comparisons)) {
+        groups <- str_split(gene_comparisons$comparison[i], " vs ")[[1]]
+        group1 <- str_trim(groups[1])
+        group2 <- str_trim(groups[2])
+
+        if (group1 %in% age_groups && group2 %in% age_groups) {
+          comparison_matrix[group1, group2] <- gene_comparisons$p_value[i]
+          comparison_matrix[group2, group1] <- gene_comparisons$p_value[i]
+        }
+      }
+
+      cld_letters <- multcompLetters(comparison_matrix, threshold = 0.05)$Letters
+    } else {
+      cld_letters <- rep("a", length(age_groups))
+      names(cld_letters) <- age_groups
+    }
+
+    return(cld_letters)
+  }
+
+  # Reshape data for faceting - only significant genes
+  faceted_data <- combined_data %>%
+    select(sample_id, age_group_nccn, all_of(significant_genes)) %>%
+    filter(!is.na(age_group_nccn)) %>%
+    pivot_longer(
+      cols = all_of(significant_genes),
+      names_to = "gene",
+      values_to = "expression"
+    ) %>%
+    filter(!is.na(expression))
+
+  # Create CLD letters and summary stats for all significant genes
+  gene_annotations <- map_dfr(significant_genes, function(gene) {
+    gene_data <- faceted_data %>% filter(gene == !!gene)
+    cld_letters <- create_cld_letters(gene)
+
+    # Calculate summary stats for positioning
+    gene_summary <- gene_data %>%
+      group_by(age_group_nccn) %>%
+      summarise(
+        max_val = max(expression, na.rm = TRUE),
+        min_val = min(expression, na.rm = TRUE),
+        n = n(),
+        .groups = "drop"
+      ) %>%
+      mutate(
+        gene = gene,
+        cld_letter = cld_letters[as.character(age_group_nccn)],
+        # Position CLD letters above the max value
+        label_y = max_val + 0.12 * (max(gene_data$expression, na.rm = TRUE) -
+                                   min(gene_data$expression, na.rm = TRUE)),
+        # Position sample sizes below the min value
+        sample_label_y = min_val - 0.08 * (max(gene_data$expression, na.rm = TRUE) -
+                                          min(gene_data$expression, na.rm = TRUE))
+      )
+
+    return(gene_summary)
+  })
+
+  # Calculate boxplot statistics manually to avoid plotly outlier issues
+  box_stats <- faceted_data %>%
+    group_by(gene, age_group_nccn) %>%
+    summarise(
+      q1 = quantile(expression, 0.25, na.rm = TRUE),
+      median = quantile(expression, 0.5, na.rm = TRUE),
+      q3 = quantile(expression, 0.75, na.rm = TRUE),
+      iqr = q3 - q1,
+      lower_whisker = max(min(expression, na.rm = TRUE), q1 - 1.5 * iqr),
+      upper_whisker = min(max(expression, na.rm = TRUE), q3 + 1.5 * iqr),
+      .groups = "drop"
+    )
+
+  # Calculate outliers manually
+  faceted_data_with_outliers <- faceted_data %>%
+    left_join(box_stats, by = c("gene", "age_group_nccn")) %>%
+    mutate(
+      is_outlier = expression < (q1 - 1.5 * iqr) | expression > (q3 + 1.5 * iqr)
+    )
+
+  # Add transparent colors for fill
+  box_colors <- RColorBrewer::brewer.pal(4, "Set2")
+  names(box_colors) <- levels(faceted_data_with_outliers$age_group_nccn)
+  box_colors_alpha <- alpha(box_colors, 0.7)
+
+  # Create the faceted plot using manual boxplot elements
+  p <- ggplot(faceted_data_with_outliers, aes(x = age_group_nccn)) +
+    # Manual boxplot rectangles
+    geom_crossbar(
+      data = box_stats,
+      aes(y = median, ymin = q1, ymax = q3, fill = age_group_nccn,
+          text = paste("Age Group:", age_group_nccn, "<br>Median:", round(median, 3), "<br>Q1:", round(q1, 3), "<br>Q3:", round(q3, 3))),
+      width = 0.5, color = "black", linewidth = 0.25
+    ) +
+    scale_fill_manual(values = box_colors_alpha, guide = "none") +
+    # Manual whiskers
+    geom_segment(
+      data = box_stats,
+      aes(x = as.numeric(age_group_nccn) - 0.2, xend = as.numeric(age_group_nccn) + 0.2,
+          y = lower_whisker, yend = lower_whisker),
+      color = "black", linewidth = 0.5
+    ) +
+    geom_segment(
+      data = box_stats,
+      aes(x = as.numeric(age_group_nccn) - 0.2, xend = as.numeric(age_group_nccn) + 0.2,
+          y = upper_whisker, yend = upper_whisker),
+      color = "black", linewidth = 0.5
+    ) +
+    geom_segment(
+      data = box_stats,
+      aes(x = age_group_nccn, xend = age_group_nccn,
+          y = q3, yend = upper_whisker),
+      color = "black", linewidth = 0.5
+    ) +
+    geom_segment(
+      data = box_stats,
+      aes(x = age_group_nccn, xend = age_group_nccn,
+          y = q1, yend = lower_whisker),
+      color = "black", linewidth = 0.5
+    ) +
+    # Normal points
+    geom_jitter(
+      data = filter(faceted_data_with_outliers, !is_outlier),
+      aes(y = expression, fill = age_group_nccn, text = paste("Age Group:", age_group_nccn, "<br>Expression:", round(expression, 3), "<br>Type: Normal")),
+      width = 0.2, alpha = 0.4, size = 0.8, shape = 21
+    ) +
+    # Outlier points
+    geom_jitter(
+      data = filter(faceted_data_with_outliers, is_outlier),
+      aes(y = expression, fill = age_group_nccn, text = paste("Age Group:", age_group_nccn, "<br>Expression:", round(expression, 3), "<br>Type: Outlier")),
+      width = 0.2, alpha = 0.7, size = 1.2, shape = 21, stroke = 1, color = "black"
+    ) +
+    # Add CLD letters
+    geom_text(
+      data = gene_annotations,
+      aes(x = age_group_nccn, y = label_y, label = cld_letter, text = paste("Statistical Group:", cld_letter)),
+      inherit.aes = FALSE,
+      size = 4, fontface = "bold", color = "black"
+    ) +
+    # Add sample sizes
+    geom_text(
+      data = gene_annotations,
+      aes(x = age_group_nccn, y = sample_label_y, label = paste0("n=", n), text = paste("Sample Size:", n)),
+      inherit.aes = FALSE,
+      size = 2.5, color = "gray50"
+    ) +
+    facet_wrap(~gene, scales = "free_y", ncol = 2) +
+    scale_fill_brewer(name = "Age Group", type = "qual", palette = "Set2") +
+    labs(
+      title = "",
+      x = "Age Group (NCCN-IPI Classification)",
+      y = "Gene Expression (log2)"
+    ) +
+    theme_minimal() +
+    theme(
+      axis.text.x = element_text(angle = 30, hjust = 1, size = 8),
+      axis.text.y = element_text(size = 8),
+      axis.title.x = element_text(margin = margin(t = 25, b = 0)),  # Add more top margin to x-axis title
+      strip.text = element_text(face = "bold", size = 10),
+      strip.background = element_rect(fill = "gray90", color = "gray70"),
+      legend.position = "none",  # Remove legend as colors are clear from context
+      panel.grid.minor = element_blank(),
+      plot.margin = margin(t = 0, r = 5, b = 5, l = 5, unit = "pt")  # Remove top margin
+    )
+
+  # Convert to interactive plot
+  interactive_plot <- ggplotly(p, height = 1800, tooltip = c("text")) %>%
+    layout(
+      title = "",
+      height = 1800,  # Ensure height is applied in layout as well
+      margin = list(t = 20, b = 80, l = 60, r = 60)  # Minimal top margin, no title needed
+    )
+
+  # Display the plot
+  interactive_plot
+
+} else {
+  cat("**No significant genes found** to display in the faceted plot.")
+}
+```
+
+<div class="figure-caption">
+**Fig. 1**<br>
+Box plots show expression distribution by age group for genes with significant ANOVA results (FDR-adjusted p < 0.05). <br> Compact letter display (CLD) letters (a, b, c) above each boxplot indicate statistical groupings from Games-Howell post-hoc tests; groups with different letters differ significantly (p < 0.05). <br> Sample sizes (n=X) are shown below each age group. <br> Individual data points are overlaid with outliers highlighted in darker borders.
+</div>
+
+Concerning therapy response across gender and age groups, both showed insignificant differences, with the complete response distribution almost uniform across genders (p = 0.9999999999999984). The distribution across age groups showed some variations, but statistically insignificant (p = 0.173), with the trend of incomplete response proportion rising with age. To examine the raltion between gene expression levels and treatment response, logistic regression analysis with gender or age group interaction for 21 genes was performed. After fitting logistic regression models for all 21 genes against null, gene effect, main effect and interaction effet models, 2 genes of interest emerged with statistical significant. First the MYC gene showed significant gene effects (gene model LRT FDR-adjusted p-value = 0.009954), with acceptable goodness-of-fit score (chi-square p-value = 0.9467) as well as the best (lowest) AIC score (647.57) out of the 4 models for MYC and scoring 10.22 lower than the null model. Second, the CCND2 gene showed significant age interaction effects (age intereaction model LRT FDR-adjusted p-value = 0.005523), with also good goodness-of-fit score (chi-square p-value = 0.9726), and again the best (lowest) AIC score (643.12) out of the 4 models for CCND2, scoring at least more than 12 points lower than all the other models. No other gene showed significance for gene, main nor interaction (age and gender both) effects. The odds ratios of the gene effects of all 21 genes are show in [Figure 2](#figure2).
+
+Looking further at CCND2 age-interaction model's logistic regression plot ([Figure 3](#figure3)), it becomes clear that higher CCND2 expression levels affect the response completeness of the age groups differently. For CCND2, the curves for age groups ≤40 and 41-60 and the curves for age groups 61-75 and >75 are going in opposite directions. Complete response probability decreases with CCND2 expression level for the 2 younger groups, while complete response probability increases with CCND2 expression level for the 2 older groups. This sharply contrasts with the logistic regression plot for MYC's age-interaction model, where all 4 age groups' curves are going in the same direction, with complete response probability decreasing for all age groups when MYC expression increases. Further scrutinising the odds ratio of the 4 age groups for the CCND2 age-interaction model ([Figure 4](#figure4)), both older age groups (61-75, >75) showed significant higher complete response odds, while the trends for the younger age groups (≤40, 41-60) are worse odds for complete response, they were not significant.
+
+<div id="figure2">
+**Figure 2. Logistic Regression Models - Gene Expression Effects on Complete Response**
+</div>
+
+```{r gene-effects-forest, echo=FALSE, warning=FALSE, message=FALSE, results='markup'}
+# Load additional packages for visualization
+suppressMessages(suppressWarnings({
+  if (!require(RColorBrewer, quietly = TRUE)) install.packages("RColorBrewer")
+  library(RColorBrewer)
+}))
+
+if (nrow(all_gene_effects) > 0) {
+  # Prepare data for forest plot (exact approach from script 07)
+  gene_or_data <- all_gene_effects %>%
+    mutate(
+      gene = factor(gene, levels = gene[order(odds_ratio)]),
+      significance_category = case_when(
+        p_adj < 0.05 ~ "Adjusted significant",
+        p.value < 0.05 ~ "Adjusted insignificant/unadjusted significant",
+        TRUE ~ "Insignificant"
+      ),
+      significance_category = factor(
+        significance_category,
+        levels = c("Adjusted significant", "Adjusted insignificant/unadjusted significant", "Insignificant")
+      ),
+      hover_text = paste0("Gene: ", gene, "<br>",
+                         "Odds Ratio: ", round(odds_ratio, 3), "<br>",
+                         "95% CI: [", round(or_lower, 3), ", ", round(or_upper, 3), "]<br>",
+                         "Raw p-value: ", format.pval(p.value, digits = 3), "<br>",
+                         "Adjusted p-value: ", format.pval(p_adj, digits = 3), "<br>",
+                         "Status: ", significance_category)
+    )
+
+  # Create base forest plot
+  plot1_forest <- ggplot(gene_or_data, aes(x = odds_ratio, y = gene)) +
+    geom_vline(
+      xintercept = 1,
+      linetype = "dashed",
+      color = "gray40",
+      linewidth = 0.6,
+      alpha = 0.7
+    ) +
+    geom_errorbarh(
+      aes(xmin = or_lower, xmax = or_upper, color = significance_category),
+      height = 0.3,
+      linewidth = 0.8,
+      alpha = 0.8
+    ) +
+    geom_point(
+      aes(fill = significance_category, text = hover_text),
+      size = 3,
+      shape = 21,
+      color = "white",
+      stroke = 0.7,
+      alpha = 0.9
+    ) +
+    scale_x_log10(
+      breaks = c(0.1, 0.2, 0.5, 1, 2, 5, 10),
+      labels = c("0.1", "0.2", "0.5", "1.0", "2.0", "5.0", "10.0")
+    ) +
+    scale_color_manual(
+      values = c(
+        "Adjusted significant" = "#E69F00",
+        "Adjusted insignificant/unadjusted significant" = "#56B4E9",
+        "Insignificant" = "#D8BFD8"
+      ),
+      name = "Significance"
+    ) +
+    scale_fill_manual(
+      values = c(
+        "Adjusted significant" = "#E69F00",
+        "Adjusted insignificant/unadjusted significant" = "#56B4E9",
+        "Insignificant" = "#D8BFD8"
+      ),
+      name = "Significance"
+    ) +
+    labs(
+      # title = "Logistic Regression Models - Gene Expression Effects",
+      x = "Odds Ratio per Unit Gene Expression (log scale)",
+      y = "Gene"
+    ) +
+    theme_minimal() +
+    theme(
+      axis.text = element_text(size = 10),
+      axis.text.y = element_text(size = 9),
+      panel.grid.minor.x = element_blank(),
+      legend.position = "none",
+      plot.margin = margin(t = 0, r = 5, b = 5, l = 5, unit = "pt")  # Remove top margin
+    )
+
+  # Convert to interactive plot (exact approach from script 07)
+  plot1_interactive <- ggplotly(plot1_forest, tooltip = "text") %>%
+    layout(
+      # title = list(
+      #   text = "Logistic Regression Models - Gene Expression Effects on Complete Response<br><sub>Orange: Adjusted p-values < 0.05<br>Teal: Adjusted p-values ≥ 0.05, unadjusted p-values < 0.05<br>Light Purple: Unadjusted p-values ≥ 0.05 (insignificant)<br>Confidence interval: 95%</sub>",
+      #   font = list(size = 16),
+      #   pad = list(t = 20, b = 80)
+      # ),
+      showlegend = FALSE,
+      margin = list(t = 20, b = 80, l = 80, r = 80)  # Minimal top margin, no title needed
+    )
+
+  plot1_interactive
+} else {
+  cat("**No gene effects data available for forest plot.**\n")
+}
+```
+
+<div class="figure-caption">
+**Fig. 2**<br>
+Orange: Adjusted p-values < 0.05 <br>Teal: Adjusted p-values ≥ 0.05, unadjusted p-values < 0.05<br>Light Purple: Unadjusted p-values ≥ 0.05 (insignificant)<br>Confidence interval: 95% <BR> MYC is the only gene showing significant gene effect after FDR correction, showing even with confidence interval error bars, it is well clear of the 1.0 reference (no effect) line.
+</div>
+
+
+<div id="figure3">
+**Figure 3. Logistic Regression Models - Gene Expression Effects on Complete Response**
+</div>
+
+```{r predicted-probability-curves, echo=FALSE, warning=FALSE, message=FALSE, results='markup'}
+# Function to create predicted probability data (from script 07)
+create_prediction_data <- function(model, gene_name, data_subset, age_groups) {
+  # Create prediction grid
+  gene_range <- seq(
+    from = min(data_subset[[gene_name]], na.rm = TRUE),
+    to = max(data_subset[[gene_name]], na.rm = TRUE),
+    length.out = 100
+  )
+
+  # Create all combinations of gene values and age groups
+  pred_grid <- expand.grid(
+    gene_expr = gene_range,
+    age_group_nccn = age_groups
+  )
+  names(pred_grid)[1] <- gene_name
+
+  # Generate predictions
+  pred_grid$predicted_prob <- predict(model, newdata = pred_grid, type = "response")
+
+  return(pred_grid)
+}
+
+# Check what models are available for prediction curves
+age_groups <- levels(analysis_data$age_group_nccn)
+
+# Plot 2a: MYC - use interaction model if available, otherwise gene model
+if (exists("myc_interaction_model") && !is.null(myc_interaction_model)) {
+  myc_data_subset <- analysis_data %>% filter(!is.na(MYC), !is.na(age_group_nccn))
+  myc_pred_data <- create_prediction_data(myc_interaction_model, "MYC", myc_data_subset, age_groups)
+  myc_model_type <- "interaction"
+} else if (exists("myc_gene_model") && !is.null(myc_gene_model)) {
+  # If no interaction model, use gene model with average age group effect
+  myc_data_subset <- analysis_data %>% filter(!is.na(MYC), !is.na(age_group_nccn))
+  # For gene-only model, create prediction without age group interaction
+  gene_range <- seq(
+    from = min(myc_data_subset$MYC, na.rm = TRUE),
+    to = max(myc_data_subset$MYC, na.rm = TRUE),
+    length.out = 100
+  )
+  myc_pred_data <- data.frame(
+    MYC = rep(gene_range, length(age_groups)),
+    age_group_nccn = rep(age_groups, each = length(gene_range))
+  )
+  myc_pred_data$predicted_prob <- predict(myc_gene_model, newdata = myc_pred_data, type = "response")
+  myc_model_type <- "gene_only"
+} else {
+  myc_pred_data <- NULL
+}
+
+# Plot 2b: CCND2 - use interaction model if available, otherwise gene model
+if (exists("ccnd2_interaction_model") && !is.null(ccnd2_interaction_model)) {
+  ccnd2_data_subset <- analysis_data %>% filter(!is.na(CCND2), !is.na(age_group_nccn))
+  ccnd2_pred_data <- create_prediction_data(ccnd2_interaction_model, "CCND2", ccnd2_data_subset, age_groups)
+  ccnd2_model_type <- "interaction"
+} else if (exists("ccnd2_gene_model") && !is.null(ccnd2_gene_model)) {
+  ccnd2_data_subset <- analysis_data %>% filter(!is.na(CCND2), !is.na(age_group_nccn))
+  gene_range <- seq(
+    from = min(ccnd2_data_subset$CCND2, na.rm = TRUE),
+    to = max(ccnd2_data_subset$CCND2, na.rm = TRUE),
+    length.out = 100
+  )
+  ccnd2_pred_data <- data.frame(
+    CCND2 = rep(gene_range, length(age_groups)),
+    age_group_nccn = rep(age_groups, each = length(gene_range))
+  )
+  ccnd2_pred_data$predicted_prob <- predict(ccnd2_gene_model, newdata = ccnd2_pred_data, type = "response")
+  ccnd2_model_type <- "gene_only"
+} else {
+  ccnd2_pred_data <- NULL
+}
+
+# Create and display Plot 2a: MYC (if data available)
+if (!is.null(myc_pred_data)) {
+  plot2a_myc <- ggplot() +
+    geom_line(
+      data = myc_pred_data,
+      aes(x = MYC, y = predicted_prob, color = age_group_nccn),
+      linewidth = 1.2, alpha = 0.8
+    ) +
+    geom_point(
+      data = myc_data_subset,
+      aes(x = MYC, y = as.numeric(response_binary), color = age_group_nccn),
+      alpha = 0.4, size = 1.5,
+      position = position_jitter(height = 0.02, width = 0)
+    ) +
+    scale_color_viridis_d(name = "Age Group", option = "plasma") +
+    scale_y_continuous(
+      limits = c(0, 1),
+      labels = scales::percent_format(),
+      breaks = seq(0, 1, 0.2)
+    ) +
+    labs(
+      title = "MYC Gene Expression",
+      x = "MYC Expression (log2)",
+      y = "Probability of Complete Response"
+    ) +
+    theme_minimal() +
+    theme(plot.margin = margin(t = 10, r = 5, b = 5, l = 5, unit = "pt"))  # Remove top margin
+
+  # Convert to interactive plot
+  plot2a_interactive <- ggplotly(plot2a_myc) %>%
+    layout(
+      title = list(
+        text = paste0("Figure 3A<br><sub>MYC (",
+                     ifelse(myc_model_type == "interaction", "Interaction Model", "Gene Model"), ")</sub>")
+      )
+    )
+
+  # Display Plot 2a: MYC
+  plot2a_interactive
+} else {
+  cat("**MYC model not available for probability curve plot.**\n")
+}
+
+# Create and display Plot 2b: CCND2 (if data available)
+if (!is.null(ccnd2_pred_data)) {
+  plot2b_ccnd2 <- ggplot() +
+    geom_line(
+      data = ccnd2_pred_data,
+      aes(x = CCND2, y = predicted_prob, color = age_group_nccn),
+      linewidth = 1.2, alpha = 0.8
+    ) +
+    geom_point(
+      data = ccnd2_data_subset,
+      aes(x = CCND2, y = as.numeric(response_binary), color = age_group_nccn),
+      alpha = 0.4, size = 1.5,
+      position = position_jitter(height = 0.02, width = 0)
+    ) +
+    scale_color_viridis_d(name = "Age Group", option = "plasma") +
+    scale_y_continuous(
+      limits = c(0, 1),
+      labels = scales::percent_format(),
+      breaks = seq(0, 1, 0.2)
+    ) +
+    labs(
+      title = "CCND2 Gene Expression",
+      x = "CCND2 Expression (log2)",
+      y = "Probability of Complete Response"
+    ) +
+    theme_minimal() +
+    theme(plot.margin = margin(t = 10, r = 5, b = 5, l = 5, unit = "pt"))  # Remove top margin
+
+  # Convert to interactive plot
+  plot2b_interactive <- ggplotly(plot2b_ccnd2) %>%
+    layout(
+      title = list(
+        text = paste0("Figure 3B<br><sub>CCND2 (",
+                     ifelse(ccnd2_model_type == "interaction", "Interaction Model", "Gene Model"), ")</sub>")
+      )
+    )
+
+  # Display Plot 2b: CCND2
+  plot2b_interactive
+} else {
+  cat("**CCND2 model not available for probability curve plot.**\n")
+}
+```
+
+<div class="figure-caption">
+**Fig. 3**<br>
+**A.** Logistic regression plot of MYC gene expression against complete response probability, age-interaction model <br>
+<ul>
+  <li>The MYC gene showed no significant effects for the interaction model, this is used as a reference to compare with CCND2</li>
+</ul>
+**B.** Logistic regression plot of CCND2 gene expression against complete response probability, age-interaction model
+</div>
+
+```{r ccnd2-age-slopes, echo=FALSE, warning=FALSE, message=FALSE, results='markup'}
+suppressMessages(suppressWarnings({
+  if (!require(emmeans, quietly = TRUE)) install.packages("emmeans")
+  library(emmeans)
+}))
+
+if (exists("ccnd2_interaction_model")) {
+  # Get emtrends data (exact approach from script 07)
+  plot3_data <- emtrends(
+    ccnd2_interaction_model,
+    specs = ~age_group_nccn,
+    var = "CCND2"
+  ) %>%
+    as.data.frame()
+
+  plot3_data <- plot3_data %>%
+    mutate(
+      # Convert slope to odds ratio per unit CCND2 increase
+      or_per_unit = exp(CCND2.trend),
+      or_lower = exp(asymp.LCL),
+      or_upper = exp(asymp.UCL),
+      # Use ColorBrewer Set2 palette (from script 07)
+      p_val = if ("p.value" %in% names(.)) p.value else NA,
+      significant = if_else(
+        !is.na(p_val),
+        p_val < 0.05,
+        !((or_lower <= 1) & (or_upper >= 1))
+      ),
+      # ColorBrewer Set2 colors: Orange for significant, Light purple for insignificant
+      color_category = ifelse(significant, "Significant", "Insignificant"),
+      hover_text = paste0(
+        "Age Group: ", age_group_nccn, "<br>",
+        "OR per unit CCND2 increase: ", round(or_per_unit, 3), "<br>",
+        "95% CI: [", round(or_lower, 3), ", ", round(or_upper, 3), "]<br>",
+        "Slope: ", round(CCND2.trend, 3), "<br>",
+        "p-value: ", format.pval(p_val, digits = 3)
+      )
+    ) %>%
+    arrange(or_per_unit) %>%
+    mutate(age_group_nccn = factor(age_group_nccn, levels = age_group_nccn))
+
+  # Create slopes plot (exact approach from script 07)
+  plot3 <- ggplot(plot3_data, aes(x = or_per_unit, y = age_group_nccn)) +
+    geom_vline(xintercept = 1, linetype = "dashed", color = "gray50", linewidth = 0.8) +
+    geom_errorbarh(
+      aes(xmin = or_lower, xmax = or_upper, color = color_category),
+      height = 0.3, linewidth = 0.8, alpha = 0.8
+    ) +
+    geom_point(
+      aes(fill = color_category, text = hover_text),
+      size = 4, shape = 21, color = "white", stroke = 0.8, alpha = 0.9
+    ) +
+    scale_x_log10(
+      breaks = c(0.5, 0.8, 1.0, 1.2, 1.5, 2.0),
+      labels = c("0.5", "0.8", "1.0", "1.2", "1.5", "2.0")
+    ) +
+    # ColorBrewer Set2 palette (from script 07)
+    scale_color_manual(
+      values = c("Significant" = "#FF7F00", "Insignificant" = "#CAB2D6"),
+      name = "Significance"
+    ) +
+    scale_fill_manual(
+      values = c("Significant" = "#FF7F00", "Insignificant" = "#CAB2D6"),
+      name = "Significance"
+    ) +
+    labs(
+      title = "CCND2 Interaction Effects - Age Group Slopes",
+      x = "Odds Ratio per Unit CCND2 (log scale)",
+      y = "Age Group (NCCN-IPI)"
+    ) +
+    theme_minimal() +
+    theme(
+      axis.text = element_text(size = 10),
+      panel.grid.minor = element_blank(),
+      legend.position = "none",
+      plot.margin = margin(t = 0, r = 5, b = 5, l = 5, unit = "pt")  # Remove top margin
+    )
+
+  # Convert to interactive plot (exact approach from script 07)
+  plot3_interactive <- ggplotly(plot3, tooltip = "text") %>%
+    layout(
+      title = list(
+        text = "CCND2 Interaction Effects - Age Group Slopes<br><sub>Orange: Significant slopes, Light Purple: Insignificant slopes</sub>",
+        font = list(size = 16)
+      ),
+      showlegend = FALSE
+    )
+
+  plot3_interactive
+} else {
+  cat("**CCND2 interaction model not available for slopes analysis.**\n")
+}
+```
+
+
 
 # Discussion
 
