@@ -55,6 +55,8 @@ The `supplementary-materials/` directory contains reproducible scripts for data 
 
 - **[01-data-preprocessing.R](supplementary-materials/01-data-preprocessing.R)** - Downloads and preprocesses raw Excel data from ScienceDirect to CSV format
 - **[02-data-processing.R](supplementary-materials/02-data-processing.R)** - Combines datasets and performs comprehensive data quality analysis
+- **[03-data-exploration.R](supplementary-materials/03-data-exploration.R)** - Initial visual inspection and assumption checking
+- **[04-data-analysis.R](supplementary-materials/04-data-analysis.R)** - ANOVA and t-tests
 
 ### Data cleaning
 
