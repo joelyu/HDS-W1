@@ -398,18 +398,25 @@ cat("Creating Plot 3: CCND2 slopes by age group (emtrends approach)...\n")
 
 # Use emtrends to get slopes (trends) for how age group effects change with CCND2
 # This shows the rate of change in log-odds for each age group per unit CCND2 increase
-plot3_data <- emtrends(
+emtrends_result <- emtrends(
   ccnd2_interaction_model,
   specs = ~age_group_nccn,
   var = "CCND2"
-) %>%
+)
+
+# Get p-values for each trend using test()
+emtrends_test <- test(emtrends_result) %>%
   as.data.frame()
 
-# Debug: Check what columns are available
-cat("Emtrends columns:", paste(names(plot3_data), collapse = ", "), "\n")
-
-plot3_data <- plot3_data %>%
+# Combine emtrends results with p-values
+plot3_data <- as.data.frame(emtrends_result) %>%
+  left_join(
+    emtrends_test %>% select(age_group_nccn, p.value),
+    by = "age_group_nccn"
+  ) %>%
   mutate(
+    # Calculate FDR-adjusted p-values
+    p_adjusted = p.adjust(p.value, method = "fdr"),
     age_group = case_when(
       age_group_nccn == "≤40 years" ~ "≤40 years (Reference)",
       age_group_nccn == "41-60 years" ~ "41-60 years",
@@ -419,15 +426,12 @@ plot3_data <- plot3_data %>%
     ),
     # Convert slope to odds ratio per unit CCND2 increase
     or_per_unit = exp(CCND2.trend),
-    or_lower = exp(asymp.LCL), # Fixed column name
-    or_upper = exp(asymp.UCL), # Fixed column name
-    # Handle p-value column name variations
-    p_val = if ("p.value" %in% names(.)) p.value else NA,
-    significant = if_else(
-      !is.na(p_val),
-      p_val < 0.05,
-      !((or_lower <= 1) & (or_upper >= 1))
-    ), # Use CI if p.value not available
+    or_lower = exp(asymp.LCL),
+    or_upper = exp(asymp.UCL),
+    # Significance based on unadjusted p-value
+    significant = p.value < 0.05,
+    # Significance based on adjusted p-value
+    significant_adj = p_adjusted < 0.05,
     hover_text = paste0(
       "Age Group: ",
       age_group,
@@ -443,7 +447,10 @@ plot3_data <- plot3_data %>%
       round(CCND2.trend, 3),
       "\n",
       "Unadjusted p-value: ",
-      format(p_val, scientific = TRUE, digits = 3),
+      format(p.value, scientific = TRUE, digits = 3),
+      "\n",
+      "Adjusted p-value: ",
+      format(p_adjusted, scientific = TRUE, digits = 3),
       "\n",
       "Interpretation: For each 1-unit increase in CCND2, the odds multiply by ",
       round(or_per_unit, 3)
@@ -451,6 +458,37 @@ plot3_data <- plot3_data %>%
   ) %>%
   arrange(or_per_unit) %>%
   mutate(age_group = factor(age_group, levels = age_group))
+
+# Create comprehensive p-values table for further analysis
+ccnd2_age_pvalues_table <- plot3_data %>%
+  select(
+    age_group_nccn,
+    age_group,
+    CCND2.trend,
+    SE,
+    or_per_unit,
+    or_lower,
+    or_upper,
+    p.value,
+    p_adjusted,
+    significant,
+    significant_adj
+  ) %>%
+  rename(
+    Age_Group = age_group_nccn,
+    Age_Group_Label = age_group,
+    Log_OR_Slope = CCND2.trend,
+    Standard_Error = SE,
+    OR_per_Unit = or_per_unit,
+    OR_Lower = or_lower,
+    OR_Upper = or_upper,
+    P_Value_Unadjusted = p.value,
+    P_Value_Adjusted = p_adjusted,
+    Significant_Unadjusted = significant,
+    Significant_Adjusted = significant_adj
+  )
+
+cat("CCND2 Age Group P-Values Table created: ccnd2_age_pvalues_table\n")
 
 # Create emtrends plot showing slopes (rates of change)
 plot3 <- ggplot(plot3_data, aes(x = or_per_unit, y = age_group)) +
