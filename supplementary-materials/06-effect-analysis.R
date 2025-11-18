@@ -242,8 +242,6 @@ non_gene_cols <- c(
   "response_therapy",
   "complete_response",
   "age_at_diagnosis",
-  "os_years",
-  "censored",
   "age_group_nccn",
   "response_binary"
 )

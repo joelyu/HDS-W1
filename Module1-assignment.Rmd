@@ -327,7 +327,7 @@ With the advent of machine learning methods came attempts to construct models ba
 
 This study addresses this gap by investigating whether age and gender interact and modify the prognostic associations between gene expression markers and therapy response in DLBCL. The associations between the demographic factors (age & gender) with complete therapy response and the gene expression levels of 21 genes were first considered. Logistic regression models using gene expression levels of 21 genes were fitted with therapy response, and the interaction of demographic factors with these gene expression levels were examined. Exploring how demographic factors interact with known and potential genomic drivers of DLBCL could reveal age or gender-dependent tumour biology that inform therapeutic approaches.
 
-Here the same datasets [@reddy2017dataset] from the genomic risk model study by @reddy2017paper are utilised, specifically their clinical information dataset from [Supplementary Table S1](https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc1.xlsx) and gene expression dataset from [Supplementary Table S2](https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc2.xlsx). The clinical information dataset comprises `r n_patients_clinical` DLBCL patients with `r n_clinical_variables` variables. Patients are recorded with anonymised IDs with the variables of interest to us being gender, response to initial therapy, age at diagnosis, overall survival years, censored, the expression level of MYC, BCL2 and BCL6 genes based on log2 transformation of RNA-sequencing Fragments per kilobase (FPKM) value. These columns are highlighted and used in further analysis not only due to their relevance, but also their relative completeness. The gene expression dataset comprises the gene expression level (log2 transformed again) of `r n_genes_measured` genes (1 gene BCL6 is also recorded in the clinical information dataset) for `r n_patients_expression` patients recorded using the same anonymised IDs.
+Here the same datasets [@reddy2017dataset] from the genomic risk model study by @reddy2017paper are utilised, specifically their clinical information dataset from [Supplementary Table S1](https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc1.xlsx) and gene expression dataset from [Supplementary Table S2](https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc2.xlsx). The clinical information dataset comprises `r n_patients_clinical` DLBCL patients with `r n_clinical_variables` variables. Patients are recorded with anonymised IDs with the variables of interest to us being gender, response to initial therapy, age at diagnosis, and the expression level of MYC, BCL2 and BCL6 genes based on log2 transformation of RNA-sequencing Fragments per kilobase (FPKM) value. These columns are highlighted and used in further analysis not only due to their relevance, but also their relative completeness. The gene expression dataset comprises the gene expression level (log2 transformed again) of `r n_genes_measured` genes (1 gene BCL6 is also recorded in the clinical information dataset) for `r n_patients_expression` patients recorded using the same anonymised IDs.
 
 # Methods
 
@@ -341,8 +341,6 @@ clinical_selected <- clinical_data %>%
     gender = Gender,
     response_therapy = `Response to initial therapy`,
     age_at_diagnosis = `age at diagnosis`,
-    os_years = `Overall Survival years`,
-    censored = Censored,
     MYC = `log2 MYC expr`,
     BCL2 = `log2 BCL2 expr`,
     log2_bcl6_mmc1 = `log2 BCL6 expr`
@@ -397,7 +395,7 @@ n_final_variables <- ncol(combined_data)
 
 The datasets are available via Elsevier's [open access license](https://www.elsevier.com/about/policies-and-standards/open-access-licenses/elsevier-user), as shown on the  ScienceDirect [webpage](https://www.sciencedirect.com/science/article/pii/S0092867417311212) of @reddy2017paper's publication. For their work, the authors obtained anonymised patient clinical information and tumours, which were processed in line with a protocol approved by the Institutional Review Board at Duke University. A total number of 2 datasets were downloaded as Excel files directly from their links on the aforementioned ScienceDirect, [Table S1](https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc1.xlsx) and [Table S2](https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc2.xlsx) using the `download.file` function from R's `utils` package [@R-base] and read via the `readxl` package [@readxl]. The specific sheets were selected then cleaned to be exported as `.csv` files, all this pre-processing is documented in the [`01-data-preprocessing.R`](https://github.com/joelyu/HDS-W1/blob/4374f49386fbd61b173d46e15218e792497948c2/supplementary-materials/01-data-preprocessing.R) script. The processed `.csv` files were then uploaded to this project's GitHub repo as [`mmc1-ClinicalInformation.csv` (raw)](https://raw.githubusercontent.com/joelyu/HDS-W1/refs/heads/main/data/mmc1-ClinicalInformation.csv) and [`mmc2-GeneExpression.csv` (raw)](https://raw.githubusercontent.com/joelyu/HDS-W1/refs/heads/main/data/mmc2-GeneExpression.csv). This RMarkdown document is self-sufficient to contain the code for the relevant analysis and plots shown only, for a complete analysis including assumption testing, post-hoc analysis, tests that showed insignificant results, please refer to the [`supplementary-materials`](https://github.com/joelyu/HDS-W1/tree/4374f49386fbd61b173d46e15218e792497948c2/supplementary-materials) folder of this repository. This document also supports sourcing the datasets from 3 sources for redundancy: original ScienceDirect links, processed `.csv` files on GitHub and local processed `.csv` files when this repository is downloaded. For this knitted HTML document, `r unified_data_source_text` 
 
-The 2 datasets were then joined using common patient IDs, and 2 new columns were added. One column was called `age_group_nccn`, obtained by transforming the age at diagnosis variable into 4 categorical groups according to cutoffs defined by @zhou2014NCCN-IPI's NCCN-IPI: $≤40, 41 - 60, 61 - 75, >75$. Another column called `complete_response` was added by taking the values from the `response_therapy` column, re-classifying "Partial response" and "No response" as "Incomplete response" while keeping "Complete response" unchanged. This was to prepare the dataset to be fitted for binomial logistic regression. As both datasets had gene expression levels for BCL6, the two columns were compared to verify identicality and 1 was discarded. The resulting table was one with `r n_final_patients` and `r n_final_variables` variables, of which include the anonymised patient ID; demographic variables such as gender (binary: F/M), age (continuous, at diagnosis) and age group (quaternary, as defined by NCCN-IPI); clinical information of therapy response (ternary: Complete response, Partial response, No response), overall survivability (continuous, in years), censorship (binary: 0 indicating death observed, 1 indicating patient alive at last follow-up); and the log2 transformed gene expression levels of 21 genes: MYC, BCL2, BCL6, ITPKB, MME, MYBL1, DENND3, NEK6, LMO2, LRMP, SH3BP5, IRF4, PIM1, ENTPD1, BLNK, CCND2, ETV6, FUT8, BMF, IL16 and PTPN1. 
+The 2 datasets were then joined using common patient IDs, and 2 new columns were added. One column was called `age_group_nccn`, obtained by transforming the age at diagnosis variable into 4 categorical groups according to cutoffs defined by @zhou2014NCCN-IPI's NCCN-IPI: $≤40, 41 - 60, 61 - 75, >75$. Another column called `complete_response` was added by taking the values from the `response_therapy` column, re-classifying "Partial response" and "No response" as "Incomplete response" while keeping "Complete response" unchanged. This was to prepare the dataset to be fitted for binomial logistic regression. As both datasets had gene expression levels for BCL6, the two columns were compared to verify identicality and 1 was discarded. The resulting table was one with `r n_final_patients` and `r n_final_variables` variables, of which include the anonymised patient ID; demographic variables such as gender (binary: F/M), age (continuous, at diagnosis) and age group (quaternary, as defined by NCCN-IPI); clinical information of therapy response (ternary: Complete response, Partial response, No response); and the log2 transformed gene expression levels of 21 genes: MYC, BCL2, BCL6, ITPKB, MME, MYBL1, DENND3, NEK6, LMO2, LRMP, SH3BP5, IRF4, PIM1, ENTPD1, BLNK, CCND2, ETV6, FUT8, BMF, IL16 and PTPN1. 
 
 Gene expression data were limited to these 21 genes available from @reddy2017dataset's datasets (Supplementary Tables [S1](https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc1.xlsx) & [S2](https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc2.xlsx)), representing 2 categories. The first category is the "big 3" oncogenic drivers of MYC, BCL2 and BCL6, serving as strong prognostic markers. Moreover, MYC [@Kurz2025ageSexGeneRef-Rel] and BCL6 [@Klapper2012ageInteraction] have both shown age-dependent prognostic effects, suggesting age may modify how these markers influence clinical outcomes. The second category comprises 19 cell-of-origin classifier genes (DLBCL subtypes: ABC vs GCB) [@wright2003cellOfOriginGeneExpression], with BCL6 appearing in both categories. Despite their initial utility for classification, gene members such as CCND2 and LMO2 [@Lossos2004LMO2CCND2] have shown to be strong survival predictors alongside BCL2 and BCL6. More importantly, IRF4 is among the genetic features showing age associations and contributes to genetic complexity that loses prognostic significance when age is incorporated [@Klapper2012ageInteraction], alongside BCL6. Both categories therefore contain genes with potential to interact with demographic factors, making them suitable for testing whether demographic factors modify their prognostic associations.
 
@@ -465,18 +463,6 @@ response_stats <- combined_data %>%
   ) %>%
   ungroup()
 
-# Overall survival by age group
-os_stats <- combined_data %>%
-  filter(!is.na(os_years), !is.na(age_group_nccn)) %>%
-  group_by(age_group_nccn) %>%
-  summarise(
-    mean_os = mean(os_years, na.rm = TRUE),
-    sd_os = sd(os_years, na.rm = TRUE),
-    .groups = 'drop'
-  )
-
-total_os_mean <- mean(combined_data$os_years, na.rm = TRUE)
-total_os_sd <- sd(combined_data$os_years, na.rm = TRUE)
 
 # Helper function to get values safely
 get_value <- function(data, col_pattern) {
@@ -497,8 +483,7 @@ cohort_table <- data.frame(
     "**Age at diagnosis, years**",
     "**Treatment response**",
     "  Complete response",
-    "  Incomplete response",
-    "**Overall survival, years**"
+    "  Incomplete response"
   ),
   Total = c(
     paste0("N = ", total_n),
@@ -514,8 +499,7 @@ cohort_table <- data.frame(
                  sum(!is.na(combined_data$complete_response)), 1), "%)"),
     paste0(sum(combined_data$complete_response == "Incomplete response", na.rm = TRUE), " (",
            round(100 * sum(combined_data$complete_response == "Incomplete response", na.rm = TRUE) /
-                 sum(!is.na(combined_data$complete_response)), 1), "%)"),
-    paste0(round(total_os_mean, 1), " ± ", round(total_os_sd, 1))
+                 sum(!is.na(combined_data$complete_response)), 1), "%)")
   ),
   Age_40_under = c(
     paste0("n = ", age_n$n[age_n$age_group_nccn == "≤40 years"]),
@@ -534,9 +518,7 @@ cohort_table <- data.frame(
     paste0(response_stats$n[response_stats$age_group_nccn == "≤40 years" &
                           response_stats$complete_response == "Incomplete response"], " (",
            response_stats$pct[response_stats$age_group_nccn == "≤40 years" &
-                             response_stats$complete_response == "Incomplete response"], "%)"),
-    paste0(round(os_stats$mean_os[os_stats$age_group_nccn == "≤40 years"], 1), " ± ",
-           round(os_stats$sd_os[os_stats$age_group_nccn == "≤40 years"], 1))
+                             response_stats$complete_response == "Incomplete response"], "%)")
   ),
   Age_41_60 = c(
     paste0("n = ", age_n$n[age_n$age_group_nccn == "41-60 years"]),
@@ -555,9 +537,7 @@ cohort_table <- data.frame(
     paste0(response_stats$n[response_stats$age_group_nccn == "41-60 years" &
                           response_stats$complete_response == "Incomplete response"], " (",
            response_stats$pct[response_stats$age_group_nccn == "41-60 years" &
-                             response_stats$complete_response == "Incomplete response"], "%)"),
-    paste0(round(os_stats$mean_os[os_stats$age_group_nccn == "41-60 years"], 1), " ± ",
-           round(os_stats$sd_os[os_stats$age_group_nccn == "41-60 years"], 1))
+                             response_stats$complete_response == "Incomplete response"], "%)")
   ),
   Age_61_75 = c(
     paste0("n = ", age_n$n[age_n$age_group_nccn == "61-75 years"]),
@@ -576,9 +556,7 @@ cohort_table <- data.frame(
     paste0(response_stats$n[response_stats$age_group_nccn == "61-75 years" &
                           response_stats$complete_response == "Incomplete response"], " (",
            response_stats$pct[response_stats$age_group_nccn == "61-75 years" &
-                             response_stats$complete_response == "Incomplete response"], "%)"),
-    paste0(round(os_stats$mean_os[os_stats$age_group_nccn == "61-75 years"], 1), " ± ",
-           round(os_stats$sd_os[os_stats$age_group_nccn == "61-75 years"], 1))
+                             response_stats$complete_response == "Incomplete response"], "%)")
   ),
   Age_over_75 = c(
     paste0("n = ", age_n$n[age_n$age_group_nccn == ">75 years"]),
@@ -597,9 +575,7 @@ cohort_table <- data.frame(
     paste0(response_stats$n[response_stats$age_group_nccn == ">75 years" &
                           response_stats$complete_response == "Incomplete response"], " (",
            response_stats$pct[response_stats$age_group_nccn == ">75 years" &
-                             response_stats$complete_response == "Incomplete response"], "%)"),
-    paste0(round(os_stats$mean_os[os_stats$age_group_nccn == ">75 years"], 1), " ± ",
-           round(os_stats$sd_os[os_stats$age_group_nccn == ">75 years"], 1))
+                             response_stats$complete_response == "Incomplete response"], "%)")
   )
 )
 
@@ -641,7 +617,7 @@ library(rstatix)
 # Get gene expression variables (excluding clinical variables)
 gene_expression_vars <- combined_data %>%
   select(-sample_id, -gender, -response_therapy, -complete_response,
-         -age_at_diagnosis, -age_group_nccn, -os_years, -censored) %>%
+         -age_at_diagnosis, -age_group_nccn) %>%
   names()
 
 # Initialize ANOVA results storage

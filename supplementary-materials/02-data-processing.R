@@ -275,8 +275,6 @@ clinical_selected <- clinical_data %>%
     gender = Gender,
     response_therapy = `Response to initial therapy`,
     age_at_diagnosis = `age at diagnosis`,
-    os_years = `Overall Survival years`,
-    censored = Censored,
     MYC = `log2 MYC expr`,
     BCL2 = `log2 BCL2 expr`,
     log2_bcl6_mmc1 = `log2 BCL6 expr`
@@ -352,10 +350,9 @@ combined_completeness <- combined_data %>%
         c(
           "gender",
           "response_therapy",
-          "censored",
           "age_group_nccn"
         ) ~ "Clinical_Categorical",
-      variable %in% c("age_at_diagnosis", "os_years") ~ "Clinical_Continuous",
+      variable %in% c("age_at_diagnosis") ~ "Clinical_Continuous",
       variable %in% c("MYC", "BCL2", "BCL6") ~ "Primary_Genes",
       TRUE ~ "Expression_Genes"
     )
@@ -388,8 +385,6 @@ key_vars_completeness <- combined_completeness %>%
         "age_at_diagnosis",
         "age_group_nccn",
         "response_therapy",
-        "os_years",
-        "censored",
         "MYC",
         "BCL2",
         "BCL6"

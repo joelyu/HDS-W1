@@ -61,9 +61,7 @@ clinical_vars <- c(
   "response_therapy",
   "complete_response",
   "age_at_diagnosis",
-  "age_group_nccn",
-  "os_years",
-  "censored"
+  "age_group_nccn"
 )
 
 # Get actual gene expression variables (metadata columns now excluded at source)
