@@ -84,7 +84,7 @@ For each of the questions, do not spend too long answering – keep it brief. Fo
 |How have you used or changed the generative AI's output|E.g. my collated notes always stay in point form so that I write out the paragraphs in my own words. Feedback provided by the GenAI models are weighed and assessed before being acted on. Code generated are checked, e.g. it tried to run Levene test on a model fitted using residuals as the response, this was rectified back to the relevant response variable.|
 
 # Abstract
-Diffuse large B cell lymphoma (DLBCL) is the most common non-Hodgkin lymphoma, with prognosis influenced by demographic features (age, gender), integrated scoring systems such as the International Prognostic Index (IPI) and genetic alterations. The IPI was updated to the National Comprehensive Cancer Network International Prognostic Index (NCCN-IPI), where age was updated from binary (≤60/>60) to quaternary categories (≤40, 41 - 60, 61 - 75, >75). Oncogenes MYC, BCL2, BCL6 emerged with strong DLBCL associations, and further studies have identified over 150 genetic drivers. Yet whether demographic factors modify these genetic markers' prognostic effects remains understudied. This study analysed the gene expression data of 21 genes from 775 DLBCL patients to investigate whether age and gender modify gene expression-response associations. Ten genes demonstrated significantly different expression levels (FDR adjusted p < 0.05) amongst NCCN-IPI age groups, including BCL2, CCND2 and LMO2. However, hierarchical logistic regression models revealed only CCND2 showed significant interaction effects (Likelihood ratio test adjusted p = 0.006) with age when it comes to association with complete response. Older age groups showed significant increase (61-75 odds ratio p = 0.014, >75 odds ratio p = 0.001) in complete response probability with higher CCND2 expression, while younger patients (≤40, 41-60) showed the opposite insignificant trend. Gender revealed no significant effects (additive or modifying) across all genes. Only MYC gene expression level showed significant association (p = 0.010) with response completeness at the gene effect level. With only one out of 42 tested gene-demographic combination (21 genes × 2 demographic groups) showing interactive effects, demographic modifying effects affect a minority of genomic markers. This validates 
+Diffuse large B cell lymphoma (DLBCL) is the most common non-Hodgkin lymphoma, with prognosis influenced by demographic features (age, gender), integrated scoring systems such as the International Prognostic Index (IPI) and genetic alterations. Oncogenes MYC, BCL2, BCL6 emerged with strong DLBCL associations, and further studies have identified over 150 genetic drivers. Yet whether demographic factors modify these genetic markers' prognostic effects remains understudied. This study analysed the gene expression data of 21 genes from 775 DLBCL patients to investigate whether age and gender modify gene expression-response associations. Ten genes demonstrated significant age-dependent expression levels (FDR adjusted p < 0.05), including BCL2, CCND2 and LMO2. However, hierarchical logistic regression models revealed only CCND2 showed significant interaction effects (Likelihood ratio test adjusted p = 0.006) with age when it comes to association with complete response. Older age groups showed significant increase (61-75 odds ratio p = 0.014; >75 odds ratio p = 0.001) in complete response probability with higher CCND2 expression, while younger patients (≤40, 41-60) showed the opposite insignificant trend. Gender revealed no significant effects (additive or modifying) across all genes. Only MYC gene expression level showed significant gene-only association (likelihood ratio test adjusted p = 0.010) with response completeness. While the modifying effects of CCND2 and age on prognosis could reconcile certain conflicting viewpoints in DLBCL, this dynamic requires further scrutiny and replication elsewhere. With only one out of 42 tested gene-demographic combination (21 genes × 2 demographic groups) showing interactive effects, demographic modifying effects remains a rarity amongst genetic markers. Thus a more conservative and universal approach with these genomic markers could still be the way forward.
 
 ```{r setup, include=FALSE}
 # Set chunk options: hide all code, outputs, messages, warnings, and errors
@@ -102,8 +102,12 @@ suppressMessages(suppressWarnings({
   if(!require(httr, quietly = TRUE)) install.packages("httr", repos = "http://cran.us.r-project.org")
   if(!require(here, quietly = TRUE)) install.packages("here", repos = "http://cran.us.r-project.org")
   if(!require(kableExtra, quietly = TRUE)) install.packages("kableExtra", repos = "http://cran.us.r-project.org")
-  if (!require(plotly, quietly = TRUE)) install.packages("plotly")
-  if (!require(multcompView, quietly = TRUE)) install.packages("multcompView")
+  if (!require(plotly, quietly = TRUE)) install.packages("plotly", repos = "http://cran.us.r-project.org")
+  if (!require(multcompView, quietly = TRUE)) install.packages("multcompView", repos = "http://cran.us.r-project.org")
+  if (!require(rstatix, quietly = TRUE)) install.packages("rstatix", repos = "http://cran.us.r-project.org")
+  if (!require(broom, quietly = TRUE)) install.packages("broom", repos = "http://cran.us.r-project.org")
+  if (!require(emmeans, quietly = TRUE)) install.packages("emmeans", repos = "http://cran.us.r-project.org")
+  if (!require(RColorBrewer, quietly = TRUE)) install.packages("RColorBrewer", repos = "http://cran.us.r-project.org")
 
   # Load packages (silent)
   library(tidyverse)
@@ -115,6 +119,10 @@ suppressMessages(suppressWarnings({
   library(kableExtra)
   library(plotly)
   library(multcompView)
+  library(rstatix)
+  library(broom)
+  library(emmeans)
+  library(RColorBrewer)
 
 }))
 ```
@@ -395,55 +403,54 @@ n_final_patients <- nrow(combined_data)
 n_final_variables <- ncol(combined_data)
 ```
 
-The datasets are available via Elsevier's [open access license](https://www.elsevier.com/about/policies-and-standards/open-access-licenses/elsevier-user), as shown on the  ScienceDirect [webpage](https://www.sciencedirect.com/science/article/pii/S0092867417311212) of @reddy2017paper's publication. For their work, the authors obtained anonymised patient clinical information and tumours, which were processed in line with a protocol approved by the Institutional Review Board at Duke University. A total number of 2 datasets were downloaded as Excel files directly from their links on the aforementioned ScienceDirect, [Table S1](https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc1.xlsx) and [Table S2](https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc2.xlsx) using the `download.file` function from R's `utils` package [@R-base] and read via the `readxl` package [@readxl]. The specific sheets were selected then cleaned to be exported as `.csv` files (see [`01-data-preprocessing.R`](https://github.com/joelyu/HDS-W1/blob/4374f49386fbd61b173d46e15218e792497948c2/supplementary-materials/01-data-preprocessing.R)). The processed `.csv` files were uploaded to this project's GitHub repository: [`mmc1-ClinicalInformation.csv` (raw)](https://raw.githubusercontent.com/joelyu/HDS-W1/refs/heads/main/data/mmc1-ClinicalInformation.csv), [`mmc2-GeneExpression.csv` (raw)](https://raw.githubusercontent.com/joelyu/HDS-W1/refs/heads/main/data/mmc2-GeneExpression.csv). This RMarkdown document is self-sufficient and contains code for the relevant analysis and plots shown only, for a complete analysis including assumption testing, post-hoc analysis, tests that showed insignificant results, please refer to the [`supplementary-materials`](https://github.com/joelyu/HDS-W1/tree/4374f49386fbd61b173d46e15218e792497948c2/supplementary-materials) folder of this repository. This document also supports sourcing the datasets from 3 sources for redundancy: original ScienceDirect links, processed `.csv` files on GitHub and local processed `.csv` files when this repository is downloaded. For this knitted HTML document, `r unified_data_source_text` 
+The datasets are available via Elsevier's [open access license](https://www.elsevier.com/about/policies-and-standards/open-access-licenses/elsevier-user), as shown on the  ScienceDirect [webpage](https://www.sciencedirect.com/science/article/pii/S0092867417311212) of @reddy2017paper's publication. For their work, the authors obtained anonymised patient clinical information and tumours, which were processed in line with a protocol approved by the Institutional Review Board at Duke University. A total number of 2 datasets were downloaded as Excel files directly from their links on the aforementioned ScienceDirect, [Table S1](https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc1.xlsx) and [Table S2](https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc2.xlsx) using the `download.file` function from R's `utils` package [@R-base] and read via the `readxl` package [@readxl]. The specific sheets were selected then cleaned to be exported as `.csv` files (see [`01-data-preprocessing.R`](https://github.com/joelyu/HDS-W1/blob/4374f49386fbd61b173d46e15218e792497948c2/supplementary-materials/01-data-preprocessing.R)[@tidyverse, @here]). The processed `.csv` files were uploaded to this project's GitHub repository: [`mmc1-ClinicalInformation.csv` (raw)](https://raw.githubusercontent.com/joelyu/HDS-W1/refs/heads/main/data/mmc1-ClinicalInformation.csv), [`mmc2-GeneExpression.csv` (raw)](https://raw.githubusercontent.com/joelyu/HDS-W1/refs/heads/main/data/mmc2-GeneExpression.csv). This RMarkdown document is self-sufficient and contains code for the relevant analysis and plots shown only, for a complete analysis including assumption testing, post-hoc analysis, tests that showed insignificant results, please refer to the [`supplementary-materials`](https://github.com/joelyu/HDS-W1/tree/4374f49386fbd61b173d46e15218e792497948c2/supplementary-materials) folder of this repository. This document also supports sourcing the datasets from 3 sources for redundancy: original ScienceDirect links, processed `.csv` files on GitHub and local processed `.csv` files when this repository is downloaded. For this knitted[@knitr] HTML document, `r unified_data_source_text` 
 
 The 2 datasets were joined using common patient IDs and 2 new columns were added. `age_group_nccn` was obtained by transforming the age at diagnosis variable into 4 categorical groups according to cutoffs defined by @zhou2014NCCN-IPI's NCCN-IPI: $≤40, 41 - 60, 61 - 75, >75$. `complete_response` was added by combining "Partial response" and "No response" as "Incomplete response" from `response_therapy` while keeping "Complete response" unchanged. This prepared the dataset for hierarchical binomial logistic regression. As for duplicate gene expression levels for BCL6, the two columns were compared to verify identicality and 1 was discarded. The resulting table was one with `r n_final_patients` patients and `r n_final_variables` variables, of which include the anonymised patient ID; demographic variables such as gender (binary: F/M), age (continuous, at diagnosis) and age group (quaternary, as defined by NCCN-IPI); clinical information of therapy response (ternary: Complete response, Partial response, No response); and the log2 transformed gene expression levels of 21 genes: MYC, BCL2, BCL6, ITPKB, MME, MYBL1, DENND3, NEK6, LMO2, LRMP, SH3BP5, IRF4, PIM1, ENTPD1, BLNK, CCND2, ETV6, FUT8, BMF, IL16 and PTPN1. 
 
 Gene expression data were limited to these 21 genes available from @reddy2017dataset's datasets (Supplementary Tables [S1](https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc1.xlsx) & [S2](https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc2.xlsx)), representing 2 categories. The first category is the "big 3" oncogenic drivers of MYC, BCL2 and BCL6, serving as strong prognostic markers. Moreover, MYC [@Kurz2025ageSexGeneRef-Rel] and BCL6 [@Klapper2012ageInteraction] have both shown age-dependent prognostic effects, suggesting age may modify how these markers influence clinical outcomes. The second category comprises 19 cell-of-origin classifier genes (DLBCL subtypes: ABC vs GCB) [@wright2003cellOfOriginGeneExpression], with BCL6 appearing in both categories. Despite their initial utility for classification, gene members such as CCND2 and LMO2 [@Lossos2004LMO2CCND2] have shown to be strong survival predictors alongside BCL2 and BCL6. More importantly, IRF4 is among the genetic features showing age associations and contributes to genetic complexity that loses prognostic significance when age is incorporated [@Klapper2012ageInteraction], alongside BCL6. Both categories therefore contain genes with potential to interact with demographic factors, making them suitable for testing whether demographic factors modify their prognostic associations.
 
-Overall, data completeness for these `r n_final_variables` columns was exceptional, with 23 columns being 100%, and the remaining 4 columns all with more than 93% completeness. Processing is documented in [`02-data-processing.R`](https://github.com/joelyu/HDS-W1/blob/4374f49386fbd61b173d46e15218e792497948c2/supplementary-materials/02-data-processing.R). Characteristics of the cohort are summarised in [Table 1](#table1).
+Overall, data completeness for these `r n_final_variables` columns was exceptional, with 23 columns being 100%, and the remaining 4 columns all with more than 93% completeness. Processing is documented in [`02-data-processing.R`](https://github.com/joelyu/HDS-W1/blob/4374f49386fbd61b173d46e15218e792497948c2/supplementary-materials/02-data-processing.R). Characteristics of the cohort are summarised[@kableExtra] in [Table 1](#table1).
 
 <div id="table1">
 **Table 1. Baseline Cohort Characteristics**
 </div>
 
 ```{r cohort-characteristics, echo=FALSE, results='markup'}
-# Create cohort characteristics table stratified by age groups
-library(kableExtra)
+# Create cohort characteristics table stratified by complete response
 
 # Calculate overall statistics
 total_n <- nrow(combined_data)
 
-# Get age group sample sizes
-age_groups <- c("≤40 years", "41-60 years", "61-75 years", ">75 years")
-age_n <- combined_data %>%
-  filter(!is.na(age_group_nccn)) %>%
-  count(age_group_nccn) %>%
-  arrange(match(age_group_nccn, age_groups))
+# Get response group sample sizes
+response_groups <- c("Complete response", "Incomplete response")
+response_n <- combined_data %>%
+  filter(!is.na(complete_response)) %>%
+  count(complete_response) %>%
+  arrange(match(complete_response, response_groups))
 
-# Gender distributions by age group
-gender_age_table <- combined_data %>%
-  filter(!is.na(age_group_nccn), !is.na(gender)) %>%
-  count(age_group_nccn, gender) %>%
-  group_by(age_group_nccn) %>%
+# Gender distributions by response group
+gender_response_table <- combined_data %>%
+  filter(!is.na(complete_response), !is.na(gender)) %>%
+  count(complete_response, gender) %>%
+  group_by(complete_response) %>%
   mutate(
-    age_total = sum(n),
-    pct = round(100 * n / age_total, 1)
+    response_total = sum(n),
+    pct = round(100 * n / response_total, 1)
   ) %>%
   ungroup() %>%
-  select(age_group_nccn, gender, n, pct) %>%
+  select(complete_response, gender, n, pct) %>%
   pivot_wider(
-    names_from = age_group_nccn,
+    names_from = complete_response,
     values_from = c(n, pct),
     names_sep = "_",
     values_fill = 0
   ) %>%
   arrange(match(gender, c("F", "M")))
 
-# Age statistics by age group
-age_stats <- combined_data %>%
-  filter(!is.na(age_at_diagnosis), !is.na(age_group_nccn)) %>%
-  group_by(age_group_nccn) %>%
+# Age statistics by response group
+age_response_stats <- combined_data %>%
+  filter(!is.na(age_at_diagnosis), !is.na(complete_response)) %>%
+  group_by(complete_response) %>%
   summarise(
     mean_age = mean(age_at_diagnosis, na.rm = TRUE),
     sd_age = sd(age_at_diagnosis, na.rm = TRUE),
@@ -453,18 +460,17 @@ age_stats <- combined_data %>%
 total_age_mean <- mean(combined_data$age_at_diagnosis, na.rm = TRUE)
 total_age_sd <- sd(combined_data$age_at_diagnosis, na.rm = TRUE)
 
-# Treatment response by age group
-response_stats <- combined_data %>%
+# Age group distributions by response group
+age_group_response_stats <- combined_data %>%
   filter(!is.na(complete_response), !is.na(age_group_nccn)) %>%
-  group_by(age_group_nccn, complete_response) %>%
+  group_by(complete_response, age_group_nccn) %>%
   summarise(n = n(), .groups = 'drop') %>%
-  group_by(age_group_nccn) %>%
+  group_by(complete_response) %>%
   mutate(
     total = sum(n),
     pct = round(100 * n / total, 1)
   ) %>%
   ungroup()
-
 
 # Helper function to get values safely
 get_value <- function(data, col_pattern) {
@@ -483,9 +489,11 @@ cohort_table <- data.frame(
     "  Female",
     "  Male",
     "**Age at diagnosis, years**",
-    "**Treatment response**",
-    "  Complete response",
-    "  Incomplete response"
+    "**Age groups (NCCN-IPI)**",
+    "  ≤40 years",
+    "  41-60 years",
+    "  61-75 years",
+    "  >75 years"
   ),
   Total = c(
     paste0("N = ", total_n),
@@ -496,96 +504,80 @@ cohort_table <- data.frame(
            round(100 * sum(combined_data$gender == "M", na.rm = TRUE) / total_n, 1), "%)"),
     paste0(round(total_age_mean, 1), " ± ", round(total_age_sd, 1)),
     "",
-    paste0(sum(combined_data$complete_response == "Complete response", na.rm = TRUE), " (",
-           round(100 * sum(combined_data$complete_response == "Complete response", na.rm = TRUE) /
-                 sum(!is.na(combined_data$complete_response)), 1), "%)"),
-    paste0(sum(combined_data$complete_response == "Incomplete response", na.rm = TRUE), " (",
-           round(100 * sum(combined_data$complete_response == "Incomplete response", na.rm = TRUE) /
-                 sum(!is.na(combined_data$complete_response)), 1), "%)")
+    paste0(sum(combined_data$age_group_nccn == "≤40 years", na.rm = TRUE), " (",
+           round(100 * sum(combined_data$age_group_nccn == "≤40 years", na.rm = TRUE) /
+                 sum(!is.na(combined_data$age_group_nccn)), 1), "%)"),
+    paste0(sum(combined_data$age_group_nccn == "41-60 years", na.rm = TRUE), " (",
+           round(100 * sum(combined_data$age_group_nccn == "41-60 years", na.rm = TRUE) /
+                 sum(!is.na(combined_data$age_group_nccn)), 1), "%)"),
+    paste0(sum(combined_data$age_group_nccn == "61-75 years", na.rm = TRUE), " (",
+           round(100 * sum(combined_data$age_group_nccn == "61-75 years", na.rm = TRUE) /
+                 sum(!is.na(combined_data$age_group_nccn)), 1), "%)"),
+    paste0(sum(combined_data$age_group_nccn == ">75 years", na.rm = TRUE), " (",
+           round(100 * sum(combined_data$age_group_nccn == ">75 years", na.rm = TRUE) /
+                 sum(!is.na(combined_data$age_group_nccn)), 1), "%)")
   ),
-  Age_40_under = c(
-    paste0("n = ", age_n$n[age_n$age_group_nccn == "≤40 years"]),
+  Complete_Response = c(
+    paste0("n = ", response_n$n[response_n$complete_response == "Complete response"]),
     "",
-    paste0(get_value(gender_age_table[gender_age_table$gender == "F", ], "n_≤40"), " (",
-           get_value(gender_age_table[gender_age_table$gender == "F", ], "pct_≤40"), "%)"),
-    paste0(get_value(gender_age_table[gender_age_table$gender == "M", ], "n_≤40"), " (",
-           get_value(gender_age_table[gender_age_table$gender == "M", ], "pct_≤40"), "%)"),
-    paste0(round(age_stats$mean_age[age_stats$age_group_nccn == "≤40 years"], 1), " ± ",
-           round(age_stats$sd_age[age_stats$age_group_nccn == "≤40 years"], 1)),
+    paste0(get_value(gender_response_table[gender_response_table$gender == "F", ], "n_Complete response"), " (",
+           get_value(gender_response_table[gender_response_table$gender == "F", ], "pct_Complete response"), "%)"),
+    paste0(get_value(gender_response_table[gender_response_table$gender == "M", ], "n_Complete response"), " (",
+           get_value(gender_response_table[gender_response_table$gender == "M", ], "pct_Complete response"), "%)"),
+    paste0(round(age_response_stats$mean_age[age_response_stats$complete_response == "Complete response"], 1), " ± ",
+           round(age_response_stats$sd_age[age_response_stats$complete_response == "Complete response"], 1)),
     "",
-    paste0(response_stats$n[response_stats$age_group_nccn == "≤40 years" &
-                          response_stats$complete_response == "Complete response"], " (",
-           response_stats$pct[response_stats$age_group_nccn == "≤40 years" &
-                             response_stats$complete_response == "Complete response"], "%)"),
-    paste0(response_stats$n[response_stats$age_group_nccn == "≤40 years" &
-                          response_stats$complete_response == "Incomplete response"], " (",
-           response_stats$pct[response_stats$age_group_nccn == "≤40 years" &
-                             response_stats$complete_response == "Incomplete response"], "%)")
+    paste0(age_group_response_stats$n[age_group_response_stats$complete_response == "Complete response" &
+                                     age_group_response_stats$age_group_nccn == "≤40 years"], " (",
+           age_group_response_stats$pct[age_group_response_stats$complete_response == "Complete response" &
+                                       age_group_response_stats$age_group_nccn == "≤40 years"], "%)"),
+    paste0(age_group_response_stats$n[age_group_response_stats$complete_response == "Complete response" &
+                                     age_group_response_stats$age_group_nccn == "41-60 years"], " (",
+           age_group_response_stats$pct[age_group_response_stats$complete_response == "Complete response" &
+                                       age_group_response_stats$age_group_nccn == "41-60 years"], "%)"),
+    paste0(age_group_response_stats$n[age_group_response_stats$complete_response == "Complete response" &
+                                     age_group_response_stats$age_group_nccn == "61-75 years"], " (",
+           age_group_response_stats$pct[age_group_response_stats$complete_response == "Complete response" &
+                                       age_group_response_stats$age_group_nccn == "61-75 years"], "%)"),
+    paste0(age_group_response_stats$n[age_group_response_stats$complete_response == "Complete response" &
+                                     age_group_response_stats$age_group_nccn == ">75 years"], " (",
+           age_group_response_stats$pct[age_group_response_stats$complete_response == "Complete response" &
+                                       age_group_response_stats$age_group_nccn == ">75 years"], "%)")
   ),
-  Age_41_60 = c(
-    paste0("n = ", age_n$n[age_n$age_group_nccn == "41-60 years"]),
+  Incomplete_Response = c(
+    paste0("n = ", response_n$n[response_n$complete_response == "Incomplete response"]),
     "",
-    paste0(get_value(gender_age_table[gender_age_table$gender == "F", ], "n_41-60"), " (",
-           get_value(gender_age_table[gender_age_table$gender == "F", ], "pct_41-60"), "%)"),
-    paste0(get_value(gender_age_table[gender_age_table$gender == "M", ], "n_41-60"), " (",
-           get_value(gender_age_table[gender_age_table$gender == "M", ], "pct_41-60"), "%)"),
-    paste0(round(age_stats$mean_age[age_stats$age_group_nccn == "41-60 years"], 1), " ± ",
-           round(age_stats$sd_age[age_stats$age_group_nccn == "41-60 years"], 1)),
+    paste0(get_value(gender_response_table[gender_response_table$gender == "F", ], "n_Incomplete response"), " (",
+           get_value(gender_response_table[gender_response_table$gender == "F", ], "pct_Incomplete response"), "%)"),
+    paste0(get_value(gender_response_table[gender_response_table$gender == "M", ], "n_Incomplete response"), " (",
+           get_value(gender_response_table[gender_response_table$gender == "M", ], "pct_Incomplete response"), "%)"),
+    paste0(round(age_response_stats$mean_age[age_response_stats$complete_response == "Incomplete response"], 1), " ± ",
+           round(age_response_stats$sd_age[age_response_stats$complete_response == "Incomplete response"], 1)),
     "",
-    paste0(response_stats$n[response_stats$age_group_nccn == "41-60 years" &
-                          response_stats$complete_response == "Complete response"], " (",
-           response_stats$pct[response_stats$age_group_nccn == "41-60 years" &
-                             response_stats$complete_response == "Complete response"], "%)"),
-    paste0(response_stats$n[response_stats$age_group_nccn == "41-60 years" &
-                          response_stats$complete_response == "Incomplete response"], " (",
-           response_stats$pct[response_stats$age_group_nccn == "41-60 years" &
-                             response_stats$complete_response == "Incomplete response"], "%)")
-  ),
-  Age_61_75 = c(
-    paste0("n = ", age_n$n[age_n$age_group_nccn == "61-75 years"]),
-    "",
-    paste0(get_value(gender_age_table[gender_age_table$gender == "F", ], "n_61-75"), " (",
-           get_value(gender_age_table[gender_age_table$gender == "F", ], "pct_61-75"), "%)"),
-    paste0(get_value(gender_age_table[gender_age_table$gender == "M", ], "n_61-75"), " (",
-           get_value(gender_age_table[gender_age_table$gender == "M", ], "pct_61-75"), "%)"),
-    paste0(round(age_stats$mean_age[age_stats$age_group_nccn == "61-75 years"], 1), " ± ",
-           round(age_stats$sd_age[age_stats$age_group_nccn == "61-75 years"], 1)),
-    "",
-    paste0(response_stats$n[response_stats$age_group_nccn == "61-75 years" &
-                          response_stats$complete_response == "Complete response"], " (",
-           response_stats$pct[response_stats$age_group_nccn == "61-75 years" &
-                             response_stats$complete_response == "Complete response"], "%)"),
-    paste0(response_stats$n[response_stats$age_group_nccn == "61-75 years" &
-                          response_stats$complete_response == "Incomplete response"], " (",
-           response_stats$pct[response_stats$age_group_nccn == "61-75 years" &
-                             response_stats$complete_response == "Incomplete response"], "%)")
-  ),
-  Age_over_75 = c(
-    paste0("n = ", age_n$n[age_n$age_group_nccn == ">75 years"]),
-    "",
-    paste0(get_value(gender_age_table[gender_age_table$gender == "F", ], "n_>75"), " (",
-           get_value(gender_age_table[gender_age_table$gender == "F", ], "pct_>75"), "%)"),
-    paste0(get_value(gender_age_table[gender_age_table$gender == "M", ], "n_>75"), " (",
-           get_value(gender_age_table[gender_age_table$gender == "M", ], "pct_>75"), "%)"),
-    paste0(round(age_stats$mean_age[age_stats$age_group_nccn == ">75 years"], 1), " ± ",
-           round(age_stats$sd_age[age_stats$age_group_nccn == ">75 years"], 1)),
-    "",
-    paste0(response_stats$n[response_stats$age_group_nccn == ">75 years" &
-                          response_stats$complete_response == "Complete response"], " (",
-           response_stats$pct[response_stats$age_group_nccn == ">75 years" &
-                             response_stats$complete_response == "Complete response"], "%)"),
-    paste0(response_stats$n[response_stats$age_group_nccn == ">75 years" &
-                          response_stats$complete_response == "Incomplete response"], " (",
-           response_stats$pct[response_stats$age_group_nccn == ">75 years" &
-                             response_stats$complete_response == "Incomplete response"], "%)")
+    paste0(age_group_response_stats$n[age_group_response_stats$complete_response == "Incomplete response" &
+                                     age_group_response_stats$age_group_nccn == "≤40 years"], " (",
+           age_group_response_stats$pct[age_group_response_stats$complete_response == "Incomplete response" &
+                                       age_group_response_stats$age_group_nccn == "≤40 years"], "%)"),
+    paste0(age_group_response_stats$n[age_group_response_stats$complete_response == "Incomplete response" &
+                                     age_group_response_stats$age_group_nccn == "41-60 years"], " (",
+           age_group_response_stats$pct[age_group_response_stats$complete_response == "Incomplete response" &
+                                       age_group_response_stats$age_group_nccn == "41-60 years"], "%)"),
+    paste0(age_group_response_stats$n[age_group_response_stats$complete_response == "Incomplete response" &
+                                     age_group_response_stats$age_group_nccn == "61-75 years"], " (",
+           age_group_response_stats$pct[age_group_response_stats$complete_response == "Incomplete response" &
+                                       age_group_response_stats$age_group_nccn == "61-75 years"], "%)"),
+    paste0(age_group_response_stats$n[age_group_response_stats$complete_response == "Incomplete response" &
+                                     age_group_response_stats$age_group_nccn == ">75 years"], " (",
+           age_group_response_stats$pct[age_group_response_stats$complete_response == "Incomplete response" &
+                                       age_group_response_stats$age_group_nccn == ">75 years"], "%)")
   )
 )
 
 # Create the formatted table
 cohort_table %>%
   kable(
-    col.names = c("Characteristic", "Total (N=775)", "≤40 years", "41-60 years", "61-75 years", ">75 years"),
-    align = c("l", "c", "c", "c", "c", "c"),
+    col.names = c("Characteristic", "Total (N=775)", "Complete Response", "Incomplete Response"),
+    align = c("l", "c", "c", "c"),
     escape = FALSE
   ) %>%
   kable_styling(
@@ -594,7 +586,7 @@ cohort_table %>%
     position = "center"
   ) %>%
   column_spec(1, bold = FALSE, width = "2.5in") %>%
-  column_spec(2:6, width = "1.2in") %>%
+  column_spec(2:4, width = "1.5in") %>%
   row_spec(c(1, 2, 5, 6), bold = TRUE) %>%
   add_footnote(
     # c("Values shown as n (%) for categorical variables and mean ± SD for continuous variables",
@@ -606,24 +598,22 @@ cohort_table %>%
 ```
 
 <div class="figure-caption">
-Demographic and clinical characteristics stratified by NCCN-IPI age groups. <br> Values shown as n (%) for categorical variables and mean ± SD for continuous variables. <br>  NCCN-IPI age groups represent National Comprehensive Cancer Network International Prognostic Index classifications. <br> Treatment response categories combine partial and no response as "Incomplete response" versus complete response. <br>  Percentages are calculated within each age group for gender distributions and treatment responses.
+Demographic and clinical characteristics stratified by treatment response. <br> Values shown as n (%) for categorical variables and mean ± SD for continuous variables. <br> Treatment response categories combine partial and no response as "Incomplete response" versus complete response. <br> NCCN-IPI age groups represent National Comprehensive Cancer Network International Prognostic Index classifications. <br> Percentages are calculated within each response group for gender and age group distributions.
 </div>
 
-First, the variation of gene expression levels of the 21 genes in different gender and age groups were scrutinised using the Student's t-test and one-way Welch's ANOVA respectively, and with false discovery rate (FDR) adjustment for the p-values [@Reiner2003FDRGeneExpression] due to the number of genes analysed (see [`04-data-analysis.R`](https://github.com/joelyu/HDS-W1/blob/77db28d5411251b14940ad21b18b7e69bfa0f3b2/supplementary-materials/04-data-analysis.R)). Post-hoc Games-Howell tests were then conducted for signficant ANOVA results. Assumptions for these tests were checked with diagnostic tests and plots, and the overall distribution of gene expression against age and gender visually examined (see [`03-data-exploration.R`](https://github.com/joelyu/HDS-W1/blob/77db28d5411251b14940ad21b18b7e69bfa0f3b2/supplementary-materials/03-data-exploration.R)ksi. Second, the association of therapy response completeness with gender and age groups were studied with the Chi-squared tests with expected frequencies checked to be $> 5$ in [`05-response-analysis.R`](https://github.com/joelyu/HDS-W1/blob/main/supplementary-materials/05-response-analysis.R). 
+First, the variation of gene expression levels of the 21 genes in different gender and age groups were scrutinised using the Student's t-test and one-way Welch's ANOVA[@rstatix] respectively, and with false discovery rate (FDR) adjustment for the p-values [@Reiner2003FDRGeneExpression] due to the number of genes analysed (see [`04-data-analysis.R`](https://github.com/joelyu/HDS-W1/blob/77db28d5411251b14940ad21b18b7e69bfa0f3b2/supplementary-materials/04-data-analysis.R)). Post-hoc Games-Howell tests were then conducted for significant ANOVA results[@CoreStats]. Assumptions for these tests were checked with diagnostic tests and plots, and the overall distribution of gene expression against age and gender visually examined (see [`03-data-exploration.R`](https://github.com/joelyu/HDS-W1/blob/77db28d5411251b14940ad21b18b7e69bfa0f3b2/supplementary-materials/03-data-exploration.R)). Second, the association of therapy response completeness with gender and age groups were studied with the Chi-squared tests with expected frequencies checked to be $> 5$ in [`05-response-analysis.R`](https://github.com/joelyu/HDS-W1/blob/main/supplementary-materials/05-response-analysis.R). 
 
-Finally, to study potential interactions between demographic factors and gene expression levels on predicting therapy response, hierarchical logistic regression models were fitted to systematically examine the effects of these factors and their interactions. The models were nested as such:
+Finally, to study potential interactions between demographic factors and gene expression levels on predicting therapy response, hierarchical logistic regression models[@broom] were fitted to systematically examine the effects of these factors and their interactions. The models were nested as such:
 
-1. Null model
-2. Gene-only model
-3. Main effect model: gene expression + demographic factors (age or gender)
-4. Interaction model: gene expression + demographic factors (age or gender) + gene-demographic intereactions
+1. Null model: therapy response ~ 1
+2. Gene-only model: therapy response ~ gene expression
+3. Main effect model: therapy response ~ gene expression + demographic factors (age or gender)
+4. Interaction model: therapy response ~ gene expression + demographic factors (age or gender) + gene-demographic interactions
 
 The fitted models were then analysed with the likelihood-ratio test (LRT) to obtain FDR-corrected p-values. Significant models were then checked for model fit with goodness-of-fit with Chi-square tests and Akaike Information Criterion (AIC) scores, along with influential observations and collinearity [@GLMCambio] (see [`06-effect-analysis.R`](https://github.com/joelyu/HDS-W1/blob/main/supplementary-materials/06-effect-analysis.R).)
 
 ```{r analysis-ANOVA, cache = TRUE}
-# Load required packages for analysis
-if (!require(rstatix, quietly = TRUE)) install.packages("rstatix")
-library(rstatix)
+# Perform ANOVA analysis for gene expression by demographic groups
 
 # Get gene expression variables (excluding clinical variables)
 gene_expression_vars <- combined_data %>%
@@ -725,13 +715,7 @@ if (length(games_howell_summary) > 0) {
 ```
 
 ```{r logistic-regression-analysis, echo=FALSE, warning=FALSE, message=FALSE, results='markup', cache=TRUE}
-# Load required packages for logistic regression analysis
-suppressMessages(suppressWarnings({
-  if (!require(broom, quietly = TRUE)) install.packages("broom")
-  if (!require(emmeans, quietly = TRUE)) install.packages("emmeans")
-  library(broom)
-  library(emmeans)
-}))
+# Perform logistic regression analysis with demographic interactions
 
 # Prepare data for logistic regression
 analysis_data <- combined_data %>%
@@ -897,7 +881,7 @@ n_significant_interactions <- sum(age_lrt_comprehensive$significant_interaction)
 
 ## Gene Expression by Demographics
 
-Gene expression levels showed no significant difference across gender groups after t-test with FDR correction, indicating gender does not significantly affect baseline gene expression of these genetic markers. Conversely, 10 genes showed significantly different gene expression activity after Welch ANOVA with FDR correction across NCCN-IPI age groups: BCL2 (p = 0.0002), BLNK (p = 0.003), MYBL1 (p = 0.010), SH3BP5 (p = 0.016), ITPKB (p = 0.020), CCND2 (p = 0.020), PTPN1 (p = 0.031), BMF (p = 0.034), FUT8 (p = 0.037), LMO2 (p = 0.038). Post-hoc analysis with Games-Howell revealed that age groups mostly clustered into two statistially distinct groups for each gene, save for BLNK with three groups [Figure 1](#figure1). This points to age-dependent tumour biology at the transcription level.
+Gene expression levels showed no significant difference across gender groups after t-test with FDR correction, indicating gender does not significantly affect baseline gene expression of these genetic markers. Conversely, 10 genes showed significantly different gene expression activity after Welch's ANOVA with FDR correction across NCCN-IPI age groups: BCL2 (p = 0.0002), BLNK (p = 0.003), MYBL1 (p = 0.010), SH3BP5 (p = 0.016), ITPKB (p = 0.020), CCND2 (p = 0.020), PTPN1 (p = 0.031), BMF (p = 0.034), FUT8 (p = 0.037), LMO2 (p = 0.038). Post-hoc analysis with Games-Howell revealed that age groups mostly clustered into two statistially distinct groups for each gene, save for BLNK with three groups [Figure 1](#figure1)[@plotly, @multcompView, @RColorBrewer]. This points to age-dependent tumour biology at the transcription level.
 
 <div id="figure1">
 **Figure 1. Gene Expression Patterns Across Age Groups.**
@@ -1115,11 +1099,11 @@ Sample sizes (n) are shown below each age group. <br> Outliers are highlighted i
 
 ## Therapy Response by Demographics
 
-Neither gender (p = 1.000) nor age group (p = 0.173) showed significant assocaitions with complete response, although incomplete response proportions did trend upwards as age increased. While neither demographic factors showed prognostic potential on this clinical outcome, whether they modify the gene expression-therapy response relationship is to be explored in the next section.
+Neither gender (p = 1.000) nor age group (p = 0.173) showed significant associations with complete response, although incomplete response proportions did trend upwards as age increased. While neither demographic factors showed prognostic potential on this clinical outcome, whether they modify the gene expression-therapy response relationship is to be explored in the next section.
 
 ## Therapy Response by Gene Expression
 
-As a part of fitting hierarchical models for each gene with either age or gender groups, gene-only models on predicting therapy response were also fitted ([Figure 2](#figure2)). This revealed that one gene out of 21, MYC, displayed significant gene-only effects (LRT FDR-adjusted p-value = 0.010, AIC = 647.57, Chi-square goodness-of-fit p-value = 0.947), with higher expression predicting lower complete response probability. With the lowest AIC score among the 4 MYC models, adding age or age-MYC intereaction did not improve model fit, indicating MYC's prognostic effect is consistent across age and gender groups ([Figure 3a](#figure3)).
+As a part of fitting hierarchical models for each gene with either age or gender groups, gene-only models on predicting therapy response were also fitted ([Figure 2](#figure2)). This revealed that one gene out of 21, MYC, displayed significant gene-only effects (LRT FDR-adjusted p-value = 0.010, AIC = 647.57, Chi-square goodness-of-fit p-value = 0.947), with higher expression predicting lower complete response probability. With the lowest AIC score among the 8 MYC models, adding demographic or demographic-MYC intereaction did not improve model fit, indicating MYC's prognostic effect is consistent across age and gender groups ([Figure 3a](#figure3)).
 
 
 <div id="figure2">
@@ -1127,11 +1111,7 @@ As a part of fitting hierarchical models for each gene with either age or gender
 </div>
 
 ```{r gene-effects-forest, echo=FALSE, warning=FALSE, message=FALSE, results='markup'}
-# Load additional packages for visualization
-suppressMessages(suppressWarnings({
-  if (!require(RColorBrewer, quietly = TRUE)) install.packages("RColorBrewer")
-  library(RColorBrewer)
-}))
+# Create forest plot of gene effects from logistic regression
 
 if (nrow(all_gene_effects) > 0) {
   # Prepare data for forest plot (exact approach from script 07)
@@ -1140,12 +1120,12 @@ if (nrow(all_gene_effects) > 0) {
       gene = factor(gene, levels = gene[order(odds_ratio)]),
       significance_category = case_when(
         p_adj < 0.05 ~ "Adjusted significant",
-        p.value < 0.05 ~ "Adjusted insignificant/unadjusted significant",
+        p.value < 0.05 ~ "Adjusted insignificant",
         TRUE ~ "Insignificant"
       ),
       significance_category = factor(
         significance_category,
-        levels = c("Adjusted significant", "Adjusted insignificant/unadjusted significant", "Insignificant")
+        levels = c("Adjusted significant", "Adjusted insignificant", "Insignificant")
       ),
       hover_text = paste0("Gene: ", gene, "<br>",
                          "Odds Ratio: ", round(odds_ratio, 3), "<br>",
@@ -1185,7 +1165,7 @@ if (nrow(all_gene_effects) > 0) {
     scale_color_manual(
       values = c(
         "Adjusted significant" = "#E69F00",
-        "Adjusted insignificant/unadjusted significant" = "#56B4E9",
+        "Adjusted insignificant" = "#56B4E9",
         "Insignificant" = "#D8BFD8"
       ),
       name = "Significance"
@@ -1193,7 +1173,7 @@ if (nrow(all_gene_effects) > 0) {
     scale_fill_manual(
       values = c(
         "Adjusted significant" = "#E69F00",
-        "Adjusted insignificant/unadjusted significant" = "#56B4E9",
+        "Adjusted insignificant" = "#56B4E9",
         "Insignificant" = "#D8BFD8"
       ),
       name = "Significance"
@@ -1232,14 +1212,14 @@ if (nrow(all_gene_effects) > 0) {
 
 <div class="figure-caption">
 **Fig. 2**<br>
-Orange: Adjusted p-values < 0.05 <br>Teal: Adjusted p-values ≥ 0.05, unadjusted p-values < 0.05<br>Light Purple: Unadjusted p-values ≥ 0.05 (insignificant)<br>Confidence interval: 95% <BR> MYC is the only gene showing significant gene effect after FDR correction, showing even with confidence interval error bars, it is well clear of the 1.0 reference (no effect) line.
+Orange: Adjusted significant<br>Blue: Adjusted insignificant<br>Lilac: Insignificant<br>Confidence interval: 95% <BR> MYC is the only gene showing significant gene effect after FDR correction, being well clear of the 1.0 reference (no effect) reference line even when considering its CI error bars.
 </div>
 
 ## Gene and Demographic Interactions Predicting Therapy Response
 
-From the same hierarchical models fitted, gender showed no significant effect. Neither gene-gender interaction nor gender main effect models attained significant results for any gene after FDR adjustment. For age, only the CCND2 gene showed significant (LRT FDR-adjusted p-value = 0.006, AIC = 643.12, Chi-square goodness-of-fit p-value = 0.973) effects amongst the interaction models of all 21 genes, and the rest 20 genes showed neither main (additive) nor interactive effects with age. Having the lowest AIC score (min delta = 12.7) amongst the 4 CCND2 models indicate that response completeness is best predicted with gene expression when its interaction with age is factored in.
+Systematic testing of 21 genes across both age and gender yielded 42 gene-demographic models, of which no gender model showed significant effect. Neither gene-gender interaction nor gender main effect models attained significant results for any gene after FDR adjustment. For age, only the CCND2 gene showed significant (LRT FDR-adjusted p-value = 0.006, AIC = 643.12, Chi-square goodness-of-fit p-value = 0.973) effects amongst the interaction models of all 21 genes, and the rest 20 genes showed neither main (additive) nor interactive effects with age. Having the lowest AIC score (min delta = 12.7) amongst the 4 CCND2 models indicate that response completeness is best predicted with gene expression when its interaction with age is factored in.
 
-Clear age-dependent directional effects emerge for CCND2 ([Figure 3b](#figure3)), with higher CCND2 expression levels affecting the response completeness of the age groups differently. The curves for age groups ≤40 and 41-60 and the curves for age groups 61-75 and >75 are going in opposite directions. Complete response probability decreases with CCND2 expression level for the 2 younger groups, while complete response probability increases with CCND2 expression level for the 2 older groups. Further scrutinising the odds ratio of the 4 age groups ([Figure 4](#figure4)) confirms that both older age groups (61-75, >75) showed significant higher complete response odds, and younger age groups (≤40, 41-60) have a trend for worse but statistically insignificant odds.
+Clear age-dependent directional effects emerge for CCND2 ([Figure 3b](#figure3)), with higher CCND2 expression levels affecting the response completeness of the age groups differently. The curves for age groups ≤40 and 41-60 and the curves for age groups 61-75 and >75 are going in opposite directions. Complete response probability decreases with CCND2 expression level for the 2 younger groups, while complete response probability increases with CCND2 expression level for the 2 older groups. Further scrutinising the odds ratio[@emmeans] of the 4 age groups ([Figure 4](#figure4)) confirms that both older age groups showed significantly higher complete response odds (61-75 p = 0.014; >75 p = 0.001), and younger age groups (≤40, 41-60) have trends for worse but statistically insignificant odds.
 
 <div id="figure3">
 **Figure 3. Logistic Regression Models - Gene Expression Effects on Complete Response**
@@ -1407,10 +1387,8 @@ if (!is.null(ccnd2_pred_data)) {
 <div class="figure-caption">
 **Fig. 3**<br>
 **A.** Logistic regression plot of MYC gene expression against complete response probability, age-interaction model <br>
-<ul>
-  <li>The MYC gene showed no significant effects for the interaction model, this is used as a reference to compare with CCND2</li>
-</ul>
 **B.** Logistic regression plot of CCND2 gene expression against complete response probability, age-interaction model
+<br>The MYC gene showed no significant age-interaction effects, contrasting the curves of the different age groups for CCND2.
 </div>
 
 <div id="figure4">
@@ -1418,10 +1396,7 @@ if (!is.null(ccnd2_pred_data)) {
 </div>
 
 ```{r ccnd2-age-slopes, echo=FALSE, warning=FALSE, message=FALSE, results='markup'}
-suppressMessages(suppressWarnings({
-  if (!require(emmeans, quietly = TRUE)) install.packages("emmeans")
-  library(emmeans)
-}))
+# Create age group slopes analysis for CCND2 interaction model
 
 if (exists("ccnd2_interaction_model")) {
   # Get emtrends data and p-values (exact approach from script 07)
@@ -1486,7 +1461,7 @@ if (exists("ccnd2_interaction_model")) {
       name = "Significance"
     ) +
     labs(
-      title = "CCND2 Interaction Effects - Age Group Slopes",
+      # title = "CCND2 Interaction Effects - Age Group Slopes",
       x = "Odds Ratio per Unit CCND2 (log scale)",
       y = "Age Group (NCCN-IPI)"
     ) +
@@ -1502,7 +1477,7 @@ if (exists("ccnd2_interaction_model")) {
   plot3_interactive <- ggplotly(plot3, tooltip = "text") %>%
     layout(
       title = list(
-        text = "CCND2 Interaction Effects - Age Group Slopes<br><sub>Orange: Significant slopes, Light Purple: Insignificant slopes</sub>",
+        # text = "CCND2 Interaction Effects - Age Group Slopes<br><sub>Orange: Significant slopes, Light Purple: Insignificant slopes</sub>",
         font = list(size = 16)
       ),
       showlegend = FALSE
@@ -1517,14 +1492,22 @@ if (exists("ccnd2_interaction_model")) {
 <div class="figure-caption">
 **Fig. 4**<br>
 Odds ratio of age groups <br>
-<ul>
-  <li>The MYC gene showed no significant effects for the interaction model, this is used as a reference to compare with CCND2</li>
-</ul>
+Orange: Significant<br>Lilac: Insignificant<br>Confidence interval: 95% <BR>Both older age groups showed significant modifying effect.
 </div>
 
 # Discussion
 
+While gender had displayed potential to influence clinical outcomes[@Habermann2014sexAge, @Hasselblom2006sexAge], the NCCN-IPI did not include gender as the authors found gender did not substantially enhance their model's predictive capability[@zhou2014NCCN-IPI]. The lack of gender-dependent gene expression patterns and gene-modifying effects on prognosis in this analysis further confirms observation. 
+
+Of the big three oncogene drivers of DLBCL, only MYC showed significant (gene-only) effects. MYC's inclusion was in a sense expected as its role as an oncogene is well established[@Dhanasekaran2022MycOncoGene]. Whereas increase in BCL2 expression has been associated with inferior outcomes[@Tsuyama2017BCL2neg] and BCL6 expression bodes well for prognosis [@Hans2004BCL6pos, @Advani2010BCL6pos]. Both genes however have significant LRT p-values when not corrected by FDR, BCL2's gene-only model (unadjusted p = 0.039) and BCL6's interaction model (unadjusted p = 0.037), so perhaps their effects were merely not significant enough for this dataset.
+
+Connecting the two genes of significance of this study, MYC and CCND2, is that the oncoprotein product of MYC actually binds to the promoter of CCND2 *in vivo*[@Bouchard2001MycCCND2], yet within this dataset, the expression of these genes affect different age groups differently. The revelation of CCND2's age modifying effects might actually provide insights to one of the more contested topics in the field, as there are conflicting opinions and associations when it comes to CCND2, where the activity of the gene could indicate better[@Wang2020CCND2Pos] and worse[@Hans2004BCL6pos, @Yi2023CCND2neg] prognoses. Obviously, more work needs to be conducted to establish this modifying effect of age-CCND2 on prognosis is robust and not spurious.
+
+In the end, it has to be acknowledged that this study is not without flaws. The available dataset, especially gene expression data, was pre-selected for publication, not for the exploratory analysis of demographic effects on the prognostic powers of genomic drivers. The dataset also lacked ethnicity information, when it was likely patients from different continents were included. It would also be of great boon to the study to be able to benchmark the analysis here with Reddy's genomic risk model. Unfortunately, the (hyper-)parameters required to rebuild such model along with the interactive webtool for this model are no longer accessible. This further highlights reproducibility in cancer research[@Begley2012cancerResearchRepro] and bioinformatics[@Ziemann2023bioinformatics] in general, and make me appreciate the emphasis of robust replicability our lecturers had imparted on us during the first module.
+
 # Conclusion
+
+This analysis of 775 DLBCL patients discovered 10 genes BCL2, BLNK, MYBL1, SH3BP5, ITPKB, CCND2, PTPN1, BMF, FUT8 and LMO2, showed age-dependent gene expression levels. One gene CCND2 showed modifying effects with age on predicting therapy outcomes, and the MYC gene showed gene only effects with age. The discovery of CCND2's modifying effect could partially resolve the conflicting accounts of how CCND2 activity associate with prognosis. This is an exciting find that still needs work to replicate and validate.
 
 # References
 
