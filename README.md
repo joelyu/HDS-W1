@@ -1,6 +1,6 @@
 # Healthcare Data Science Module 1 Assignment
 
-## Effects of age and gender on using gene expression levels as prognostic markers for diffuse large B cell lymphoma (DLBCL)
+## Demographic modification of gene expression in predicting diffuse large B cell lymphoma (DLBCL) treatment response
 
 This is the submission GitHub repository for the Module 1 Assignment for the MSt program in Healthcare Data Science. The datasets are derived from, and are therefore fully attribute to Reddy et. al for their work on Genetic and Functional Drivers of Diffuse Large B Cell Lymphoma ([ScienceDirect link here](https://www.sciencedirect.com/science/article/pii/S0092867417311212)), namely the [S1 Table](https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc1.xlsx) and [S2 Table](https://ars.els-cdn.com/content/image/1-s2.0-S0092867417311212-mmc2.xlsx) from their Supplementary Materials. See [Data Attribution](#data-attribution) for details.
 
@@ -51,14 +51,20 @@ Keywords: exome sequencing; genetic mutations; diffuse large B cell lymphoma; DL
 
 ### Supplementary Analysis Scripts
 
-The `supplementary-materials/` directory contains reproducible scripts for data processing and quality assessment:
+The `supplementary-materials/` directory contains reproducible scripts for data processing, quality assessment, assumption testing and diagnostic checks. Please be mindful of the script dependencies and run the scripts in sequence. Results of assumption tests and diagnostic tests are recorded at the top of each script.
 
 - **[01-data-preprocessing.R](supplementary-materials/01-data-preprocessing.R)** - Downloads and preprocesses raw Excel data from ScienceDirect to CSV format
 - **[02-data-processing.R](supplementary-materials/02-data-processing.R)** - Combines datasets and performs comprehensive data quality analysis
-- **[03-data-exploration.R](supplementary-materials/03-data-exploration.R)** - Initial visual inspection and assumption checking
+- **[03-data-exploration.R](supplementary-materials/03-data-exploration.R)** - Initial visual inspection, assumption testing and diagnostic checks for ANOVA and t-tests
   - Requires `02-data-processing.R`
-- **[04-data-analysis.R](supplementary-materials/04-data-analysis.R)** - ANOVA and t-tests
-  - Requires `03-data-processing.R`
+- **[04-data-analysis.R](supplementary-materials/04-data-analysis.R)** - ANOVA and t-tests for demographic associations with gene expression levels
+  - Requires `03-data-exploration.R`
+- **[05-response-analysis.R](supplementary-materials/05-response-analysis.R)** - Chi-squared test for demographic associations with therapy outcomes, includes assumption checking for Chi-squared tests
+  - Requires `02-data-processing.R`
+- **[06-effect-analysis.R](supplementary-materials/06-effect-analysis.R)** - Hierarchical model fitting of logistic regression models for demographic interaction effects with gene expression on therapy outcome, inlcudes assumption checking
+  - Requires `02-data-processing.R`
+- **[07-effect-visualisation.R](supplementary-materials/07-effect-visualisation.R)** - Visualising odds ratios and predicted probability curves, includes p-value calculations for the odds ratios
+  - Requires `06-effect-analysis.R`
 
 ### Data cleaning
 
