@@ -7,9 +7,10 @@ bibliography: references.bib
 csl: nature.csl
 link-citations: true
 output:
-  html_document:
-    toc: yes
-    theme: default
+  rmdformats::readthedown
+  # html_document:
+    # toc: yes
+    # theme: default
     # pandoc_args : ["--citeproc"]
 ---
 

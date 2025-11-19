@@ -35,12 +35,12 @@ Keywords: exome sequencing; genetic mutations; diffuse large B cell lymphoma; DL
 │   └── mmc2-GeneExpression.csv
 ├── supplementary-materials/
 │   ├── 01-data-preprocessing.R
-│   └── 02-data-processing.R
+│   ├── 02-data-processing.R
 │   ├── 03-data-exploration.R
 │   ├── 04-data-analysis.R
 │   ├── 05-response-analysis.R
 │   ├── 06-effect-analysis.R
-│   ├── 07-effect-visualisation.R
+│   └── 07-effect-visualisation.R
 ├── LICENSE.txt
 ├── Module1-assignment.html
 ├── Module1-assignment.Rmd
@@ -56,7 +56,9 @@ The `supplementary-materials/` directory contains reproducible scripts for data 
 - **[01-data-preprocessing.R](supplementary-materials/01-data-preprocessing.R)** - Downloads and preprocesses raw Excel data from ScienceDirect to CSV format
 - **[02-data-processing.R](supplementary-materials/02-data-processing.R)** - Combines datasets and performs comprehensive data quality analysis
 - **[03-data-exploration.R](supplementary-materials/03-data-exploration.R)** - Initial visual inspection and assumption checking
+  - Requires `02-data-processing.R`
 - **[04-data-analysis.R](supplementary-materials/04-data-analysis.R)** - ANOVA and t-tests
+  - Requires `03-data-processing.R`
 
 ### Data cleaning
 
