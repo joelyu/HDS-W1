@@ -7,7 +7,7 @@ bibliography: references.bib
 csl: nature.csl
 link-citations: true
 output:
-  rmdformats::readthedown
+  rmdformats::robobook
   # html_document:
     # toc: yes
     # theme: default
@@ -109,6 +109,7 @@ suppressMessages(suppressWarnings({
   if (!require(broom, quietly = TRUE)) install.packages("broom", repos = "http://cran.us.r-project.org")
   if (!require(emmeans, quietly = TRUE)) install.packages("emmeans", repos = "http://cran.us.r-project.org")
   if (!require(RColorBrewer, quietly = TRUE)) install.packages("RColorBrewer", repos = "http://cran.us.r-project.org")
+  if (!require(rmdformats, quietly = TRUE)) install.packages("rmdformats", repos = "http://cran.us.r-project.org")
 
   # Load packages (silent)
   library(tidyverse)
