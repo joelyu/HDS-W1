@@ -34,7 +34,7 @@ suppressMessages(suppressWarnings({
 
 # Configure preferred data source for development
 # Options: "auto" (full fallback chain), "preprocessing", "local", "github", "sciencedirect"
-PREFERRED_DATA_SOURCE <- "local" # Change this to control data loading
+PREFERRED_DATA_SOURCE <- "auto" # Change this to control data loading
 
 # ===============================================================================
 # DATA LOADING VIA SOURCE SCRIPT (WITH BACKUP REDUNDANCY)
