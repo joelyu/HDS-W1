@@ -586,7 +586,7 @@ GENE EXPRESSION VISUALIZATION ANALYSIS: THERAPY RESPONSE PREDICTION
 
 1. ANALYSIS OVERVIEW
 --------------------------------------------------
-Total genes analyzed: %d
+Total genes analysed: %d
 Forest plot visualization: Gene-only model odds ratios with confidence intervals
 Interaction visualization: MYC (no interaction) vs CCND2 (age interaction)
 Age-specific effects: CCND2 emmeans analysis across 4 age groups
@@ -685,7 +685,7 @@ The following plots are displayed above:
 
 Statistical validation:
 ✓ Comprehensive odds ratio analysis completed
-✓ Age-interaction effects properly characterized using emmeans
+✓ Age-interaction effects properly characterised using emmeans
 ✓ Continuous gene effects presented without arbitrary cutpoints
 ✓ Multiple testing correction applied (FDR method)
 

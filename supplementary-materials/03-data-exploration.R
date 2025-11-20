@@ -160,7 +160,7 @@ for (gene in gene_expression_vars) {
   # Clean gene name for formula (replace problematic characters)
   clean_gene_name <- make.names(gene)
 
-  # Rename the gene column to clean name for modeling
+  # Rename the gene column to clean name for modelling
   names(analysis_data)[1] <- clean_gene_name
 
   # Fit linear model with clean variable name
@@ -229,7 +229,7 @@ for (gene in gene_expression_vars) {
   # Clean gene name for formula (replace problematic characters)
   clean_gene_name <- make.names(gene)
 
-  # Rename the gene column to clean name for modeling
+  # Rename the gene column to clean name for modelling
   names(analysis_data)[1] <- clean_gene_name
 
   # Fit linear model with clean variable name

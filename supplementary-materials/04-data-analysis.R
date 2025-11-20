@@ -328,7 +328,7 @@ Statistical approach: Based on assumption testing from 03-data-exploration.R
 
 2. GENDER COMPARISONS (STUDENT'S T-TESTS)
 --------------------------------------------------
-Total genes analyzed: %d
+Total genes analysed: %d
 Significant after FDR correction: %d
 Statistical method: Two-sample t-tests with equal variances assumed
 ",
@@ -349,7 +349,7 @@ cat(sprintf(
   "
 3. AGE GROUP COMPARISONS (WELCH ANOVA)
 --------------------------------------------------
-Total genes analyzed: %d
+Total genes analysed: %d
 Significant after FDR correction: %d
 Statistical method: Welch one-way ANOVA (handles unequal variances)
 ",

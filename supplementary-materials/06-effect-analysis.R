@@ -802,7 +802,7 @@ LOGISTIC REGRESSION INTERACTION ANALYSIS: THERAPY RESPONSE PREDICTION
 1. ANALYSIS OVERVIEW
 --------------------------------------------------
 Dataset: %d patients total, %d patients with complete response data
-Gene expression variables analyzed: %d
+Gene expression variables analysed: %d
 Complete response rate: %.1f%%
 Statistical method: Logistic regression with interaction terms
 Multiple testing correction: False Discovery Rate (FDR)
@@ -818,7 +818,7 @@ Analysis sample sizes (varies due to missing demographic data):
 2. GENDER INTERACTION ANALYSIS
 --------------------------------------------------
 Statistical test: Gene × Gender interaction effects on therapy response
-Total genes analyzed: %d
+Total genes analysed: %d
 
 Effect breakdown (FDR < 0.05):
 - Significant gene effects: %d genes (MYC)
@@ -831,7 +831,7 @@ Only gene effects significant (MYC expression predicts response regardless of ge
 3. AGE GROUP INTERACTION ANALYSIS
 --------------------------------------------------
 Statistical test: Gene × Age Group interaction effects on therapy response
-Total genes analyzed: %d
+Total genes analysed: %d
 
 Effect breakdown (FDR < 0.05):
 - Significant gene effects: %d genes (MYC)
