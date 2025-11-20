@@ -578,8 +578,10 @@ print(
     select(gene, n, levene_p_value, Result)
 )
 
-cat(sprintf("
-Age group comparisons:"))
+cat(sprintf(
+  "
+Age group comparisons:"
+))
 
 print(
   age_diagnostic_summary %>%
@@ -589,21 +591,25 @@ print(
 
 # Variance ratio analysis for violations
 if (nrow(all_variance_summaries) > 0) {
-  cat(sprintf("
+  cat(sprintf(
+    "
 4. VARIANCE RATIO ANALYSIS (FOR LEVENE TEST VIOLATIONS)
 --------------------------------------------------
-Genes that failed Levene test - variance ratio assessment:"))
+Genes that failed Levene test - variance ratio assessment:"
+  ))
 
   print(
     all_variance_summaries %>%
       select(gene, comparison, max_variance_ratio, interpretation)
   )
 
-  cat(sprintf("
+  cat(sprintf(
+    "
 Interpretation:
 • ACCEPTABLE: Variance ratio < 3x (proceed with parametric tests)
 • MANAGEABLE: Variance ratio < 10x (acceptable for large samples)
-• PROBLEMATIC: Variance ratio ≥ 10x (consider non-parametric alternatives)"))
+• PROBLEMATIC: Variance ratio ≥ 10x (consider non-parametric alternatives)"
+  ))
 }
 
 cat(sprintf(
