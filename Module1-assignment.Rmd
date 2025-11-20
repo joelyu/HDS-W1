@@ -2,15 +2,14 @@
 title: "Demographic modification of gene expression in predicting  diffuse large B cell lymphoma (DLBCL) treatment response"
 author: "cyy36@cam.ac.uk"
 date: "`r Sys.Date()`"
-# toc_float: yes
 bibliography: references.bib
 csl: nature.csl
 link-citations: true
 output:
-  rmdformats::robobook
-  # html_document:
-    # toc: yes
-    # theme: default
+  html_document:
+    toc: true
+    toc_float: true
+    theme: united
     # pandoc_args : ["--citeproc"]
 ---
 
@@ -27,6 +26,8 @@ output:
   border-radius: 0 4px 4px 0;
 }
 </style>
+
+# Cover Page
 
 <center>
 ![](https://onlinecareeraccelerators.pace.cam.ac.uk/hubfs/CAM%20DS%20PACE/Professional%20and%20Continuing%20Education_V_reversed%20colour%201.svg)
@@ -109,7 +110,6 @@ suppressMessages(suppressWarnings({
   if (!require(broom, quietly = TRUE)) install.packages("broom", repos = "http://cran.us.r-project.org")
   if (!require(emmeans, quietly = TRUE)) install.packages("emmeans", repos = "http://cran.us.r-project.org")
   if (!require(RColorBrewer, quietly = TRUE)) install.packages("RColorBrewer", repos = "http://cran.us.r-project.org")
-  if (!require(rmdformats, quietly = TRUE)) install.packages("rmdformats", repos = "http://cran.us.r-project.org")
 
   # Load packages (silent)
   library(tidyverse)
