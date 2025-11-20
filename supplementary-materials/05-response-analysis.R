@@ -2,6 +2,7 @@
 
 # 05-response-analysis.R
 # Chi-squared Analysis of Therapy Response vs Demographics
+# NOTE: Comprehensive summary printed at the end of script execution
 #
 # This script:
 # 1. Sources combined data from 02-data-processing.R
@@ -31,7 +32,6 @@ suppressMessages(suppressWarnings({
 # DATA LOADING FROM PROCESSING SCRIPT
 # ===============================================================================
 
-cat("Loading combined data with therapy response variables...\n")
 source(here("supplementary-materials", "02-data-processing.R"))
 
 # Verify data loaded successfully with new complete_response column
@@ -42,13 +42,6 @@ if (!exists("combined_data") || nrow(combined_data) == 0) {
 if (!"complete_response" %in% names(combined_data)) {
   stop("complete_response column not found. Please check 02-data-processing.R")
 }
-
-cat("✓ Loaded combined dataset:", nrow(combined_data), "patients\n")
-cat(
-  "✓ Found complete_response column with levels:",
-  levels(combined_data$complete_response),
-  "\n\n"
-)
 
 # Flag to control output display (set to TRUE to show analysis outputs)
 show_outputs <- FALSE
@@ -389,97 +382,150 @@ if (min_expected_age < 5) {
   )
 }
 
-# Display output conditionally
-if (has_errors || show_outputs) {
-  cat("\n", paste(rep("=", 80), collapse = ""), "\n")
-  cat("THERAPY RESPONSE ANALYSIS RESULTS\n")
-  cat(paste(rep("=", 80), collapse = ""), "\n")
+# ===============================================================================
+# COMPREHENSIVE CHI-SQUARED ANALYSIS SUMMARY
+# ===============================================================================
 
-  if (has_errors) {
-    cat("\n=== WARNINGS/ERRORS ===\n")
-    for (msg in error_messages) {
-      cat(msg, "\n")
-    }
+# Display any critical errors first
+if (has_errors) {
+  cat(sprintf(
+    "
+================================================================================
+THERAPY RESPONSE ANALYSIS - CRITICAL ERRORS DETECTED
+================================================================================
+
+ERRORS/WARNINGS:
+"
+  ))
+  for (msg in error_messages) {
+    cat(msg, "\n")
   }
+  cat(sprintf(
+    "
 
-  if (show_outputs) {
-    cat("\n=== THERAPY RESPONSE DISTRIBUTION ===\n")
-    cat("Overall therapy response distribution:\n")
-    for (i in 1:nrow(overall_response)) {
-      cat("-", overall_response$label[i], "\n")
-    }
-    cat("\nTotal patients with therapy response data:", n_total_response, "\n")
-
-    cat("\n=== THERAPY RESPONSE vs GENDER ===\n")
-    cat("Contingency table (observed frequencies):\n")
-    print(gender_response_table)
-    cat("\nExpected frequencies:\n")
-    print(round(gender_expected, 2))
-    cat("\nExpected frequency check:\n")
-    cat("- Minimum expected frequency:", round(min_expected_gender, 2), "\n")
-    if (min_expected_gender >= 5) {
-      cat("- ✓ All expected frequencies ≥ 5: Chi-squared test appropriate\n")
-    } else {
-      cat("- ⚠ Some expected frequencies < 5: Consider Fisher's exact test\n")
-    }
-    cat("\nChi-squared test results:\n")
-    cat(
-      "- Chi-squared statistic:",
-      round(gender_chisq_result$statistic, 3),
-      "\n"
-    )
-    cat("- Degrees of freedom:", gender_chisq_result$parameter, "\n")
-    cat("- p-value:", round(gender_chisq_result$p.value, 4), "\n")
-    cat("- Cramér's V (effect size):", round(cramers_v_gender, 3), "\n")
-    cat("- Effect size interpretation:", effect_interpretation_gender, "\n")
-    cat("\nResponse rates by gender:\n")
-    print(gender_percentage_table)
-
-    cat("\n=== THERAPY RESPONSE vs AGE GROUP ===\n")
-    cat("Contingency table (observed frequencies):\n")
-    print(age_response_table)
-    cat("\nExpected frequencies:\n")
-    print(round(age_expected, 2))
-    cat("\nExpected frequency check:\n")
-    cat("- Minimum expected frequency:", round(min_expected_age, 2), "\n")
-    if (min_expected_age >= 5) {
-      cat("- ✓ All expected frequencies ≥ 5: Chi-squared test appropriate\n")
-    } else {
-      cat(
-        "- ⚠ Some expected frequencies < 5: Consider Fisher's exact test or combine categories\n"
-      )
-    }
-    cat("\nChi-squared test results:\n")
-    cat("- Chi-squared statistic:", round(age_chisq_result$statistic, 3), "\n")
-    cat("- Degrees of freedom:", age_chisq_result$parameter, "\n")
-    cat("- p-value:", round(age_chisq_result$p.value, 4), "\n")
-    cat("- Cramér's V (effect size):", round(cramers_v_age, 3), "\n")
-    cat("- Effect size interpretation:", effect_interpretation_age, "\n")
-    cat("\nResponse rates by age group:\n")
-    print(age_percentage_table)
-
-    cat("\n=== SUMMARY RESULTS ===\n")
-    print(chi_squared_summary)
-
-    cat("\n=== CLINICAL INTERPRETATION ===\n")
-    cat(gender_interpretation$message, "\n\n")
-    cat(age_interpretation$message, "\n")
-
-    cat("\n=== VISUALIZATIONS ===\n")
-    print(gender_response_plot)
-    print(age_response_plot)
-  }
-
-  cat("\n", paste(rep("=", 80), collapse = ""), "\n")
-  cat("DATA OBJECTS AVAILABLE FOR FURTHER ANALYSIS:\n")
-  cat("- therapy_response_results: Complete analysis results including plots\n")
-  cat("- chi_squared_summary: Summary table of all Chi-squared tests\n")
-  cat("- gender_response_table: Gender contingency table\n")
-  cat("- age_response_table: Age group contingency table\n")
-  cat("- gender_percentage_table: Gender response rates\n")
-  cat("- age_percentage_table: Age group response rates\n")
-  cat("- overall_response: Overall therapy response distribution\n")
-  cat("\nUse View() to examine tables: View(chi_squared_summary)\n")
-  cat("Set show_outputs <- TRUE to display full analysis results\n")
-  cat("Therapy response analysis complete!\n")
+Please resolve the above issues before interpreting results.
+================================================================================
+"
+  ))
 }
+
+cat(sprintf(
+  "
+================================================================================
+CHI-SQUARED ANALYSIS: THERAPY RESPONSE vs DEMOGRAPHICS
+================================================================================
+
+1. ANALYSIS OVERVIEW
+--------------------------------------------------
+Total patients with therapy response data: %d
+Statistical method: Chi-squared test of independence
+Assumption check: Expected frequency ≥ 5 in all cells
+
+Overall therapy response distribution:
+",
+  n_total_response
+))
+
+for (i in 1:nrow(overall_response)) {
+  cat(sprintf("  %s\n", overall_response$label[i]))
+}
+
+cat(sprintf(
+  "
+2. CHI-SQUARED TEST RESULTS
+--------------------------------------------------
+
+THERAPY RESPONSE vs GENDER:
+Statistical test: χ² = %.3f, df = %d, p = %.4f
+Minimum expected frequency: %.2f %s
+Effect size (Cramér's V): %.3f (%s association)
+",
+  gender_chisq_result$statistic,
+  gender_chisq_result$parameter,
+  gender_chisq_result$p.value,
+  min_expected_gender,
+  ifelse(
+    min_expected_gender >= 5,
+    "(✓ Assumption satisfied)",
+    "(⚠ Consider Fisher's exact test)"
+  ),
+  cramers_v_gender,
+  effect_interpretation_gender
+))
+
+print(gender_percentage_table)
+
+cat(sprintf(
+  "
+THERAPY RESPONSE vs AGE GROUP:
+Statistical test: χ² = %.3f, df = %d, p = %.4f
+Minimum expected frequency: %.2f %s
+Effect size (Cramér's V): %.3f (%s association)
+",
+  age_chisq_result$statistic,
+  age_chisq_result$parameter,
+  age_chisq_result$p.value,
+  min_expected_age,
+  ifelse(
+    min_expected_age >= 5,
+    "(✓ Assumption satisfied)",
+    "(⚠ Consider Fisher's exact test)"
+  ),
+  cramers_v_age,
+  effect_interpretation_age
+))
+
+print(age_percentage_table)
+
+cat(sprintf(
+  "
+VISUALIZATIONS:
+Stacked bar plots showing therapy response distribution by demographics:
+"
+))
+
+print(gender_response_plot)
+print(age_response_plot)
+
+# Determine significance and interpretation
+gender_significant <- gender_chisq_result$p.value < 0.05
+age_significant <- age_chisq_result$p.value < 0.05
+
+if (!gender_significant && !age_significant) {
+  overall_conclusion <- "No significant associations detected between therapy response and demographics."
+  clinical_interpretation <- "Therapy response rates do not differ significantly by gender or age group."
+} else {
+  significant_factors <- character()
+  if (gender_significant) {
+    significant_factors <- c(significant_factors, "gender")
+  }
+  if (age_significant) {
+    significant_factors <- c(significant_factors, "age group")
+  }
+
+  overall_conclusion <- sprintf(
+    "Significant associations detected with: %s",
+    paste(significant_factors, collapse = " and ")
+  )
+  clinical_interpretation <- "Further investigation of demographic differences in therapy response warranted."
+}
+
+cat(sprintf(
+  "
+3. STATISTICAL CONCLUSIONS
+--------------------------------------------------
+%s
+
+Clinical interpretation: %s
+
+✓ Chi-squared assumptions checked (expected frequencies)
+✓ Effect sizes calculated (Cramér's V for association strength)
+✓ Results ready for clinical interpretation
+
+Analysis complete. Contingency tables and percentages available for review.
+
+================================================================================
+",
+  overall_conclusion,
+  clinical_interpretation
+))

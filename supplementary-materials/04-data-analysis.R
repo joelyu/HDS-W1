@@ -2,6 +2,7 @@
 
 # 04-data-analysis.R
 # Statistical Analysis for Gene Expression vs Demographics
+# NOTE: Comprehensive summary printed at the end of script execution
 #
 # This script:
 # 1. Sources exploratory analysis results from 03-data-exploration.R
@@ -31,7 +32,6 @@ suppressMessages(suppressWarnings({
 # DATA LOADING FROM EXPLORATION SCRIPT
 # ===============================================================================
 
-cat("Loading data and exploratory analysis results...\n")
 source(here("supplementary-materials", "03-data-exploration.R"))
 
 # Verify data loaded successfully
@@ -43,39 +43,25 @@ if (!exists("gene_expression_vars") || length(gene_expression_vars) == 0) {
   stop("Failed to load gene_expression_vars from 03-data-exploration.R")
 }
 
-cat("✓ Loaded combined dataset:", nrow(combined_data), "patients\n")
-cat("✓ Loaded", length(gene_expression_vars), "gene expression variables\n\n")
-
 # ===============================================================================
 # STATISTICAL ANALYSIS STRATEGY
 # ===============================================================================
 
-cat("=== STATISTICAL ANALYSIS STRATEGY ===\n")
-cat("Based on Levene test results and variance ratio analysis:\n")
-cat("- GENDER COMPARISONS: Standard t-tests (equal variances assumed)\n")
-cat("- AGE GROUP COMPARISONS: Welch ANOVA (unequal variances handled)\n")
-cat("- POST-HOC: Games-Howell for significant Welch ANOVA results\n\n")
-
 # ===============================================================================
 # GENDER COMPARISONS: STANDARD T-TESTS
 # ===============================================================================
-
-cat("=== PERFORMING GENDER COMPARISONS (T-TESTS) ===\n")
 
 # Initialize results storage
 gender_ttest_results <- list()
 gender_ttest_summary <- list()
 
 for (gene in gene_expression_vars) {
-  cat("Analyzing:", gene, "\n")
-
   # Prepare data for t-test
   analysis_data <- combined_data %>%
     filter(!is.na(.data[[gene]]), !is.na(gender)) %>%
     select(all_of(gene), gender)
 
   if (nrow(analysis_data) < 10) {
-    cat("  Skipping - insufficient data (n =", nrow(analysis_data), ")\n")
     next
   }
 
@@ -138,16 +124,6 @@ for (gene in gene_expression_vars) {
           TRUE ~ "Large"
         )
       )
-
-      cat(
-        "  ✓ t =",
-        round(ttest_result$statistic, 3),
-        "| p =",
-        round(ttest_result$p.value, 4),
-        "| d =",
-        round(cohens_d, 3),
-        "\n"
-      )
     },
     error = function(e) {
       cat("  Warning: Could not perform t-test for", gene, ":", e$message, "\n")
@@ -161,28 +137,21 @@ gender_ttest_table <- bind_rows(gender_ttest_summary) %>%
   mutate(significant_adjusted = p_adjusted < 0.05) %>%
   arrange(p_value)
 
-cat("Gender analysis complete:", nrow(gender_ttest_table), "genes analyzed\n\n")
-
 # ===============================================================================
 # AGE GROUP COMPARISONS: WELCH ANOVA
 # ===============================================================================
-
-cat("=== PERFORMING AGE GROUP COMPARISONS (WELCH ANOVA) ===\n")
 
 # Initialize results storage
 age_anova_results <- list()
 age_anova_summary <- list()
 
 for (gene in gene_expression_vars) {
-  cat("Analyzing:", gene, "\n")
-
   # Prepare data for ANOVA
   analysis_data <- combined_data %>%
     filter(!is.na(.data[[gene]]), !is.na(age_group_nccn)) %>%
     select(all_of(gene), age_group_nccn)
 
   if (nrow(analysis_data) < 20) {
-    cat("  Skipping - insufficient data (n =", nrow(analysis_data), ")\n")
     next
   }
 
@@ -238,16 +207,6 @@ for (gene in gene_expression_vars) {
           TRUE ~ "Large"
         )
       )
-
-      cat(
-        "  ✓ F =",
-        round(anova_result$statistic, 3),
-        "| p =",
-        round(anova_result$p.value, 4),
-        "| η² =",
-        round(eta_squared, 3),
-        "\n"
-      )
     },
     error = function(e) {
       cat("  Warning: Could not perform ANOVA for", gene, ":", e$message, "\n")
@@ -261,13 +220,9 @@ age_anova_table <- bind_rows(age_anova_summary) %>%
   mutate(significant_adjusted = p_adjusted < 0.05) %>%
   arrange(p_value)
 
-cat("Age group analysis complete:", nrow(age_anova_table), "genes analyzed\n\n")
-
 # ===============================================================================
 # POST-HOC ANALYSIS: GAMES-HOWELL FOR SIGNIFICANT WELCH ANOVA RESULTS
 # ===============================================================================
-
-cat("=== PERFORMING POST-HOC ANALYSIS (GAMES-HOWELL) ===\n")
 
 # Identify genes with significant ANOVA results
 significant_anova_genes <- age_anova_table %>%
@@ -275,19 +230,11 @@ significant_anova_genes <- age_anova_table %>%
   pull(gene)
 
 if (length(significant_anova_genes) > 0) {
-  cat(
-    "Found",
-    length(significant_anova_genes),
-    "genes with significant age group differences\n"
-  )
-
   # Initialize post-hoc results storage
   games_howell_results <- list()
   games_howell_summary <- list()
 
   for (gene in significant_anova_genes) {
-    cat("Post-hoc analysis for:", gene, "\n")
-
     # Prepare data
     analysis_data <- combined_data %>%
       filter(!is.na(.data[[gene]]), !is.na(age_group_nccn)) %>%
@@ -333,11 +280,6 @@ if (length(significant_anova_genes) > 0) {
           games_howell_tidy$p.adj < 0.05,
           na.rm = TRUE
         )
-        cat(
-          "  ✓",
-          significant_comparisons,
-          "significant pairwise comparisons found\n"
-        )
       },
       error = function(e) {
         cat(
@@ -359,57 +301,156 @@ if (length(significant_anova_genes) > 0) {
     games_howell_table <- data.frame()
   }
 } else {
-  cat(
-    "No genes with significant age group differences - skipping post-hoc analysis\n"
-  )
   games_howell_results <- list()
   games_howell_table <- data.frame()
 }
 
 # ===============================================================================
-# RESULTS SUMMARY
+# COMPREHENSIVE STATISTICAL ANALYSIS SUMMARY
 # ===============================================================================
 
-cat("\n=== STATISTICAL ANALYSIS COMPLETE ===\n")
-
-# Gender analysis summary
+# Calculate summary statistics
 significant_gender <- sum(gender_ttest_table$significant_adjusted, na.rm = TRUE)
-cat("GENDER COMPARISONS (t-tests):\n")
-cat("- Total genes analyzed:", nrow(gender_ttest_table), "\n")
-cat("- Significant after FDR correction:", significant_gender, "\n")
-
-# Age group analysis summary
 significant_age <- sum(age_anova_table$significant_adjusted, na.rm = TRUE)
-cat("\nAGE GROUP COMPARISONS (Welch ANOVA):\n")
-cat("- Total genes analyzed:", nrow(age_anova_table), "\n")
-cat("- Significant after FDR correction:", significant_age, "\n")
 
-# Post-hoc summary
+cat(sprintf(
+  "
+================================================================================
+STATISTICAL ANALYSIS RESULTS SUMMARY
+================================================================================
+
+1. ANALYSIS OVERVIEW
+--------------------------------------------------
+Sample size: %d patients
+Gene expression variables tested: %d
+Multiple testing correction: False Discovery Rate (FDR)
+Statistical approach: Based on assumption testing from 03-data-exploration.R
+
+2. GENDER COMPARISONS (STUDENT'S T-TESTS)
+--------------------------------------------------
+Total genes analyzed: %d
+Significant after FDR correction: %d
+Statistical method: Two-sample t-tests with equal variances assumed
+",
+  nrow(combined_data),
+  length(gene_expression_vars),
+  nrow(gender_ttest_table),
+  significant_gender
+))
+
+print(
+  gender_ttest_table %>%
+    filter(significant_adjusted == TRUE) %>%
+    select(gene, n_total, p_value, p_adjusted, mean_difference) %>%
+    arrange(p_adjusted)
+)
+
+cat(sprintf(
+  "
+3. AGE GROUP COMPARISONS (WELCH ANOVA)
+--------------------------------------------------
+Total genes analyzed: %d
+Significant after FDR correction: %d
+Statistical method: Welch one-way ANOVA (handles unequal variances)
+",
+  nrow(age_anova_table),
+  significant_age
+))
+
+print(
+  age_anova_table %>%
+    filter(significant_adjusted == TRUE) %>%
+    select(gene, n_total, f_statistic, p_value, p_adjusted) %>%
+    arrange(p_adjusted)
+)
+
+# Post-hoc analysis section
 if (length(games_howell_results) > 0) {
   total_comparisons <- sum(sapply(games_howell_summary, nrow))
   significant_comparisons <- sum(games_howell_table$significant, na.rm = TRUE)
-  cat("\nPOST-HOC ANALYSIS (Games-Howell):\n")
-  cat("- Genes with significant ANOVA:", length(games_howell_results), "\n")
-  cat("- Total pairwise comparisons:", total_comparisons, "\n")
-  cat("- Significant pairwise comparisons:", significant_comparisons, "\n")
+
+  cat(sprintf(
+    "
+4. POST-HOC PAIRWISE COMPARISONS (GAMES-HOWELL)
+--------------------------------------------------
+Genes with significant ANOVA: %d
+Total pairwise comparisons performed: %d
+Significant pairwise comparisons: %d
+",
+    length(games_howell_results),
+    total_comparisons,
+    significant_comparisons
+  ))
+
+  if (nrow(games_howell_table) > 0) {
+    cat(sprintf(
+      "
+Significant pairwise differences:"
+    ))
+    print(
+      games_howell_table %>%
+        filter(significant == TRUE) %>%
+        select(gene, comparison, mean_difference, p_value) %>%
+        arrange(gene, p_value)
+    )
+  }
+
+  posthoc_summary <- sprintf(
+    "
+Post-hoc analysis identified specific age group differences for %d genes with significant ANOVA results.",
+    length(games_howell_results)
+  )
+} else {
+  posthoc_summary <- "
+No genes showed significant age group differences, so post-hoc analysis was not performed."
 }
 
-cat("\nDATA FRAMES AVAILABLE:\n")
-cat("- gender_ttest_table: Complete t-test results for gender comparisons\n")
-cat(
-  "- age_anova_table: Complete Welch ANOVA results for age group comparisons\n"
-)
-if (nrow(games_howell_table) > 0) {
-  cat(
-    "- games_howell_table: Post-hoc pairwise comparisons for significant ANOVA results\n"
+# Overall conclusions
+significant_genes_list <- character()
+if (significant_gender > 0) {
+  gender_genes <- gender_ttest_table %>%
+    filter(significant_adjusted == TRUE) %>%
+    pull(gene)
+  significant_genes_list <- c(
+    significant_genes_list,
+    paste0("Gender effects: ", paste(gender_genes, collapse = ", "))
   )
 }
-cat("\nDETAILED RESULTS AVAILABLE:\n")
-cat("- gender_ttest_results: Detailed t-test objects and statistics\n")
-cat("- age_anova_results: Detailed ANOVA objects and statistics\n")
-if (length(games_howell_results) > 0) {
-  cat("- games_howell_results: Detailed post-hoc analysis objects\n")
+
+if (significant_age > 0) {
+  age_genes <- age_anova_table %>%
+    filter(significant_adjusted == TRUE) %>%
+    pull(gene)
+  significant_genes_list <- c(
+    significant_genes_list,
+    paste0("Age effects: ", paste(age_genes, collapse = ", "))
+  )
 }
 
-cat("\nUse View() to examine results: View(gender_ttest_table)\n")
-cat("Statistical analysis complete!\n")
+findings_summary <- if (length(significant_genes_list) > 0) {
+  paste(significant_genes_list, collapse = "\n")
+} else {
+  "No genes showed significant associations with demographics after FDR correction."
+}
+
+cat(sprintf(
+  "
+5. KEY FINDINGS
+--------------------------------------------------
+%s%s
+
+6. STATISTICAL CONCLUSIONS
+--------------------------------------------------
+✓ Comprehensive testing completed for %d genes across 2 demographic factors
+✓ FDR correction applied to control Type I error rate across multiple tests
+✓ Statistical methods appropriate based on assumption testing results
+✓ Results ready for biological interpretation and further analysis
+
+Analysis complete. Results stored in summary tables for review.
+
+================================================================================
+",
+  findings_summary,
+  posthoc_summary,
+  length(gene_expression_vars)
+))

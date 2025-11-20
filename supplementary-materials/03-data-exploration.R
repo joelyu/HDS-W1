@@ -2,6 +2,7 @@
 
 # 03-data-exploration.R
 # Exploratory Data Analysis for Gene Expression vs Demographics
+# NOTE: Comprehensive summary printed at the end of script execution
 #
 # This script:
 # 1. Sources combined dataset from 02-data-processing.R
@@ -496,78 +497,12 @@ all_variance_summaries <- bind_rows(
 # COMPREHENSIVE ASSESSMENT SUMMARY FOR REVIEWERS
 # ===============================================================================
 
-cat("\n")
-cat(paste(rep("=", 80), collapse = ""), "\n")
-cat("STATISTICAL ASSUMPTION TESTING SUMMARY\n")
-cat(paste(rep("=", 80), collapse = ""), "\n")
-
 # Sample size information
 total_n <- nrow(combined_data)
-cat("\n1. SAMPLE SIZE AND CENTRAL LIMIT THEOREM\n")
-cat(paste(rep("-", 50), collapse = ""), "\n")
-cat("Total observations:", total_n, "\n")
-cat("✓ Large sample size supports Central Limit Theorem application\n")
-cat("✓ Normality assumption satisfied for parametric testing\n")
 
-# Visual diagnostics overview
-cat("\n2. VISUAL DIAGNOSTICS OVERVIEW\n")
-cat(paste(rep("-", 50), collapse = ""), "\n")
-cat(
-  "Boxplots: Provide visual overview of gene expression distributions by demographics\n"
-)
-cat(
-  "Residual panels: 6-panel diagnostic plots for each gene-demographic combination\n"
-)
-cat("  • Residual vs Fitted: Tests homoscedasticity and linearity\n")
-cat("  • Q-Q Plot: Tests normality of residuals\n")
-cat("  • Histogram: Shows residual distribution shape\n")
-cat("  • Index Plot: Tests independence (no systematic patterns)\n")
-cat("  • Location-Scale: Tests variance constancy\n")
-cat("  • Cook's Distance: Identifies influential observations\n")
-cat("✓ All residual panels pass visual inspection\n")
-
-# Levene test results
-cat("\n3. HOMOSCEDASTICITY TESTING (LEVENE'S TEST)\n")
-cat(paste(rep("-", 50), collapse = ""), "\n")
-cat("Gender comparisons:\n")
-print(
-  gender_diagnostic_summary %>%
-    mutate(Result = ifelse(levene_significant, "VIOLATION", "PASS")) %>%
-    select(gene, n, levene_p_value, Result)
-)
-
-cat("\nAge group comparisons:\n")
-print(
-  age_diagnostic_summary %>%
-    mutate(Result = ifelse(levene_significant, "VIOLATION", "PASS")) %>%
-    select(gene, n, levene_p_value, Result)
-)
-
-# Variance ratio analysis for violations
-if (nrow(all_variance_summaries) > 0) {
-  cat("\n4. VARIANCE RATIO ANALYSIS (FOR LEVENE TEST VIOLATIONS)\n")
-  cat(paste(rep("-", 50), collapse = ""), "\n")
-  cat("Genes that failed Levene test - variance ratio assessment:\n")
-  print(
-    all_variance_summaries %>%
-      select(gene, comparison, max_variance_ratio, interpretation)
-  )
-  cat("\nInterpretation:\n")
-  cat("• ACCEPTABLE: Variance ratio < 3x (proceed with parametric tests)\n")
-  cat("• MANAGEABLE: Variance ratio < 10x (acceptable for large samples)\n")
-  cat(
-    "• PROBLEMATIC: Variance ratio ≥ 10x (consider non-parametric alternatives)\n"
-  )
-}
-
-# Statistical decision summary
-cat("\n5. STATISTICAL TESTING RECOMMENDATIONS\n")
-cat(paste(rep("-", 50), collapse = ""), "\n")
-cat("Based on assumption testing results:\n\n")
-
-cat("Gender comparisons:\n")
+# Prepare gender recommendations
 if (length(gender_violations) == 0) {
-  cat("✓ All genes: Use Student's t-test (equal variances assumed)\n")
+  gender_recommendation <- "✓ All genes: Use Student's t-test (equal variances assumed)"
 } else {
   acceptable_genes <- gender_variance_summary %>%
     filter(interpretation %in% c("ACCEPTABLE", "MANAGEABLE")) %>%
@@ -576,33 +511,126 @@ if (length(gender_violations) == 0) {
     filter(interpretation == "PROBLEMATIC") %>%
     pull(gene)
 
+  gender_parts <- character()
   if (length(acceptable_genes) > 0) {
-    cat("✓ Genes with acceptable variance ratios: Use Student's t-test\n")
-    cat("  Genes:", paste(acceptable_genes, collapse = ", "), "\n")
+    gender_parts <- c(
+      gender_parts,
+      sprintf(
+        "✓ Genes with acceptable variance ratios: Use Student's t-test\n  Genes: %s",
+        paste(acceptable_genes, collapse = ", ")
+      )
+    )
   }
   if (length(problematic_genes) > 0) {
-    cat("⚠ Genes with problematic variance ratios: Consider Welch's t-test\n")
-    cat("  Genes:", paste(problematic_genes, collapse = ", "), "\n")
+    gender_parts <- c(
+      gender_parts,
+      sprintf(
+        "⚠ Genes with problematic variance ratios: Consider Welch's t-test\n  Genes: %s",
+        paste(problematic_genes, collapse = ", ")
+      )
+    )
   }
+  gender_recommendation <- paste(gender_parts, collapse = "\n\n")
 }
 
-cat("\nAge group comparisons:\n")
-cat("✓ All genes: Use Welch's ANOVA (handles unequal variances)\n")
-cat("  Rationale: Welch's ANOVA robust to variance heterogeneity\n")
-
-# Final conclusion
-cat("\n6. OVERALL ASSESSMENT\n")
-cat(paste(rep("-", 50), collapse = ""), "\n")
-cat("✓ Large sample size (n =", total_n, ") supports parametric testing\n")
-cat("✓ Visual diagnostics show acceptable assumption compliance\n")
-if (nrow(all_variance_summaries) > 0) {
-  cat(
-    "⚠ Some homoscedasticity violations detected but variance ratios acceptable\n"
-  )
+# Prepare violation status
+violation_status <- if (nrow(all_variance_summaries) > 0) {
+  "⚠ Some homoscedasticity violations detected but variance ratios acceptable"
 } else {
-  cat("✓ No significant homoscedasticity violations detected\n")
+  "✓ No significant homoscedasticity violations detected"
 }
-cat("✓ Proceed with parametric tests as specified above\n")
-cat("\nAssumption testing complete. Ready for statistical analysis.\n")
 
-cat(paste(rep("=", 80), collapse = ""), "\n")
+cat(sprintf(
+  "
+================================================================================
+STATISTICAL ASSUMPTION TESTING SUMMARY
+================================================================================
+
+1. SAMPLE SIZE AND CENTRAL LIMIT THEOREM
+--------------------------------------------------
+Total observations: %d
+✓ Large sample size supports Central Limit Theorem application
+✓ Normality assumption satisfied for parametric testing
+
+2. VISUAL DIAGNOSTICS OVERVIEW
+--------------------------------------------------
+Boxplots: Provide visual overview of gene expression distributions by demographics
+
+Residual panels: 6-panel diagnostic plots for each gene-demographic combination
+  • Residual vs Fitted: Tests homoscedasticity and linearity
+  • Q-Q Plot: Tests normality of residuals
+  • Histogram: Shows residual distribution shape
+  • Index Plot: Tests independence (no systematic patterns)
+  • Location-Scale: Tests variance constancy
+  • Cook's Distance: Identifies influential observations
+✓ All residual panels pass visual inspection
+
+3. HOMOSCEDASTICITY TESTING (LEVENE'S TEST)
+--------------------------------------------------
+Gender comparisons:
+",
+  total_n
+))
+
+print(
+  gender_diagnostic_summary %>%
+    mutate(Result = ifelse(levene_significant, "VIOLATION", "PASS")) %>%
+    select(gene, n, levene_p_value, Result)
+)
+
+cat(sprintf("
+Age group comparisons:"))
+
+print(
+  age_diagnostic_summary %>%
+    mutate(Result = ifelse(levene_significant, "VIOLATION", "PASS")) %>%
+    select(gene, n, levene_p_value, Result)
+)
+
+# Variance ratio analysis for violations
+if (nrow(all_variance_summaries) > 0) {
+  cat(sprintf("
+4. VARIANCE RATIO ANALYSIS (FOR LEVENE TEST VIOLATIONS)
+--------------------------------------------------
+Genes that failed Levene test - variance ratio assessment:"))
+
+  print(
+    all_variance_summaries %>%
+      select(gene, comparison, max_variance_ratio, interpretation)
+  )
+
+  cat(sprintf("
+Interpretation:
+• ACCEPTABLE: Variance ratio < 3x (proceed with parametric tests)
+• MANAGEABLE: Variance ratio < 10x (acceptable for large samples)
+• PROBLEMATIC: Variance ratio ≥ 10x (consider non-parametric alternatives)"))
+}
+
+cat(sprintf(
+  "
+5. STATISTICAL TESTING RECOMMENDATIONS
+--------------------------------------------------
+Based on assumption testing results:
+
+Gender comparisons:
+%s
+
+Age group comparisons:
+✓ All genes: Use Welch's ANOVA (handles unequal variances)
+  Rationale: Welch's ANOVA robust to variance heterogeneity
+
+6. OVERALL ASSESSMENT
+--------------------------------------------------
+✓ Large sample size (n = %d) supports parametric testing
+✓ Visual diagnostics show acceptable assumption compliance
+%s
+✓ Proceed with parametric tests as specified above
+
+Assumption testing complete. Ready for statistical analysis.
+
+================================================================================
+",
+  gender_recommendation,
+  total_n,
+  violation_status
+))
