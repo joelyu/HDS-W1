@@ -337,6 +337,40 @@ age_lrt_comprehensive <- age_lrt_comprehensive %>%
   ) %>%
   arrange(Interaction_vs_Main_P)
 
+# Create comprehensive table with all LRT p-values for gender analysis
+gender_lrt_comprehensive <- data.frame(
+  Gene = names(gender_interaction_results),
+  # Raw LRT p-values
+  Gene_vs_Null_P = sapply(gender_interaction_results, function(x) {
+    round(x$gene_p, 6)
+  }),
+  Gender_vs_Gene_P = sapply(gender_interaction_results, function(x) {
+    round(x$demographic_p, 6)
+  }),
+  Interaction_vs_Main_P = sapply(gender_interaction_results, function(x) {
+    round(x$interaction_p, 6)
+  }),
+  N_Patients = sapply(gender_interaction_results, function(x) x$n_patients),
+  stringsAsFactors = FALSE
+)
+
+# Add FDR corrections for each test
+gender_lrt_comprehensive <- gender_lrt_comprehensive %>%
+  mutate(
+    # FDR-adjusted p-values
+    Gene_vs_Null_FDR = round(p.adjust(Gene_vs_Null_P, method = "fdr"), 6),
+    Gender_vs_Gene_FDR = round(p.adjust(Gender_vs_Gene_P, method = "fdr"), 6),
+    Interaction_vs_Main_FDR = round(
+      p.adjust(Interaction_vs_Main_P, method = "fdr"),
+      6
+    ),
+    # Significance indicators
+    Gene_Significant = Gene_vs_Null_FDR < 0.05,
+    Gender_Significant = Gender_vs_Gene_FDR < 0.05,
+    Interaction_Significant = Interaction_vs_Main_FDR < 0.05
+  ) %>%
+  arrange(Interaction_vs_Main_P)
+
 # ===============================================================================
 # CREATE SUMMARY TABLES
 # ===============================================================================
