@@ -27,6 +27,23 @@ Keywords: exome sequencing; genetic mutations; diffuse large B cell lymphoma; DL
 
 ---
 
+### Dependencies
+
+The main RMarkdown (`.Rmd`) document requires [`Base R`](https://www.r-project.org/), along with the following packages to knit successfully:
+
+- **knitr** package
+- **rmarkdown** package
+
+Use and run the code below in your R/RStudio console to install them:
+
+```R
+if(!require(knitr, quietly = TRUE)) install.packages("knitr", repos = "http://cran.us.r-project.org")
+if(!require(rmarkdown, quietly = TRUE)) install.packages("rmarkdown", repos = "http://cran.us.r-project.org")
+
+library(knitr)
+library(rmarkdown)
+```
+
 ### Repository file structure
 
 ```
