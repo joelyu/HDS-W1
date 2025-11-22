@@ -47,28 +47,15 @@ jobs:
 
       - name: Install R packages
         run: |
-          # Remove old Matrix if it exists
-          Rscript -e "if (require('Matrix')) remove.packages('Matrix')"
-
-          # Install infrastructure packages first
-          Rscript -e "install.packages(c(
+          Rscript -e "install.packages('pak')"
+          Rscript -e "pak::pak(c(
             'base64enc', 'digest', 'evaluate', 'glue', 'highr', 'htmltools',
             'jsonlite', 'knitr', 'magrittr', 'mime', 'rmarkdown', 'stringi',
-            'stringr', 'xfun', 'yaml'
-          ), repos = 'https://cran.r-project.org')"
-
-          # Update Matrix explicitly in fresh R session
-          Rscript -e "install.packages('Matrix', repos = 'https://cran.r-project.org')"
-
-          # Install graphics-related packages
-          Rscript -e "install.packages(c('systemfonts', 'textshaping', 'svglite'), repos = 'https://cran.r-project.org')"
-
-          # Install the main packages
-          Rscript -e "install.packages(c(
+            'stringr', 'xfun', 'yaml', 'Matrix',
             'tidyverse', 'readxl', 'here', 'kableExtra', 'plotly', 'multcompView',
             'rstatix', 'broom', 'emmeans', 'RColorBrewer'
-          ), repos = 'https://cran.r-project.org')"
-        shell: bash
+          ))"
+        shell: Rscript {0}
 
       - name: Render Rmd to HTML
         run: |
