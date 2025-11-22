@@ -35,7 +35,15 @@ jobs:
       - name: Install system dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y libcurl4-openssl-dev libssl-dev libxml2-dev pandoc
+          sudo apt-get install -y \
+            libcurl4-openssl-dev \
+            libssl-dev \
+            libxml2-dev \
+            pandoc \
+            libfontconfig1-dev \
+            libfreetype6-dev \
+            libpng-dev \
+            libjpeg-dev
 
       - name: Install R packages
         run: |
@@ -44,14 +52,19 @@ jobs:
             "base64enc", "digest", "evaluate", "glue", "highr", "htmltools",
             "jsonlite", "knitr", "magrittr", "mime", "rmarkdown", "stringi",
             "stringr", "xfun", "yaml"
-          ))
-          # Install Matrix first to avoid version conflicts
-          install.packages("Matrix")
-          # Install the rest
+          ), repos = "https://cran.r-project.org")
+
+          # Update Matrix explicitly
+          install.packages("Matrix", repos = "https://cran.r-project.org", type = "source")
+
+          # Install graphics-related packages
+          install.packages(c("systemfonts", "textshaping", "svglite"), repos = "https://cran.r-project.org")
+
+          # Install the main packages
           install.packages(c(
             "tidyverse", "readxl", "here", "kableExtra", "plotly", "multcompView",
             "rstatix", "broom", "emmeans", "RColorBrewer"
-          ))
+          ), repos = "https://cran.r-project.org")
         shell: Rscript {0}
 
       - name: Render Rmd to HTML
