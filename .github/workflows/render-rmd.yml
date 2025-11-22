@@ -47,7 +47,7 @@ jobs:
 
       - name: Install R packages
         run: |
-          Rscript << 'EOF'
+          cat > /tmp/install_packages.R << 'EOF'
           install.packages('pak')
           pak::pak(c(
             'base64enc', 'digest', 'evaluate', 'glue', 'highr', 'htmltools',
@@ -57,6 +57,7 @@ jobs:
             'rstatix', 'broom', 'emmeans', 'RColorBrewer'
           ))
           EOF
+          Rscript /tmp/install_packages.R
         shell: bash
 
       - name: Render Rmd to HTML
