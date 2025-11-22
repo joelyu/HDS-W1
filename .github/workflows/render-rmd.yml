@@ -47,25 +47,28 @@ jobs:
 
       - name: Install R packages
         run: |
-          # Install infrastructure packages first
-          install.packages(c(
-            "base64enc", "digest", "evaluate", "glue", "highr", "htmltools",
-            "jsonlite", "knitr", "magrittr", "mime", "rmarkdown", "stringi",
-            "stringr", "xfun", "yaml"
-          ), repos = "https://cran.r-project.org")
+          # Remove old Matrix if it exists
+          Rscript -e "if (require('Matrix')) remove.packages('Matrix')"
 
-          # Update Matrix explicitly
-          install.packages("Matrix", repos = "https://cran.r-project.org", type = "source")
+          # Install infrastructure packages first
+          Rscript -e "install.packages(c(
+            'base64enc', 'digest', 'evaluate', 'glue', 'highr', 'htmltools',
+            'jsonlite', 'knitr', 'magrittr', 'mime', 'rmarkdown', 'stringi',
+            'stringr', 'xfun', 'yaml'
+          ), repos = 'https://cran.r-project.org')"
+
+          # Update Matrix explicitly in fresh R session
+          Rscript -e "install.packages('Matrix', repos = 'https://cran.r-project.org')"
 
           # Install graphics-related packages
-          install.packages(c("systemfonts", "textshaping", "svglite"), repos = "https://cran.r-project.org")
+          Rscript -e "install.packages(c('systemfonts', 'textshaping', 'svglite'), repos = 'https://cran.r-project.org')"
 
           # Install the main packages
-          install.packages(c(
-            "tidyverse", "readxl", "here", "kableExtra", "plotly", "multcompView",
-            "rstatix", "broom", "emmeans", "RColorBrewer"
-          ), repos = "https://cran.r-project.org")
-        shell: Rscript {0}
+          Rscript -e "install.packages(c(
+            'tidyverse', 'readxl', 'here', 'kableExtra', 'plotly', 'multcompView',
+            'rstatix', 'broom', 'emmeans', 'RColorBrewer'
+          ), repos = 'https://cran.r-project.org')"
+        shell: bash
 
       - name: Render Rmd to HTML
         run: |
