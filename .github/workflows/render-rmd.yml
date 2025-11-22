@@ -45,19 +45,22 @@ jobs:
             libpng-dev \
             libjpeg-dev
 
-      - name: Install R packages
-        run: |
-          cat > /tmp/install_packages.R << 'EOF'
-          install.packages('pak')
-          pak::pak(c(
-            'base64enc', 'digest', 'evaluate', 'glue', 'highr', 'htmltools',
-            'jsonlite', 'knitr', 'magrittr', 'mime', 'rmarkdown', 'stringi',
-            'stringr', 'xfun', 'yaml', 'Matrix',
-            'tidyverse', 'readxl', 'here', 'kableExtra', 'plotly', 'multcompView',
-            'rstatix', 'broom', 'emmeans', 'RColorBrewer'
-          ))
-          EOF
-          Rscript /tmp/install_packages.R
+      - name: Install dependencies
+        uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: |
+            any::rmarkdown
+            any::knitr
+            any::tidyverse
+            any::readxl
+            any::here
+            any::kableExtra
+            any::plotly
+            any::multcompView
+            any::rstatix
+            any::broom
+            any::emmeans
+            any::RColorBrewer
         shell: bash
 
       - name: Render Rmd to HTML
