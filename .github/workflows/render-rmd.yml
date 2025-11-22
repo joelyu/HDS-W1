@@ -47,15 +47,17 @@ jobs:
 
       - name: Install R packages
         run: |
-          Rscript -e "install.packages('pak')"
-          Rscript -e "pak::pak(c(
+          Rscript << 'EOF'
+          install.packages('pak')
+          pak::pak(c(
             'base64enc', 'digest', 'evaluate', 'glue', 'highr', 'htmltools',
             'jsonlite', 'knitr', 'magrittr', 'mime', 'rmarkdown', 'stringi',
             'stringr', 'xfun', 'yaml', 'Matrix',
             'tidyverse', 'readxl', 'here', 'kableExtra', 'plotly', 'multcompView',
             'rstatix', 'broom', 'emmeans', 'RColorBrewer'
-          ))"
-        shell: Rscript {0}
+          ))
+          EOF
+        shell: bash
 
       - name: Render Rmd to HTML
         run: |
