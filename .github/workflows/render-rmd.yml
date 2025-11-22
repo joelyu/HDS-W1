@@ -61,7 +61,6 @@ jobs:
             any::broom
             any::emmeans
             any::RColorBrewer
-        shell: bash
 
       - name: Render Rmd to HTML
         run: |
